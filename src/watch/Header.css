@@ -2,9 +2,13 @@
   background-color: #191942;
   
 display: flex;
-padding: 10px ;
+padding: 15px  10px 10px 10px;
 justify-content: space-between;
 border-bottom: 1px solid #FEE60C;
+}
+.watch-user-logo{
+  display: flex;
+  font-size: 25px;
 }
 .header-text1{
     display: flex;

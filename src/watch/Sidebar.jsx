@@ -10,32 +10,36 @@ function Sidebar(){
         <div className=" sidebr">
             <div className="sidebar1">
                 <Link to='home' className="sidebar-text">
-            <AiOutlineHome/>
-                
-                    Home
+            <AiOutlineHome className="sidebar-icon"/>
+                  <p>
+                  Home
+                  </p>
+                    
                 </Link>
                 <Link to='video' className="sidebar-text">
-                <MdOutlineVideoSettings />
-                Videos
+                <MdOutlineVideoSettings className="sidebar-icon" />
+               
+                <p> Videos</p>
                 </Link>
                 <Link to='balance' className="sidebar-text">
-                <GiMoneyStack />
-            Balance
+                <GiMoneyStack className="sidebar-icon" />
+            <p>  Balance</p>
                 </Link>
-                <p className="sidebar-text">
-                <BsCurrencyDollar />
-            Earnings
-                </p>
+                <Link className="sidebar-text">
+                <BsCurrencyDollar className="sidebar-icon" />
+            
+            <p>Earnings</p>
+                </Link>
             </div>
-            <div className="settings">
+            <div className="setting-sidebar">
 
-                <p className="sidebar-text">
-            <AiOutlineHome/>
-            Profile
-                </p>
+                <Link className="sidebar-text">
+            <AiOutlineHome className="sidebar-icon"/>
+            <p>Profile </p>
+                </Link>
                 <Link to='setting' className="sidebar-text">
-                <IoSettingsOutline />
-            Settings
+                <IoSettingsOutline  className="sidebar-icon"/>
+           <p> Settings</p>
                 </Link>
             </div>
         </div>
