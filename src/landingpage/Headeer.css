@@ -1,0 +1,38 @@
+
+.headeer{
+    width: 100%;
+    background-color: #191942;
+    position: fixed;
+  display: flex;
+  padding: 10px ;
+  justify-content: space-between;
+  border-bottom: 1px solid #FEE60C;
+}
+.header-buttonn{
+    margin-right: 5%;   
+    display: flex;
+    gap: 20px;
+}
+.heade-button{
+    width: 100px;
+    height: 35px;
+  border-radius: 5px;
+  color:#191942 ;
+  background-color: #FEE60C;
+}
+.headeer-logo{
+    margin-left: 2%;
+    display: flex;
+    gap: 300px;
+}
+.search-button{
+    height: 30px;
+    background-color: white;
+    border-radius: 5px  ;
+    border-color: #191942;
+
+}
+.headeer-logo b{
+    font-size: 25px;
+    
+}

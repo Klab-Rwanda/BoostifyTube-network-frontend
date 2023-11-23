@@ -1,0 +1,17 @@
+
+.dashboard{
+    display: grid;
+   
+  
+    
+  }
+  .sidebar-outlet{
+    display: flex;
+    background-color: #191942;
+  }
+  .outlet{
+    background-color: #191942;
+  padding-left: 40px;
+    min-height: 89vh;
+   
+  }

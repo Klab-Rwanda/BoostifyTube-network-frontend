@@ -1,0 +1,33 @@
+.header-text{
+  background-color: #191942;
+  
+display: flex;
+padding: 10px ;
+justify-content: space-between;
+border-bottom: 1px solid #FEE60C;
+}
+.header-text1{
+    display: flex;
+    gap: 150px;
+}
+.header-text2{
+    display: flex;
+    gap: 50px;
+}
+.header-text2 input{
+  height: 30px;
+  background-color: white;
+  border-radius: 5px  ;
+  border-color: #191942;
+}
+.header-button{
+
+width: 200px;
+  height: 35px;
+border-radius: 5px;
+color:#191942 ;
+background-color: #FEE60C;
+}
+.dash-heard{
+  font-size: 40px;
+}
