@@ -1,0 +1,16 @@
+
+.home{
+    display: flex ;
+    gap: 70px;
+    margin: 10%;
+}
+
+
+.home1{
+    box-shadow: 2px 2px 5px;
+    width: 35%;
+    height: 20%;
+    border-radius: 10px;
+    background-color: #191942;
+    padding: 40px;
+}

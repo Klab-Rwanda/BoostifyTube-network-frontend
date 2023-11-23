@@ -1,0 +1,93 @@
+.balances{
+display: flex;  
+gap: 10%;
+margin-top: 10%;
+ margin-left: 10%; 
+ margin-right: 10%; 
+}
+.balance{
+    width:50%;
+    display: grid;
+    grid-gap: 20px;
+     background-color: #191942;
+    padding: 50px;
+    box-shadow: 0px 0px 1px;
+    border-radius: 10px;
+} 
+.balance3{
+    display: grid;
+}
+.balance-image{
+    width: 40px;
+    height: 40px;
+}
+.balance1{
+    display: flex;
+    gap: 1px;
+}
+.balance2{
+    display: flex;
+    gap: 60px;
+}
+
+.balance-select{
+    color: #191942;
+    width: 21%;
+}
+.balance3{
+    display: grid;
+    grid-gap: 20px;
+}
+.balance-button{
+    padding: 9px;
+    /* margin-top: 10px; */
+    border-radius: 5px;
+    color: #191942;
+    background-color: #fee60c;
+}
+.balence-input{
+    padding: 8px;
+    width: 100%;
+    color: #191942;
+    background-color: white;
+    border-radius: 5px;
+}
+.balence-inputt{
+    color: #191942;
+display: grid;
+grid-gap: 5px;
+}
+.balance-withdraw{
+    display: grid;
+    grid-gap: 10px;
+}
+.balance-butto{
+    width: 100%;
+    padding: 5px;
+}
+
+
+.balanc{
+    display: grid;
+    width: 50%;
+    height: 20%;
+    grid-gap: 10px; 
+     background-color: #191942;
+     padding: 50px; 
+    box-shadow: 0px 0px 1px;
+    border-radius: 10px;
+}
+.balanc-button{
+    background-color: #fee60c;
+    color: #191942;
+    padding: 9px;
+    width: 100%;
+    border-radius: 5px;
+}
+.balenc-inputt{
+    background-color: white;
+    color: #191942;
+    padding: 9px;
+    width: 100%;
+    border-radius: 5px;
+}

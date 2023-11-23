@@ -1,0 +1,56 @@
+.setting{
+    display: flex;
+    gap: 150px;
+    padding: 100px;
+}
+
+
+.setting-detail{
+    display: flex;
+    gap: 90px;
+}
+.setting-details{
+    display: flex;
+    gap: 20px;
+}
+.setting-parag{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.setting-d{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.setting-d b{
+    color: #aaa04a;
+}
+.setting-imag{
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+}
+.profile-icons{
+    
+    transform: translatey(-40px);
+    color: #aaa04a;
+    margin-left: 13px;
+}
+.profile-icons h6{
+    font-size: 10px;
+    line-height: 0;
+}
+.profile-icon{
+    line-height: 0;
+    font-size: 25px;
+    background-color: #aaa04a;
+    border-radius: 10px ;
+
+}
+.setting-button{
+    padding: 9px 0px 9px 0px;
+    border-radius: 5px;
+    background-color:#FEE60C;
+    color: #191942;
+}
