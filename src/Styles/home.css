@@ -1,3 +1,7 @@
+/* .home-bound {
+  height: fit-content;
+} */
+
 .home-continer {
   display: flex;
   /* background-color: red; */
@@ -6,8 +10,7 @@
   text-align: center;
   margin: auto;
   padding: 0;
-  /* width: 100%; */
-  height: fit-content;
+  height: 38rem;
 }
 
 .get {
