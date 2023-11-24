@@ -5,7 +5,7 @@ import '../watch/Header.css'
     return(
         <div className=" header-text"> 
             <div className=" header-text1">
-            Orginal
+            <div className='watch-user-logo'><b>O </b><b className='watch-g'>G</b></div>
             <b>$1000</b>
             </div>
 
