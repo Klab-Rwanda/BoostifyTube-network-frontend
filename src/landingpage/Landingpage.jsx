@@ -5,16 +5,12 @@ import Footer from "./Footer"
 function Landingpage(){
     return(
         <div className="landing">
-             <div>
                 <Headeer/>
-            </div>
             <div className="landing-outlet">
             <Outlet />
-        </div>
-        <div>
-            <Footer/> 
            </div>
-        </div>
+            <Footer/> 
+         </div>
     )
 }
 export default Landingpage
