@@ -49,7 +49,7 @@ function Footer(){
             </div>
             <div className="footer-sub-icon">
                 <div className='footer-subscribe'>
-                    <input type='text'placeholder='enter your email'/>
+                    <input type='text'placeholder='Enter your email'/>
                     <button className='footer-button'>Subscribe</button>
                 </div>
                 <div className="footer-icon">
