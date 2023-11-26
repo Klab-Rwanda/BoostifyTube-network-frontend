@@ -1,96 +1,72 @@
-import React from "react";
-import "../Styles/VideoCards.css"; // Corrected import statement
+import React, { useState, useEffect } from "react";
+import "../Styles/VideoCards.css";
 
-const videos = [
-  {
-    videoId: "idYUy3hf3D0",
-    title: "Video Title 1",
-    views: 1000,
-    channel: "Channel 1",
-    likes: 50,
-    comments: 10,
-  },
-  {
-    videoId: "idYUy3hf3D0",
-    title: "Video Title 2",
-    views: 2000,
-    channel: "Channel 2",
-    likes: 75,
-    comments: 15,
-  },
-  {
-    videoId: "idYUy3hf3D0",
-    title: "Video Title 2",
-    views: 2000,
-    channel: "Channel 2",
-    likes: 75,
-    comments: 15,
-  },
-  {
-    videoId: "idYUy3hf3D0",
-    title: "Video Title 2",
-    views: 2000,
-    channel: "Channel 2",
-    likes: 75,
-    comments: 15,
-  },
-  {
-    videoId: "idYUy3hf3D0",
-    title: "Video Title 2",
-    views: 2000,
-    channel: "Channel 2",
-    likes: 75,
-    comments: 15,
-  },
-  {
-    videoId: "idYUy3hf3D0",
-    title: "Video Title 2",
-    views: 2000,
-    channel: "Channel 2",
-    likes: 75,
-    comments: 15,
-  },
-];
+const VideoCard = ({ playlist }) => {
+  const [playlistDetails, setPlaylistDetails] = useState(null);
+  const [videos, setVideos] = useState([]);
 
-const VideoCard = ({ video }) => {
-  if (
-    !video ||
-    !video.title ||
-    !video.videoId ||
-    !video.views ||
-    !video.channel ||
-    !video.likes ||
-    !video.comments
-  ) {
-    return <div>Error: Invalid video data</div>;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlist.playlistId}&maxResults=25&key=AIzaSyDBwaf4NcPBZ5lpW1Qr9kTg84Dqa9Dsazc`
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch playlist items");
+        }
+
+        const data = await response.json();
+
+        if (data.items && data.items.length > 0) {
+          setVideos(data.items);
+          setPlaylistDetails(data.items[0].snippet.playlistTitle); 
+        } else {
+          console.error("No playlist items found in the API response.");
+        }
+      } catch (error) {
+        console.error("Error fetching playlist items:", error.message);
+      }
+    };
+
+    fetchData();
+  }, [playlist.playlistId]);
+
+  if (!videos.length) {
+    return <div>Loading...</div>;
   }
 
   return (
-    <div className="video-card">
-      <iframe
-        title={video.title}
-        width="300"
-        height="200"
-        src={`https://www.youtube.com/embed/${video.videoId}`}
-        frameBorder="0"
-        allowFullScreen
-      ></iframe>
-      <div className="video-details">
-        <h3>{video.title}</h3>
-        <p className="views">Views: {video.views}</p>
-        <p className="channel">Channel: {video.channel}</p>
-        <p className="likes">Likes: {video.likes}</p>
-        <p className="comments">Comments: {video.comments}</p>
+
+      <div className="video-detailskk">
+        <h3>{playlistDetails}</h3>
+        {videos.map((video, index) => (
+          <div key={index} className="video-item">
+            <iframe
+              title={video.snippet.title}
+              width="300"
+              height="200"
+              src={`https://www.youtube.com/embed/${video.snippet.resourceId.videoId}`}
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+            <p>{video.snippet.title}</p>
+          </div>
+        ))}
       </div>
-    </div>
+
   );
 };
 
 const VideoCards = () => {
+  const playlists = [
+    { playlistId: "PL366NUFRMdOsljKZYXszOD6qTEmuAyO-l" },
+  ];
+
   return (
     <div className="video-cards-container">
-      {videos.map((video, index) => (
-        <VideoCard key={index} video={video} />
+      {playlists.map((playlist, index) => (
+        <VideoCard key={index} playlist={playlist} />
       ))}
     </div>
   );

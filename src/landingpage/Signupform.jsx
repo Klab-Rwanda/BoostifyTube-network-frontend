@@ -136,13 +136,13 @@ function Signupform() {
   return (
     <div className="signup">
       <div className="signup-acount">
-        <b>Create account!</b>
         <div>
           <img src={img} className="signupimage" />
         </div>
       </div>
 
       <div className="auth-acc">
+        <h1 style={{ margin: "1rem" }}>Create account!</h1>
         <div className="form-switch-buttons">
           <button id="buttons" onClick={() => switchForm("Youtuber")}>
             Youtuber
