@@ -8,9 +8,9 @@ function Landingpage(){
                 <Headeer/>
             <div className="landing-outlet">
             <Outlet />
-           </div>
+        </div>
             <Footer/> 
-         </div>
+  
     )
 }
 export default Landingpage
