@@ -1,73 +1,83 @@
 import React, { useState, useEffect } from "react";
 import "../Styles/VideoCards.css";
 
-const VideoCard = ({ playlist }) => {
-  const [playlistDetails, setPlaylistDetails] = useState(null);
+const VideoCard = ({ videos }) => {
+  if (!videos || videos.length === 0) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="video-details">
+      {videos.map((video, index) => (
+        <div key={index} className="video-item">
+          <iframe
+            title={video.snippet.title}
+            width="300"
+            height="200"
+            src={`https://www.youtube.com/embed/${video.id}`}
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+          <p>{video.snippet.title}</p>
+          <p>Views: {video.statistics.viewCount}</p>
+          <p>Likes: {video.statistics.likeCount}</p>
+          <p>Comments: {video.statistics.commentCount}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const VideoCards = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const videoIds = [
+          "ezF4dG7__Ns",
+          "FHV7vTGBAM4",
+          "bfmOaw7JSGQ",
+          "5H3YUrjbRzc",
+          "HPnekgJ018s",
+          "TrmFCnv3CjA",
+          "sMjnwSk98as",
+          "sMjnwSk98as",
+        ];
+
+        if (!videoIds || videoIds.length === 0) {
+          console.error("No video IDs provided.");
+          return;
+        }
+
+        const videoIdsParam = videoIds.join(",");
         const response = await fetch(
-          `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlist.playlistId}&maxResults=25&key=AIzaSyDBwaf4NcPBZ5lpW1Qr9kTg84Dqa9Dsazc`
+          `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoIdsParam}&key=AIzaSyDBwaf4NcPBZ5lpW1Qr9kTg84Dqa9Dsazc
+`
         );
 
         if (!response.ok) {
-          throw new Error("Failed to fetch playlist items");
+          throw new Error("Failed to fetch videos");
         }
 
         const data = await response.json();
 
         if (data.items && data.items.length > 0) {
           setVideos(data.items);
-          setPlaylistDetails(data.items[0].snippet.playlistTitle); 
         } else {
-          console.error("No playlist items found in the API response.");
+          console.error("No videos found in the API response.");
         }
       } catch (error) {
-        console.error("Error fetching playlist items:", error.message);
+        console.error("Error fetching videos:", error.message);
       }
     };
 
     fetchData();
-  }, [playlist.playlistId]);
-
-  if (!videos.length) {
-    return <div>Loading...</div>;
-  }
-
-  return (
-
-      <div className="video-detailskk">
-        <h3>{playlistDetails}</h3>
-        {videos.map((video, index) => (
-          <div key={index} className="video-item">
-            <iframe
-              title={video.snippet.title}
-              width="300"
-              height="200"
-              src={`https://www.youtube.com/embed/${video.snippet.resourceId.videoId}`}
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
-            <p>{video.snippet.title}</p>
-          </div>
-        ))}
-      </div>
-
-  );
-};
-
-const VideoCards = () => {
-  const playlists = [
-    { playlistId: "PL366NUFRMdOsljKZYXszOD6qTEmuAyO-l" },
-  ];
+  }, []);
 
   return (
     <div className="video-cards-container">
-      {playlists.map((playlist, index) => (
-        <VideoCard key={index} playlist={playlist} />
-      ))}
+      <VideoCard videos={videos} />
     </div>
   );
 };

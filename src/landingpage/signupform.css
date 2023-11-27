@@ -8,6 +8,11 @@
   padding: 2rem;
 }
 
+.signupimage {
+  margin-top: 0;
+  height: 25rem;
+  width: rem;
+}
 .signup-form {
   padding: 8px;
   border-radius: 8px;
