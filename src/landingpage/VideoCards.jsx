@@ -1,97 +1,83 @@
-import React from "react";
-import "../Styles/VideoCards.css"; // Corrected import statement
+import React, { useState, useEffect } from "react";
+import "../Styles/VideoCards.css";
 
-const videos = [
-  {
-    videoId: "idYUy3hf3D0",
-    title: "Video Title 1",
-    views: 1000,
-    channel: "Channel 1",
-    likes: 50,
-    comments: 10,
-  },
-  {
-    videoId: "idYUy3hf3D0",
-    title: "Video Title 2",
-    views: 2000,
-    channel: "Channel 2",
-    likes: 75,
-    comments: 15,
-  },
-  {
-    videoId: "idYUy3hf3D0",
-    title: "Video Title 2",
-    views: 2000,
-    channel: "Channel 2",
-    likes: 75,
-    comments: 15,
-  },
-  {
-    videoId: "idYUy3hf3D0",
-    title: "Video Title 2",
-    views: 2000,
-    channel: "Channel 2",
-    likes: 75,
-    comments: 15,
-  },
-  {
-    videoId: "idYUy3hf3D0",
-    title: "Video Title 2",
-    views: 2000,
-    channel: "Channel 2",
-    likes: 75,
-    comments: 15,
-  },
-  {
-    videoId: "idYUy3hf3D0",
-    title: "Video Title 2",
-    views: 2000,
-    channel: "Channel 2",
-    likes: 75,
-    comments: 15,
-  },
-];
-
-const VideoCard = ({ video }) => {
-  if (
-    !video ||
-    !video.title ||
-    !video.videoId ||
-    !video.views ||
-    !video.channel ||
-    !video.likes ||
-    !video.comments
-  ) {
-    return <div>Error: Invalid video data</div>;
+const VideoCard = ({ videos }) => {
+  if (!videos || videos.length === 0) {
+    return <div>Loading...</div>;
   }
 
   return (
-    <div className="video-card">
-      <iframe
-        title={video.title}
-        width="300"
-        height="200"
-        src={`https://www.youtube.com/embed/${video.videoId}`}
-        frameBorder="0"
-        allowFullScreen
-      ></iframe>
-      <div className="video-details">
-        <h3>{video.title}</h3>
-        <p className="views">Views: {video.views}</p>
-        <p className="channel">Channel: {video.channel}</p>
-        <p className="likes">Likes: {video.likes}</p>
-        <p className="comments">Comments: {video.comments}</p>
-      </div>
+    <div className="video-details">
+      {videos.map((video, index) => (
+        <div key={index} className="video-item">
+          <iframe
+            title={video.snippet.title}
+            width="300"
+            height="200"
+            src={`https://www.youtube.com/embed/${video.id}`}
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+          <p>{video.snippet.title}</p>
+          <p>Views: {video.statistics.viewCount}</p>
+          <p>Likes: {video.statistics.likeCount}</p>
+          <p>Comments: {video.statistics.commentCount}</p>
+        </div>
+      ))}
     </div>
   );
 };
 
 const VideoCards = () => {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const videoIds = [
+          "ezF4dG7__Ns",
+          "FHV7vTGBAM4",
+          "bfmOaw7JSGQ",
+          "5H3YUrjbRzc",
+          "HPnekgJ018s",
+          "TrmFCnv3CjA",
+          "sMjnwSk98as",
+          "sMjnwSk98as",
+        ];
+
+        if (!videoIds || videoIds.length === 0) {
+          console.error("No video IDs provided.");
+          return;
+        }
+
+        const videoIdsParam = videoIds.join(",");
+        const response = await fetch(
+          `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoIdsParam}&key=AIzaSyDBwaf4NcPBZ5lpW1Qr9kTg84Dqa9Dsazc
+`
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch videos");
+        }
+
+        const data = await response.json();
+
+        if (data.items && data.items.length > 0) {
+          setVideos(data.items);
+        } else {
+          console.error("No videos found in the API response.");
+        }
+      } catch (error) {
+        console.error("Error fetching videos:", error.message);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="video-cards-container">
-      {videos.map((video, index) => (
-        <VideoCard key={index} video={video} />
-      ))}
+      <VideoCard videos={videos} />
     </div>
   );
 };

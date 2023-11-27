@@ -1,14 +1,11 @@
-/* .home-bound {
-  height: fit-content;
-} */
 
 .home-continer {
   display: flex;
-  /* background-color: red; */
   justify-content: center;
   align-items: center;
   text-align: center;
   margin: auto;
+  margin-top: -5rem;
   padding: 0;
   height: 38rem;
 }
