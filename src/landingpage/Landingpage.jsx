@@ -10,7 +10,7 @@ function Landingpage(){
             <Outlet />
         </div>
             <Footer/> 
-  
+  </div>
     )
 }
 export default Landingpage
