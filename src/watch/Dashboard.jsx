@@ -10,9 +10,7 @@ function Dashboard() {
       
          <div className=' sidebar'> 
       <Header/>  
-      </div>
-      
-      
+      </div>  
       <div className='sidebar-outlet'>
        <Sidebar />  
       <div className='outlet'>

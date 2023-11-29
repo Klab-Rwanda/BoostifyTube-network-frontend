@@ -41,7 +41,7 @@ const Login = () => {
         
    
         
-     <button type="submit" className='login-button'>Login</button>
+     <button type="submit" className='login-button'onClick={<SuperAdmin/>}>Login</button>
      
      
         
