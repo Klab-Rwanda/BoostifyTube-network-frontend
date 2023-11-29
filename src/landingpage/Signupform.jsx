@@ -12,20 +12,20 @@ function Signupform() {
       return (
         <form action="process_signup.php" method="post" className="signup-form">
           <label for="fullname">Full Name:</label>
-          <input type="text" id="fullname" name="fullname" required />
+          <input className="inputt" type="text" id="fullname" name="fullname" required />
 
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+          <input className="inputt" type="email" id="email" name="email" required />
 
           <div className="country-phone">
             <div>
               <label for="country">Country:</label>
-              <input type="text" id="country" name="country" required />
+              <input className="inputt" type="text" id="country" name="country" required />
             </div>
 
             <div>
               <label for="phone">Phone:</label>
-              <input type="tel" id="phone" name="phone" required />
+              <input className="inputt" type="tel" id="phone" name="phone" required />
             </div>
           </div>
 
@@ -52,7 +52,7 @@ function Signupform() {
 
             <div>
               <label for="age">Age:</label>
-              <input type="number" name="age" required />
+              <input className="inputt" type="number" name="age" required />
             </div>
           </div>
 
@@ -67,13 +67,13 @@ function Signupform() {
           </select>
 
           <label for="text">Channel Name:</label>
-          <input type="text" id="channel" name="channel" required />
+          <input className="inputt" type="text" id="channel" name="channel" required />
 
           <label for="text">Link to the channel:</label>
-          <input type="text" id="link" name="link" required />
+          <input className="inputt" type="text" id="link" name="link" required />
 
           <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required />
+          <input className="inputt" type="password" id="password" name="password" required />
 
           <button type="submit" className="buttonn">
             Signup
@@ -84,18 +84,18 @@ function Signupform() {
       return (
         <form action="process_signup.php" method="post" className="signup-form">
           <label for="fullname">Full Name:</label>
-          <input type="text" id="fullname" name="fullname" required />
+          <input className="inputt" type="text" id="fullname" name="fullname" required />
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+          <input className="inputt" type="email" id="email" name="email" required />
           <div className="country-phone">
             <div>
               <label for="country">Country:</label>
-              <input type="text" id="country" name="country" required />
+              <input className="inputt" type="text" id="country" name="country" required />
             </div>
 
             <div>
               <label for="phone">Phone:</label>
-              <input type="tel" id="phone" name="phone" required />
+              <input className="inputt" type="tel" id="phone" name="phone" required />
             </div>
           </div>
           <div className="gender-age">
@@ -115,7 +115,7 @@ function Signupform() {
 
             <div>
               <label for="age">Age:</label>
-              <input type="number" name="age" required />
+              <input className="inputt" type="number" name="age" required />
             </div>
           </div>
           <label for="payment">Mode of Payment:</label>
@@ -124,7 +124,7 @@ function Signupform() {
             <option value="paypal">PayPal</option>
           </select>
           <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required />
+          <input className="inputt" type="password" id="password" name="password" required />
           <button type="submit" className="buttonn">
             Signup
           </button>
