@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "../Styles/VideoCards.css";
+import { Link } from "react-router-dom";
 
 const VideoCard = ({ videos }) => {
   if (!videos || videos.length === 0) {
     return <div>Loading...</div>;
   }
-
-  return (
-    <div className="video-details">
-      {videos.map((video, index) => (
-        <div key={index} className="video-item">
+return (
+  <div className="video-details">
+    {videos.map((video, index) => (
+      <div key={index} className="video-item">
+        <Link to={`/video/${video.id}`} className="video-item-link">
           <iframe
             title={video.snippet.title}
             width="300"
@@ -18,14 +19,17 @@ const VideoCard = ({ videos }) => {
             frameBorder="0"
             allowFullScreen
           ></iframe>
+        </Link>
+        <Link to={`/video/${video.id}`} className="video-item-link">
           <p>{video.snippet.title}</p>
-          <p>Views: {video.statistics.viewCount}</p>
-          <p>Likes: {video.statistics.likeCount}</p>
-          <p>Comments: {video.statistics.commentCount}</p>
-        </div>
-      ))}
-    </div>
-  );
+        </Link>
+        <p>Views: {video.statistics.viewCount}</p>
+        <p>Likes: {video.statistics.likeCount}</p>
+        <p>Comments: {video.statistics.commentCount}</p>
+      </div>
+    ))}
+  </div>
+);
 };
 
 const VideoCards = () => {

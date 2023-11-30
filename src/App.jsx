@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./watch/Dashboard";
-import Sidebar from "./watch/Sidebar";
 import Video from "./watch/Video";
 import Balance from "./watch/Balance";
 import Landingpage from "./landingpage/Landingpage";
@@ -16,6 +15,7 @@ import Transactions from "./Dashboards/Transactions";
 import Earnings from "./Dashboards/Earnings";
 import Profile from "./Dashboards/Profile";
 import Generalsetting from "./Dashboards/Settings";
+import SingleVideo from "./landingpage/SingleVideo";
 
 function App() {
   return (
@@ -26,6 +26,8 @@ function App() {
           <Route path="signup" element={<Signupform />} />
           <Route path="login" element={<Login />} />
         </Route>
+
+        <Route path="video/:videoId" element={<SingleVideo />} />
 
         <Route path="/dashboard" element={<Dashboard />}>
           <Route index element={<Home />} />
