@@ -18,6 +18,14 @@ import Earnings from "./Dashboards/Earnings";
 import Profile from "./Dashboards/Profile";
 import Generalsetting from "./Dashboards/Settings";
 
+import SingleVideo from "./landingpage/SingleVideo";
+import YoutDashLayout from "./youtuber-Dash/youtuber components/YoutDashLayout";
+import FirstPage from "./youtuber-Dash/youtuber components/FirstPage";
+import HistoryPage from "./youtuber-Dash/youtuber components/HistoryPage";
+import UploadVideo from "./youtuber-Dash/youtuber components/UploadVideo";
+import Payment from "./youtuber-Dash/youtuber components/Payment";
+
+
 import { AppContext } from "./context/Context";
 function App() {
   return (
@@ -54,6 +62,12 @@ function App() {
           <Route path="earnings" element={<Earnings />} />
           <Route path="profile" element={<Profile />} />
           <Route path="generalsetting" element={<Generalsetting />} />
+        </Route>
+        <Route path="/youtuberDash" element={<YoutDashLayout />}>
+          <Route index element={<FirstPage />} />
+          <Route path="upload" element={<UploadVideo />} />
+          <Route path="payment" element={<Payment />} />
+          <Route path="history" element={<HistoryPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

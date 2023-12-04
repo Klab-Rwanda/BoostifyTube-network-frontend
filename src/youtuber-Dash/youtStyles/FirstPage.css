@@ -1,0 +1,59 @@
+.initialDashPage
+{
+    position: absolute;
+        top: 90px;
+        left: 220px;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+    gap:1rem;
+    flex: 1;
+    padding: 30px;
+    /* justify-content: space-between; */
+    border: 1px solid red;
+    /* width:100%; */
+    /* height: 100%; */
+    background-color: black;
+    width: 100;
+
+
+    
+
+}
+/* card componet style */
+.dash-card
+{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 20px;
+    box-shadow: 1px 0px 1px 2px #ccc ;
+}
+.dash-card .num-icon
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:2rem
+}
+.dash-card .num-icon i
+{
+    /* width: 10px; */
+    /* border: 1px solid red; */
+}
+.dash-highlight
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* border: 1px solid aqua; */
+    gap: 5rem;
+    height: fit-content;
+}
