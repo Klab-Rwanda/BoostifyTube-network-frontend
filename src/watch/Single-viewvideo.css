@@ -1,0 +1,11 @@
+.view-video{
+    margin-top: 80px;
+    display: flex;
+    gap: 20px;
+}
+.frame-view{
+    width: 650px;
+    height: 350px;
+    border-radius: 10px;
+    border-color: black;
+}

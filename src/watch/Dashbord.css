@@ -8,10 +8,11 @@
   .sidebar-outlet{
     display: flex;
     background-color: #191942;
+    
   }
   .outlet{
     background-color: #191942;
-  padding-left: 40px;
-    min-height: 89vh;
+  margin-left: 10%;
+    min-height: 100vh;
    
   }

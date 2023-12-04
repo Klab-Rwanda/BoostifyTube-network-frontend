@@ -10,7 +10,7 @@ import '../watch/Header.css'
             </div>
 
             <div className=" header-text2">
-            <input type="text" placeholder="search">
+            <input type="text" placeholder="search" >
             
             </input>
             <IoMdNotificationsOutline  className="dash-heard"/>
