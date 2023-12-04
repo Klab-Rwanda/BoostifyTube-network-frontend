@@ -39,7 +39,7 @@ function Sidebar(){
                 </Link>
                 <Link to='setting' className="sidebar-text">
                 <IoSettingsOutline  className="sidebar-icon"/>
-           <p> Settings</p>
+           <p> Setting</p>
                 </Link>
             </div>
         </div>

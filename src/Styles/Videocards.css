@@ -1,14 +1,16 @@
-.video-cards-container {
+/* .video-cards-container {
   margin: auto;
   justify-content: center;
   align-items: center;
   display: flex;
+  align-items: center;
+  text-align: center;
 }
 .video-details {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin: 0.5rem;
   justify-content: center;
   align-items: center;
   font-weight: lighter;
-}
+} */

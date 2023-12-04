@@ -2,7 +2,7 @@ import React from "react";
 import "../Styles/home.css";
 import pic from "../../public/images/homepiccc.png";
 import VideoSection from "./VideoSection";
-import VideoCard from "./VideoCards";
+
 
 const Home = () => {
   return (
@@ -25,7 +25,7 @@ const Home = () => {
       </div>
 
       <VideoSection />
-      <VideoCard />
+
     </>
   );
 };

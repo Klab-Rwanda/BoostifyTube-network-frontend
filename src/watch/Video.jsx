@@ -1,124 +1,36 @@
-import './Video.css'
-import {Container } from 'react-bootstrap'
-function Video(){
-    return (
-      <Container className="videeo">
-        <div className="ratioratio">
-          <iframe
-            src={`https://www.youtube.com/embed/zpOULjyy-n8?rel=0?modestbranding=1`}
-            className="iframe"
-          ></iframe>
-          <div className="line">
-            <p> Leadership Program.</p>
-            <p>titothak</p>
-            <div className="views">
-              <p>100 views</p>
-              <h>6 hours ago</h>
-            </div>
-          </div>
-        </div>
+import React, { useState, useEffect } from "react";
+import "./Video.css";
+import { Link } from "react-router-dom";
+import { MyContext } from "../context/Context";
 
-        <div className="ratioratio">
-          <iframe
-            src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-            className="iframe"
-          ></iframe>
-          <div className="line">
-            <p> Leadership Program.</p>
-            <p>titothak</p>
-            <div className="views">
-              <p>100 views</p>
-              <p>6 hours ago</p>
-            </div>
-          </div>
-        </div>
+const VideoCard = () => {
 
-        <div className="ratioratio">
+  const {videos}= MyContext();
+  if (!videos || videos.length === 0) {
+    return <div>Loading...</div>;
+  }
+  return (
+    <div className="videeo">
+      
+      {videos.map((video, index) => (
+        
+        <div key={index} className="video-item">
           <iframe
-            src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-            className="iframe"
-          ></iframe>
-          <div className="line">
-            <p> Leadership Program.</p>
-            <p>titothak</p>
-            <div className="views">
-              <p>100 views</p>
-              <p>6 hours ago</p>
-            </div>
-          </div>
+            title={video.snippet.title}
+            width="300"
+            height="200"
+            src={`https://www.youtube.com/embed/${video.id}`}
+            allowFullScreen
+           className="allvideo-view"></iframe>
+          <Link to={`/dashboard/video/${video.id}`} className="view-title">
+          <p >{video.snippet.title}</p>
+          </Link>
+          <p>Views: {video.statistics.viewCount}</p>
+          <p>Likes: {video.statistics.likeCount}</p>
+          <p>Comments: {video.statistics.commentCount}</p>
         </div>
-        <div className="ratioratio">
-          <iframe
-            src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-            className="iframe"
-          ></iframe>
-          <div className="line">
-            <p> Leadership Program.</p>
-            <p>titothak</p>
-            <div className="views">
-              <p>100 views</p>
-              <p>6 hours ago</p>
-            </div>
-          </div>
-        </div>
-        <div className="ratioratio">
-          <iframe
-            src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-            className="iframe"
-          ></iframe>
-          <div className="line">
-            <p> Leadership Program.</p>
-            <p>titothak</p>
-            <div className="views">
-              <p>100 views</p>
-              <p>6 hours ago</p>
-            </div>
-          </div>
-        </div>
-        <div className="ratioratio">
-          <iframe
-            src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-            className="iframe"
-          ></iframe>
-          <div className="line">
-            <p> Leadership Program.</p>
-            <p>titothak</p>
-            <div className="views">
-              <p>100 views</p>
-              <p>6 hours ago</p>
-            </div>
-          </div>
-        </div>
-        <div className="ratioratio">
-          <iframe
-            src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-            className="iframe"
-          ></iframe>
-          <div className="line">
-            <p> Leadership Program.</p>
-            <p>titothak</p>
-            <div className="views">
-              <p>100 views</p>
-              <p>6 hours ago</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="ratioratio">
-          <iframe
-            src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"
-            className="iframe"
-          ></iframe>
-          <div className="line">
-            <p> Leadership Program.</p>
-            <p>titothak</p>
-            <div className="views">
-              <p>100 views</p>
-              <p>6 hours ago</p>
-            </div>
-          </div>
-        </div>
-      </Container>
-    );
-}
-export default Video
+      ))}
+    </div>
+  );
+};
+export default VideoCard;

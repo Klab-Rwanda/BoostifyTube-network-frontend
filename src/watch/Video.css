@@ -4,14 +4,9 @@
 }
 .videeo{
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-gap: 20px;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 10px;
     margin: 60px 23px 15px 23px;
-    /* box-shadow: 0px 0px 1px; */
-    border-radius: 5px;
-    /* display: flex;
-    gap: 5px; */
-   
 }
 .videos{
     
@@ -19,28 +14,16 @@
     border-color: #191942;
     /* border-radius: 5px; */
 }
-
-.ratioratio{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    box-shadow: 0px 0px 1px ;
+.allvideo-view{
+    width: 320px;
+    height: 200px;
     border-radius: 10px;
-    
+    border-color: black;
 }
-.iframe{
-    line-height: 0;
-    border-radius:10px;
-    border: 0 ;
-    width: 240px;
-     height: 110px;
+.view-title{
+    text-decoration: none;
 }
-
-.line{
-display: grid;
-    grid-gap: 2px;
-}
-.views{
-    gap: 5px;
-    display: flex;
+.view-title p{
+    width: 300px;
+    height: auto;
 }
