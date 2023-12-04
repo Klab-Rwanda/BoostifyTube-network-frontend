@@ -15,19 +15,18 @@ import Transactions from "./Dashboards/Transactions";
 import Earnings from "./Dashboards/Earnings";
 import Profile from "./Dashboards/Profile";
 import Generalsetting from "./Dashboards/Settings";
-import SingleVideo from "./landingpage/SingleVideo";
-
+import Contacts from "./landingpage/Contacts";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landingpage />}>
           <Route index element={<Home />} />
-          <Route path="signup" element={<Signupform />} />
-          <Route path="login" element={<Login />} />
+          <Route path="contactus" element={<Contacts />} />
         </Route>
 
-        <Route path="video/:videoId" element={<SingleVideo />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signupform />} />
 
         <Route path="/dashboard" element={<Dashboard />}>
           <Route index element={<Home />} />
