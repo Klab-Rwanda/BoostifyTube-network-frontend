@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./watch/Dashboard";
-import Sidebar from "./watch/Sidebar";
 import Video from "./watch/Video";
 import Balance from "./watch/Balance";
 import Landingpage from "./landingpage/Landingpage";
@@ -16,9 +15,12 @@ import Transactions from "./Dashboards/Transactions";
 import Earnings from "./Dashboards/Earnings";
 import Profile from "./Dashboards/Profile";
 import Generalsetting from "./Dashboards/Settings";
+import Singlevideo from "./watch/Singlevideo";
+import { AppContext } from "./context/Context";
 
 function App() {
   return (
+    <AppContext>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landingpage />}>
@@ -33,7 +35,12 @@ function App() {
           <Route path="video" element={<Video />} />
           <Route path="balance" element={<Balance />} />
           <Route path="setting" element={<Settings />} />
+          <Route path="video/:videoId" element={<Singlevideo />} />
+
         </Route>
+        
+       
+       
 
         <Route path="superdashboard" element={<DashLayout />}>
           <Route index element={<DashHome />} />
@@ -46,6 +53,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </AppContext>
   );
 }
 
