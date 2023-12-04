@@ -17,7 +17,10 @@ function Headeer() {
       </div>
 
       <div className="header-buttonn">
-        <button className="heade-button"> Contacts</button>
+        <Link to= "/contactus">
+          <button className="heade-button"> Contacts</button>
+        </Link>
+
         <button className="heade-button"> FAQs</button>
         <Link to="/Login">
           <button className="heade-button"> Login</button>
