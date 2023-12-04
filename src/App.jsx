@@ -2,9 +2,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./watch/Dashboard";
 import Video from "./watch/Video";
 import Balance from "./watch/Balance";
+import Singlevideo from "./watch/Singlevideo";
 import Landingpage from "./landingpage/Landingpage";
 import Signupform from "./landingpage/Signupform";
 import Login from "./landingpage/Login";
+import Contacts from "./landingpage/Contacts";
 import Settings from "./watch/Setting";
 import Home from "./landingpage/Home";
 import DashLayout from "./Dashboards/DashLayout";
@@ -15,9 +17,8 @@ import Transactions from "./Dashboards/Transactions";
 import Earnings from "./Dashboards/Earnings";
 import Profile from "./Dashboards/Profile";
 import Generalsetting from "./Dashboards/Settings";
-import Singlevideo from "./watch/Singlevideo";
-import { AppContext } from "./context/Context";
 
+import { AppContext } from "./context/Context";
 function App() {
   return (
     <AppContext>
@@ -25,10 +26,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Landingpage />}>
           <Route index element={<Home />} />
-          <Route path="signup" element={<Signupform />} />
+          <Route path="contactus" element={<Contacts />} />
           <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signupform />} />
+
         </Route>
 
+       
         <Route path="/dashboard" element={<Dashboard />}>
           <Route index element={<Home />} />
           <Route index path="home" element={<Home />} />

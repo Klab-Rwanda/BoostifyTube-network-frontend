@@ -1,12 +1,12 @@
-
-import React, { useState } from 'react';
-import './Login.css';
-import { Link } from 'react-router-dom';
-import  imag from '../images/login-picture.png';
+import React, { useState } from "react";
+import "./Login.css";
+import { Link } from "react-router-dom";
+import imag from "../images/login-picture.png";
+import SuperAdmin from "../Dashboards/DashLayout";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -19,37 +19,46 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add your login logic here
-    console.log('Email:', email, 'Password:', password);
+    console.log("Email:", email, "Password:", password);
   };
 
   return (
-    <div className='login'>
-<div className='login-img'>
-    <img src= {imag} />
-</div>
+    <div className="login">
+      <div className="login-img">
+        <img src={imag} />
+      </div>
 
-
-<div className="login-container">
+      <div className="login-container">
         <b>Login here</b>
-      <form onSubmit={handleSubmit} className='login-form'>
-        <div className='login-email'>
-        <label>Email:</label>
-        <input type="email" value={email} onChange={handleEmailChange} />
-       <label>Password:</label>
-        <input type="password" value={password} onChange={handlePasswordChange} />
-       </div>
-        
-   
-        
-     <button type="submit" className='login-button'onClick={<SuperAdmin/>}>Login</button>
-     
-     
-        
-      </form>
-      <p className='login-signup'>New to the site?<Link className='login-link' to='signup'> signup</Link></p>
+        <form onSubmit={handleSubmit} className="login-form">
+          <div className="login-email">
+            <label>Email:</label>
+            <input type="email" value={email} onChange={handleEmailChange} />
+            <label>Password:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="login-button"
+            onClick={<SuperAdmin />}
+          >
+            Login
+          </button>
+        </form>
+        <p className="login-signup">
+          New to the site?
+          <Link className="login-link" to="signup">
+            {" "}
+            signup
+          </Link>
+        </p>
+      </div>
     </div>
-    </div>
-   
   );
 };
 
