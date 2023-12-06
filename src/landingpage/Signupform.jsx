@@ -82,7 +82,7 @@ function Signupform() {
       );
     } else if (activeForm === "Client") {
       return (
-        <form action="process_signup.php" method="post" className="signup-form">
+        <form action="" method="post" className="signup-form">
           <label for="fullname">Full Name:</label>
           <input className="inputt" type="text" id="fullname" name="fullname" required />
           <label for="email">Email:</label>

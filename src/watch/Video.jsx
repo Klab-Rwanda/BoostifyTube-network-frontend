@@ -6,6 +6,7 @@ import { MyContext } from "../context/Context";
 const VideoCard = () => {
 
   const {videos}= MyContext();
+  
   if (!videos || videos.length === 0) {
     return <div>Loading...</div>;
   }
