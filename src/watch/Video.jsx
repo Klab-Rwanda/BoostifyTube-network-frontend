@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Video.css";
 import { Link } from "react-router-dom";
 import { MyContext } from "../context/Context";
+import ReactPaginate from "react-paginate";
 
 const VideoCard = () => {
 
@@ -10,10 +11,23 @@ const VideoCard = () => {
   if (!videos || videos.length === 0) {
     return <div>Loading...</div>;
   }
+
+  const [pagenumber,setPagenumber]=useState(0);
+  const videopage=6;
+  const pagevisited=pagenumber*videopage;
+  const displayvideo=videos
+  .slice(pagevisited,pagevisited+videopage);
+  
+  
+  const changepage= ({selected})=>{
+    setPagenumber(selected)
+  };
+
+
   return (
     <div className="videeo">
       
-      {videos.map((video, index) => (
+      {displayvideo.map((video, index) => (
         
         <div key={index} className="video-item">
           <iframe
@@ -31,6 +45,20 @@ const VideoCard = () => {
           <p>Comments: {video.statistics.commentCount}</p>
         </div>
       ))}
+
+<ReactPaginate
+    pageCount={Math.ceil(videos?.length  / videopage)}
+    previousAriaLabel={"Prev"}
+    nextLabel={"Next"}
+    onPageChange={changepage}
+    containerClassName='pagination'
+    previousLinkClassName='prevBtn'
+    nextLinkClassName='next'
+    disabledClassName='disabled'
+    activeClassName='paginationactve'
+    >
+
+    </ReactPaginate>
     </div>
   );
 };
