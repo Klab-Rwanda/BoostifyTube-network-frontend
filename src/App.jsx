@@ -19,6 +19,7 @@ import Profile from "./Dashboards/Profile";
 import Generalsetting from "./Dashboards/Settings";
 
 import { AppContext } from "./context/Context";
+import Darkmode from "./landingpage/Darkmode";
 function App() {
   return (
     <AppContext>
@@ -39,10 +40,11 @@ function App() {
           <Route path="video" element={<Video />} />
           <Route path="balance" element={<Balance />} />
           <Route path="setting" element={<Settings />} />
+          
           <Route path="video/:videoId" element={<Singlevideo />} />
 
         </Route>
-        
+        <Route path="darkmode" element={<Darkmode />} />
        
        
 

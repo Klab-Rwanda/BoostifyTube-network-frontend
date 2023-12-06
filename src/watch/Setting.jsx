@@ -24,9 +24,10 @@ const Settings=()=>{
 </div>
 
 <div className='setting-detail'>
-    <div className='setting-details'>
-    <p>Change  mode:</p>
-    <MdOutlineDarkMode />
+    <div className='setting-d'>
+    <b>Mode Setting</b>
+    <p className='setting-details'>Change  mode:<p><MdOutlineDarkMode /></p> </p>
+ 
     </div>
     <div className='setting-d'>
         <b>Payment Settings</b>

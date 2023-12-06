@@ -35,6 +35,7 @@ h2 {
   padding: 3px;
   border: none;
   box-sizing: border-box;
+  padding: 0.5rem 2rem;
 }
 #payment,
 #gender {
