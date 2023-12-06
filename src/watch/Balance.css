@@ -41,7 +41,7 @@ margin-top: 10%;
 }
 .balance-button{
     padding: 9px;
-    width: 52.5vh;
+    width: 49vh;
     /* margin-top: 10px; */
     border-radius: 5px;
     color: #191942;
@@ -92,6 +92,6 @@ grid-gap: 5px;
     background-color: white;
     color: #191942;
     padding: 9px;
-    width: 200px;
+    width: 220px;
     border-radius: 5px;
 }

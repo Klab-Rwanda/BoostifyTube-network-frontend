@@ -10,6 +10,7 @@
     gap: 90px;
 }
 .setting-details{
+    font-size: 12px;
     display: flex;
     gap: 20px;
 }
@@ -24,7 +25,11 @@
     gap: 10px;
 }
 .setting-d b{
+    font-size: 13px;
     color: #aaa04a;
+}
+.setting-d p{
+    font-size: 13px;
 }
 .setting-imag{
     width: 70px;
