@@ -2,6 +2,7 @@ import React from "react";
 import "../Styles/home.css";
 import pic from "../../public/images/homepiccc.png";
 import VideoSection from "./VideoSection";
+import VideoCardss from "./VideoCardss";
 
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
       </div>
 
       <VideoSection />
+      <VideoCardss/>
 
     </>
   );
