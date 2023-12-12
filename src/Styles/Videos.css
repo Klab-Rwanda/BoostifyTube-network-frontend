@@ -1,4 +1,4 @@
-.video-cont {
+.video-contt {
   display: flex;
   flex-direction: column;
   background-color: #191943;
@@ -14,14 +14,14 @@
   box-shadow: 0 2px 4px rgba(0.8, 0, 0, 0.6);
 }
 
-.videeo {
+.videeo1 {
   display: flex;
   margin-top: 1rem;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.video-item {
+.video-item1 {
   margin-bottom: 1rem;
   width: 30%;
   border: 1px solid rgb(43, 41, 41);

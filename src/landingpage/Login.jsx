@@ -40,14 +40,13 @@ const Login = () => {
 alert('login sucessfully')
 localStorage.setItem("token",res.data.access_token)
 localStorage.setItem("loggedUser",JSON.stringify(res.data.user) )
-if(res.data.user.role ==' admin'){
-  navigate('/superdashboard')
-}
-else{
+
+if(res.data.user.role ==' Credit Card'){
   navigate('/dashboard')
 }
-
-
+else{
+  navigate('/')
+}
 
  console.log(res.data);
     } 

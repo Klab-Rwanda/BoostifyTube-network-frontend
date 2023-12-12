@@ -23,7 +23,7 @@ const Videos = () => {
   });
 
   return (
-    <div className="video-cont">
+    <div className="video-contt">
       <div className="filter-buttons">
         <button className="btnfilter" onClick={() => setFilter("all")}>
           All Videos
@@ -35,9 +35,9 @@ const Videos = () => {
           Pending Videos
         </button>
       </div>
-      <div className="videeo">
+      <div className="videeo1">
         {videos.map((video, index) => (
-          <div key={index} className="video-item">
+          <div key={index} className="video-item1">
             <iframe
               title={video.snippet.title}
               width="300"
