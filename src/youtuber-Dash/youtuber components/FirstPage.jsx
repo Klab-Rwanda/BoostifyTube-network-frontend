@@ -60,7 +60,7 @@ function FirstPage() {
       <div>
         <h1 >My Uploaded Videos</h1>
       </div>
-      <div className="video-card">
+      <div className="youtuber-video-card">
         {/* <CardMain title={"Cubic Thunder"} hearts={"65"} /> */}
         <CardMain imgSrc={Card2} title={"Pokemon Ball"} hearts={"65"} />
         <CardMain imgSrc={Card3} title={"Pyramid God"} hearts={"65"} />

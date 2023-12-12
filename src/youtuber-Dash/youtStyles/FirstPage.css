@@ -33,7 +33,7 @@
 /* card componet style */
 .dash-card
 {
-    /* border: 1px solid red; */
+    
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -82,21 +82,11 @@ main {
   padding: 20px;
 }
 
-.dashboard {
-  background-color:var(--first-bg-color);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  width: 100%;
-  right: 0;
-}
-
-h1 {
+.initialDashPage h1 {
   color: #343a40;
 }
 
-p {
+.initialDashPage p {
   color: #6c757d;
 }
 
@@ -105,16 +95,16 @@ p {
   margin-top: 20px;
 }
 
-.video-cards {
+/* .video-cards {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 20px;
   border: 100px solid red;
   background-color: red;
-}
+} */
 
-.video-card {
+/* .video-card {
   background-color: #f8f9fa;
   border: 1px solid #dee2e6;
   border-radius: 10px;
@@ -122,8 +112,8 @@ p {
   margin: 10px;
   padding: 10px;
   width: 30%;
-}
-.video-card
+} */
+.youtuber-video-card
 {
     position: relative;
     display: flex;

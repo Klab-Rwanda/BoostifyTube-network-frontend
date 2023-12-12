@@ -88,7 +88,7 @@ text-decoration:underline var(--skin-color);
 margin-bottom: 1rem;
 }
 
-label {
+/* label {
     display: block;
     margin-bottom: 8px;
     color: var(--first-bg-color);
@@ -120,4 +120,4 @@ button {
 button:hover {
     background-color: var(--first-bg-color);
     color: var(--sec-bg-color);
-}
+} */
