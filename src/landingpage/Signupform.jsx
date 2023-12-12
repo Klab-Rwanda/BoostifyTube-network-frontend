@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 import "./Signupform.css";
 import axios from "axios";
-import img from "../images/welcome.png";
+// import img from "../images/welcome.png";
 
 function Signupform() {
+
   const [formData, setFormData] = useState({
-    Email: "",
-    FullName: "",
-    Password: "",
-    Country: "",
-    Gender: "",
-    Age: "",
-    TelNumber: "",
-    ChannelName: "",
-    linkofTheChannel: "",
-    PaymentStatus: "",
+    Email: '',  
+    FullName: '', 
+    Password:'', 
+    Country: '', 
+    Gender: '',
+    Age : '',
+    TelNumber: '',
+    ChannelName:'',
+    linkofTheChannel:'',
+    PaymentStatus:'',
   });
 
   const [activeForm, setActiveForm] = useState("Youtuber");
   const switchForm = (formType) => {
     setActiveForm(formType);
   };
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,94 +32,59 @@ function Signupform() {
     e.preventDefault();
     try{ console.log(formData)
       await axios.post ('https://boostifytube-network-api.onrender.com/api/v1/user/signup',formData);
-      alert('account created sucessfully')
-      window.location.href='login'
+      alert('sign in sucessfully')
+      window.location.href='/login'
     } 
-  
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    console.log(formData);
-    await axios.post(
-      "https://boostifytube-network-api.onrender.com/api/v1/user/signup",
-      formData
-    );
-    alert("sign in sucessfully");
-    window.location.href = "/login";
-  } catch (error) {
-    console.log(error.response);
-    alert(error);
-  }
-};
 
+
+  
+    catch (error){
+      console.log(error.response)
+      alert(error)
+       }
+    
+ 
+
+  };
   const renderForm = () => {
     if (activeForm === "Youtuber") {
       return (
-        <form
-          action=""
-          method="post"
-          className="signup-form"
-          onSubmit={handleSubmit} // Make sure handleSubmit is defined
-        >
-          <label htmlFor="fullname">Full Name:</label>
-          <input
-            className="inputt"
-            type="text"
-            id="FullName"
-            name="FullName"
-            required
+        <form action="process_signup.php" method="post" className="signup-form"onSubmit={handleSubmit}>
+          <label for="fullname">Full Name:</label>
+          <input className="inputt" type="text" id="FullName" name="FullName" required  
             value={formData.FullName}
-            onChange={handleChange}
-          />
+            onChange={handleChange}/>
 
-          <label htmlFor="email">Email:</label>
-          <input
-            className="inputt"
-            type="Email"
-            id="Email"
-            name="Email"
-            required
-            value={formData.Email}
-            onChange={handleChange}
-          />
+          <label for="email">Email:</label>
+          <input className="inputt" type="Email" id="Email" name="Email" required 
+          value={formData.Email}
+          onChange={handleChange}/>
 
           <div className="country-phone">
             <div>
-              <label htmlFor="country">Country:</label>
-              <input
-                className="inputt"
-                type="Country"
-                id="Country"
-                name="Country"
-                required
-                value={formData.Country}
-                onChange={handleChange}
-              />
+              <label for="country">Country:</label>
+              <input className="inputt" type="Country" id="Country" name="Country" required 
+              value={formData. Country}
+              onChange={handleChange}/>
             </div>
 
             <div>
-              <label htmlFor="phone">Phone:</label>
-              <input
-                className="inputt"
-                type="TelNumber"
-                id="TelNumber"
-                name="TelNumber"
-                required
-                value={formData.TelNumber}
-                onChange={handleChange}
-              />
+              <label for="phone">Phone:</label>
+              <input className="inputt" type="TelNumber" id="TelNumber" name="TelNumber" required 
+              value={formData. TelNumber}
+              onChange={handleChange}/>
             </div>
           </div>
 
           <div className="gender-age">
             <div>
-              <label htmlFor="gender">Gender:</label>
+              <label for="gender">Gender:</label>
               <select
                 id="Gender"
                 name="Gender"
                 required
                 className="inputt"
-                value={formData.Gender}
+                value={formData. Gender}
                 onChange={handleChange}
               >
                 <option value="male" style={{ color: "#191943" }}>
@@ -133,27 +100,17 @@ const handleSubmit = async (e) => {
             </div>
 
             <div>
-              <label htmlFor="age">Age:</label>
-              <input
-                className="inputt"
-                type="Age"
-                name="Age"
-                required
-                value={formData.Age}
-                onChange={handleChange}
-              />
+              <label for="age">Age:</label>
+              <input className="inputt" type="Age" name="Age" required 
+              value={formData. Age}
+              onChange={handleChange}/>
             </div>
           </div>
 
-          <label htmlFor="payment">Mode of Payment:</label>
-          <select
-            id="PaymentStatus"
-            name="PaymentStatus"
-            className="inputt"
-            required
-            value={formData.PaymentStatus}
-            onChange={handleChange}
-          >
+          <label for="payment">Mode of Payment:</label>
+          <select id="PaymentStatus" name="PaymentStatus" className="inputt" required
+           value={formData. PaymentStatus}
+           onChange={handleChange}>
             <option value="credit_card" style={{ color: "#191943" }}>
               Credit Card
             </option>
@@ -162,38 +119,20 @@ const handleSubmit = async (e) => {
             </option>
           </select>
 
-          <label htmlFor="text">Channel Name:</label>
-          <input
-            className="inputt"
-            type="ChannelName"
-            id="ChannelName"
-            name="ChannelName"
-            required
-            value={formData.ChannelName}
-            onChange={handleChange}
-          />
+          <label for="text">Channel Name:</label>
+          <input className="inputt" type="ChannelName" id="ChannelName" name="ChannelName" required 
+           value={formData. ChannelName}
+           onChange={handleChange}/>
 
-          <label htmlFor="text">Link to the channel:</label>
-          <input
-            className="inputt"
-            type="linkofTheChannel"
-            id="linkofTheChannel"
-            name="linkofTheChannel"
-            required
-            value={formData.linkofTheChannel}
-            onChange={handleChange}
-          />
+          <label for="text">Link to the channel:</label>
+          <input className="inputt" type="linkofTheChannel" id="linkofTheChannel" name="linkofTheChannel" required 
+           value={formData. linkofTheChannel}
+           onChange={handleChange}/>
 
-          <label htmlFor="password">Password:</label>
-          <input
-            className="inputt"
-            type="Password"
-            id="Password"
-            name="Password"
-            required
-            value={formData.Password}
-            onChange={handleChange}
-          />
+          <label for="password">Password:</label>
+          <input className="inputt" type="Password" id="Password" name="Password" required 
+          value={formData. Password}
+          onChange={handleChange}/>
 
           <button type="submit" className="buttonn">
             Signup
@@ -202,62 +141,43 @@ const handleSubmit = async (e) => {
       );
     } else if (activeForm === "Client") {
       return (
-        <form action="" method="post" className="signup-form">
-          <label htmlFor="fullname">Full Name:</label>
-          <input
-            className="inputt"
-            type="text"
-            id="FullName"
-            name="FullName"
-            value={formData.FullName}
-            onChange={handleChange}
-            required
-          />
-          <label htmlFor="email">Email:</label>
-          <input
-            className="inputt"
-            type="Email"
-            id="Email"
-            name="Email"
-            value={formData.Email}
-            onChange={handleChange}
-            required
-          />
+        <form method="post" className="signup-form" onSubmit={handleSubmit}>
+          <label for="fullname">Full Name:</label>
+          <input className="inputt" type="text" id="FullName" name="FullName" 
+          value={formData.FullName}
+          onChange={handleChange}
+          required />
+          <label for="email">Email:</label>
+          <input className="inputt" type="Email" id="Email" name="Email"
+           value={formData.Email}
+           onChange={handleChange}
+          required />
           <div className="country-phone">
             <div>
-              <label htmlFor="country">Country:</label>
-              <input
-                className="inputt"
-                type="Nationality"
-                id="Country"
-                name="Country"
-                value={formData.Country}
-                onChange={handleChange}
-              />
+              <label for="country">Country:</label>
+              <input className="inputt" type="Nationality" id="Country" name="Country"
+              value={formData. Country}
+              onChange={handleChange}
+             />
             </div>
 
             <div>
-              <label htmlFor="phone">Phone:</label>
-              <input
-                className="inputt"
-                type="TelNumber"
-                id="TelNumber"
-                name="TelNumber"
-                value={formData.TelNumber}
-                onChange={handleChange}
-                required
-              />
+              <label for="phone">Phone:</label>
+              <input className="inputt" type="TelNumber" id="TelNumber" name="TelNumber" 
+              value={formData. TelNumber}
+              onChange={handleChange}
+              required />
             </div>
           </div>
           <div className="gender-age">
             <div>
-              <label htmlFor="gender">Gender:</label>
+              <label for="gender">Gender:</label>
               <select
                 id="Gender"
                 name="Gender"
                 required
                 className="inputt"
-                value={formData.Gender}
+                value={formData. Gender}
                 onChange={handleChange}
               >
                 <option value="male">Male</option>
@@ -267,40 +187,26 @@ const handleSubmit = async (e) => {
             </div>
 
             <div>
-              <label htmlFor="age">Age:</label>
-              <input
-                className="inputt"
-                type="Age"
-                name="Age"
-                id="Age"
-                value={formData.Age}
-                onChange={handleChange}
-                required
-              />
+              <label for="age">Age:</label>
+              <input className="inputt" type="Age" name="Age" id="Age"
+              value={formData. Age}
+              onChange={handleChange}
+              required/>
             </div>
           </div>
-          <label htmlFor="payment">Mode of Payment:</label>
-          <select
-            id="PaymentStatus"
-            name="PaymentStatus"
-            className="inputt"
-            value={formData.PaymentStatus}
-            onChange={handleChange}
-            required
-          >
+          <label for="payment">Mode of Payment:</label>
+          <select id="PaymentStatus" name="PaymentStatus" className="inputt"
+          value={formData. PaymentStatus}
+          onChange={handleChange}
+          required>
             <option value="credit_card">Credit Card</option>
             <option value="paypal">PayPal</option>
           </select>
-          <label htmlFor="password">Password:</label>
-          <input
-            className="inputt"
-            type="Password"
-            id="Password"
-            name="Password"
-            value={formData.Password}
-            onChange={handleChange}
-            required
-          />
+          <label for="password">Password:</label>
+          <input className="inputt" type="Password" id="Password" name="Password" 
+          value={formData. Password}
+          onChange={handleChange}
+          required />
           <button type="submit" className="buttonn">
             Signup
           </button>
@@ -311,11 +217,6 @@ const handleSubmit = async (e) => {
 
   return (
     <div className="signup">
-
- 
-      <div className="signup-acount">
-        <div>{/* <img src={img} className="signupimage" /> */}</div>
-      </div>
 
       <div className="auth-acc">
         <h1 style={{ margin: "1rem" }}>Create account!</h1>

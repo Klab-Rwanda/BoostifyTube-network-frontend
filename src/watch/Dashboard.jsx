@@ -6,7 +6,7 @@ import '../watch/Dashbord.css'
 function Dashboard() {
 
   return (
-    <div className=' dashboard'>
+    <div className=' dashboardviewer'>
       
          <div className=' sidebar'> 
       <Header/>  
