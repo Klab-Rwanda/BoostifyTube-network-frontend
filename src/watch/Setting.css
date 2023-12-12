@@ -59,3 +59,37 @@
     background-color:#FEE60C;
     color: #191942;
 }
+
+@media (max-width:780px) {
+
+    .setting{
+    display: flex;
+    gap: 100px;
+    padding: 100px 10px 20px 20px;
+    }
+ .setting-d b
+    {
+        font-size: 16px;
+        color: #aaa04a;
+    }
+    .setting-d p{
+        font-size: 16px;
+    }
+}
+
+
+@media (max-width:420px) {
+
+    .setting{
+        margin-top: 22%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 0px;
+}
+.setting-detail{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+}
