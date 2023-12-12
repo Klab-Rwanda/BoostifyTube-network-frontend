@@ -4,18 +4,26 @@
 display: flex;
 width: 100%;
 gap: 40%;
-padding: 15px  0px 10px 0px;
+padding: 15px  0px 10px 2px;
 /* justify-content: space-between; */
 justify-content: space-around;
 border-bottom: 1px solid #FEE60C;
 }
+.header-text1 p{
+  font-size: 17px;
+  font-weight: bold;
+}
+
 .watch-user-logo{
   display: flex;
-  font-size: 25px;
+  font-size: 20px;
 }
 .header-text1{
     display: flex;
     gap: 150px;
+}
+.header-text1 p{
+  font-size: 20px;
 }
 .header-text2{
     display: flex;
@@ -38,4 +46,110 @@ background-color: #FEE60C;
 }
 .dash-heard{
   font-size: 20px;
+}
+@media (min-width:780px) {
+  .header-search{
+    display: none;
+  }
+  
+}
+@media (max-width:780px) {
+  .header-text{
+    background-color: #191942;
+    position: fixed;
+  display: flex;
+  width: 100%;
+  gap: 5%;
+  padding: 15px  0px 10px 0px;
+  justify-content: space-around;
+  border-bottom: 1px solid #FEE60C;
+  }
+  .header-text1{
+    display: flex;
+    gap: 90px;
+    font-size: 25px;
+}
+.watch-user-logo{
+  display: flex;
+  font-size: 27px;
+}
+.header-text2{
+  display: flex;
+  gap: 30px;
+}
+.header-search{
+  font-size: 30px;
+}
+.header-button{
+
+  width: 90px;
+  font-size: 19px;
+    height: 0px;
+    padding: 4px 0px 27px 0px;
+  border-radius: 3px;
+  
+  }
+  .header-text2 input{
+    width: 45%;
+    height: 30px;
+    background-color: white;
+    border-radius: 5px  ;
+    border-color: #191942;
+  }
+}
+@media (max-width:480px) {
+  .header-text{
+    background-color: #191942;
+    position: fixed;
+  display: flex;
+  width: 100%;
+  gap: 10%;
+  padding: 15px  0px 10px 0px;
+  justify-content: space-around;
+  border-bottom: 1px solid #FEE60C;
+  }
+  .header-text1{
+    display: flex;
+    gap: 10px;
+    font-size: 10px;
+}
+.header-text2{
+  display: flex;
+  gap: 10px;
+}
+.header-button{
+  font-size: 14px;
+  width: 60px;
+    height: 0px;
+    padding: 4px 0px 20px 0px;
+  border-radius: 3px;
+  
+  }
+  .header-text2 input{
+    width: 52%;
+    height: 25px;
+    background-color: white;
+    border-radius: 5px  ;
+    border-color: #191942;
+  }
+
+
+
+.watch-user-logo{
+  display: flex;
+  font-size: 20px;
+}
+.header-text2{
+  display: flex;
+  gap: 5px;
+}
+.header-search{
+  font-size: 20px;
+}
+.header-text b{
+  font-size: 19px;
+}
+}
+@media (max-width:420px) {
+  
 }

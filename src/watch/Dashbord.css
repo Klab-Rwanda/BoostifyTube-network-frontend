@@ -1,18 +1,38 @@
 
 .dashboard{
-    display: grid;
-   
+  display: grid;
+ 
+
   
-    
-  }
-  .sidebar-outlet{
-    display: flex;
-    background-color: #191942;
-    
-  }
+}
+.sidebar-outlet{
+  display: flex;
+  background-color: #191942;
+  
+}
+.outlet{
+  background-color: #191942;
+margin-left: 12%;
+margin-top: 10px;
+  min-height: 100vh;
+ 
+}
+@media (max-width:768px) {
   .outlet{
     background-color: #191942;
-  margin-left: 10%;
+  margin-left: 7%;
+  margin-top: 10px;
     min-height: 100vh;
    
   }
+  @media (max-width:420px) {
+    .outlet{
+      background-color: #191942;
+    margin-left: 8%;
+    margin-top: 10px;
+      min-height: 100vh;
+     
+    }
+  
+}
+}

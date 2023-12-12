@@ -40,13 +40,13 @@ const Login = () => {
 alert('login sucessfully')
 localStorage.setItem("token",res.data.access_token)
 localStorage.setItem("loggedUser",JSON.stringify(res.data.user) )
-// if(res.data.user.PaymentStatus ==' Credit Card'){
-//   navigate('/dashboard')
-// }
-// else{
-//   navigate('/')
-// }
-window.location.href='dashboard'
+if(res.data.user.role ==' admin'){
+  navigate('/superdashboard')
+}
+else{
+  navigate('/dashboard')
+}
+
 
 
  console.log(res.data);
@@ -89,8 +89,8 @@ alert(error.response.data.message)
         </form>
         <p className="login-signup">
           New to the site?
-          <Link className="login-link" to="signup">
-            {" "}
+          <Link className="login-link" to="login">
+           
             signup
           </Link>
         </p>

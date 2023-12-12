@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Signupform.css";
 import axios from "axios";
-// import img from "../images/welcome.png";
+import img from "../images/welcome.png";
 
 function Signupform() {
 
@@ -32,8 +32,8 @@ function Signupform() {
     e.preventDefault();
     try{ console.log(formData)
       await axios.post ('https://boostifytube-network-api.onrender.com/api/v1/user/signup',formData);
-      alert('sign in sucessfully')
-      window.location.href='/login'
+      alert('account created sucessfully')
+      window.location.href='login'
     } 
 
 
@@ -217,11 +217,11 @@ function Signupform() {
 
   return (
     <div className="signup">
-      <div className="signup-acount">
+      {/* <div className="signup-acount">
         <div>
-          {/* <img src={img} className="signupimage" /> */}
+          <img src={img} className="signupimage" />
         </div>
-      </div>
+      </div> */}
 
       <div className="auth-acc">
         <h1 style={{ margin: "1rem" }}>Create account!</h1>
