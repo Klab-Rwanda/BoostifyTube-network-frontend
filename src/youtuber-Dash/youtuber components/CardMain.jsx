@@ -1,6 +1,6 @@
 import React from "react";
 import { BsFillHeartFill } from "react-icons/bs";
-// import"../youtStyles/MainContainer.css"
+import"../youtStyles/MainContainer.css"
 
 function CardMain({ imgSrc, title, hearts }) {
   return (
@@ -20,13 +20,13 @@ function CardMain({ imgSrc, title, hearts }) {
         </div>
       </div>
 
-      <div className="stat" style={{ backgroundColor: "#8c8a95" }}>
+      <div className="stat" style={{ backgroundColor: "#fff" }}>
         <div>
           
         </div>
         <div>
           <p>
-            Ending In<span>1d:12h:10m</span>
+            Length<span>1d:12h:10m</span>
           </p>
         </div>
       </div>
