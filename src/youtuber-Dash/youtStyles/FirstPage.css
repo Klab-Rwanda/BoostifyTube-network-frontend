@@ -1,30 +1,21 @@
-:root {
-    --first-bg-color: #191943;
-    --skin-color: #fee60c;
-    --text-color: #8c8a95;
-    --sec-bg-color: #fff;
-}
 .initialDashPage
 {
-    position:absolute;
+    position: absolute;
         top: 90px;
         left: 220px;
         right: 0;
         bottom: 0;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
     gap:1rem;
     flex: 1;
     padding: 30px;
-    padding-left: 50px;
-    padding-right: 50px;
-    justify-content: start;
+    /* justify-content: space-between; */
     border: 1px solid red;
     /* width:100%; */
     /* height: 100%; */
-    background-color: var(--sec-bg-color);
+    background-color: black;
     width: 100;
-    
 
 
     
@@ -39,32 +30,33 @@
     gap: 2rem;
     padding: 20px;
     box-shadow: 1px 0px 1px 2px #ccc ;
-    background-color:var(--first-bg-color);
-    border-radius: 20px;
-    color: #fee60c;
-  }
-  .dash-card .num-icon
-  {
+}
+.dash-card .num-icon
+{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap:2rem;
-    color:var(--first-bg-color);
-  }
-
+    gap:2rem
+}
+.dash-card .num-icon i
+{
+    /* width: 10px; */
+    /* border: 1px solid red; */
+}
 .dash-highlight
 {
     position: relative;
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     /* border: 1px solid aqua; */
     gap: 5rem;
     height: fit-content;
+
     
 }
 
@@ -133,3 +125,6 @@ main {
    
 
 }
+
+}
+

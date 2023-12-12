@@ -1,16 +1,18 @@
 import React from 'react'
 import "../youtStyles/FirstPage.css"
 import { FaDelicious, FaShoppingCart, FaEye } from "react-icons/fa";
-function DashCards({num,icon,title}) {
+function DashCards() {
   return (
     <>
       <div className="dash-card">
         <div className="num-icon">
-          <h1 style={{ color: "#fee60c" }}>{num}</h1>
-          <i>{icon}</i>
+          <h1>70K</h1>
+          <i>
+            <FaEye />
+          </i>
         </div>
         <div className="dash-card-discription">
-          <h4>{title}</h4>
+          <h4>Viewer</h4>
         </div>
       </div>
     </>
