@@ -30,20 +30,21 @@ function Signupform() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{ console.log(formData)
-      await axios.post ('https://boostifytube-network-api.onrender.com/api/v1/user/signup',formData);
-      alert('sign in sucessfully')
-      window.location.href='/login'
-    } 
 
-
+    try {
+      console.log(formData);
+      await axios.post(
+        "https://boostifytube-network-api.onrender.com/api/v1/user/signup",
+        formData
+      );
+      alert("account created sucessfully");
+      window.location.href = "login";
+    } catch (error) {
+      console.log(error.response);
+      alert(error);
+    }
   
-    catch (error){
-      console.log(error.response)
-      alert(error)
-       }
-    
- 
+
 
   };
   const renderForm = () => {
@@ -232,6 +233,6 @@ function Signupform() {
       </div>
     </div>
   );
-}
+}}
 
 export default Signupform;

@@ -18,7 +18,7 @@ function SideBar() {
   return (
     <>
       {/* <div className="side"> */}
-      <div className="sideBar" id="">
+      <div className="youtuber-sideBar" id="">
         <div className="log">
           <h1>O</h1>
           <h1>

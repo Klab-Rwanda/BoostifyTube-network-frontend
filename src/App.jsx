@@ -17,6 +17,10 @@ import Transactions from "./Dashboards/Transactions";
 import Earnings from "./Dashboards/Earnings";
 import Profile from "./Dashboards/Profile";
 import Generalsetting from "./Dashboards/Settings";
+
+ import SingleVideo from "./landingpage/SingleVideo";
+
+
 import YoutDashLayout from "./youtuber-Dash/youtuber components/YoutDashLayout";
 import FirstPage from "./youtuber-Dash/youtuber components/FirstPage";
 import HistoryPage from "./youtuber-Dash/youtuber components/HistoryPage";
