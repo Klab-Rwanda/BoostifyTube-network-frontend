@@ -9,6 +9,7 @@ import ReactPaginate from "react-paginate";
 const VideoCard = () => {
 
   const {videos}= MyContext();
+  
   if (!videos || videos.length === 0) {
     return <div>Loading...</div>;
   }

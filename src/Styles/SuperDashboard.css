@@ -2,7 +2,7 @@
   color: red;
   display: flex;
   flex-direction: column;
-  height: 37rem;
+  height: 100vh;
   background-color: #191943;
   width: 100%;
 }
@@ -10,6 +10,7 @@
   height: 10%;
   display: flex;
   position: fixed;
+  z-index: 1000;
   width: 100%;
   background-color: #191943;
   align-items: center;
@@ -49,36 +50,34 @@
 }
 
 .sideNav {
-  height: fit-content;
+  height: 100%;
   width: 13%;
-  margin-top: 10%;
+  margin-top: 4.8%;
   align-items: top;
   position: fixed;
   display: flex;
   flex-direction: column;
   background-color: #191943;
   border-right: #203041 solid 2px;
-  border-radius: 1rem;
   padding-top: 0;
   justify-content: space-between;
   padding-left: 2rem;
 }
 
 .uplinks {
-  margin-top: -4rem;
-  /* background-color: red; */
+  margin-top: 0;
   height: 50%;
 }
 .downlinks {
-  /* background-color: #fee60c; */
-  height: 20%;
-  margin-top: 9rem;
+  height: 40%;
+  margin-top: -4rem;
 }
 
 .navLink {
   display: flex;
   margin-top: 2rem;
   text-decoration: none;
+  cursor: pointer;
 }
 .navLink1 {
   display: flex;
