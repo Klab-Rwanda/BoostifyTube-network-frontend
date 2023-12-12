@@ -27,7 +27,7 @@ const Singlevideo = () => {
          className='frame-view'>
 
         </iframe>
-        <p>{title}</p>
+        <p> {title}</p>
         <p >Views: {viewCount}</p>
         <p >Likes: {likeCount}</p>
         <p >Comments: {commentCount}</p>
@@ -35,25 +35,23 @@ const Singlevideo = () => {
       <div  >
       {videos.map((video, index) => (
         
-        <div key={index} className="video-item" style={{display:'flex',gap:10}} >
+        <div key={index} className="video-itemm"  >
           <div>
           <iframe
             title={video.snippet.title}
-            width="250"
-            height="150"
             src={`https://www.youtube.com/embed/${video.id}`}
             frameBorder="0"
             allowFullScreen
             style={{borderRadius:10}}
-          ></iframe>
+           className='iframe-single-video'></iframe>
           </div>
-          <div style={{display:'flex',flexDirection:'column',gap:10,fontSize:14}}>
-          <Link to={`/dashboard/video/${video.id}`}  style={{width:200,textDecoration:'none'}}>
+          <div className='single-video1'>
+          <Link to={`/dashboard/video/${video.id}`} className='sinle-link-video' >
           <p>{video.snippet.title}</p>
           </Link>
-          <p>Views: {video.statistics.viewCount}</p>
-          <p>Likes: {video.statistics.likeCount}</p>
-          <p>Comments: {video.statistics.commentCount}</p>
+          <p className="view-comment">Views: {video.statistics.viewCount}</p>
+          <p className="view-comment">Likes: {video.statistics.likeCount}</p>
+          <p className="view-comment">Comments: {video.statistics.commentCount}</p>
           </div>
         </div>
       ))}

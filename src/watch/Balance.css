@@ -26,6 +26,7 @@ margin-top: 10%;
     display: flex;
     gap: 1px;
 }
+
 .balance2{
     display: flex;
     gap: 60px;
@@ -94,4 +95,52 @@ grid-gap: 5px;
     padding: 9px;
     width: 220px;
     border-radius: 5px;
+}
+@media (max-width:420px) {
+
+
+
+    .balanc-button{
+        width: 220px;
+    }
+    .balenc-inputt{
+        width: 220px;
+    }
+
+    .balances{
+ display: flex;
+ flex-direction: column;  
+gap: 10%;
+width: 30%;
+margin-top: 10%;
+ margin-left: 0%; 
+ margin-right: 0%; 
+}
+
+.balanc{
+    margin-left: 0vh;
+    width: 33vh;
+     
+ }
+ .balance{
+    transform: translatex(0vh);
+    transform: translatey(-300px);
+     width:37vh;
+     display: grid;
+     grid-gap: 20px;
+      background-color: #191942;
+     padding: 50px;
+     box-shadow: 0px 0px 1px;
+     border-radius: 10px;
+ } 
+ .balence-input{
+    width: 250px;
+ }
+ .balance-button{
+    width: 250px;
+ }
+ .balance2{
+    display: flex;
+    gap: 15px;
+}
 }
