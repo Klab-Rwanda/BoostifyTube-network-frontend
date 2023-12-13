@@ -43,8 +43,7 @@ function Signupform() {
       console.log(error.response);
       alert(error);
     }
-  
-
+    
 
   };
   const renderForm = () => {
@@ -218,7 +217,6 @@ function Signupform() {
 
   return (
     <div className="signup">
-
       <div className="auth-acc">
         <h1 style={{ margin: "1rem" }}>Create account!</h1>
         <div className="form-switch-buttons">
@@ -233,6 +231,6 @@ function Signupform() {
       </div>
     </div>
   );
-}}
+}
 
 export default Signupform;

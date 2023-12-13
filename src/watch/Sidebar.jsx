@@ -7,7 +7,7 @@ import '../watch/Sidebar.css'
 import { Link } from "react-router-dom";
 function Sidebar(){
     return(
-        <div className=" sidebr">
+        <div className=" sidebre">
             <div className="sidebar1">
                 <Link to='home' className="sidebar-text">
             <AiOutlineHome className="sidebar-icon"/>

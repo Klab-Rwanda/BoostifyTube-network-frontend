@@ -1,15 +1,16 @@
 .light-mode {
   background-color: #191942;
   color: #333;
+  
 }
 
-/* Dark mode styles */
+
 .dark-mode {
   background-color: red;
   color: #191942;
 }
 
-/* Other styles for the toggle switch */
+
 .toggle-container {
   position: fixed;
   top: 20px;

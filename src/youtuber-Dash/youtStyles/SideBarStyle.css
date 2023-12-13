@@ -132,7 +132,7 @@ width: 3em;
     margin-top: auto;
 }
 @media only screen and (max-width: 525px) {
-    .sideBar {
+    .sideBarr {
         min-width: 68px;
     }
 }

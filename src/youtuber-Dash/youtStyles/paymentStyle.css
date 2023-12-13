@@ -15,7 +15,7 @@
 
 
 
-<
+
 }
 /* PaymentForm.css */
 
@@ -92,9 +92,9 @@ input {
     padding: 8px;
     margin-bottom: 16px;
     box-sizing: border-box;
-}
+} */
 
-button {
+.payment-buttonn{
     background-color: var(--skin-color);
     color: var(--first-bg-color);
     padding: 10px;
@@ -110,9 +110,9 @@ button {
     
 }
 
-button:hover {
+.payment-buttonn:hover {
     background-color: var(--first-bg-color);
     color: var(--sec-bg-color);
-} */
+} 
 
 
