@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { IoMdNotifications } from "react-icons/io";
 import { HiOutlineMail } from "react-icons/hi";
-import profile from "../../public/images/profile.png";
 import { IoMdHome } from "react-icons/io";
+import profile from "../../public/images/avatarr.png"
 import { FaUsers } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io5";
 import { GrTransaction } from "react-icons/gr";
