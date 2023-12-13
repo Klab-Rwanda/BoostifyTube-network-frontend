@@ -17,10 +17,6 @@ import Transactions from "./Dashboards/Transactions";
 import Earnings from "./Dashboards/Earnings";
 import Profile from "./Dashboards/Profile";
 import Generalsetting from "./Dashboards/Settings";
-
- import SingleVideo from "./landingpage/SingleVideo";
-
-
 import YoutDashLayout from "./youtuber-Dash/youtuber components/YoutDashLayout";
 import FirstPage from "./youtuber-Dash/youtuber components/FirstPage";
 import HistoryPage from "./youtuber-Dash/youtuber components/HistoryPage";
@@ -30,7 +26,7 @@ import YoutuberTransactions from "./Dashboards/YoutuberTransactions";
 import ViewerTransactions from "./Dashboards/ViewerTransactions";
 
 import { AppContext } from "./context/Context";
-import Darkmode from "./landingpage/Darkmode";
+
 function App() {
   return (
     <AppContext>
@@ -52,7 +48,7 @@ function App() {
 
             <Route path="video/:videoId" element={<Singlevideo />} />
           </Route>
-          <Route path="darkmode" element={<Darkmode />} />
+         
 
           <Route path="/superdashboard" element={<DashLayout />}>
             <Route index element={<DashHome />} />

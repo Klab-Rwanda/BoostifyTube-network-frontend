@@ -11,23 +11,6 @@ const Login = () => {
     Password: '', 
     
   });
-
-  // const handleEmailChange = (e) => {
-  //   setEmail(e.target.value);
-  // };
-
-  // const handlePasswordChange = (e) => {
-  //   setPassword(e.target.value);
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // Add your login logic here
-  //   console.log("Email:", email, "Password:", password);
-  // };
-
-
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value, });
@@ -41,12 +24,16 @@ alert('login sucessfully')
 localStorage.setItem("token",res.data.access_token)
 localStorage.setItem("loggedUser",JSON.stringify(res.data.user) )
 
-if(res.data.user.role ==' Credit Card'){
+if(res.data.role ==='admin'){
+  navigate('/superdashboard')
+}
+else if(res.data.role ==='client'){
   navigate('/dashboard')
 }
 else{
-  navigate('/')
+  navigate('/youtuberDash')
 }
+
 
  console.log(res.data);
     } 
@@ -71,27 +58,26 @@ alert(error.response.data.message)
             <label>Email:</label>
              <input type="Email"  name="Email" required 
            value={formData.Email}
-          onChange={handleChange}/>
+          onChange={handleChange} className="login-input"/>
             <label>Password:</label>
             <input type="Password"  name="Password" required 
            value={formData.Password}
-           onChange={handleChange} />
+           onChange={handleChange}  className="login-input"/>
           </div>
 
           <button
             type="submit"
             className="login-button"
-            onClick={<SuperAdmin />}
           >
             Login
           </button>
         </form>
         <p className="login-signup">
           New to the site?
-          <Link className="login-link" to="login">
+          <a href="signup" className="login-link" >
            
             signup
-          </Link>
+          </a>
         </p>
       </div>
     </div>

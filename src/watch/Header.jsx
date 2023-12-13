@@ -31,7 +31,7 @@ import Esearch from "./Esearch";
 
 
     return(
-        <div className=" header-text"> 
+        <div className=" header-textt"> 
        {modal && <Esearch openModal={openModal} />}
             <FaBars onClick={openModal} className="header-search"/>
             <div className=" header-text1">

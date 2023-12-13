@@ -1,4 +1,4 @@
-.header-text{
+.header-textt{
   background-color: #191942;
   position: fixed;
 display: flex;
@@ -36,13 +36,17 @@ border-bottom: 1px solid #FEE60C;
   border-radius: 5px  ;
   border-color: #191942;
 }
-.header-button{
+.header-button {
 
 width: 100px;
   height: 32px;
 border-radius: 5px;
 color:#191942 ;
 background-color: #FEE60C;
+}
+.header-button:hover{
+  background-color: white;
+  color: black;
 }
 .dash-heard{
   font-size: 20px;

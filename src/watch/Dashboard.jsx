@@ -6,14 +6,17 @@ import '../watch/Dashbord.css'
 function Dashboard() {
 
   return (
-    <div className=' dashboardviewer'>
+    
+
+    <div className=' dashboardss'>
+
       
-         <div className=' sidebar'> 
+         <div> 
       <Header/>  
       </div>  
-      <div className='sidebar-outlet'>
+      <div className='sidebar-outlettt'>
        <Sidebar />  
-      <div className='outlet'>
+      <div className='outlettt'>
       <Outlet /> 
       </div>
       </div>

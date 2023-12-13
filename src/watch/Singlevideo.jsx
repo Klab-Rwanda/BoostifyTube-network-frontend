@@ -19,7 +19,7 @@ const Singlevideo = () => {
 
   return (
     <div className="view-video">
-      <div className="video-item">
+      <div className="video-itemb">
         <iframe
           src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`}
           allowFullScreen
@@ -45,13 +45,13 @@ const Singlevideo = () => {
             style={{borderRadius:10}}
            className='iframe-single-video'></iframe>
           </div>
-          <div className='single-video1'>
+          <div className='single-videos1'>
           <Link to={`/dashboard/video/${video.id}`} className='sinle-link-video' >
           <p>{video.snippet.title}</p>
           </Link>
-          <p className="view-comment">Views: {video.statistics.viewCount}</p>
-          <p className="view-comment">Likes: {video.statistics.likeCount}</p>
-          <p className="view-comment">Comments: {video.statistics.commentCount}</p>
+          <p className="view-comments">Views: {video.statistics.viewCount}</p>
+          <p className="view-comments">Likes: {video.statistics.likeCount}</p>
+          <p className="view-comments">Comments: {video.statistics.commentCount}</p>
           </div>
         </div>
       ))}
