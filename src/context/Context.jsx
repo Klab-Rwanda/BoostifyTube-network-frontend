@@ -1,4 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
 const stateContext = createContext();
 
 export const AppContext = ({ children }) => {
@@ -26,8 +29,7 @@ export const AppContext = ({ children }) => {
 
         const videoIdsParam = videoIds.join(",");
         const response = await fetch(
-          `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoIdsParam}&key=AIzaSyDBwaf4NcPBZ5lpW1Qr9kTg84Dqa9Dsazc
-      `
+          `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoIdsParam}&key=AIzaSyDBwaf4NcPBZ5lpW1Qr9kTg84Dqa9Dsazc`
         );
 
         if (!response.ok) {
@@ -49,8 +51,44 @@ export const AppContext = ({ children }) => {
     fetchData();
   }, []);
 
+  let token = localStorage.getItem("token");
+
+  const { data: fetchUsersData } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => {
+      const res = await axios.get(
+        "https://boostifytube-network-api.onrender.com/api/v1/user/getall",
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      // console.log("response", res.data);
+      return res.data;
+    },
+    onError: (data) => {
+      console.log("onError", data.error);
+    },
+  });
+
+   const { data: loggedUser } = useQuery({
+     queryKey: ["logged_users"],
+     queryFn: async () => {
+       const res = await axios.get(
+         url + `auth/users/getOne?fieldName=email&value=${userData.email}`,
+         {
+           headers: {
+             Authorization: "Bearer " + token,
+           },
+         }
+       );
+       return res.data;
+     },
+   });
+
   return (
-    <stateContext.Provider value={{ videos, setVideos }}>
+    <stateContext.Provider value={{ videos, setVideos, fetchUsersData }}>
       {children}
     </stateContext.Provider>
   );

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Signupform.css";
 import axios from "axios";
-// import img from "../images/welcome.png";
 
 function Signupform() {
 
@@ -16,6 +15,7 @@ function Signupform() {
     ChannelName:'',
     linkofTheChannel:'',
     PaymentStatus:'',
+    
   });
 
   const [activeForm, setActiveForm] = useState("Youtuber");
@@ -24,10 +24,14 @@ function Signupform() {
   };
 
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+const handleChange = (e) => {
+  const { name, value } = e.target;
+  let updatedFormData = { ...formData };
+  updatedFormData[name] = value;
+  updatedFormData.role = activeForm === "Youtuber" ? "Youtuber" : "Viewer";
+  setFormData(updatedFormData);
+};
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -46,6 +50,8 @@ function Signupform() {
     
 
   };
+
+  console.log(formData);
   const renderForm = () => {
     if (activeForm === "Youtuber") {
       return (

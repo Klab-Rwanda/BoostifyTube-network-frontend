@@ -1,12 +1,16 @@
 .transactions-container {
-  margin: 10px 20px;
-  /* padding: 20px; */
-  /* border: 1px solid #ccc; */
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+
   border-radius: 5px;
   background-color: #191943;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
+/* 
 .filters {
   margin-bottom: 20px;
 }
@@ -39,5 +43,4 @@ input[type="date"] {
   border-radius: 4px;
   margin-right: 10px;
 }
-
-/* Add more styles as needed */
+ */

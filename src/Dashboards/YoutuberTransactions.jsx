@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../Styles/YoutuberTransactions.css";
 
 const YoutuberTransactions = () => {
-  // Placeholder data
+  
   const transactionsData = [
     // ... (Youtuber transactions data)
   ];

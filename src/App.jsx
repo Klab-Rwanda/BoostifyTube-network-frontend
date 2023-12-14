@@ -24,57 +24,64 @@ import UploadVideo from "./youtuber-Dash/youtuber components/UploadVideo";
 import Payment from "./youtuber-Dash/youtuber components/Payment";
 import YoutuberTransactions from "./Dashboards/YoutuberTransactions";
 import ViewerTransactions from "./Dashboards/ViewerTransactions";
-
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AppContext } from "./context/Context";
+import Cashin from "./Dashboards/CashIn";
+import Cashout from "./Dashboards/CashOut";
+
+const client = new QueryClient();
 
 function App() {
   return (
-    <AppContext>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Landingpage />}>
-            <Route index element={<Home />} />
-            <Route path="contactus" element={<Contacts />} />
-            <Route path="login" element={<Login />} />
-            <Route path="signup" element={<Signupform />} />
-          </Route>
-
-          <Route path="/dashboard" element={<Dashboard />}>
-            <Route index element={<Home />} />
-            <Route index path="home" element={<Home />} />
-            <Route path="video" element={<Video />} />
-            <Route path="balance" element={<Balance />} />
-            <Route path="setting" element={<Settings />} />
-
-            <Route path="video/:videoId" element={<Singlevideo />} />
-          </Route>
-         
-
-          <Route path="/superdashboard" element={<DashLayout />}>
-            <Route index element={<DashHome />} />
-            <Route path="users" element={<Users />} />
-            <Route path="videos" element={<Videos />} />
-
-            <Route path="transactions">
-              {/* <Route index element={<YoutuberTransactions />} /> */}
-              <Route path="youtuber" element={<YoutuberTransactions />} />
-              <Route path="viewer" element={<ViewerTransactions />} />
+    <QueryClientProvider client={client}>
+      <AppContext>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Landingpage />}>
+              <Route index element={<Home />} />
+              <Route path="contactus" element={<Contacts />} />
+              <Route path="login" element={<Login />} />
+              <Route path="signup" element={<Signupform />} />
             </Route>
 
-            <Route path="earnings" element={<Earnings />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="generalsetting" element={<Generalsetting />} />
-          </Route>
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route index element={<Home />} />
+              <Route index path="home" element={<Home />} />
+              <Route path="video" element={<Video />} />
+              <Route path="balance" element={<Balance />} />
+              <Route path="setting" element={<Settings />} />
 
-          <Route path="/youtuberDash" element={<YoutDashLayout />}>
-            <Route index element={<FirstPage />} />
-            <Route path="upload" element={<UploadVideo />} />
-            <Route path="payment" element={<Payment />} />
-            <Route path="history" element={<HistoryPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </AppContext>
+              <Route path="video/:videoId" element={<Singlevideo />} />
+            </Route>
+
+            <Route path="/superdashboard" element={<DashLayout />}>
+              <Route index element={<DashHome />} />
+              <Route path="users" element={<Users />} />
+              <Route path="videos" element={<Videos />} />
+
+              <Route path="transactions">
+                <Route path="youtuber" element={<YoutuberTransactions />} />
+                <Route path="viewer" element={<ViewerTransactions />} />
+              </Route>
+
+              <Route path="earnings">
+                <Route path="cashin" element={<Cashin />} />
+                <Route path="cashout" element={<Cashout />} />
+              </Route>
+              <Route path="profile" element={<Profile />} />
+              <Route path="generalsetting" element={<Generalsetting />} />
+            </Route>
+
+            <Route path="/youtuberDash" element={<YoutDashLayout />}>
+              <Route index element={<FirstPage />} />
+              <Route path="upload" element={<UploadVideo />} />
+              <Route path="payment" element={<Payment />} />
+              <Route path="history" element={<HistoryPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </AppContext>
+    </QueryClientProvider>
   );
 }
 
