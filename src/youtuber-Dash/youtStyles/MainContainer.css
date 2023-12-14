@@ -1,0 +1,10 @@
+:root {
+    --first-bg-color: #191943;
+    --skin-color: #fee60c;
+    --text-color: #8c8a95;
+    --sec-bg-color: #fff;
+}
+.card_main
+{
+    background-color: #ccc;
+}

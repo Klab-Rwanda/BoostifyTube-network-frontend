@@ -233,6 +233,6 @@ function Signupform() {
       </div>
     </div>
   );
-}}
+}
 
 export default Signupform;

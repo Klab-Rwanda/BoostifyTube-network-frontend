@@ -1,3 +1,9 @@
+:root {
+    --first-bg-color: #191943;
+    --skin-color: #fee60c;
+    --text-color: #ccc;
+    --sec-bg-color: #fff;
+}
 .uploadVideo-section {
     position: absolute;
     top: 90px;
@@ -9,10 +15,86 @@
     gap: 1rem;
     flex: 1;
     border: 1px solid red;
-    background-color: black;
+    background-color: var(--sec-bg-color);
     width: 100;
 
 
 
 
+}
+/* Add this CSS in your component's style file or in your global styles */
+
+.uploadVideo-form {
+    width: 700px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.uploadDital
+{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+gap: 2rem;
+}
+
+.uploadDital label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--first-bg-color);
+}
+
+.uploadDital input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+/* button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}  */
+.checkbox
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.checkbox label
+{
+display: flex;
+flex-direction: row;
+/* border: 1px solid red; */
+justify-content: space-between;
+align-items: center;
+color: var(--first-bg-color);
+gap: 1rem;
+
+
+}
+
+.checkbox label span
+{
+    display: flex;
+    flex-direction: row;
+    
+        gap: 0.5rem;
+       
+        
+
+}
+.checkbox label span p
+{
+    color: var(--first-bg-color);
 }

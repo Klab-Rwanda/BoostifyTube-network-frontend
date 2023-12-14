@@ -19,7 +19,7 @@
     background-color: var(--first-bg-color);
     height: 100%;
     box-shadow: 0px 0px 40px rgba(98, 95, 95, 0.4);
-    /* border: 10px solid greenyellow; */
+   
    
 }
 .youtuber-sideBar
@@ -39,7 +39,8 @@ display: flex;
 
 top:-16px;
 width: 220px;
-
+border-right: 0.00001px solid var(--skin-color);
+z-index: 1;
     
 }
 .youtuber-sideBar .log 

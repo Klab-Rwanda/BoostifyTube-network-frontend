@@ -1,3 +1,9 @@
+:root {
+    --first-bg-color: #191943;
+    --skin-color: #fee60c;
+    --text-color: #ccc;
+    --sec-bg-color:#fff;
+}
 .payment-section {
     position: absolute;
     top: 90px;
@@ -6,16 +12,17 @@
     bottom: 0;
     display: flex;
     flex-direction: row;
-    gap: 1rem;
-    flex: 1;
+    justify-content: center;
+    align-items: center;
+    
+   
     border: 1px solid red;
-    background-color: black;
-    width: 100;
+    background-color: var(--sec-bg-color);
+   
 
 
 
 
-<
 }
 /* PaymentForm.css */
 
@@ -81,13 +88,13 @@ text-decoration:underline var(--skin-color);
 margin-bottom: 1rem;
 }
 
-/* label {
+.card-input label {
     display: block;
     margin-bottom: 8px;
     color: var(--first-bg-color);
 }
 
-input {
+.card-input input {
     width: 100%;
     padding: 8px;
     margin-bottom: 16px;
@@ -113,6 +120,4 @@ button {
 button:hover {
     background-color: var(--first-bg-color);
     color: var(--sec-bg-color);
-} */
-
-
+}
