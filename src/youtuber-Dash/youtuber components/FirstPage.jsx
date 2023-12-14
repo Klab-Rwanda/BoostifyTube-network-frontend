@@ -14,8 +14,6 @@ import {MdOutlineThumbUpAlt } from "react-icons/md"
 import {FiMessageCircle } from "react-icons/fi"
 
 import { Bar } from "react-chartjs-2";
-=======
-
 import CardMain from './CardMain';
 
 // const chartData = {
