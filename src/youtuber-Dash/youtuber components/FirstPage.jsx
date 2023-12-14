@@ -12,7 +12,10 @@ import DashCards from './DashCards'
 import { FaDelicious, FaShoppingCart, FaEye ,FaBell} from "react-icons/fa";
 import {MdOutlineThumbUpAlt } from "react-icons/md"
 import {FiMessageCircle } from "react-icons/fi"
+
 import { Bar } from "react-chartjs-2";
+=======
+
 import CardMain from './CardMain';
 
 // const chartData = {
@@ -48,7 +51,11 @@ function FirstPage() {
         <p>Explore your channel's performance and engage with your audience.</p>
       </div>
       <div className="dash-highlight">
+
         <DashCards num={"70K"} icon={<FaEye />} title={"Viewer"} style="backgroundColor:black"/>
+
+        <DashCards num={"70K"} icon={<FaEye />} title={"Viewer"} />
+
         <DashCards num={"70K"} icon={<FaBell />} title={"Sub"} />
         <DashCards num={"70K"} icon={<MdOutlineThumbUpAlt />} title={"Likes"} />
         <DashCards num={"70K"} icon={<FiMessageCircle />} title={"Comment"} />

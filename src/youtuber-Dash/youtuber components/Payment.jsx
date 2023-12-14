@@ -2,8 +2,10 @@ import { BsCreditCard } from "react-icons/bs";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 import {CiMoneyBill} from "react-icons/ci"
 import "../youtStyles/paymentStyle.css"
+
 import creditCard from "../img/creditCard.jpg"
 import visaCard from "../img/visaCard.jpeg";
+
 // PaymentForm.js
 
 import React, { useState } from 'react';
@@ -135,8 +137,10 @@ const Payment = () => {
             </div>
           </div>
           <div className="form-button">
+
             <button type="submit">Submit Payment</button>
             <button type="submit">Clear</button>
+
           </div>
         </form>
       </div>

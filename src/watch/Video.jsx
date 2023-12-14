@@ -28,11 +28,11 @@ const VideoCard = () => {
 
   return (
     <div>
-    <div className="videeo">
+    <div className="videeos">
       
       {displayvideo.map((video, index) => (
         
-        <div key={index} className="video-item">
+        <div key={index} className="video-it">
           <iframe
             title={video.snippet.title}
             src={`https://www.youtube.com/embed/${video.id}`}
@@ -41,9 +41,9 @@ const VideoCard = () => {
           <Link to={`/dashboard/video/${video.id}`} className="view-title">
           <p >{video.snippet.title}</p>
           </Link>
-          <p className="view-comment">Views: {video.statistics.viewCount}</p>
-          <p className="view-comment">Likes: {video.statistics.likeCount}</p>
-          <p className="view-comment">Comments: {video.statistics.commentCount}</p>
+          <p className="view-comments">Views: {video.statistics.viewCount}</p>
+          <p className="view-comments">Likes: {video.statistics.likeCount}</p>
+          <p className="view-comments">Comments: {video.statistics.commentCount}</p>
         </div>
       ))}
     </div>

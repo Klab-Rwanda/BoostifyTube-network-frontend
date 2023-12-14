@@ -1,24 +1,23 @@
 
-.dashboardviewer{
+.dashboardss{
   display: grid;
  
-
   
 }
-.sidebar-outlet{
+.sidebar-outlettt{
   display: flex;
   background-color: #191942;
   
 }
-.outlet{
+.outlettt{
   background-color: #191942;
 margin-left: 12%;
 margin-top: 10px;
-  min-height: 100vh;
+  min-height: 98.3vh;
  
 }
 @media (max-width:768px) {
-  .outlet{
+  .outlettt{
     background-color: #191942;
   margin-left: 7%;
   margin-top: 10px;
@@ -26,7 +25,7 @@ margin-top: 10px;
    
   }
   @media (max-width:420px) {
-    .outlet{
+    .outlettt{
       background-color: #191942;
     margin-left: 8%;
     margin-top: 10px;

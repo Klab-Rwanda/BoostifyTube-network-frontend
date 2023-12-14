@@ -70,11 +70,13 @@ const onSubmit = async (data) => {
 
   return (
     <div className="uploadVideo-section">
+
       <form
         className="uploadVideo-form"
         onSubmit={handleSubmit(onSubmit)}
         noValidate
       >
+
         <h3
           style={{
             color: "#191943",
@@ -92,6 +94,7 @@ const onSubmit = async (data) => {
               Video Title:
               <input
                 type="text"
+
                 name="title"
                 {...register("title", {
                   required: {
@@ -101,11 +104,13 @@ const onSubmit = async (data) => {
                 })}
               />
               <p style={{ color: "red" }}>{errors.title?.message}</p>
+
             </label>
 
             <label>
               Video Description:
               <textarea
+
                 {...register("description", {
                   required: {
                     value: true,
@@ -114,12 +119,14 @@ const onSubmit = async (data) => {
                 })}
               />
               <p style={{ color: "red" }}>{errors.description?.message}</p>
+
             </label>
 
             <label>
               Upload Video Link:
               <input
                 type="text"
+
                 {...register("linkOfVideo", {
                   pattern: {
                     value: /^(ftp|http|https):\/\/[^ "]+$/,
@@ -128,6 +135,7 @@ const onSubmit = async (data) => {
                 })}
               />
               <p style={{ color: "red" }}>{errors.linkOfVideo?.message}</p>
+
             </label>
           </div>
           <div className="upload-Left">
@@ -135,6 +143,7 @@ const onSubmit = async (data) => {
               Video Length:
               <input
                 type="text"
+
                 {...register("lengthOfVideo", {
                   required: {
                     value: true,
@@ -163,6 +172,7 @@ const onSubmit = async (data) => {
                 </span>
                 <span>
                   <input type="checkBox" {...register("views")} /> <p>Watch </p>
+
                 </span>
               </label>
             </div>
@@ -170,11 +180,13 @@ const onSubmit = async (data) => {
         </div>
 
         <div className="form-button">
+
           <button type="submit">Upload Video</button>
           <button type="reset">Clear</button>
         </div>
       </form>
       <DevTool control={control} />
+
     </div>
   );
 }

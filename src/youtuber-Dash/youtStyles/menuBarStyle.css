@@ -78,7 +78,7 @@
     background: var(--skin-color);
     border-radius: 50%;
 }
-/* .profileContainer .profileImage::before{
+.profileContainer .profileImage::before{
     position: absolute;
     content: "";
     background: var(--skin-color);
@@ -88,7 +88,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-} */
+}
 
 .profileContainer .profileImage {
     width: 40px;
@@ -171,7 +171,7 @@
 }
 
 @media screen and (max-width: 525px) {
-    .container {
+    .containern {
         width: calc(100% - 68px);
     }
 
