@@ -17,27 +17,24 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // console.log(formData);
-
       const res = await axios.post(
         "https://boostifytube-network-api.onrender.com/api/v1/auth/login",
         formData
       );
+
       alert("login sucessfully");
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userdata", JSON.stringify(res.data));
 
-      if (res.data.role === "admin") {
-        navigate("/superdashboard");
-      } else if (res.data.role === "viewer") {
-        navigate("/dashboard");
-      } else if (res.data.role === "youtuber") {
-        navigate("/youtuberDash");
-      } else {
-        navigate("/");
-      }
+      console.log("login success", res.data.userInfo);
 
-      console.log(res.data);
+      if (res.data.userInfo.role == "admin") {
+        navigate("/superdashboard");
+      } else if (res.data.userInfo.role == "Viewer") {
+        navigate("/dashboard");
+      } else {
+        navigate("/youtuberDash");
+      }
     } catch (error) {
       console.log(error.response);
       alert(error.response.data.message);
