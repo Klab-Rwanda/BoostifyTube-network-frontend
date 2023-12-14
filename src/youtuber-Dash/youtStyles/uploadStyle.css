@@ -1,3 +1,9 @@
+:root {
+    --first-bg-color: #191943;
+    --skin-color: #fee60c;
+    --text-color: #ccc;
+    --sec-bg-color: #fff;
+}
 .uploadVideo-section {
     position: absolute;
     top: 90px;
@@ -9,7 +15,7 @@
     gap: 1rem;
     flex: 1;
     border: 1px solid red;
-    background-color: black;
+    background-color: var(--sec-bg-color);
     width: 100;
 
 
@@ -35,6 +41,24 @@ gap: 2rem;
 }
 
 
+.uploadDital label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--first-bg-color);
+}
+
+.uploadDital input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+/* button {
+    background-color: #007bff;
+    color: #fff;
+
+
 
 .youtuberinput{
     width: 100%;
@@ -54,16 +78,25 @@ gap: 2rem;
  .youtuber-button {
     background-color: var(--skin-color);
     color: var(--first-bg-color);
+
     padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+
+}
+
+button:hover {
+    background-color: #0056b3;
+}  */
+
     width: 50%;
 }
 
 .youtuber-button:hover {
     background-color: #0056b3;
 } 
+
 .checkbox
 {
     display: flex;
@@ -80,6 +113,7 @@ align-items: center;
 color: var(--first-bg-color);
 gap: 1rem;
 
+
 }
 
 .checkbox label span
@@ -88,6 +122,13 @@ gap: 1rem;
     flex-direction: row;
     
         gap: 0.5rem;
+
+       
         
+
+}
+.checkbox label span p
+{
+    color: var(--first-bg-color);
 
 }

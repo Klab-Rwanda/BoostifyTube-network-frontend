@@ -1,6 +1,9 @@
 import React from "react";
 import { BsFillHeartFill } from "react-icons/bs";
 
+import"../youtStyles/MainContainer.css"
+
+
 function CardMain({ imgSrc, title, hearts }) {
   return (
     <div className="card_main">
