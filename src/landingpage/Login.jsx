@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import imag from "../images/login-picture.png";
-import SuperAdmin from "../Dashboards/DashLayout";
 import axios from "axios";
 
 const Login = () => {
@@ -18,7 +17,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(formData);
+      // console.log(formData);
 
       const res = await axios.post(
         "https://boostifytube-network-api.onrender.com/api/v1/auth/login",
@@ -26,7 +25,7 @@ const Login = () => {
       );
       alert("login sucessfully");
       localStorage.setItem("token", res.data.token);
-      localStorage.setItem("loggedUser", JSON.stringify(res.data.role));
+      localStorage.setItem("userdata", JSON.stringify(res.data));
 
       if (res.data.role === "admin") {
         navigate("/superdashboard");

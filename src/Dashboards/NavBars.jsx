@@ -5,7 +5,7 @@ import { IoMenu } from "react-icons/io5";
 import { IoMdNotifications } from "react-icons/io";
 import { HiOutlineMail } from "react-icons/hi";
 import { IoMdHome } from "react-icons/io";
-import profile from "../../public/images/avatarr.png"
+import profile from "../../public/images/avatarr.png";
 import { FaUsers } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io5";
 import { GrTransaction } from "react-icons/gr";
@@ -14,10 +14,18 @@ import { IoMdSettings } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 
 const NavBars = () => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isTransactionDropdownOpen, setTransactionDropdownOpen] =
+    useState(false);
+  const [isEarningsDropdownOpen, setEarningsDropdownOpen] = useState(false);
 
-  const handleDropdownToggle = () => {
-    setDropdownOpen(!isDropdownOpen);
+  const handleTransactionDropdownToggle = () => {
+    setTransactionDropdownOpen(!isTransactionDropdownOpen);
+    setEarningsDropdownOpen(false);
+  };
+
+  const handleEarningsDropdownToggle = () => {
+    setEarningsDropdownOpen(!isEarningsDropdownOpen);
+    setTransactionDropdownOpen(false);
   };
 
   const upLinks = [
@@ -44,8 +52,9 @@ const NavBars = () => {
     },
     {
       icon: <FaMoneyCheckDollar />,
-      path: "earnings",
+      path: "/earnings",
       name: "Earnings",
+      isDropdown: true,
     },
   ];
 
@@ -57,6 +66,17 @@ const NavBars = () => {
     {
       pathh: "transactions/viewer",
       name: "Viewer",
+    },
+  ];
+
+  const dropdownEarningsCategories = [
+    {
+      path1: "earnings/cashin",
+      name1: "Cash In",
+    },
+    {
+      path1: "earnings/cashout",
+      name1: "Cash Out",
     },
   ];
 
@@ -102,10 +122,19 @@ const NavBars = () => {
           {upLinks.map((link, index) => (
             <React.Fragment key={index}>
               {link.isDropdown ? (
-                <div className="navLink" onClick={handleDropdownToggle}>
+                <div
+                  className="navLink"
+                  onClick={
+                    link.path === "/transactions"
+                      ? handleTransactionDropdownToggle
+                      : handleEarningsDropdownToggle
+                  }
+                >
                   {link.icon}
                   <p className="linkName">{link.name}</p>
-                  {isDropdownOpen && (
+                  {(link.path === "/transactions" &&
+                    isTransactionDropdownOpen) ||
+                  (link.path === "/earnings" && isEarningsDropdownOpen) ? (
                     <div
                       className="dropdown"
                       style={{
@@ -117,17 +146,28 @@ const NavBars = () => {
                         textDecoration: "none",
                       }}
                     >
-                      {dropdownCategories.map((category, idx) => (
-                        <NavLink
-                          to={category.pathh}
-                          className="dropdownLink"
-                          key={idx}
-                        >
-                          {category.name}
-                        </NavLink>
-                      ))}
+                      {link.path === "/transactions" &&
+                        dropdownCategories.map((category, idx) => (
+                          <NavLink
+                            to={category.pathh}
+                            className="dropdownLink"
+                            key={idx}
+                          >
+                            {category.name}
+                          </NavLink>
+                        ))}
+                      {link.path === "/earnings" &&
+                        dropdownEarningsCategories.map((category1, indx) => (
+                          <NavLink
+                            to={category1.path1}
+                            className="dropdownLink"
+                            key={indx}
+                          >
+                            {category1.name1}
+                          </NavLink>
+                        ))}
                     </div>
-                  )}
+                  ) : null}
                 </div>
               ) : (
                 <NavLink to={link.path} className="navLink">
@@ -150,4 +190,5 @@ const NavBars = () => {
     </div>
   );
 };
+
 export default NavBars;

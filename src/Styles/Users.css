@@ -4,14 +4,15 @@
   background-color: #191943;
   margin-left: 0;
   padding-top: 0rem;
+  margin-top: 1rem;
   position: relative;
   color: red;
   justify-content: center;
   align-items: center;
   text-align: center;
   height: fit-content;
+  max-height: fit-content;
   width: 100%;
-  height: 32.2rem;
   box-shadow: 0 2px 4px rgba(0.8, 0, 0, 0.6);
 }
 .user-header {
@@ -37,8 +38,9 @@
 }
 table {
   border-collapse: collapse;
-  width: 90%;
+  width: 80%;
   border: 1px solid #908686;
+  height: fit-content;
 }
 
 th,
