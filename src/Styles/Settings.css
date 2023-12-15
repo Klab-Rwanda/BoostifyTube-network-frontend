@@ -172,7 +172,6 @@
 .logout {
   width: 100%;
   height: 25%;
-  /* background-color: rgb(255, 0, 81); */
 }
 
 .rightsetting {
@@ -194,12 +193,10 @@
 .paymentsetting {
   height: 30%;
   width: 100%;
-  /* background-color: rgb(141, 107, 204); */
 }
 .notifications {
   height: 30%;
   width: 100%;
-  /* background-color: rgb(10, 6, 18); */
 }
 /* profile stuffs */
 
