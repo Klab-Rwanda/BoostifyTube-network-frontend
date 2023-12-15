@@ -131,6 +131,7 @@ const Settings = () => {
               fontSize: "1.5rem",
               textAlign: "start",
               alignItems: "start",
+              fontWeight: "lighter"
             }}
           >
             2. Profile setting
