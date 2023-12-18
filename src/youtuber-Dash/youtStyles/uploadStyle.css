@@ -14,7 +14,7 @@
     flex-direction: row;
     gap: 1rem;
     flex: 1;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     background-color: var(--sec-bg-color);
     width: 100;
 
@@ -54,7 +54,7 @@ gap: 2rem;
     box-sizing: border-box;
 }
 
-/* button {
+button {
     background-color: #007bff;
     color: #fff;
 
@@ -88,7 +88,7 @@ gap: 2rem;
 
 button:hover {
     background-color: #0056b3;
-}  */
+} 
 
     width: 50%;
 }

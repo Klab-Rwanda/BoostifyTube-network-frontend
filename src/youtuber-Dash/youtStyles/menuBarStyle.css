@@ -38,7 +38,7 @@
     top: 0;
     left: 220px;
     right: 0;
-    background-color: #121026;
+    background-color: var(--first-bg-color);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -78,7 +78,7 @@
     background: var(--skin-color);
     border-radius: 50%;
 }
-.profileContainer .profileImage::before{
+/* .profileContainer .profileImage::before{
     position: absolute;
     content: "";
     background: var(--skin-color);
@@ -88,7 +88,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-}
+} */
 
 .profileContainer .profileImage {
     width: 40px;
@@ -175,8 +175,9 @@
         width: calc(100% - 68px);
     }
 
-    .topContainer .inputBox {
+    .topContainer .inputBox input {
         width: 120px;
+        height: 100px;
         z-index: 101;
     }
 

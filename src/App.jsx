@@ -19,7 +19,7 @@ import Profile from "./Dashboards/Profile";
 import Generalsetting from "./Dashboards/Settings";
 
 
- import SingleVideo from "./landingpage/SingleVideo";
+//  import SingleVideo from "./landingpage/SingleVideo";
 
 
 

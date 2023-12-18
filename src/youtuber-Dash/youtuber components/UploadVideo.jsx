@@ -4,6 +4,7 @@ import uploadBanner from "../img/uploadBanner.jpg"
 import {useForm} from "react-hook-form"
 import { DevTool } from "@hookform/devtools";
 import axios from "axios";
+
 // import DashCards from './DashCards'import axios from "axios";
 
 
@@ -15,39 +16,22 @@ const form = useForm();
 const { register, control ,handleSubmit,formState} = form;
 const {errors}= formState;
 const onSubmit = async (data) => {
-  console.log("form submmited", data);
+    const accessToken = localStorage.getItem("token");
+  console.log("form submmited", data);  
+  console.log("my token", accessToken);
 
-  //   try {
-  //     // Send a POST request to the server endpoint
-  //     const response = await axios.post(
-  //       "https://boostifytube-network-api.onrender.com/ /api/v1/video/upload",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(formData),
-  //       }
-  //     );
-
-  //     // Handle the response
-  //     if (response.ok) {
-  //       alert("Video uploaded successfully");
-  //       // Optionally reset the form or perform other actions
-  //     } else {
-  //       const errorData = await response.json();
-  //       alert(`Error: ${errorData.message}`);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //     alert("An error occurred while uploading the video");
-  //   }
-  // };
+  
   try {
     // Send a POST request to the server endpoint
     const response = await axios.post(
       "https://boostifytube-network-api.onrender.com/api/v1/video/upload",
-      data
+      data,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
     );
 
     // Handle the response
@@ -185,7 +169,7 @@ const onSubmit = async (data) => {
           <button type="reset">Clear</button>
         </div>
       </form>
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
 
     </div>
   );
@@ -276,5 +260,31 @@ export default UploadVideo
   //   } catch (error) {
   //     console.log(error);
   //     alert(error);
+  //   }
+  // };
+//   try {
+  //     // Send a POST request to the server endpoint
+  //     const response = await axios.post(
+  //       "https://boostifytube-network-api.onrender.com/ /api/v1/video/upload",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify(formData),
+  //       }
+  //     );
+
+  //     // Handle the response
+  //     if (response.ok) {
+  //       alert("Video uploaded successfully");
+  //       // Optionally reset the form or perform other actions
+  //     } else {
+  //       const errorData = await response.json();
+  //       alert(`Error: ${errorData.message}`);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //     alert("An error occurred while uploading the video");
   //   }
   // };

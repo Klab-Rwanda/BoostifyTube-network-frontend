@@ -5,6 +5,9 @@ import"../youtStyles/MainContainer.css"
 
 
 function CardMain({ imgSrc, title, hearts }) {
+  
+  // const { youtuberUploadVideo}= MyContext()
+  // console.log(youtuberUploadVideo.title);
   return (
     <div className="card_main">
       <img
@@ -17,18 +20,17 @@ function CardMain({ imgSrc, title, hearts }) {
         <h2>{title}</h2>
         <div className="card_main_icon">
           <i>
-            <BsFillHeartFill /> <span>{hearts}</span>
+            <p>Likes:</p>
+            <span>{hearts}</span>
           </i>
         </div>
       </div>
 
       <div className="stat" style={{ backgroundColor: "#fff" }}>
-        <div>
-          
-        </div>
-        <div>
-          <p>
-            Length<span>1d:12h:10m</span>
+        <div></div>
+        <div className="card_main_icon ">
+          <p style={{ color: "#191943" }}>
+            <span style={{ color: "#191943" }}>1d:12h:10m</span>
           </p>
         </div>
       </div>
