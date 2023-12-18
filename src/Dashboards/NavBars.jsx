@@ -12,8 +12,12 @@ import { GrTransaction } from "react-icons/gr";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { IoMdSettings } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
+import { MyContext } from "../context/Context";
 
 const NavBars = () => {
+  const { loggedUser } = MyContext();
+  // console.log("=///////////", loggedUser?.user.image);
+
   const [isTransactionDropdownOpen, setTransactionDropdownOpen] =
     useState(false);
   const [isEarningsDropdownOpen, setEarningsDropdownOpen] = useState(false);
@@ -107,11 +111,12 @@ const NavBars = () => {
           <HiOutlineMail className="not-icon" />
           <div className="pic">
             <img
-              src={profile}
+              src={loggedUser?.user?.image}
               alt=""
               style={{
                 width: "100%",
                 height: "100%",
+                // borderRadius: "80%",
               }}
             />
           </div>

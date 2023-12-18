@@ -1,23 +1,27 @@
 import React, { useState } from "react";
 import "../Styles/Settings.css";
 import img from "../../public/images/avatarr.png";
+import { MyContext } from "../context/Context";
 
 const Settings = () => {
+  const { loggedUser } = MyContext();
+  console.log("=///////////", loggedUser);
+
   const [selectedLanguage, setSelectedLanguage] = useState("English"); // Default language: English
   const [isDarkMode, setDarkMode] = useState(false);
   const [isProfilePublic, setProfilePublic] = useState(true);
   const [showOnlineStatus, setShowOnlineStatus] = useState(true);
   const [receiveFriendRequests, setReceiveFriendRequests] = useState(true);
   const [isEditable, setEditable] = useState(false);
-  const [name, setName] = useState("John Doe");
-  const [email, setEmail] = useState("john.doe@example.com");
+  const [name, setName] = useState(`${loggedUser?.user.FullName}`);
+  const [email, setEmail] = useState(`${loggedUser?.user.Email}`);
 
   const handleEditClick = () => {
     setEditable(!isEditable);
   };
 
   const handleNameChange = (e) => {
-    setName(e.target.value);
+    setName(e.target.value);``
   };
 
   const handleEmailChange = (e) => {
@@ -131,7 +135,7 @@ const Settings = () => {
               fontSize: "1.5rem",
               textAlign: "start",
               alignItems: "start",
-              fontWeight: "lighter"
+              fontWeight: "lighter",
             }}
           >
             2. Profile setting
@@ -166,7 +170,7 @@ const Settings = () => {
 
             <div className="picture-section">
               <img
-                src={img}
+                src={loggedUser?.user.image}
                 alt="Current Profile"
                 style={{ width: "50%", height: "90%" }}
               />
