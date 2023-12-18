@@ -8,7 +8,7 @@ function MenuBar() {
       <div className="topContainer">
         
         <div className="inputBox">
-          <input type="text" placeholder="Search items, collections" />
+          <input type="text" placeholder="Search items, collections" style={{height:"40px"}}/>
           <i>
             <BiSearchAlt  style={{ background:"black"}}/>
           </i>
@@ -21,7 +21,7 @@ function MenuBar() {
           <div className="profileImage">
             <img src="isaac.jpg" alt="" />
           </div>
-          <p className="profileName">Olivia Christine</p>
+          <p className="profileName">Isaac</p>
           <i className="menuChevron" id="menuChevron">
             <FaChevronDown />
           </i>

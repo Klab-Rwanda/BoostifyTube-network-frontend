@@ -7,6 +7,25 @@ const stateContext = createContext();
 export const AppContext = ({ children }) => {
   const [videos, setVideos] = useState([]);
 
+  const accessToken = localStorage.getItem("token");
+  const [youtuberUploadVideo, setYoutuberUploadVideo] = useState([]);
+  useEffect(() => {
+    axios
+      .get(
+        "https://boostifytube-network-api.onrender.com/api/v1/video/getAll",
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken?.access_token}`,
+          },
+        }
+      )
+      .then((data) => {
+        console.log(data);
+        setYoutuberUploadVideo(data.data);
+      });
+  }, []);
+  // ======== end  youtuber fetch upload video========
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -72,20 +91,20 @@ export const AppContext = ({ children }) => {
     },
   });
 
-   const { data: loggedUser } = useQuery({
-     queryKey: ["logged_users"],
-     queryFn: async () => {
-       const res = await axios.get(
-         url + `auth/users/getOne?fieldName=email&value=${userData.email}`,
-         {
-           headers: {
-             Authorization: "Bearer " + token,
-           },
-         }
-       );
-       return res.data;
-     },
-   });
+  const { data: loggedUser } = useQuery({
+    queryKey: ["logged_users"],
+    queryFn: async () => {
+      const res = await axios.get(
+        url + `auth/users/getOne?fieldName=email&value=${userData.email}`,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      return res.data;
+    },
+  });
 
 
    const { data: Messages, isLoading: messageLoading } = useQuery({
@@ -106,7 +125,8 @@ export const AppContext = ({ children }) => {
   });
 
   return (
-    <stateContext.Provider value={{ videos, setVideos, fetchUsersData,messageLoading,Messages }}>
+    <stateContext.Provider value={{ videos, setVideos, fetchUsersData,messageLoading,Messages,videos, setVideos, fetchUsersData, youtuberUploadVideo }}>
+  
       {children}
     </stateContext.Provider>
   );
