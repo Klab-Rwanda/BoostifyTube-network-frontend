@@ -12,8 +12,13 @@ import { GrTransaction } from "react-icons/gr";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { IoMdSettings } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
+import { SiGooglemessages } from "react-icons/si";
+
 
 const NavBars = () => {
+
+
+
   const [isTransactionDropdownOpen, setTransactionDropdownOpen] =
     useState(false);
   const [isEarningsDropdownOpen, setEarningsDropdownOpen] = useState(false);
@@ -56,6 +61,11 @@ const NavBars = () => {
       name: "Earnings",
       isDropdown: true,
     },
+    {
+      icon: <SiGooglemessages />,
+      path: "queries",
+      name: "contact",
+    },
   ];
 
   const dropdownCategories = [
@@ -91,6 +101,7 @@ const NavBars = () => {
       path: "generalsetting",
       name: "Settings",
     },
+
   ];
 
   return (

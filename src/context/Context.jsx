@@ -6,7 +6,6 @@ const stateContext = createContext();
 
 export const AppContext = ({ children }) => {
   const [videos, setVideos] = useState([]);
-  // ======== youtuber fetch upload video========
 
   const accessToken = localStorage.getItem("token");
   const [youtuberUploadVideo, setYoutuberUploadVideo] = useState([]);
@@ -107,10 +106,27 @@ export const AppContext = ({ children }) => {
     },
   });
 
+
+   const { data: Messages, isLoading: messageLoading } = useQuery({
+    queryKey: ["messages"],
+    queryFn: async () => {
+      const messsageres = await axios.get(
+        "https://boostifytube-network-api.onrender.com/api/v1/user/getAllContact",{
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      console.log(messsageres.data);
+      return messsageres.data;
+      
+    },
+   
+  });
+
   return (
-    <stateContext.Provider
-      value={{ videos, setVideos, fetchUsersData, youtuberUploadVideo }}
-    >
+    <stateContext.Provider value={{ videos, setVideos, fetchUsersData,messageLoading,Messages,videos, setVideos, fetchUsersData, youtuberUploadVideo }}>
+  
       {children}
     </stateContext.Provider>
   );
