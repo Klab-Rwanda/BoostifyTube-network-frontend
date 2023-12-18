@@ -144,13 +144,13 @@ const Settings = () => {
                   value={name}
                   onChange={handleNameChange}
                   readOnly={!isEditable}
-                />
+className="inputttt"/>
                 <input
                   type="text"
                   value={email}
                   onChange={handleEmailChange}
                   readOnly={!isEditable}
-                />
+                className="inputttt"/>
                 {isEditable && (
                   <button className="edit-icon" onClick={handleEditClick}>
                     Update

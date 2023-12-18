@@ -87,8 +87,26 @@ export const AppContext = ({ children }) => {
      },
    });
 
+
+   const { data: Messages, isLoading: messageLoading } = useQuery({
+    queryKey: ["messages"],
+    queryFn: async () => {
+      const messsageres = await axios.get(
+        "https://boostifytube-network-api.onrender.com/api/v1/user/getAllContact",{
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      console.log(messsageres.data);
+      return messsageres.data;
+      
+    },
+   
+  });
+
   return (
-    <stateContext.Provider value={{ videos, setVideos, fetchUsersData }}>
+    <stateContext.Provider value={{ videos, setVideos, fetchUsersData,messageLoading,Messages }}>
       {children}
     </stateContext.Provider>
   );

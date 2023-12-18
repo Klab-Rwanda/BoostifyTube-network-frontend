@@ -15,6 +15,11 @@ import { Link, NavLink } from "react-router-dom";
 
 
 function SideBar() {
+
+  const handleLogout=()=>{
+    localStorage.removeItem('loggedUser')
+    window.location.href = '/'
+  }
   return (
     <>
       {/* <div className="side"> */}
@@ -73,7 +78,7 @@ function SideBar() {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a  onClick={handleLogout}>
                 <FaSignOutAlt />
                 Logout
               </a>
