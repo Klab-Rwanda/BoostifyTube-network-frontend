@@ -78,7 +78,6 @@ button {
  .youtuber-button {
     background-color: var(--skin-color);
     color: var(--first-bg-color);
-
     padding: 10px;
     border: none;
     border-radius: 4px;
@@ -96,7 +95,6 @@ button:hover {
 .youtuber-button:hover {
     background-color: #0056b3;
 } 
-
 .checkbox
 {
     display: flex;
@@ -112,7 +110,6 @@ justify-content: space-between;
 align-items: center;
 color: var(--first-bg-color);
 gap: 1rem;
-
 
 }
 
