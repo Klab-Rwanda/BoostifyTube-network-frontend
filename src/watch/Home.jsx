@@ -1,7 +1,7 @@
 import '../watch/Home.css'
 function Home(){
     return(
-        <div  className="homee">
+        <div  className="homee1">
             <div className="home1">
             <p>you will earn 20 coins per video,
                  if you watch it until 

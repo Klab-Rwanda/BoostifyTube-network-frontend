@@ -4,15 +4,12 @@
   margin: auto;
   align-items: center;
   justify-content: center;
-  background-color: #191943;
-  padding: 2rem;
 }
 
 
 .signupimage {
   margin-top: 0;
   height: 25rem;
-  width: rem;
 }
 .signup-form {
   padding: 8px;
@@ -28,15 +25,17 @@ h2 {
   text-align: center;
 }
 
+.signup-form label{
+  color: #191942;
+}
+
+
+
+
 .inputt {
-  /* background-color: #d9d9d9; */
-  width: 100%;
-  color: #191943;
-  line-height: 0;
-  padding: 3px;
-  border: none;
-  box-sizing: border-box;
-  padding: 0.5rem 2rem;
+padding: 9px;
+border-radius: 5px;
+
 }
 #payment,
 #gender {

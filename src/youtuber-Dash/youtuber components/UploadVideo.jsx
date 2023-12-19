@@ -165,8 +165,8 @@ const onSubmit = async (data) => {
 
         <div className="form-button">
 
-          <button type="submit">Upload Video</button>
-          <button type="reset">Clear</button>
+          <button type="submit" className="uploadbutton">Upload Video</button>
+          <button type="reset" className="uploadbutton">Clear</button>
         </div>
       </form>
       {/* <DevTool control={control} /> */}

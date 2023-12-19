@@ -1,13 +1,15 @@
 .view-video{
     margin-top: 80px;
+    margin-left: 40px;
     display: flex;
     gap: 20px;
 }
 .sinle-link-video{
     text-decoration: none;
+    color:  #191942; 
 }
 .frame-view{
-    width: 600px;
+    width: 550px;
     height: 350px;
     border-radius: 10px;
     border-color: black;

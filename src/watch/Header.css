@@ -1,5 +1,5 @@
 .header-textt{
-  background-color: #191942;
+  background-color: white;
   position: fixed;
 display: flex;
 width: 100%;
@@ -49,8 +49,8 @@ color:#191942 ;
 background-color: #FEE60C;
 }
 .header-button:hover{
-  background-color: white;
-  color: black;
+  background-color: #191942;
+  color: white;
 }
 .dash-heard{
   font-size: 20px;
@@ -62,8 +62,8 @@ background-color: #FEE60C;
   
 }
 @media (max-width:780px) {
-  .header-text{
-    background-color: #191942;
+  .header-textt{
+    background-color: white;
     position: fixed;
   display: flex;
   width: 100%;
@@ -106,8 +106,8 @@ background-color: #FEE60C;
   }
 }
 @media (max-width:480px) {
-  .header-text{
-    background-color: #191942;
+  .header-textt{
+    background-color: white;
     position: fixed;
   display: flex;
   width: 100%;

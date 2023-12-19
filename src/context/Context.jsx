@@ -125,7 +125,7 @@ export const AppContext = ({ children }) => {
   });
 
   return (
-    <stateContext.Provider value={{ videos, setVideos, fetchUsersData,messageLoading,Messages,videos, setVideos, fetchUsersData, youtuberUploadVideo }}>
+    <stateContext.Provider value={{ videos, setVideos, fetchUsersData,messageLoading,Messages, fetchUsersData, youtuberUploadVideo }}>
   
       {children}
     </stateContext.Provider>

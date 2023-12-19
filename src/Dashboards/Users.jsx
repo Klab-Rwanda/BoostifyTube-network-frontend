@@ -5,6 +5,8 @@ import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MyContext } from "../context/Context";
 import ReactPaginate from "react-paginate";
+import Notiflix from "notiflix";
+import axios from "axios";
 
 const Users = () => {
 
@@ -14,7 +16,48 @@ const Users = () => {
   let token = localStorage.getItem("token");
   const { fetchUsersData=[] } = MyContext();
 
-  // console.log("UUUUUUUUUUUUUUU", fetchUsersData);
+
+
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const handleConfirmDelete = async(id) => {
+    try {
+ Notiflix.Confirm.show(
+  'Confirm delete tour',
+  'Do you agree with me?',
+  'Yes',
+  'No',
+  async() => {
+    const res = await axios.delete( `https://boostifytube-network-api.onrender.com/api/v1/user/deleteOneUser/${id}`, {
+      headers: {
+        Authorization:`Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    window.location.reload()
+  },
+  () => {
+  alert('If you say so...');
+  },
+  {
+  },
+  );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleDeleteClick = (user) => {
+    setTourToDelete(user);
+    handleConfirmDelete()
+  };
+  const handleCancelDelete = () => {
+    setShowDeleteConfirm(false);
+  };
+
+
+
+
+
+
 
   const [pagenumber,setPagenumber]=useState(0);
   const videopage=7;
@@ -50,12 +93,23 @@ const Users = () => {
               <td>{index + 1}</td>
               <td>{user?.FullName}</td>
               <td>{user?.role}</td>
-              <td className="actions">
+              <td className="actions"
+                 >
                 <FaEdit />
-                <RiDeleteBin6Line style={{ color: "red" }} />
+                <RiDeleteBin6Line style={{ color: "red" }}
+                 onClick={() => handleConfirmDelete(user._id)} />
               </td>
             </tr>
           ))}
+
+{showDeleteConfirm && (
+        <div className="popup">
+          <p>Are you sure you want to delete {userToDelete._id}?</p>
+          <button onClick={handleDeleteClick}>OK</button>
+          <button onClick={handleCancelDelete}>Cancel</button>
+        </div>
+      )}
+
         </tbody>
       </table>
       <ReactPaginate
