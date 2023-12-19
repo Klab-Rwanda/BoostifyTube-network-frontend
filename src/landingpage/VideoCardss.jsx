@@ -17,10 +17,10 @@ const VideoCard = ({ videos }) => {
             frameBorder="0"
             allowFullScreen
           ></iframe>
-          <p>{video.snippet.title}</p>
-          <p>Views: {video.statistics.viewCount}</p>
-          <p>Likes: {video.statistics.likeCount}</p>
-          <p>Comments: {video.statistics.commentCount}</p>
+          <p id="det">{video.snippet.title}</p>
+          <p id="det">Views: {video.statistics.viewCount}</p>
+          <p id="det">Likes: {video.statistics.likeCount}</p>
+          <p id="det">Comments: {video.statistics.commentCount}</p>
         </div>
       ))}
     </div>

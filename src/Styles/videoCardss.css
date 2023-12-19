@@ -1,4 +1,3 @@
-
 .video-cards-container {
   margin: auto;
   justify-content: center;
@@ -14,4 +13,12 @@
   justify-content: center;
   align-items: center;
   font-weight: lighter;
+}
+#det {
+  color: #191943;
+  text-align: start;
+  margin-left: 3.5rem;
+}
+.video-item {
+  margin: 1rem 1rem;
 }

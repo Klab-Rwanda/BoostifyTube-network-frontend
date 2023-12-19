@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../Styles/Settings.css";
 import { MyContext } from "../context/Context";
 
-
 const Settings = () => {
   const { loggedUser } = MyContext();
 
@@ -51,7 +50,7 @@ const Settings = () => {
       <div className="leftsetting">
         <div className="language">
           <h2 style={{ color: "#FEE000" }}>1. Language Settings</h2>
-          <p>{selectedLanguage}</p>
+          <p style={{ color: "#191943" }}>{selectedLanguage}</p>
           <div className="language-dropdown">
             <label htmlFor="languageSelect">Change Language:</label>
             <select
@@ -85,7 +84,9 @@ const Settings = () => {
               3. General Settings
             </h1>
             <div className="current-theme">
-              Current Theme: {isDarkMode ? "Dark Mode" : "Light Mode"}
+              <p style={{ color: "#191943" }}>
+                Current Theme: {isDarkMode ? "Dark Mode" : "Light Mode"}
+              </p>
             </div>
             <div className="toggle-button" onClick={toggleTheme}>
               <div
@@ -100,7 +101,7 @@ const Settings = () => {
               5. Privacy Settings
             </h1>
             <div className="privacy-option">
-              <label>Profile Visibility:</label>
+              <label style={{ color: "#191943" }}>Profile Visibility:</label>
               <div className="toggle-switch" onClick={handleToggleProfile}>
                 <div
                   className={`inner-circle ${
@@ -108,11 +109,13 @@ const Settings = () => {
                   }`}
                 ></div>
               </div>
-              <p>{isProfilePublic ? "Public" : "Private"}</p>
+              <p style={{ color: "#191943" }}>
+                {isProfilePublic ? "Public" : "Private"}
+              </p>
             </div>
 
             <div className="privacy-option">
-              <label>Show Online Status:</label>
+              <label style={{ color: "#191943" }}>Show Online Status:</label>
               <div className="toggle-switch" onClick={handleToggleOnlineStatus}>
                 <div
                   className={`inner-circle ${
@@ -149,9 +152,9 @@ const Settings = () => {
                   readOnly={!isEditable}
                   className="inputttt"
                   style={{
-                    borderBottom: "1px solid white",
-                    backgroundColor: "#191943",
-                    color: "white",
+                    borderBottom: "1px solid #191943",
+                    backgroundColor: "white",
+                    color: "#191943",
                   }}
                 />
                 <input
@@ -161,9 +164,9 @@ const Settings = () => {
                   readOnly={!isEditable}
                   className="inputttt"
                   style={{
-                    borderBottom: "1px solid white",
-                    backgroundColor: "#191943",
-                    color: "white",
+                    borderBottom: "1px solid #191943",
+                    backgroundColor: "white",
+                    color: "#191943",
                   }}
                 />
                 {isEditable && (

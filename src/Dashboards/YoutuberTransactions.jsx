@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../Styles/YoutuberTransactions.css";
 
 const YoutuberTransactions = () => {
-  
   const transactionsData = [
     // ... (Youtuber transactions data)
   ];
@@ -23,7 +22,7 @@ const YoutuberTransactions = () => {
 
   return (
     <div className="transactions-container">
-      <h2>Youtuber Transactions</h2>
+      <h2 style={{ color: "#191943" }}> Youtuber Transactions</h2>
       {/* Filters */}
       <div className="filters">
         {/* <label>Date:</label>

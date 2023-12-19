@@ -3,12 +3,12 @@ import "../Styles/Profile.css";
 import { MyContext } from "../context/Context";
 
 const Profile = () => {
-  const {loggedUser} = MyContext();
+  const { loggedUser } = MyContext();
 
   const [user, setUser] = useState({
-    firstName: "John",
-    lastName: "Doe",
-    email: "john.doe@example.com",
+    firstName: `${loggedUser?.user.FullName}`,
+    lastName: `${loggedUser?.user.FullName}`,
+    email: `${loggedUser?.user.Email}`,
   });
 
   const [editMode, setEditMode] = useState(false);
@@ -47,6 +47,7 @@ const Profile = () => {
                   type="file"
                   accept="image/*"
                   onChange={handleUpdateProfilePicture}
+                  style={{ color: "#1919" }}
                 />
               </div>
             )}
@@ -55,7 +56,9 @@ const Profile = () => {
         <div className="info-column">
           <div className="user-info">
             <div className="field">
-              <span className="label">First Name:</span>
+              <span className="label" style={{ color: "#191943" }}>
+                First Name:
+              </span>
               {editMode ? (
                 <input
                   type="text"
@@ -65,11 +68,13 @@ const Profile = () => {
                   }
                 />
               ) : (
-                <span>{user.firstName}</span>
+                <span style={{ color: "#191943" }}>{user.firstName}</span>
               )}
             </div>
             <div className="field">
-              <span className="label">Last Name:</span>
+              <span className="label" style={{ color: "#191943" }}>
+                Last Name:
+              </span>
               {editMode ? (
                 <input
                   type="text"
@@ -79,11 +84,13 @@ const Profile = () => {
                   }
                 />
               ) : (
-                <span>{user.lastName}</span>
+                <span style={{ color: "#191943" }}>{user.lastName}</span>
               )}
             </div>
             <div className="field">
-              <span className="label">Email:</span>
+              <span className="label" style={{ color: "#191943" }}>
+                Email:
+              </span>
               {editMode ? (
                 <input
                   type="email"
@@ -93,22 +100,35 @@ const Profile = () => {
                   }
                 />
               ) : (
-                <span>{user.email}</span>
+                <span style={{ color: "#191943" }}>{user.email}</span>
               )}
             </div>
           </div>
           <div className="actions">
             {editMode ? (
               <>
-                <button className="button1" onClick={handleUpdateProfile}>
+                <button
+                  className="button1"
+                  onClick={handleUpdateProfile}
+                  style={{ backgroundColor: "#191943" }}
+                >
                   Save
                 </button>
-                <button className="button1" onClick={() => setEditMode(false)}>
+                <button
+                  className="button1"
+                  onClick={() => setEditMode(false)}
+                  style={{ backgroundColor: "#191943" }}
+                >
                   Cancel
                 </button>
               </>
             ) : (
-              <button onClick={() => setEditMode(true)}>Edit Profile</button>
+              <button
+                onClick={() => setEditMode(true)}
+                style={{ backgroundColor: "#191943" }}
+              >
+                Edit Profile
+              </button>
             )}
           </div>
         </div>

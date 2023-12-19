@@ -62,7 +62,7 @@ const Users = () => {
   return (
     <div className="users-cont">
       <div className="user-header">
-        <h2>Registered users</h2>
+        <h2 style={{ color: "#191943" }}>Registered users</h2>
         <button
           className="new-userBtn"
           style={{ padding: ".5rem", width: "10rem" }}
@@ -96,8 +96,9 @@ const Users = () => {
             </tr>
           ))}
         </tbody>
-      </table>
-      <ReactPaginate
+      </table>{" "}
+      <br />
+      <ReactPaginate className="pages"
         pageCount={Math.ceil(fetchUsersData?.length / videopage)}
         prevAriaLabel={"Prev"}
         nextLabel={"Next"}

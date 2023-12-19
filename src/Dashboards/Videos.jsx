@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "../Styles/Videos.css";
 import { MyContext } from "../context/Context";
 import { Link } from "react-router-dom";
-import { IoChevronForwardSharp } from "react-icons/io5";
-import { IoChevronBack } from "react-icons/io5";
 import { AiOutlineLike } from "react-icons/ai";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegComment } from "react-icons/fa";
@@ -29,10 +27,10 @@ const Videos = () => {
           All Videos
         </button>
         <button className="btnfilter" onClick={() => setFilter("ready")}>
-          Ready Videos
+          Paid
         </button>
         <button className="btnfilter" onClick={() => setFilter("pending")}>
-          Pending Videos
+        Not Paid 
         </button>
       </div>
       <div className="videeo1">
@@ -48,7 +46,9 @@ const Videos = () => {
               style={{ width: "100%", border: "none" }}
             ></iframe>
             <Link to={`/dashboard/video/${video.id}`} className="view-title">
-              <p style={{ padding: "1rem .5rem" }}>{video.snippet.title}</p>
+              <p style={{ padding: "1rem .5rem", color: "#191943" }}>
+                {video.snippet.title}
+              </p>
             </Link>
             <div
               style={{
@@ -57,13 +57,13 @@ const Videos = () => {
                 padding: "1rem",
               }}
             >
-              <p>
+              <p style={{ color: "#191943" }}>
                 <MdOutlineRemoveRedEye />: {video.statistics.viewCount}
               </p>
-              <p>
+              <p style={{ color: "#191943" }}>
                 <AiOutlineLike />: {video.statistics.likeCount}
               </p>
-              <p>
+              <p style={{ color: "#191943" }}>
                 <FaRegComment />: {video.statistics.commentCount}
               </p>
             </div>
