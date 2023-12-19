@@ -15,7 +15,7 @@ const VideoCard = () => {
   }
 
   const [pagenumber,setPagenumber]=useState(0);
-  const videopage=8;
+  const videopage=6;
   const pagevisited=pagenumber*videopage;
   const displayvideo=videos
   .slice(pagevisited,pagevisited+videopage);

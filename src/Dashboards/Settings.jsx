@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../Styles/Settings.css";
+import img from "../../public/images/avatarr.png";
 
 const Settings = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("English"); // Default language: English
@@ -7,6 +8,21 @@ const Settings = () => {
   const [isProfilePublic, setProfilePublic] = useState(true);
   const [showOnlineStatus, setShowOnlineStatus] = useState(true);
   const [receiveFriendRequests, setReceiveFriendRequests] = useState(true);
+  const [isEditable, setEditable] = useState(false);
+  const [name, setName] = useState("John Doe");
+  const [email, setEmail] = useState("john.doe@example.com");
+
+  const handleEditClick = () => {
+    setEditable(!isEditable);
+  };
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
   const handleToggleProfile = () => {
     setProfilePublic((prev) => !prev);
@@ -62,7 +78,9 @@ const Settings = () => {
               isDarkMode ? "dark" : "light"
             }`}
           >
-            <h1 style={{ color: "#FEE000", fontSize: '1.5rem' }}>3. General Settings</h1>
+            <h1 style={{ color: "#FEE000", fontSize: "1.5rem" }}>
+              3. General Settings
+            </h1>
             <div className="current-theme">
               Current Theme: {isDarkMode ? "Dark Mode" : "Light Mode"}
             </div>
@@ -106,7 +124,56 @@ const Settings = () => {
         <div className="logout"></div>
       </div>
       <div className="rightsetting">
-        <div className="profilesetting"></div>
+        <div className="profilesetting">
+          <h1
+            style={{
+              color: "#FEE000",
+              fontSize: "1.5rem",
+              textAlign: "start",
+              alignItems: "start",
+              fontWeight: "lighter"
+            }}
+          >
+            2. Profile setting
+          </h1>
+          <div className="profile-settings-container">
+            <div className="info-section">
+              <div className="input-container">
+                <input
+                  type="text"
+                  value={name}
+                  onChange={handleNameChange}
+                  readOnly={!isEditable}
+className="inputttt"/>
+                <input
+                  type="text"
+                  value={email}
+                  onChange={handleEmailChange}
+                  readOnly={!isEditable}
+                className="inputttt"/>
+                {isEditable && (
+                  <button className="edit-icon" onClick={handleEditClick}>
+                    Update
+                  </button>
+                )}
+              </div>
+              {!isEditable && (
+                <button className="edit-icon" onClick={handleEditClick}>
+                  Edit
+                </button>
+              )}
+            </div>
+
+            <div className="picture-section">
+              <img
+                src={img}
+                alt="Current Profile"
+                style={{ width: "50%", height: "90%" }}
+              />
+              <button className="edit-iconn">Upload</button>
+            </div>
+          </div>
+        </div>
         <div className="paymentsetting"></div>
         <div className="notifications"></div>
       </div>

@@ -15,8 +15,6 @@ import {FiMessageCircle } from "react-icons/fi"
 // import { mycontext } from "../components/context/ContextProvider";
 
 import { Bar } from "react-chartjs-2";
-
-
 import CardMain from './CardMain';
 import { MyContext } from '../../context/Context';
 

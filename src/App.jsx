@@ -13,13 +13,13 @@ import DashLayout from "./Dashboards/DashLayout";
 import DashHome from "./Dashboards/DashHome";
 import Users from "./Dashboards/Users";
 import Videos from "./Dashboards/Videos";
-import Transactions from "./Dashboards/Transactions";
-import Earnings from "./Dashboards/Earnings";
 import Profile from "./Dashboards/Profile";
 import Generalsetting from "./Dashboards/Settings";
 
 
-//  import SingleVideo from "./landingpage/SingleVideo";
+
+ import SingleVideo from "./landingpage/SingleVideo";
+
 
 
 
@@ -34,10 +34,15 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AppContext } from "./context/Context";
 import Cashin from "./Dashboards/CashIn";
 import Cashout from "./Dashboards/CashOut";
+import Wacthhome from "./watch/Watchhome";
+import DashContact from "./Dashboards/DashContact";
+
 
 const client = new QueryClient();
 
 function App() {
+
+  
   return (
     <QueryClientProvider client={client}>
       <AppContext>
@@ -51,8 +56,8 @@ function App() {
             </Route>
 
             <Route path="/dashboard" element={<Dashboard />}>
-              <Route index element={<Home />} />
-              <Route index path="home" element={<Home />} />
+              <Route index element={<Wacthhome/>} />
+              <Route index path="home" element={<Wacthhome />} />
               <Route path="video" element={<Video />} />
               <Route path="balance" element={<Balance />} />
               <Route path="setting" element={<Settings />} />
@@ -74,6 +79,8 @@ function App() {
                 <Route path="cashin" element={<Cashin />} />
                 <Route path="cashout" element={<Cashout />} />
               </Route>
+              <Route path="queries" element = {<DashContact/>}/>
+              
               <Route path="profile" element={<Profile />} />
               <Route path="generalsetting" element={<Generalsetting />} />
             </Route>
