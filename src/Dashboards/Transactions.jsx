@@ -4,7 +4,7 @@ import '../Styles/Transactions.css'
 
 const Transactions = () => {
   return (
-    <div className='tansactions-cont'>Transactions</div>
+    <div className='tansactions-cont'></div>
   )
 }
 

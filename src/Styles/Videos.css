@@ -1,17 +1,17 @@
 .video-contt {
   display: flex;
   flex-direction: column;
-  background-color: #191943;
+  background-color: white;
   padding: 1rem;
   position: relative;
-  color: red;
+  /* color: red; */
   justify-content: center;
   align-items: center;
   text-align: center;
   height: fit-content;
   width: 97%;
   max-height: fit-content;
-  box-shadow: 0 2px 4px rgba(0.8, 0, 0, 0.6);
+  box-shadow: 0 2px 4px rgba(51, 45, 74, 0.6);
 }
 
 .videeo1 {

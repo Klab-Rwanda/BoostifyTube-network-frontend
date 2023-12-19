@@ -4,7 +4,7 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 50px 20px;
-  background-color: #191943;
+  background-color: white;
 }
 
 .video-container {
@@ -17,7 +17,7 @@ video {
   height: 100%;
   border: none;
   border-radius: 1rem;
-  background-color: #191943;
+  background-color: white;
 }
 
 .text-container {
@@ -31,10 +31,11 @@ video {
   text-align: start;
   font-size: 2em;
   margin-bottom: 20px;
+  color: #191943;
 }
 
 .text-container p {
   font-size: 1.2em;
-  color: white;
+  color: #191943;
   text-align: start;
 }

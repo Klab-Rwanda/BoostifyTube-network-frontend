@@ -1,24 +1,23 @@
 .users-cont {
   display: flex;
   flex-direction: column;
-  background-color: #191943;
-  margin-left: 0;
+  background-color: white;
+  margin-left: 2rem;
   padding-top: 0rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   position: relative;
-  color: red;
+  color: #191943;
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: fit-content;
+  height: 90%;
   max-height: fit-content;
-  width: 100%;
-  box-shadow: 0 2px 4px rgba(0.8, 0, 0, 0.6);
+  width: 90%;
 }
 .user-header {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 80%;
 }
 .actions {
   align-items: center;
@@ -28,7 +27,7 @@
 }
 .new-userBtn {
   background-color: #fee60c;
-  padding: 0.7rem 1.5rem;
+  padding: 0.7rem 1rem;
   color: #191943;
   margin-bottom: 1rem;
 }
@@ -47,16 +46,26 @@ th,
 td {
   border-bottom: 1px solid #908686;
   padding: 8px;
-  color: #191943;
+  color: black;
   text-align: left;
 }
 td {
-  color: white;
+  color: #191943;
 }
 th {
-  background-color: #f2f2f2;
+  background-color: #908686;
 }
 
 .first-row {
   background-color: #e0e0e0;
+}
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  text-decoration: none;
+  list-style: none;
+  gap: 1rem;
 }

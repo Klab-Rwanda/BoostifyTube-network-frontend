@@ -3,14 +3,13 @@ import "../Styles/home.css";
 import pic from "../../public/images/homepiccc.png";
 import VideoSection from "./VideoSection";
 import VideoCardss from "./VideoCardss";
-
-
+import MyComponent from "../VideoIds";
 const Home = () => {
   return (
     <>
       <div className="home-continer">
         <div className="home-picturee">
-          <img src={pic} alt="" style={{ width: "50%" ,height:'20%'}} />
+          <img src={pic} alt="" style={{ width: "40%", height: "60rem" }} />
         </div>
         <div className="home-description">
           <h2 id="title1">Boost Your YouTube Channel, Earn Rewards!</h2>
@@ -26,8 +25,8 @@ const Home = () => {
       </div>
 
       <VideoSection />
-      <VideoCardss/>
-
+      <VideoCardss />
+      <MyComponent />
     </>
   );
 };

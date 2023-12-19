@@ -5,7 +5,6 @@ import { IoMenu } from "react-icons/io5";
 import { IoMdNotifications } from "react-icons/io";
 import { HiOutlineMail } from "react-icons/hi";
 import { IoMdHome } from "react-icons/io";
-import profile from "../../public/images/avatarr.png";
 import { FaUsers } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io5";
 import { GrTransaction } from "react-icons/gr";
@@ -13,11 +12,10 @@ import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { IoMdSettings } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { SiGooglemessages } from "react-icons/si";
-
+import { MyContext } from "../context/Context";
 
 const NavBars = () => {
-
-
+  const { loggedUser } = MyContext();
 
   const [isTransactionDropdownOpen, setTransactionDropdownOpen] =
     useState(false);
@@ -35,34 +33,34 @@ const NavBars = () => {
 
   const upLinks = [
     {
-      icon: <IoMdHome />,
+      icon: <IoMdHome className="icon-color" style={{ color: "#191943" }} />,
       path: "/superdashboard",
       name: "Dashboard",
     },
     {
-      icon: <FaUsers />,
+      icon: <FaUsers style={{ color: "#191943" }} />,
       path: "users",
       name: "Users",
     },
     {
-      icon: <IoLogoYoutube />,
+      icon: <IoLogoYoutube style={{ color: "#191943" }} />,
       path: "videos",
       name: "Videos",
     },
     {
-      icon: <GrTransaction />,
+      icon: <GrTransaction style={{ color: "#191943" }} />,
       path: "/transactions",
       name: "Transactions",
       isDropdown: true,
     },
     {
-      icon: <FaMoneyCheckDollar />,
+      icon: <FaMoneyCheckDollar style={{ color: "#191943" }} />,
       path: "/earnings",
       name: "Earnings",
       isDropdown: true,
     },
     {
-      icon: <SiGooglemessages />,
+      icon: <SiGooglemessages style={{ color: "#191943" }} />,
       path: "queries",
       name: "contact",
     },
@@ -92,16 +90,15 @@ const NavBars = () => {
 
   const downLinks = [
     {
-      icon: <CgProfile />,
+      icon: <CgProfile style={{ color: "#191943" }} />,
       path: "profile",
       name: "Profile",
     },
     {
-      icon: <IoMdSettings />,
+      icon: <IoMdSettings style={{ color: "#191943" }} />,
       path: "generalsetting",
       name: "Settings",
     },
-
   ];
 
   return (
@@ -112,13 +109,12 @@ const NavBars = () => {
         </h1>
         <IoMenu className="menu-icon" />
 
-        <input type="text" placeholder="Search" className="search" />
         <div className="notification">
           <IoMdNotifications className="not-icon" />
           <HiOutlineMail className="not-icon" />
           <div className="pic">
             <img
-              src={profile}
+              src={loggedUser?.user.image}
               alt=""
               style={{
                 width: "100%",

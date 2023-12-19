@@ -3,15 +3,16 @@
   margin-left: 0;
   padding-top: 1rem;
   position: relative;
-  color: red;
+  color: #191943;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: auto;
   height: fit-content;
   gap: 2rem;
-  width: 100%;
+  width: 90%;
   height: 40rem;
-  box-shadow: 0 2px 4px rgba(0.8, 0, 0, 0.6);
+  /* box-shadow: 0 2px 4px rgba(0.8, 0, 0, 0.6); */
 }
 
 .leftsetting {
@@ -62,7 +63,6 @@
 }
 
 .toggle-button {
-  background-color: red;
   margin-left: 4rem;
   width: 60px;
   height: 30px;
@@ -221,17 +221,18 @@
   border-bottom: 1px solid #000;
   margin-bottom: 10px;
   padding: 5px;
+  background-color: white;
 }
 
 .edit-icon {
-  background-color: #007bff;
+  background-color: #191943;
   color: #fff;
   border: none;
   padding: 5px 10px;
   cursor: pointer;
 }
 .edit-iconn {
-  background-color: #007bff;
+  background-color: #191943;
   color: #fff;
   border: none;
   padding: 5px 0px;
