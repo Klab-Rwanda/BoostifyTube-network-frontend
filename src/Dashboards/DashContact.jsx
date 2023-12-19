@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import "../Styles/DashContact.css"; 
+import "../Styles/DashContact.css";
 import { MyContext } from "../context/Context";
 import ReactPaginate from "react-paginate";
 import axios from "axios";
 import Notiflix from "notiflix";
 
 const DashContact = () => {
-    const {Messages, messageLoading} = MyContext();
-    console.log("======", Messages);
-    let i =0;
+  const { Messages, messageLoading } = MyContext();
+  console.log("======", Messages);
+  let i = 0;
 
     const [pagenumber,setPagenumber]=useState(0);
     const videopage=6;
@@ -56,14 +56,15 @@ const DashContact = () => {
       setShowDeleteConfirm(false);
     };
 
- 
-  return (
 
+
+  return (
     <div className="contact-table-container">
-        <h3>Received Messages</h3>
+      {/* <input type="text" placeholder="Search" className="searchh" /> */}
+      <h3 style={{ color: "#191943" }}>Received Messages</h3>
       <table>
         <thead>
-          <tr> 
+          <tr>
             <th>ID</th>
             <th>Names</th>
             <th>Email</th>
@@ -72,19 +73,17 @@ const DashContact = () => {
           </tr>
         </thead>
         <tbody>
-            {displaycontact?.map((message, index)=>(
-
-            
-            <tr >
-              <td>{i+=1}</td>
+          {displaycontact?.map((message, index) => (
+            <tr>
+              <td>{(i += 1)}</td>
               <td>{message.Name}</td>
               <td>{message.Email}</td>
               <td>{message.Message}</td>
               <td className="contact-button">
-                <button>
+                <button className="contBtns">
                   Reply
                 </button>
-                <button onClick={()=>handleConfirmDelete(message._id)}>
+                <button className="contBtns" onClick={()=>handleConfirmDelete(message._id)}>
                   Delete
                 </button>
               </td>
@@ -99,22 +98,20 @@ const DashContact = () => {
           <button onClick={handleCancelDelete}>Cancel</button>
         </div>
       )}
-
         </tbody>
       </table>
       <ReactPaginate
-    pageCount={Math.ceil(Messages?.length  / videopage)}
-    prevAriaLabel={"Prev"}
-    nextLabel={"Next"}
-    onPageChange={changepage}
-    containerClassName='pagination'
-    previousLinkClassName='prevBtn'
-    nextLinkClassName='next'
-    disabledClassName='disabled'
-    activeClassName='paginationactve'
-    >
-
-    </ReactPaginate>
+        className="pages1"
+        pageCount={Math.ceil(Messages?.length / videopage)}
+        prevAriaLabel={"Prev"}
+        nextLabel={"Next"}
+        onPageChange={changepage}
+        containerClassName="pagination"
+        previousLinkClassName="prevBtn"
+        nextLinkClassName="next"
+        disabledClassName="disabled"
+        activeClassName="paginationactve"
+      ></ReactPaginate>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import "../Styles/VideoSection.css";
-import demoVideo from "../../public/videos/tom.mp4"; // Import the path to your video file
+import demoVideo from "../../public/videos/tom.mp4"; 
 
 const VideoSection = () => {
   return (

@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import "../Styles/Settings.css";
-import img from "../../public/images/avatarr.png";
+import { MyContext } from "../context/Context";
 
 const Settings = () => {
+  const { loggedUser } = MyContext();
+
   const [selectedLanguage, setSelectedLanguage] = useState("English"); // Default language: English
   const [isDarkMode, setDarkMode] = useState(false);
   const [isProfilePublic, setProfilePublic] = useState(true);
   const [showOnlineStatus, setShowOnlineStatus] = useState(true);
   const [receiveFriendRequests, setReceiveFriendRequests] = useState(true);
   const [isEditable, setEditable] = useState(false);
-  const [name, setName] = useState("John Doe");
-  const [email, setEmail] = useState("john.doe@example.com");
+  const [name, setName] = useState(`${loggedUser?.user?.FullName}`);
+  const [email, setEmail] = useState(`${loggedUser?.user?.Email}`);
 
   const handleEditClick = () => {
     setEditable(!isEditable);
@@ -48,7 +50,7 @@ const Settings = () => {
       <div className="leftsetting">
         <div className="language">
           <h2 style={{ color: "#FEE000" }}>1. Language Settings</h2>
-          <p>{selectedLanguage}</p>
+          <p style={{ color: "#191943" }}>{selectedLanguage}</p>
           <div className="language-dropdown">
             <label htmlFor="languageSelect">Change Language:</label>
             <select
@@ -82,7 +84,9 @@ const Settings = () => {
               3. General Settings
             </h1>
             <div className="current-theme">
-              Current Theme: {isDarkMode ? "Dark Mode" : "Light Mode"}
+              <p style={{ color: "#191943" }}>
+                Current Theme: {isDarkMode ? "Dark Mode" : "Light Mode"}
+              </p>
             </div>
             <div className="toggle-button" onClick={toggleTheme}>
               <div
@@ -97,7 +101,7 @@ const Settings = () => {
               5. Privacy Settings
             </h1>
             <div className="privacy-option">
-              <label>Profile Visibility:</label>
+              <label style={{ color: "#191943" }}>Profile Visibility:</label>
               <div className="toggle-switch" onClick={handleToggleProfile}>
                 <div
                   className={`inner-circle ${
@@ -105,11 +109,13 @@ const Settings = () => {
                   }`}
                 ></div>
               </div>
-              <p>{isProfilePublic ? "Public" : "Private"}</p>
+              <p style={{ color: "#191943" }}>
+                {isProfilePublic ? "Public" : "Private"}
+              </p>
             </div>
 
             <div className="privacy-option">
-              <label>Show Online Status:</label>
+              <label style={{ color: "#191943" }}>Show Online Status:</label>
               <div className="toggle-switch" onClick={handleToggleOnlineStatus}>
                 <div
                   className={`inner-circle ${
@@ -131,7 +137,7 @@ const Settings = () => {
               fontSize: "1.5rem",
               textAlign: "start",
               alignItems: "start",
-              fontWeight: "lighter"
+              fontWeight: "lighter",
             }}
           >
             2. Profile setting
@@ -144,13 +150,25 @@ const Settings = () => {
                   value={name}
                   onChange={handleNameChange}
                   readOnly={!isEditable}
-className="inputttt"/>
+                  className="inputttt"
+                  style={{
+                    borderBottom: "1px solid #191943",
+                    backgroundColor: "white",
+                    color: "#191943",
+                  }}
+                />
                 <input
                   type="text"
                   value={email}
                   onChange={handleEmailChange}
                   readOnly={!isEditable}
-                className="inputttt"/>
+                  className="inputttt"
+                  style={{
+                    borderBottom: "1px solid #191943",
+                    backgroundColor: "white",
+                    color: "#191943",
+                  }}
+                />
                 {isEditable && (
                   <button className="edit-icon" onClick={handleEditClick}>
                     Update
@@ -166,9 +184,14 @@ className="inputttt"/>
 
             <div className="picture-section">
               <img
-                src={img}
+                src={loggedUser?.user?.image}
                 alt="Current Profile"
-                style={{ width: "50%", height: "90%" }}
+                style={{
+                  width: "30%",
+                  height: "100%",
+                  borderRadius: "900%",
+                  marginLeft: "2rem",
+                }}
               />
               <button className="edit-iconn">Upload</button>
             </div>

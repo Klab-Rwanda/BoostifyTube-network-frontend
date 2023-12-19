@@ -1,9 +1,8 @@
 .super-container {
-  color: red;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #191943;
+  background-color: white;
   width: 100%;
 }
 .topNav {
@@ -12,7 +11,7 @@
   position: fixed;
   z-index: 1000;
   width: 100%;
-  background-color: #191943;
+  background-color: white;
   align-items: center;
   padding: auto;
   text-align: center;
@@ -26,11 +25,7 @@
   font-size: 2.5rem;
   margin-left: 6.5rem;
 }
-.search {
-  margin-left: 18rem;
-  width: 15rem;
-  border: none;
-}
+
 .notification {
   width: 15rem;
   display: flex;
@@ -38,7 +33,7 @@
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  margin-left: 17rem;
+  margin-left: 50rem;
 }
 .not-icon {
   font-size: 2rem;
@@ -57,8 +52,8 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  background-color: #191943;
-  border-right: #203041 solid 2px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0.8, 0, 0, 0.6);
   padding-top: 0;
   justify-content: space-between;
   padding-left: 2rem;
@@ -84,7 +79,8 @@
   margin-top: 2rem;
   text-decoration: none;
 }
+
 .linkName {
+  color: #191943;
   margin-left: 1rem;
-  font-weight: lighter;
 }

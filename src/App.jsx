@@ -29,12 +29,9 @@ import Cashout from "./Dashboards/CashOut";
 import Wacthhome from "./watch/Watchhome";
 import DashContact from "./Dashboards/DashContact";
 
-
 const client = new QueryClient();
 
 function App() {
-
-  
   return (
     <QueryClientProvider client={client}>
       <AppContext>
@@ -48,7 +45,7 @@ function App() {
             </Route>
 
             <Route path="/dashboard" element={<Dashboard />}>
-              <Route index element={<Wacthhome/>} />
+              <Route index element={<Wacthhome />} />
               <Route index path="home" element={<Wacthhome />} />
               <Route path="video" element={<Video />} />
               <Route path="balance" element={<Balance />} />
@@ -71,8 +68,8 @@ function App() {
                 <Route path="cashin" element={<Cashin />} />
                 <Route path="cashout" element={<Cashout />} />
               </Route>
-              <Route path="queries" element = {<DashContact/>}/>
-              
+              <Route path="queries" element={<DashContact />} />
+
               <Route path="profile" element={<Profile />} />
               <Route path="generalsetting" element={<Generalsetting />} />
             </Route>

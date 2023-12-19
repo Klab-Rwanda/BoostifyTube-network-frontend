@@ -9,12 +9,10 @@ import Notiflix from "notiflix";
 import axios from "axios";
 
 const Users = () => {
-
-
-
-
   let token = localStorage.getItem("token");
-  const { fetchUsersData=[] } = MyContext();
+  const { fetchUsersData = [] } = MyContext();
+  console.log("all users", fetchUsersData.data);
+
 
 
 
@@ -58,22 +56,61 @@ const Users = () => {
 
 
 
+=======
+  const [pagenumber, setPagenumber] = useState(0);
+  const videopage = 7;
+  const pagevisited = pagenumber * videopage;
+  const displayuser = fetchUsersData.slice(
+    pagevisited,
+    pagevisited + videopage
+  );
 
-  const [pagenumber,setPagenumber]=useState(0);
-  const videopage=7;
-  const pagevisited=pagenumber*videopage;
-  const displayuser=fetchUsersData.slice(pagevisited,pagevisited+videopage);
-  
-  
-  const changepage= ({selected})=>{
-    setPagenumber(selected)
-  }
+  const changepage = ({ selected }) => {
+    setPagenumber(selected);
+  };
+
+  const handleDeleteClick = async (id) => {
+    console.log(token);
+    try {
+      Notiflix.Confirm.show(
+        "Confirm",
+        "Confirm delete User?",
+        "Yes",
+        "No",
+        async () => {
+          const res = await axios.delete(
+            `https://boostifytube-network-api.onrender.com/api/v1/user/deleteOneUser/${id}`,
+            {
+              headers: {
+                Authorization: "Bearer " + token,
+              },
+            }
+          );
+          window.location.reload();
+          const data = await res.data;
+          toast.success(data.message);
+        },
+        () => {
+          alert("If you say so...");
+        },
+        () => {
+          alert("If you say so...");
+        },
+        {}
+      );
+    } catch (error) {
+      toast.error(error);
+    }
+  };
 
   return (
     <div className="users-cont">
       <div className="user-header">
-        <h2>Registered users</h2>
-        <button className="new-userBtn">
+        <h2 style={{ color: "#191943" }}>Registered users</h2>
+        <button
+          className="new-userBtn"
+          style={{ padding: ".5rem", width: "10rem" }}
+        >
           <FaPlus className="plus" style={{ color: "red" }} />
           Add new user
         </button>
@@ -96,8 +133,9 @@ const Users = () => {
               <td className="actions"
                  >
                 <FaEdit />
+
                 <RiDeleteBin6Line style={{ color: "red" }}
-                 onClick={() => handleConfirmDelete(user._id)} />
+                 onClick={() => handleConfirmDelete(user._id)} 
               </td>
             </tr>
           ))}
@@ -111,21 +149,19 @@ const Users = () => {
       )}
 
         </tbody>
-      </table>
-      <ReactPaginate
-    pageCount={Math.ceil(fetchUsersData?.length  / videopage)}
-    prevAriaLabel={"Prev"}
-    nextLabel={"Next"}
-    onPageChange={changepage}
-    containerClassName='pagination'
-    previousLinkClassName='prevBtn'
-    nextLinkClassName='next'
-    disabledClassName='disabled'
-    activeClassName='paginationactve'
-    >
-
-    </ReactPaginate>
-
+      </table>{" "}
+      <br />
+      <ReactPaginate className="pages"
+        pageCount={Math.ceil(fetchUsersData?.length / videopage)}
+        prevAriaLabel={"Prev"}
+        nextLabel={"Next"}
+        onPageChange={changepage}
+        containerClassName="pagination"
+        previousLinkClassName="prevBtn"
+        nextLinkClassName="next"
+        disabledClassName="disabled"
+        activeClassName="paginationactve"
+      ></ReactPaginate>
     </div>
   );
 };

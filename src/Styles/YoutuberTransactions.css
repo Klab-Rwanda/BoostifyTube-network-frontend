@@ -7,40 +7,6 @@
   margin-top: 1rem;
 
   border-radius: 5px;
-  background-color: #191943;
+  background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-/* 
-.filters {
-  margin-bottom: 20px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-
-table,
-th,
-td {
-  border: 1px solid #d3cece;
-}
-
-th,
-td {
-  padding: 10px;
-  text-align: left;
-}
-
-th {
-  background-color: #f2f2f2;
-}
-
-input[type="date"] {
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-right: 10px;
-}
- */

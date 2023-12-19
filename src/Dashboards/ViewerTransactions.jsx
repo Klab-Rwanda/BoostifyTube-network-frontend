@@ -22,7 +22,7 @@ const ViewerTransactions = () => {
 
   return (
     <div className="transactions-container">
-      <h2>Viewer Transactions</h2>
+      <h2 style={{color: "#191943"}}>Viewer Transactions</h2>
 
       <table>
         <thead>
@@ -31,7 +31,6 @@ const ViewerTransactions = () => {
             <th>Amount</th>
             <th>Status</th>
             <th>User Type</th>
-            {/* Add more table headers if needed */}
           </tr>
         </thead>
         <tbody>
