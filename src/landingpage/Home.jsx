@@ -3,7 +3,7 @@ import "../Styles/home.css";
 import pic from "../../public/images/homepiccc.png";
 import VideoSection from "./VideoSection";
 import VideoCardss from "./VideoCardss";
-
+import MyComponent from "../VideoIds";
 const Home = () => {
   return (
     <>
@@ -26,6 +26,7 @@ const Home = () => {
 
       <VideoSection />
       <VideoCardss />
+      <MyComponent />
     </>
   );
 };
