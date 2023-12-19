@@ -159,20 +159,8 @@ const {data : uploadedVideos = [], isLoading} =useQuery({
   });
 
   return (
-    <stateContext.Provider
-      value={{
-        videos,
-        setVideos,
-        fetchUsersData,
-        messageLoading,
-        Messages,
-        videos,
-        setVideos,
-        fetchUsersData,
-        youtuberUploadVideo,
-        loggedUser,
-      }}
-    >
+
+    <stateContext.Provider value={{ videos, setVideos, fetchUsersData,messageLoading,Messages, fetchUsersData, youtuberUploadVideo,loggedUser }}>
       {children}
     </stateContext.Provider>
   );

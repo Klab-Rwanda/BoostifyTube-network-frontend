@@ -1,10 +1,11 @@
-* {
-  padding: 0;
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+
+*{    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+        
 }
-.sidebre {
-  background-color: #191942;
+.sidebre{
+  background-color:white;
   margin-top: 60px;
   min-height: 89vh;
   display: flex;
@@ -17,7 +18,7 @@
 .sidebar-text {
   text-decoration: none;
   display: flex;
-
+  color:  #191943;  
   gap: 10px;
 }
 .sidebar-text p:hover {
