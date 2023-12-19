@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "../Styles/Profile.css";
+import { MyContext } from "../context/Context";
 
 const Profile = () => {
+  const {loggedUser} = MyContext();
+
   const [user, setUser] = useState({
     firstName: "John",
     lastName: "Doe",

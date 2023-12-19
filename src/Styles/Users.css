@@ -4,7 +4,7 @@
   background-color: #191943;
   margin-left: 0;
   padding-top: 0rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   position: relative;
   color: red;
   justify-content: center;
@@ -18,7 +18,7 @@
 .user-header {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 80%;
 }
 .actions {
   align-items: center;
@@ -28,7 +28,7 @@
 }
 .new-userBtn {
   background-color: #fee60c;
-  padding: 0.7rem 1.5rem;
+  padding: 0.7rem 1rem;
   color: #191943;
   margin-bottom: 1rem;
 }

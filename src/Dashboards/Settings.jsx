@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import "../Styles/Settings.css";
-import img from "../../public/images/avatarr.png";
+import { MyContext } from "../context/Context";
+
 
 const Settings = () => {
+  const { loggedUser } = MyContext();
+
   const [selectedLanguage, setSelectedLanguage] = useState("English"); // Default language: English
   const [isDarkMode, setDarkMode] = useState(false);
   const [isProfilePublic, setProfilePublic] = useState(true);
   const [showOnlineStatus, setShowOnlineStatus] = useState(true);
   const [receiveFriendRequests, setReceiveFriendRequests] = useState(true);
   const [isEditable, setEditable] = useState(false);
-  const [name, setName] = useState("John Doe");
-  const [email, setEmail] = useState("john.doe@example.com");
+  const [name, setName] = useState(`${loggedUser?.user?.FullName}`);
+  const [email, setEmail] = useState(`${loggedUser?.user?.Email}`);
 
   const handleEditClick = () => {
     setEditable(!isEditable);
@@ -131,7 +134,7 @@ const Settings = () => {
               fontSize: "1.5rem",
               textAlign: "start",
               alignItems: "start",
-              fontWeight: "lighter"
+              fontWeight: "lighter",
             }}
           >
             2. Profile setting
@@ -144,13 +147,25 @@ const Settings = () => {
                   value={name}
                   onChange={handleNameChange}
                   readOnly={!isEditable}
-className="inputttt"/>
+                  className="inputttt"
+                  style={{
+                    borderBottom: "1px solid white",
+                    backgroundColor: "#191943",
+                    color: "white",
+                  }}
+                />
                 <input
                   type="text"
                   value={email}
                   onChange={handleEmailChange}
                   readOnly={!isEditable}
-                className="inputttt"/>
+                  className="inputttt"
+                  style={{
+                    borderBottom: "1px solid white",
+                    backgroundColor: "#191943",
+                    color: "white",
+                  }}
+                />
                 {isEditable && (
                   <button className="edit-icon" onClick={handleEditClick}>
                     Update
@@ -166,9 +181,14 @@ className="inputttt"/>
 
             <div className="picture-section">
               <img
-                src={img}
+                src={loggedUser?.user?.image}
                 alt="Current Profile"
-                style={{ width: "50%", height: "90%" }}
+                style={{
+                  width: "30%",
+                  height: "100%",
+                  borderRadius: "900%",
+                  marginLeft: "2rem",
+                }}
               />
               <button className="edit-iconn">Upload</button>
             </div>

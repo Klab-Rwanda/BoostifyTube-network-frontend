@@ -11,7 +11,7 @@ const DashContact = () => {
     const [pagenumber,setPagenumber]=useState(0);
     const videopage=6;
     const pagevisited=pagenumber*videopage;
-    const displaycontact=Messages.slice(pagevisited,pagevisited+videopage);
+    const displaycontact=Messages?.slice(pagevisited,pagevisited+videopage);
     
     
     const changepage= ({selected})=>{
