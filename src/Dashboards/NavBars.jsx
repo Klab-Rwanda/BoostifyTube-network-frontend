@@ -12,6 +12,7 @@ import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { IoMdSettings } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { SiGooglemessages } from "react-icons/si";
+import { CiLogout } from "react-icons/ci";
 import { MyContext } from "../context/Context";
 
 const NavBars = () => {
@@ -31,6 +32,10 @@ const NavBars = () => {
     setTransactionDropdownOpen(false);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("userdata");
+    location.reload(navigate("/"));
+  };
   const upLinks = [
     {
       icon: <IoMdHome className="icon-color" style={{ color: "#191943" }} />,
@@ -99,6 +104,11 @@ const NavBars = () => {
       path: "generalsetting",
       name: "Settings",
     },
+    {
+      icon: <CiLogout style={{ color: "#191943" }} />,
+      path: "/",
+      name: "Logout",
+    },
   ];
 
   return (
@@ -117,8 +127,9 @@ const NavBars = () => {
               src={loggedUser?.user.image}
               alt=""
               style={{
-                width: "100%",
+                width: "90%",
                 height: "100%",
+                borderRadius: "50%",
               }}
             />
           </div>

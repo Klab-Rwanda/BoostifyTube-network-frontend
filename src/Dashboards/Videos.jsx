@@ -8,17 +8,6 @@ import { FaRegComment } from "react-icons/fa";
 
 const Videos = () => {
   const { videos } = MyContext();
-  const [filter, setFilter] = useState("all");
-
-  const filteredVideos = videos.filter((video) => {
-    if (filter === "all") {
-      return true;
-    } else if (filter === "ready") {
-      return video.status === "ready";
-    } else if (filter === "pending") {
-      return video.status === "pending";
-    }
-  });
 
   return (
     <div className="video-contt">
@@ -30,11 +19,11 @@ const Videos = () => {
           Paid
         </button>
         <button className="btnfilter" onClick={() => setFilter("pending")}>
-        Not Paid 
+          Not Paid
         </button>
       </div>
       <div className="videeo1">
-        {videos.map((video, index) => (
+        {videos?.map((video, index) => (
           <div key={index} className="video-item1">
             <iframe
               title={video.snippet.title}
@@ -45,7 +34,7 @@ const Videos = () => {
               className="allvideo-view"
               style={{ width: "100%", border: "none" }}
             ></iframe>
-            <Link to={`/dashboard/video/${video.id}`} className="view-title">
+            <Link to={`/superdashboard/videos/${video.id}`} className="view-title">
               <p style={{ padding: "1rem .5rem", color: "#191943" }}>
                 {video.snippet.title}
               </p>

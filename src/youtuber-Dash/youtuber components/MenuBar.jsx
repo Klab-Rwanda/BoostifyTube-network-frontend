@@ -6,22 +6,25 @@ function MenuBar() {
   return (
     <>
       <div className="topContainer">
-        
         <div className="inputBox">
-          <input type="text" placeholder="Search items, collections" style={{height:"40px"}}/>
+          <input
+            type="text"
+            placeholder="Search items, collections"
+            style={{ height: "40px" }}
+          />
           <i>
-            <BiSearchAlt  style={{ background:"black"}}/>
+            <BiSearchAlt style={{ color: "black" }} />
           </i>
         </div>
         <div className="profileContainer">
           <i className="profileIcon">
             <FaBell />
           </i>
-          
+
           <div className="profileImage">
             <img src="isaac.jpg" alt="" />
           </div>
-          <p className="profileName">Isaac</p>
+          <p className="profileName">The ben</p>
           <i className="menuChevron" id="menuChevron">
             <FaChevronDown />
           </i>

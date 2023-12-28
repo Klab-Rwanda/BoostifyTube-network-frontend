@@ -1,5 +1,5 @@
-import React from 'react'
-import "../youtStyles/SideBarStyle.css"
+import React from "react";
+import "../youtStyles/SideBarStyle.css";
 import {
   FaDelicious,
   FaShoppingCart,
@@ -13,13 +13,11 @@ import {
 } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 
-
 function SideBar() {
-
-  const handleLogout=()=>{
-    localStorage.removeItem('loggedUser')
-    window.location.href = '/'
-  }
+  const handleLogout = () => {
+    localStorage.removeItem("loggedUser");
+    window.location.href = "/";
+  };
   return (
     <>
       {/* <div className="side"> */}
@@ -33,37 +31,34 @@ function SideBar() {
         <div className="sideBarLinks">
           <ul>
             <li>
-                <a href="#">
-              <NavLink to="/youtuberDash/" >
+              <a href="#">
+                <NavLink to="/youtuberDash/">
                   <FaHome />
                   Home
-              </NavLink>
-                </a>
-            </li>
-            <li>
-
-              <a href="#">
-               <NavLink to="/youtuberDash/upload" >
-                <FaCloudUploadAlt />
-                Upload
-               </NavLink>
-              </a>  
+                </NavLink>
+              </a>
             </li>
             <li>
               <a href="#">
-                <NavLink to="/youtuberDash/payment" >
-
-                <FaWallet />
-                Payment
+                <NavLink to="/youtuberDash/upload">
+                  <FaCloudUploadAlt />
+                  Upload
+                </NavLink>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <NavLink to="/youtuberDash/payment">
+                  <FaWallet />
+                  Payment
                 </NavLink>
               </a>{" "}
             </li>
             <li>
               <a href="#">
-                <NavLink to="/youtuberDash/history" >
-
-                <FaRegClock />
-                History
+                <NavLink to="/youtuberDash/history">
+                  <FaRegClock />
+                  History
                 </NavLink>
               </a>{" "}
             </li>
@@ -73,14 +68,18 @@ function SideBar() {
           <ul>
             <li>
               <a href="#">
-                <FaCog />
-                Settings
+                <NavLink to={"/superdashboard/generalsetting"}>
+                  <FaCog />
+                  Settings
+                </NavLink>
               </a>
             </li>
             <li>
-              <a  onClick={handleLogout}>
-                <FaSignOutAlt />
-                Logout
+              <a onClick={handleLogout}>
+                <NavLink to={"/"}>
+                  <FaSignOutAlt />
+                  Logout
+                </NavLink>
               </a>
             </li>
           </ul>
@@ -91,5 +90,4 @@ function SideBar() {
   );
 }
 
-
-export default SideBar
+export default SideBar;

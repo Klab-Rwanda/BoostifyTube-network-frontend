@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const stateContext = createContext();
@@ -7,16 +7,10 @@ const stateContext = createContext();
 export const AppContext = ({ children }) => {
   const [videos, setVideos] = useState([]);
 
-   const accessToken = localStorage.getItem("token");
+  const accessToken = localStorage.getItem("token");
 
-
-  // ======== youtuber fetch upload video========
-
-
-
- 
-const {data : uploadedVideos = [], isLoading} =useQuery({
-  queryFn:  async () => {
+  const { data: uploadedVideos = [], isLoading } = useQuery({
+    queryFn: async () => {
       const res = await axios.get(
         "https://boostifytube-network-api.onrender.com/api/v1/video/getAll",
         {
@@ -25,7 +19,7 @@ const {data : uploadedVideos = [], isLoading} =useQuery({
           },
         }
       );
-     
+
       return res.data;
     },
     onError: (data) => {
@@ -33,53 +27,35 @@ const {data : uploadedVideos = [], isLoading} =useQuery({
     },
   });
 
-
- 
-  const [youtuberUploadVideo, setYoutuberUploadVideo] = useState([]);
- 
-  
-
-  
-
-
-  const videoLinks = [];
-
-  for (let i = 0; i < uploadedVideos.length; i++) {
-    videoLinks.push(uploadedVideos[i]?.linkOfVideo);
-  }
+  const videoLinks = uploadedVideos
+    .map((video) => video?.linkOfVideo)
+    .filter(Boolean);
 
   const getYouTubeVideoId = (url) => {
     const regex =
       /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-
     const match = url.match(regex);
     return match ? match[1] : null;
   };
 
-  const videoIdss = [];
-
-  for (let i = 0; i < videoLinks.length; i++) {
-    videoIdss.push(getYouTubeVideoId(videoLinks[i]));
-  }
-
-  console.log("99999999999", videoIdss);
+  const videoIdss = videoLinks
+    .map((link) => getYouTubeVideoId(link))
+    .filter(Boolean);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("hhhhhhhhhh", videoIdss);
-
         if (!videoIdss || videoIdss.length === 0) {
           console.error("No video IDs provided.");
           return;
         }
+       
 
         const videoIdsParam = videoIdss.join(",");
+        
         const response = await fetch(
-          `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoIdsParam}&key=AIzaSyDBwaf4NcPBZ5lpW1Qr9kTg84Dqa9Dsazc
-`
+          `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoIdsParam}&key=AIzaSyCn4fHkJqf0VG9MutSUCWLf-THIYANC2rE`
         );
-
         if (!response.ok) {
           throw new Error("Failed to fetch videos");
         }
@@ -92,14 +68,12 @@ const {data : uploadedVideos = [], isLoading} =useQuery({
           console.error("No videos found in the API response.");
         }
       } catch (error) {
-        console.error("Error fetching videos:", error.message);
+        console.error("Error fetching videos:", error.error);
       }
     };
 
     fetchData();
   }, [videoIdss]);
-
-
 
   let token = localStorage.getItem("token");
 
@@ -122,45 +96,50 @@ const {data : uploadedVideos = [], isLoading} =useQuery({
     },
   });
 
-   let user = JSON.parse(localStorage.getItem("userdata"));
-   let data = user?.userInfo;
-   let userId = data._id;
-   // console.log("=================", userId);
-   // let userData = user?.user;
-   // console.log(userData);
+  let user = JSON.parse(localStorage.getItem("userdata"));
+  let data = user?.userInfo;
+  let userId = data?._id;
 
-   const { data: loggedUser } = useQuery({
-     queryKey: ["logged_users"],
-     queryFn: async () => {
-       const res = await axios.get(
-         `https://boostifytube-network-api.onrender.com/api/v1/user/getOneUser/${userId}`
-       );
-       // console.log("Responseeeeeeeeeeeeeeeee", res.data.user.image);
-       return res.data;
-     },
-   });
+  const { data: loggedUser } = useQuery({
+    queryKey: ["logged_users"],
+    queryFn: async () => {
+      const res = await axios.get(
+        `https://boostifytube-network-api.onrender.com/api/v1/user/getOneUser/${userId}`
+      );
+      // console.log("Responseeeeeeeeeeeeeeeee", res.data.user.image);
+      return res.data;
+    },
+  });
 
-
-   const { data: Messages, isLoading: messageLoading } = useQuery({
+  const { data: Messages, isLoading: messageLoading } = useQuery({
     queryKey: ["messages"],
     queryFn: async () => {
       const messsageres = await axios.get(
-        "https://boostifytube-network-api.onrender.com/api/v1/user/getAllContact",{
+        "https://boostifytube-network-api.onrender.com/api/v1/user/getAllContact",
+        {
           headers: {
             Authorization: "Bearer " + token,
           },
         }
       );
-      console.log(messsageres.data);
       return messsageres.data;
-      
     },
-   
   });
 
   return (
-
-    <stateContext.Provider value={{ videos, setVideos, fetchUsersData,messageLoading,Messages, fetchUsersData, youtuberUploadVideo,loggedUser }}>
+    <stateContext.Provider
+      value={{
+        videos,
+        setVideos,
+        fetchUsersData,
+        messageLoading,
+        Messages,
+        fetchUsersData,
+        loggedUser,
+        uploadedVideos,
+        isLoading,
+      }}
+    >
       {children}
     </stateContext.Provider>
   );

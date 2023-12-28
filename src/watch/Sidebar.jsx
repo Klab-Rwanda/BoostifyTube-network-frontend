@@ -6,44 +6,36 @@ import { GiMoneyStack } from "react-icons/gi";
 import '../watch/Sidebar.css'
 import { Link } from "react-router-dom";
 function Sidebar(){
-    return(
-        <div className=" sidebre">
-            <div className="sidebar1">
-                <Link to='home' className="sidebar-text">
-            <AiOutlineHome className="sidebar-icon"/>
-                  <p>
-                  Home
-                  </p>
-                    
-                </Link>
-                <Link to='video' className="sidebar-text">
-                <MdOutlineVideoSettings className="sidebar-icon" />
-               
-                <p> Videos</p>
-                </Link>
-                <Link to='balance' className="sidebar-text">
-                <GiMoneyStack className="sidebar-icon" />
-            <p>  Balance</p>
-                </Link>
-                <Link className="sidebar-text">
-                <BsCurrencyDollar className="sidebar-icon" />
-            
-            <p>Earnings</p>
-                </Link>
-            </div>
-            <div className="setting-sidebar">
+    return (
+      <div className=" sidebre">
+        <div className="sidebar1">
+          <Link to="home" className="sidebar-text">
+            <AiOutlineHome className="sidebar-icon" />
+            <p>Home</p>
+          </Link>
+          <Link to="video" className="sidebar-text">
+            <MdOutlineVideoSettings className="sidebar-icon" />
 
-                <Link className="sidebar-text">
-            <AiOutlineHome className="sidebar-icon"/>
-            <p>Profile </p>
-                </Link>
-                <Link to='setting' className="sidebar-text">
-                <IoSettingsOutline  className="sidebar-icon"/>
-           <p> Setting</p>
-                </Link>
-            </div>
+            <p> Videos</p>
+          </Link>
+          <Link to="balance" className="sidebar-text">
+            <GiMoneyStack className="sidebar-icon" />
+            <p> Balance</p>
+          </Link>
+
         </div>
-    )
+        <div className="setting-sidebar">
+          <Link className="sidebar-text" to="usersettings">
+            <AiOutlineHome className="sidebar-icon" />
+            <p>Profile </p>
+          </Link>
+          <Link to="setting" className="sidebar-text">
+            <IoSettingsOutline className="sidebar-icon" />
+            <p> Setting</p>
+          </Link>
+        </div>
+      </div>
+    );
 }
 
 export default Sidebar
