@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../Styles/Profile.css";
 import { MyContext } from "../context/Context";
+import Activation from "./Activation";
 
 const Profile = () => {
   const { loggedUser } = MyContext();
@@ -17,6 +18,9 @@ const Profile = () => {
   const [profilePicture, setProfilePicture] = useState(
     `${loggedUser?.user?.image}`
   );
+
+  // State to manage the activation modal visibility
+  const [isActivationModalOpen, setActivationModalOpen] = useState(false);
 
   const handleUpdateProfile = () => {
     setUser({ ...editedUser });
@@ -37,6 +41,21 @@ const Profile = () => {
 
   return (
     <div className="profile-cont">
+      <button className="activate" onClick={() => setActivationModalOpen(true)}>
+        Activate Account
+      </button>
+
+      {isActivationModalOpen && (
+        <div className="overlay">
+        <div className="activation-modal">
+          <Activation />
+          <button onClick={() => setActivationModalOpen(false)}>
+            Close Activation
+          </button>
+        </div>
+        </div>
+      )}
+
       <div className="user-profile">
         <div className="profile-column">
           <div className="profile-picture">
