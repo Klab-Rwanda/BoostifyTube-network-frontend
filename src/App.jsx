@@ -28,7 +28,8 @@ import Cashin from "./Dashboards/CashIn";
 import Cashout from "./Dashboards/CashOut";
 import Wacthhome from "./watch/Watchhome";
 import DashContact from "./Dashboards/DashContact";
-
+import Dashsingle from "./Dashboards/Dashsingle";
+import Profileview from "./watch/ProfileView";
 const client = new QueryClient();
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
               <Route path="video" element={<Video />} />
               <Route path="balance" element={<Balance />} />
               <Route path="setting" element={<Settings />} />
+              <Route path="usersettings" element={<Profileview />} />
 
               <Route path="video/:videoId" element={<Singlevideo />} />
             </Route>
@@ -58,6 +60,7 @@ function App() {
               <Route index element={<DashHome />} />
               <Route path="users" element={<Users />} />
               <Route path="videos" element={<Videos />} />
+              <Route path="videos/:videoId" element={<Dashsingle />} />
 
               <Route path="transactions">
                 <Route path="youtuber" element={<YoutuberTransactions />} />

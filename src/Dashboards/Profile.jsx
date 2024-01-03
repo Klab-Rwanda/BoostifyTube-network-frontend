@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 import "../Styles/Profile.css";
 import { MyContext } from "../context/Context";
+import Activation from "./Activation";
 
 const Profile = () => {
   const { loggedUser } = MyContext();
 
   const [user, setUser] = useState({
-    firstName: `${loggedUser?.user.FullName}`,
-    lastName: `${loggedUser?.user.FullName}`,
-    email: `${loggedUser?.user.Email}`,
+    firstName: `${loggedUser?.user?.FullName}`,
+    lastName: `${loggedUser?.user?.FullName}`,
+    email: `${loggedUser?.user?.Email}`,
   });
 
   const [editMode, setEditMode] = useState(false);
   const [editedUser, setEditedUser] = useState({ ...user });
 
   const [profilePicture, setProfilePicture] = useState(
-    "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
+    `${loggedUser?.user?.image}`
   );
+
+  // State to manage the activation modal visibility
+  const [isActivationModalOpen, setActivationModalOpen] = useState(false);
 
   const handleUpdateProfile = () => {
     setUser({ ...editedUser });
@@ -37,6 +41,21 @@ const Profile = () => {
 
   return (
     <div className="profile-cont">
+      <button className="activate" onClick={() => setActivationModalOpen(true)}>
+        Activate Account
+      </button>
+
+      {isActivationModalOpen && (
+        <div className="overlay">
+        <div className="activation-modal">
+          <Activation />
+          <button onClick={() => setActivationModalOpen(false)}>
+            Close Activation
+          </button>
+        </div>
+        </div>
+      )}
+
       <div className="user-profile">
         <div className="profile-column">
           <div className="profile-picture">
@@ -47,7 +66,7 @@ const Profile = () => {
                   type="file"
                   accept="image/*"
                   onChange={handleUpdateProfilePicture}
-                  style={{ color: "#1919" }}
+                  style={{ color: "#191943" }}
                 />
               </div>
             )}
@@ -110,14 +129,14 @@ const Profile = () => {
                 <button
                   className="button1"
                   onClick={handleUpdateProfile}
-                  style={{ backgroundColor: "#191943" }}
+                  style={{ backgroundColor: "#191943", color: "white" }}
                 >
                   Save
                 </button>
                 <button
                   className="button1"
                   onClick={() => setEditMode(false)}
-                  style={{ backgroundColor: "#191943" }}
+                  style={{ backgroundColor: "#191943", color: "white" }}
                 >
                   Cancel
                 </button>
@@ -125,7 +144,7 @@ const Profile = () => {
             ) : (
               <button
                 onClick={() => setEditMode(true)}
-                style={{ backgroundColor: "#191943" }}
+                style={{ backgroundColor: "#191943", color: "white" }}
               >
                 Edit Profile
               </button>

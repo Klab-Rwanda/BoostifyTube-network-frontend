@@ -1,18 +1,37 @@
+:root {
+  --first-bg-color: #191943;
+  --skin-color: #fee60c;
+  --text-color: #8c8a95;
+  --white-bg-color: #fff;
+  /* --main-dash-bg-color: */
+}
 .history-section {
-    position: absolute;
-    top: 90px;
-    left: 220px;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    flex: 1;
-    border: 1px solid red;
-    background-color: black;
-    width: 100;
+  position: absolute;
+  top: 90px;
+  left: 220px;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex: 1;
+  border: 1px solid red;
+  background-color: var(--white-bg-color);
+  width: 100;
+  padding: 5rem;
+}
+.history-table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
+.history-table th,
+.history-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
 
-
-
+.history-table th {
+  background-color: #f2f2f2;
 }

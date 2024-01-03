@@ -43,20 +43,10 @@ const Users = () => {
       console.log(error);
     }
   };
-  const handleDeleteClick = (user) => {
-    setTourToDelete(user);
-    handleConfirmDelete()
-  };
+ 
   const handleCancelDelete = () => {
     setShowDeleteConfirm(false);
   };
-
-
-
-
-
-
-=======
   const [pagenumber, setPagenumber] = useState(0);
   const videopage = 7;
   const pagevisited = pagenumber * videopage;
@@ -67,40 +57,6 @@ const Users = () => {
 
   const changepage = ({ selected }) => {
     setPagenumber(selected);
-  };
-
-  const handleDeleteClick = async (id) => {
-    console.log(token);
-    try {
-      Notiflix.Confirm.show(
-        "Confirm",
-        "Confirm delete User?",
-        "Yes",
-        "No",
-        async () => {
-          const res = await axios.delete(
-            `https://boostifytube-network-api.onrender.com/api/v1/user/deleteOneUser/${id}`,
-            {
-              headers: {
-                Authorization: "Bearer " + token,
-              },
-            }
-          );
-          window.location.reload();
-          const data = await res.data;
-          toast.success(data.message);
-        },
-        () => {
-          alert("If you say so...");
-        },
-        () => {
-          alert("If you say so...");
-        },
-        {}
-      );
-    } catch (error) {
-      toast.error(error);
-    }
   };
 
   return (
@@ -135,7 +91,7 @@ const Users = () => {
                 <FaEdit />
 
                 <RiDeleteBin6Line style={{ color: "red" }}
-                 onClick={() => handleConfirmDelete(user._id)} 
+                 onClick={() => handleConfirmDelete(user._id)} />
               </td>
             </tr>
           ))}

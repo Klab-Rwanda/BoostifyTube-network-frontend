@@ -2,7 +2,8 @@
     --first-bg-color: #191943;
     --skin-color: #fee60c;
     --text-color: #8c8a95;
-    --sec-bg-color: #fff;
+    --white-bg-color: #fff;
+    /* --main-dash-bg-color: */
 }
 .initialDashPage
 {
@@ -39,9 +40,9 @@
     gap: 2rem;
     padding: 20px;
     box-shadow: 1px 0px 1px 2px #ccc ;
-    background-color:var(--first-bg-color);
+    /* background-color:var(--first-bg-color); */
     border-radius: 20px;
-    color: #fee60c;
+    color: #191943;
   }
   .dash-card .num-icon
   {
