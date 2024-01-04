@@ -29,8 +29,18 @@ const videoData = [
   { title: "Video 5", views: 200000, likes: 20000, comments: 2000 },
 ];
 function FirstPage() {
-  const { uploadedVideos = [] } = MyContext();
-  console.log(uploadedVideos);
+  const {
+    uploadedVideos = [],
+
+    loggedUser,
+    myOwnVideo,
+    ownerVideos,
+    videos,
+    youtuberHistory,
+  } = MyContext();
+  console.log("xxxx  youtube API video link vvvvv", ownerVideos);
+
+  // console.log("Uploaded", myUploadedVideos);
   return (
     <div className="initialDashPage">
       <div>
@@ -62,13 +72,13 @@ function FirstPage() {
           <CardMain imgSrc={Card4} title={uplVideo.title} hearts={"65"} />;
         })}
 
-        <CardMain imgSrc={Card5} title={"Start Crystal"} hearts={"65"} />
+        {/* <CardMain imgSrc={Card5} title={"Start Crystal"} hearts={"65"} />
         <CardMain imgSrc={Card5} title={"Start Crystal"} hearts={"65"} />
         <CardMain imgSrc={Card4} title={"Stunning Cube"} hearts={"65"} />
 
         <CardMain imgSrc={Card6} title={"Crystal Bird"} hearts={"65"} />
         <CardMain imgSrc={Card2} title={"Pokemon Ball"} hearts={"65"} />
-        <CardMain imgSrc={Card3} title={"Pyramid God"} hearts={"65"} />
+        <CardMain imgSrc={Card3} title={"Pyramid God"} hearts={"65"} /> */}
         {/* <CardMain imgSrc={Card4} title={"Stunning Cube"} hearts={"65"} />
          <CardMain imgSrc={Card6} title={"Crystal Bird"} hearts={"65"} /> */}
       </div>

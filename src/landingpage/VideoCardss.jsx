@@ -27,6 +27,7 @@ const VideoCard = ({ videoId}) => {
     return <div>Loading...</div>;
   }
 
+
   const opts = {
     height: "200",
     width: "300",
@@ -34,6 +35,7 @@ const VideoCard = ({ videoId}) => {
       autoplay: 0,
     },
   };
+
 
   return (
     <div className="video-details">
