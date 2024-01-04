@@ -10,9 +10,11 @@
   text-align: center;
   height: fit-content;
   width: 100%;
+  position: relative;
   height: 32.2rem;
   box-shadow: 0 2px 4px rgba(0.8, 0, 0, 0.6);
 }
+
 
 .overlay {
   position: fixed;
@@ -21,7 +23,7 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 2;
 }
 
 .activate {

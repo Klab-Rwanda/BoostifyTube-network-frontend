@@ -1,12 +1,16 @@
-/* ActivationPage.css */
-
 .activation-page {
-  max-width: 600px;
   margin: auto;
-  padding: 20px;
+  width: 60%;
+  height: fit-content;
   text-align: center;
-  margin-top: 5rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top: 10rem;
+  margin-left: 18rem;
   position: relative;
+  background-color: white;
+  padding: 50px;
   z-index: 2;
 }
 
@@ -19,20 +23,28 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
-
-.instructions-section,
-.account-info-section,
-.payment-section,
-.confirmation-section {
-  margin-bottom: 20px;
+.instructions-section {
+  width: 40%;
+  margin-top: 1rem;
+  /* background-color: aqua; */
+  color: black;
 }
 
-button {
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
+.payment-sectionn {
+  width: 60%;
+  color: black;
+  /* margin-left: 10%; */
+  display: flex;
+  flex-direction: column;
+}
+
+.button1 {
+  background-color: #fee60c;
+  color: black;
   border: none;
+  margin-top: 1rem;
   cursor: pointer;
+  margin-left: 7rem;
 }
 
 .confirmation-section.success {
@@ -41,4 +53,29 @@ button {
 
 .confirmation-section.failed {
   color: red;
+}
+.close {
+  position: absolute;
+  z-index: 4;
+  margin-top: 10rem;
+  margin-left: 25rem;
+}
+
+.payment-formm {
+  width: 90%;
+  color: black;
+  padding: 10px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+#inputt1 {
+  width: 80%;
+}
+#select-payment-method {
+  width: 60%;
+  padding: 0.3rem;
+  margin-left: 7rem;
 }

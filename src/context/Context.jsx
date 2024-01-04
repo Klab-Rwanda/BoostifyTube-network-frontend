@@ -42,31 +42,7 @@ export const AppContext = ({ children }) => {
 
   const videoIdss = videoLinks
     .map((link) => getYouTubeVideoId(link))
-    .filter(Boolean);
-
- 
-
-  const videoIdsParam = videoIdss.join(",");
-  console.log(videoIdsParam);
-
-  const fecthvideos = useQuery({
-    queryKey: ["videoss"],
-    queryFn: async () => {
-      if (uploadedVideos) {
-        const res = await axios.get(
-          `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoIdsParam}&key=AIzaSyDBwaf4NcPBZ5lpW1Qr9kTg84Dqa9Dsazc`
-        );
-        return res.data;
-      } else {
-        console.log("Link has issue");
-      }
-    },
-  });
-
-
-  
-
-  
+    .filter(Boolean)
 
   let token = localStorage.getItem("token");
 
