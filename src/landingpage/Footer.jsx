@@ -6,7 +6,7 @@ function Footer(){
       <div className="footer">
         <div className="footer-div">
           <div className="footer-class">
-            <b style={{ color: "#191943" }}>Mission</b>
+            <b style={{ color: "white" }}>Mission</b>
             <div className="footer-contact">
               <p>
                 Explore unlimited After Effects
@@ -19,7 +19,7 @@ function Footer(){
             </div>
           </div>
           <div className="footer-class">
-            <b style={{ color: "#191943" }}>Contact us</b>
+            <b style={{ color: "white" }}>Contact us</b>
             <div className="footer-contact">
               <p>orgingroup299@gmail.com</p>
               <p>+250789466837</p>
@@ -28,7 +28,7 @@ function Footer(){
             </div>
           </div>
           <div className="footer-class">
-            <b style={{ color: "#191943" }}>Quick links</b>
+            <b style={{ color: "white" }}>Quick links</b>
             <div className="footer-contact">
               <p>Login</p>
               <p>Signup</p>
@@ -36,7 +36,7 @@ function Footer(){
             </div>
           </div>
           <div className="footer-class">
-            <b style={{ color: "#191943" }}>Privacy</b>
+            <b style={{ color: "white" }}>Privacy</b>
             <div className="footer-contact">
               <p>Terms & Policies</p>
               <p>Partners</p>
