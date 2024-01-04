@@ -2,7 +2,9 @@
   margin: auto;
   justify-content: center;
   align-items: center;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
   align-items: center;
   text-align: center;
 }
@@ -21,4 +23,7 @@
 }
 .video-item {
   margin: 1rem 1rem;
+}
+#det {
+  margin: auto;
 }

@@ -1,97 +1,135 @@
-import { Link, useParams } from "react-router-dom";
-import React, { useRef, useState, useEffect } from "react";
+// Dashsingle.jsx
+
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import YouTube from "react-youtube";
+import { useParams } from "react-router-dom";
 import { MyContext } from "../context/Context";
 import "../Styles/Dashsingle.css";
+import { Link } from "react-router-dom";
 
-const Dashsingle = () => {
-  const { videos } = MyContext();
-  const { videoId } = useParams();
-  const [isVideoEnded, setVideoEnded] = useState(false);
-  const videoRef = useRef(null);
-
-  const handleVideoEnded = () => {
-    setVideoEnded(true);
-  };
+const VideoCard1 = ({ videoId }) => {
+  const [videoData1, setVideoData1] = useState(null);
+  const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
 
   useEffect(() => {
-    const handleContextMenu = (event) => {
-      event.preventDefault();
-    };
-
-    const handleKeyDown = (event) => {
-      // Prevent keyboard controls (spacebar, arrow keys, etc.)
-      event.preventDefault();
-    };
-
-    if (videoRef.current) {
-      videoRef.current.addEventListener("ended", handleVideoEnded);
-      videoRef.current.addEventListener("contextmenu", handleContextMenu);
-      videoRef.current.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => {
-      if (videoRef.current) {
-        videoRef.current.removeEventListener("ended", handleVideoEnded);
-        videoRef.current.removeEventListener("contextmenu", handleContextMenu);
-        videoRef.current.removeEventListener("keydown", handleKeyDown);
+    const fetchVideoData1 = async () => {
+      try {
+        const response1 = await axios.get(
+          `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
+        );
+        setVideoData1(response1.data.items[0]);
+      } catch (error) {
+        console.error("Error fetching video data:", error);
       }
     };
-  }, []);
 
-  const videoinf = videos?.find((video) => video.id === videoId);
-  if (!videoinf) {
+    fetchVideoData1();
+  }, [videoId, API_KEY]);
+
+  if (!videoData1) {
     return <div>Loading...</div>;
   }
-  const { title, viewCount, likeCount, commentCount } = videoinf.statistics;
+
+  const opts2 = {
+    height: "200",
+    width: "300",
+    playerVars: {
+      autoplay: 0,
+    },
+  };
+
+  return (
+    <div className="video-details">
+      <div className="video-item">
+        <YouTube videoId={videoId} opts={opts2} />
+        <Link to={`/superdashboard/videos/${videoId}`} className="view-title">
+          <p id="det">{videoData1.snippet.localized.title}</p>
+        </Link>
+        <p id="det">Views: {videoData1.statistics.viewCount}</p>
+        <p id="det">Likes: {videoData1.statistics.likeCount}</p>
+        <p id="det">Comments: {videoData1.statistics.commentCount}</p>
+        <p id="det">Channel: {videoData1.snippet.channelTitle}</p>
+      </div>
+    </div>
+  );
+};
+
+const Dashsingle = () => {
+  const { videoId } = useParams();
+  const [videoInfo, setVideoInfo] = useState(null);
+  const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
+
+  const { uploadedVideos } = MyContext();
+
+  const videoLinks2 = uploadedVideos
+    .map((video) => video?.linkOfVideo)
+    .filter(Boolean);
+
+  const getYouTubeVideoId = (url) => {
+    const regex =
+      /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  };
+
+  const videoIdss2 = videoLinks2
+    .map((link) => getYouTubeVideoId(link))
+    .filter(Boolean);
+
+  useEffect(() => {
+    const fetchVideoInfo = async () => {
+      try {
+        const response = await axios.get(
+          `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
+        );
+        setVideoInfo(response.data.items[0]);
+      } catch (error) {
+        console.error("Error fetching video data:", error);
+      }
+    };
+
+    if (videoId) {
+      fetchVideoInfo();
+    }
+  }, [videoId]);
+
+  if (!videoInfo) {
+    return <div>Loading...</div>;
+  }
+
+  const { title, viewCount, likeCount, commentCount } = videoInfo.statistics;
 
   return (
     <div className="view-video">
-      <div className="video-itemb">
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1`}
+      <div className="video-item1">
+        <YouTube
+          style={{ width: "100%" }}
+          videoId={videoId}
+          opts={{
+            height: "500",
+            width: "600",
+            playerVars: { autoplay: 1, mute: 1 },
+          }}
           allowFullScreen
-          controls={!isVideoEnded}
-          ref={videoRef}
-          className="frame-view"
-          style={{ pointerEvents: "none" }} // Disable mouse events
-        ></iframe>
+        />
+
         <p>{title}</p>
         <p>Views: {viewCount}</p>
         <p>Likes: {likeCount}</p>
         <p>Comments: {commentCount}</p>
       </div>
-      <div>
-        {videos.map((video, index) => (
-          <div key={index} className="video-itemm">
-            <div>
-              <iframe
-                title={video.snippet.title}
-                src={`https://www.youtube.com/embed/${video.id}`}
-                frameBorder="0"
-                allowFullScreen
-                style={{ borderRadius: 10 }}
-                className="iframe-single-video"
-              ></iframe>
-            </div>
-            <div className="single-videos1">
-              <Link
-                to={`/superdashboard/videos/${video.id}`}
-                className="sinle-link-video"
-              >
-                <p>{video.snippet.title}</p>
-              </Link>
-              <p className="view-comments">
-                Views: {video.statistics.viewCount}
-              </p>
-              <p className="view-comments">
-                Likes: {video.statistics.likeCount}
-              </p>
-              <p className="view-comments">
-                Comments: {video.statistics.commentCount}
-              </p>
-            </div>
-          </div>
-        ))}
+
+      <div className="video-container1">
+        {videoIdss2
+          .filter((id) => id !== videoId) // Exclude the left-side video
+          .map((videoId2, index) => (
+            <VideoCard1
+              key={index}
+              videoId={videoId2}
+              title={`Video ${index + 1}`}
+            />
+          ))}
       </div>
     </div>
   );
