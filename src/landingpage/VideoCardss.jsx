@@ -7,6 +7,7 @@ const VideoCard = ({ videos }) => {
   if (!videos || videos.length === 0) {
     return <div>Loading...</div>;
   }
+  console.log("geetting ",videos);
   return (
     <div className="video-details">
       {videos.map((video, index) => (

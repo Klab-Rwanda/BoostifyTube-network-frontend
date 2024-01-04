@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "../youtStyles/historyStyle.css";
+import { MyContext } from "../../context/Context";
 
 function HistoryPage() {
   const historyData = [
@@ -7,6 +8,15 @@ function HistoryPage() {
     { number: 2, date: "2023-12-18", video: "Rahira", cost: 150 },
     { number: 3, date: "2023-12-20", video: "Habibi", cost: 200 },
   ];
+  // const [indexNo,setIndexNo]= useState("")
+ 
+
+   const {
+     
+     youtuberHistory,
+   } = MyContext();
+    // console.log("youtube API video link hhhhhh", youtuberHistory?.transactions);
+const mytransaction = youtuberHistory?.transactions;
   return (
     <div className="history-section" style={{ color: "red" }}>
       <table className="history-table">
@@ -14,17 +24,18 @@ function HistoryPage() {
           <tr>
             <th>Number</th>
             <th>Date</th>
-            <th>Uploaded Video</th>
+            <th>Status</th>
             <th>Cost Paid</th>
           </tr>
         </thead>
         <tbody>
-          {historyData.map((item) => (
+          {mytransaction?.map((item,indexNo) => (
+            
             <tr key={item.number}>
-              <td>{item.number}</td>
-              <td>{item.date}</td>
-              <td>{item.video}</td>
-              <td>$ {item.cost}</td>
+              <td>{indexNo+1}</td>
+              <td>{item.Date}</td>
+              <td>{item.Status}</td>
+              <td>{item.Amount}Frw</td>
             </tr>
           ))}
         </tbody>
