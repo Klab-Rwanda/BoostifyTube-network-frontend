@@ -47,12 +47,9 @@ const Profile = () => {
 
       {isActivationModalOpen && (
         <div className="overlay">
-        <div className="activation-modal">
-          <Activation />
-          <button onClick={() => setActivationModalOpen(false)}>
-            Close Activation
-          </button>
-        </div>
+          <div className="activation-modal">
+            <Activation onClose={() => setActivationModalOpen(false)} />
+          </div>
         </div>
       )}
 

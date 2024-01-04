@@ -1,64 +1,83 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import YouTube from "react-youtube";
 import "../Styles/Videos.css";
 import { MyContext } from "../context/Context";
-import { Link } from "react-router-dom";
 import { AiOutlineLike } from "react-icons/ai";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegComment } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const Videos = () => {
-  const { videos } = MyContext();
+const VideoCard = ({ videoId }) => {
+  const [videoInfo, setVideoInfo] = useState(null);
+  const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
+
+  useEffect(() => {
+    const fetchVideoInfo = async () => {
+      try {
+        const response = await axios.get(
+          `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
+        );
+        setVideoInfo(response.data.items[0]);
+      } catch (error) {
+        console.error("Error fetching video data:", error);
+      }
+    };
+
+    fetchVideoInfo();
+  }, [videoId, API_KEY]);
+
+  if (!videoInfo) {
+    return <div>Loading...</div>;
+  }
+
+  const opts = {
+    height: "200",
+    width: "300",
+    playerVars: {
+      autoplay: 0,
+    },
+  };
 
   return (
-    <div className="video-contt">
-      <div className="filter-buttons">
-        <button className="btnfilter" onClick={() => setFilter("all")}>
-          All Videos
-        </button>
-        <button className="btnfilter" onClick={() => setFilter("ready")}>
-          Paid
-        </button>
-        <button className="btnfilter" onClick={() => setFilter("pending")}>
-          Not Paid
-        </button>
+    <div className="video-details">
+      <div className="video-item">
+        <YouTube videoId={videoId} opts={opts} />
+
+        <Link to={`/superdashboard/videos/${videoInfo.id}`} className="view-title">
+        <p id="det">{videoInfo.snippet.localized.title}</p>
+        </Link>
+        <p id="det"><MdOutlineRemoveRedEye/>{videoInfo.statistics.viewCount}</p>
+        <p id="det"><AiOutlineLike/> {videoInfo.statistics.likeCount}</p>
+        <p id="det"><FaRegComment/> {videoInfo.statistics.commentCount}</p>
+        <p id="det">Channel: {videoInfo.snippet.channelTitle}</p>
       </div>
-      <div className="videeo1">
-        {videos?.map((video, index) => (
-          <div key={index} className="video-item1">
-            <iframe
-              title={video.snippet.title}
-              width="300"
-              height="200"
-              src={`https://www.youtube.com/embed/${video.id}`}
-              allowFullScreen
-              className="allvideo-view"
-              style={{ width: "100%", border: "none" }}
-            ></iframe>
-            <Link to={`/superdashboard/videos/${video.id}`} className="view-title">
-              <p style={{ padding: "1rem .5rem", color: "#191943" }}>
-                {video.snippet.title}
-              </p>
-            </Link>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                padding: "1rem",
-              }}
-            >
-              <p style={{ color: "#191943" }}>
-                <MdOutlineRemoveRedEye />: {video.statistics.viewCount}
-              </p>
-              <p style={{ color: "#191943" }}>
-                <AiOutlineLike />: {video.statistics.likeCount}
-              </p>
-              <p style={{ color: "#191943" }}>
-                <FaRegComment />: {video.statistics.commentCount}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
+    </div>
+  )
+};
+
+const Videos = () => {
+  const { uploadedVideos } = MyContext();
+  const videoLinks = uploadedVideos
+    .map((video) => video?.linkOfVideo)
+    .filter(Boolean);
+
+  const getYouTubeVideoId = (url) => {
+    const regex =
+      /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  };
+
+  const videoIdss = videoLinks
+    .map((link) => getYouTubeVideoId(link))
+    .filter(Boolean);
+
+  return (
+    <div className="video-cards-container">
+      {videoIdss.map((videoId, index) => (
+        <VideoCard key={index} videoId={videoId} />
+      ))}
     </div>
   );
 };

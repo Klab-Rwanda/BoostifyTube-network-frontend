@@ -1,0 +1,17 @@
+.view-video {
+  display: flex;
+  width: 100%;
+  margin-top: 1rem;
+}
+.video-item1 {
+  width: 60%;
+  margin: 0;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+  height: fit-content;
+  border: none;
+}
+.video-container1 {
+  width: 40%;
+}
