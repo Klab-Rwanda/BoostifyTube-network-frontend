@@ -62,22 +62,30 @@ const Contacts = () => {
         </div>
         <div className="contact-form">
           <h2>Contact Us</h2>
-          <form method="post" onSubmit={handleSubmit }>
+          <form method="post" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Your Name</label>
-              <input type="Name" id="Name" name="Name" 
-              value={formData.Name}
-              onChange={handleChange}
-              
-              required />
+              <input
+                type="Name"
+                id="Name"
+                name="Name"
+                className="contact-input"
+                value={formData.Name}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className="form-group">
               <label htmlFor="email">Your Email</label>
-              <input type="Email" id="Email" name="Email" 
-              value={formData.Email}
-              onChange={handleChange}
-              
-              required />
+              <input
+                type="Email"
+                id="Email"
+                name="Email"
+                value={formData.Email}
+                onChange={handleChange}
+                required
+                className="contact-input"
+              />
             </div>
             <div className="form-group">
               <label htmlFor="message">Your Message</label>
@@ -85,13 +93,15 @@ const Contacts = () => {
                 id="Message"
                 name="Message"
                 rows="4"
-              value={formData.Message}
-              onChange={handleChange}
-
+                value={formData.Message}
+                onChange={handleChange}
                 required
+                className="textarea-input "
               ></textarea>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" className="contact-submit">
+              Submit
+            </button>
           </form>
         </div>
       </div>
