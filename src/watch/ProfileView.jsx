@@ -1,9 +1,10 @@
-import React,{ useState } from 'react';
-import { MyContext } from '../context/Context';
-import './ProfileView.css'
+import React, { useState } from "react";
+import { MyContext } from "../context/Context";
+import "./ProfileView.css";
+import Activation from "../Dashboards/Activation";
 
-const Profileview= ()=>{
-        const { loggedUser } = MyContext();
+const Profileview = () => {
+  const { loggedUser } = MyContext();
 
   const [user, setUser] = useState({
     firstName: `${loggedUser?.user.FullName}`,
@@ -12,13 +13,14 @@ const Profileview= ()=>{
     accountStatus: `${loggedUser?.user.accountStatus}`,
     role: `${loggedUser?.user.role}`,
     PaymentMethod: `${loggedUser?.user.PaymentMethod}`,
-    Gender:` ${loggedUser?.user.Gender}`, 
-    Country: `${loggedUser?.user.Country}`, 
-
+    Gender: ` ${loggedUser?.user.Gender}`,
+    Country: `${loggedUser?.user.Country}`,
   });
 
   const [editMode, setEditMode] = useState(false);
   const [editedUser, setEditedUser] = useState({ ...user });
+
+    const [isActivationModalOpen, setActivationModalOpen] = useState(false);
 
   const [profilePicture, setProfilePicture] = useState(
     "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
@@ -43,6 +45,13 @@ const Profileview= ()=>{
 
   return (
     <div className="profile-contents">
+      {isActivationModalOpen && (
+        <div className="overlay">
+          <div className="activation-modal">
+            <Activation onClose={() => setActivationModalOpen(false)} />
+          </div>
+        </div>
+      )}
       <div className="user-profile">
         <div className="profile-column">
           <div className="profile-picture">
@@ -110,11 +119,9 @@ const Profileview= ()=>{
               )}
             </div>
 
-
-
             <div className="field">
               <span className="label" style={{ color: "#191943" }}>
-              Country:
+                Country:
               </span>
               {editMode ? (
                 <input
@@ -148,14 +155,17 @@ const Profileview= ()=>{
 
             <div className="field">
               <span className="label" style={{ color: "#191943" }}>
-              PaymentMethod:
+                PaymentMethod:
               </span>
               {editMode ? (
                 <input
                   type="email"
                   value={editedUser.PaymentMethod}
                   onChange={(e) =>
-                    setEditedUser({ ...editedUser, PaymentMethod: e.target.value })
+                    setEditedUser({
+                      ...editedUser,
+                      PaymentMethod: e.target.value,
+                    })
                   }
                 />
               ) : (
@@ -179,7 +189,7 @@ const Profileview= ()=>{
                 <span style={{ color: "#191943" }}>{user.role}</span>
               )}
             </div>
-      
+
             <div className="field">
               <span className="label" style={{ color: "#191943" }}>
                 Account Status:
@@ -189,14 +199,16 @@ const Profileview= ()=>{
                   type="email"
                   value={editedUser.accountStatus}
                   onChange={(e) =>
-                    setEditedUser({ ...editedUser, accountStatus: e.target.value })
+                    setEditedUser({
+                      ...editedUser,
+                      accountStatus: e.target.value,
+                    })
                   }
                 />
               ) : (
                 <span style={{ color: "#191943" }}>{user.accountStatus}</span>
               )}
             </div>
-
           </div>
           <div className="actions">
             {editMode ? (
@@ -219,15 +231,21 @@ const Profileview= ()=>{
             ) : (
               <button
                 onClick={() => setEditMode(true)}
-                style={{ backgroundColor: "#191943", color:"white" }}
+                style={{ backgroundColor: "#191943", color: "white" }}
               >
                 Edit Profile
               </button>
             )}
           </div>
+          <button
+            className="activate1"
+            onClick={() => setActivationModalOpen(true)}
+          >
+            Activate Account
+          </button>
         </div>
       </div>
     </div>
-    );
+  );
 };
- export default Profileview
+export default Profileview;
