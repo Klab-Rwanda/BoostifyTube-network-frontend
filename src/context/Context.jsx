@@ -19,13 +19,15 @@ export const AppContext = ({ children }) => {
           },
         }
       );
-
+      console.log(res.data);
       return res.data;
     },
     onError: (data) => {
       console.log("onError", data.error);
     },
   });
+
+  console.log(uploadedVideos);
 
   const videoLinks = uploadedVideos
     .map((video) => video?.linkOfVideo)
@@ -40,40 +42,7 @@ export const AppContext = ({ children }) => {
 
   const videoIdss = videoLinks
     .map((link) => getYouTubeVideoId(link))
-    .filter(Boolean);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       if (!videoIdss || videoIdss.length === 0) {
-  //         console.error("No video IDs provided.");
-  //         return;
-  //       }
-       
-
-  //       const videoIdsParam = videoIdss.join(",");
-        
-  //       const response = await fetch(
-  //         `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoIdsParam}&key=AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M`
-  //       );
-  //       if (!response.ok) {
-  //         throw new Error("Failed to fetch videos");
-  //       }
-
-  //       const data = await response.json();
-
-  //       if (data.items && data.items.length > 0) {
-  //         setVideos(data.items);
-  //       } else {
-  //         console.error("No videos found in the API response.");
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching videos:", error.error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [videoIdss]);
+    .filter(Boolean)
 
   let token = localStorage.getItem("token");
 
@@ -88,7 +57,6 @@ export const AppContext = ({ children }) => {
           },
         }
       );
-      // console.log("response", res.data);
       return res.data;
     },
     onError: (data) => {

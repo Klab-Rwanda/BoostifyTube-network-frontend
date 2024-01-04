@@ -20,14 +20,14 @@ border-bottom: 1px solid #FEE60C;
 
 .watch-user-logo{
   display: flex;
-  font-size: 20px;
+  font-size: 25px;
 }
 .header-text1{
     display: flex;
     gap: 150px;
 }
 .header-text1 p{
-  font-size: 20px;
+  font-size: 16px;
 }
 .header-text2{
     display: flex;
