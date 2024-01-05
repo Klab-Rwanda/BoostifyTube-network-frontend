@@ -1,14 +1,15 @@
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import YouTube from "react-youtube";
-import "../Styles/Videos.css";
+import "./Video.css";
 import { MyContext } from "../context/Context";
 import { AiOutlineLike } from "react-icons/ai";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegComment } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const VideoCard = ({ videoId }) => {
+const Video = ({ videoId }) => {
   const [videoInfo, setVideoInfo] = useState(null);
   const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
 
@@ -32,22 +33,20 @@ const VideoCard = ({ videoId }) => {
   }
 
   const opts = {
+  
     height: "200",
-    width: "300",
+     width: "300",
     playerVars: {
       autoplay: 0,
     },
   };
 
   return (
-    <div className="video-details">
-      <div className="video-item">
+    <div>
+      <div>
         <YouTube videoId={videoId} opts={opts} />
 
-        <Link
-          to={`/superdashboard/videos/${videoInfo.id}`}
-          className="view-title"
-        >
+        <Link to={`/dashboard/Videocardss/${videoInfo.id}`} className="view-title">
           <p id="det">{videoInfo.snippet.localized.title}</p>
         </Link>
         <p id="det">
@@ -66,7 +65,7 @@ const VideoCard = ({ videoId }) => {
   );
 };
 
-const Videos = () => {
+const Videocardss = () => {
   const { uploadedVideos } = MyContext();
   const videoLinks = uploadedVideos
     .map((video) => video?.linkOfVideo)
@@ -84,12 +83,12 @@ const Videos = () => {
     .filter(Boolean);
 
   return (
-    <div className="video-cards-container">
+    <div className="videeos">
       {videoIdss.map((videoId, index) => (
-        <VideoCard key={index} videoId={videoId} />
+        <Video key={index} videoId={videoId} />
       ))}
     </div>
   );
 };
 
-export default Videos;
+export default Videocardss;
