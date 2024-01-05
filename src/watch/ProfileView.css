@@ -89,4 +89,6 @@ input {
 
 .close {
   margin-left: 83%;
+  border: none;
+  margin-top: 8rem;
 }

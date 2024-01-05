@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import YouTube from "react-youtube";
@@ -39,7 +38,7 @@ const VideoCard1 = ({ videoId }) => {
   };
 
   return (
-    <div  className='videooo'>
+    <div className="videooo">
       <div className="video-item">
         <YouTube videoId={videoId} opts={opts2} />
         <Link to={`/dashboard/Videocardss/${videoId}`} className="view-title">
@@ -103,10 +102,9 @@ const Singlevideo = () => {
     <div className="view-video">
       <div className="video-itemb">
         <YouTube
-          style={{ width: "100%" }}
+          style={{ width: "100%", marginTop: "5rem" }}
           videoId={videoId}
           opts={{
-          
             height: "350",
             width: "600",
             playerVars: { autoplay: 1, mute: 1 },
@@ -121,9 +119,9 @@ const Singlevideo = () => {
         <p>Comments: {commentCount}</p>
       </div>
 
-      <div>
+      <div style={{ marginTop: "4rem" }}>
         {videoIdss2
-          .filter((id) => id !== videoId) // Exclude the left-side video
+          .filter((id) => id !== videoId) 
           .map((videoId2, index) => (
             <VideoCard1
               key={index}

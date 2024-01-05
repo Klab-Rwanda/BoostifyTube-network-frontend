@@ -20,7 +20,7 @@ const Profileview = () => {
   const [editMode, setEditMode] = useState(false);
   const [editedUser, setEditedUser] = useState({ ...user });
 
-    const [isActivationModalOpen, setActivationModalOpen] = useState(false);
+  const [isActivationModalOpen, setActivationModalOpen] = useState(false);
 
   const [profilePicture, setProfilePicture] = useState(
     "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
@@ -231,7 +231,14 @@ const Profileview = () => {
             ) : (
               <button
                 onClick={() => setEditMode(true)}
-                style={{ backgroundColor: "#191943", color: "white" }}
+                style={{
+                  backgroundColor: "#191943",
+                  color: "white",
+                  padding: ".8rem 2rem",
+                  border: "none",
+                  borderRadius: ".5rem",
+                  marginLeft: "-10rem",
+                }}
               >
                 Edit Profile
               </button>
@@ -239,6 +246,11 @@ const Profileview = () => {
           </div>
           <button
             className="activate1"
+            style={{
+              border: "none",
+              marginTop: "-3rem",
+              marginRight: "-3rem",
+            }}
             onClick={() => setActivationModalOpen(true)}
           >
             Activate Account

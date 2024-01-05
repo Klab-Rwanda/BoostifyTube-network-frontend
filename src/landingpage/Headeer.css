@@ -15,12 +15,13 @@
 }
 
 .heade-button:hover {
-    background-color: white;
-    color: black;
-  }
+  background-color: white;
+  color: black;
+}
 .heade-button {
   width: 100px;
   height: 35px;
+  border: none;
   border-radius: 5px;
   color: #191942;
   background-color: #fee60c;
@@ -30,7 +31,7 @@
   display: flex;
   gap: 300px;
 }
-.watch-logob{
+.watch-logob {
   color: white;
 }
 /* .search-input {
@@ -43,7 +44,7 @@
 .headeer-logo b {
   font-size: 25px;
 }
-@media (max-width:780px) {
+@media (max-width: 780px) {
   .headeer-logo {
     margin-left: 2%;
     display: flex;
@@ -51,20 +52,19 @@
   }
   .search-input {
     display: none;
-   }
+  }
 }
-@media (max-width:480px) {
+@media (max-width: 480px) {
   .headeer-logo {
     margin-left: 2%;
     display: flex;
     gap: 30px;
   }
   .search-input {
-   display: none;
+    display: none;
   }
   .heade-button {
     width: 75px;
     height: 30px;
   }
 }
-
