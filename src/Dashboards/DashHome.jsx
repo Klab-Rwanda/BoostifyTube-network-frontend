@@ -1,6 +1,6 @@
 import React from "react";
 import "../Styles/DashHome.css";
-import { Bar, Line, PolarArea } from "react-chartjs-2";
+import { Bar, Line, Pie } from "react-chartjs-2";
 import "chart.js/auto";
 
 const DashHome = () => {
@@ -11,7 +11,7 @@ const DashHome = () => {
         label: "User Growth",
         data: [100, 150, 200, 250, 300],
         fill: false,
-        borderColor: "rgba(75,192,192,1)",
+        borderColor: "#fee60c",
       },
     ],
   };
@@ -23,7 +23,7 @@ const DashHome = () => {
         label: "Video Growth",
         data: [50, 75, 100, 125, 150],
         fill: false,
-        borderColor: "rgba(255,99,132,1)",
+        borderColor: "#191943",
       },
     ],
   };
@@ -34,15 +34,15 @@ const DashHome = () => {
       {
         label: "Income",
         data: [2000, 2500, 3000, 3500, 4000],
-        backgroundColor: "rgba(75,192,192,0.2)",
-        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: "#191943",
+        // borderColor: "rgba(75,192,192,1)",
         borderWidth: 1,
       },
       {
         label: "Expenses",
         data: [1500, 2000, 1800, 2200, 2500],
-        backgroundColor: "rgba(255,99,132,0.2)",
-        borderColor: "rgba(255,99,132,1)",
+        backgroundColor: "#fee60c",
+        // borderColor: "rgba(255,99,132,1)",
         borderWidth: 1,
       },
     ],
@@ -102,7 +102,7 @@ const DashHome = () => {
           <Bar key="incomeExpenseChart" data={incomeExpenseData} />
         </div>
         <div className="ratings">
-          <PolarArea key="ratingsChart" data={ratingsData} />
+          <Pie key="ratingsChart" data={ratingsData} />
         </div>
       </div>
     </div>
