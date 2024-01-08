@@ -5,11 +5,15 @@
  .videeos{
      display: grid;
      grid-template-columns: repeat(3,1fr);
-     grid-gap: 20px;
+     grid-gap: 10px;
      margin: 60px 10px 15px 100px;
 
  }
-
+.youtube-dive{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
  
  .videos{
      

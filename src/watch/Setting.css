@@ -1,7 +1,13 @@
+.settingss{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 100px 50px 100px 130px;
+}
+
 .setting{
     display: flex;
-    gap: 150px;
-    padding: 100px;
+     gap: 50px;
 }
 
 
@@ -17,12 +23,12 @@
 .setting-parag{
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
 }
 .setting-d{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
 }
 .setting-d b{
     font-size: 13px;
@@ -32,8 +38,8 @@
     font-size: 13px;
 }
 .setting-imag{
-    width: 70px;
-    height: 70px;
+    width: 120px;
+    height: 120px;
     border-radius: 20px;
 }
 .profile-icons{
@@ -56,8 +62,32 @@
 .setting-button{
     padding: 9px 0px 9px 0px;
     border-radius: 5px;
+    width: 50vh;
+    border: none;
     background-color:#FEE60C;
     color: #191942;
+}
+
+.setting-input{
+    padding: 9px 0px 9px 0px;
+    border-radius: 5px;
+    width: 50vh;
+    height: 10px;
+    border: 1px solid black;
+    }
+
+.setting-button:hover{
+    background-color: #191942;
+    color: white;
+}
+.setting-images{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.settings-buttons{
+    display: flex;
+    gap: 90px;
 }
 
 @media (max-width:780px) {

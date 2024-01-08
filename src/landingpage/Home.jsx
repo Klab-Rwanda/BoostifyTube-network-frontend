@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <div className="home-continer">
         <div className="home-picturee">
-          <img src={pic} alt="" style={{ width: "40%", height: "60rem" }} />
+          <img src={pic} alt="" style={{ width: "40%", height: "10rem" }} />
         </div>
         <div className="home-description">
           <h2 id="title1">Boost Your YouTube Channel, Earn Rewards!</h2>

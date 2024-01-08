@@ -2,32 +2,39 @@
   background-color: white;
   position: fixed;
 display: flex;
-width: 100%;
+width: 98%;
 gap: 40%;
-padding: 15px  0px 10px 2px;
-/* justify-content: space-between; */
-justify-content: space-around;
+padding: 10px  10px 7px 20px;
+justify-content: space-between; 
 border-bottom: 1px solid #FEE60C;
 }
 .header-text1 p{
   font-size: 17px;
   font-weight: bold;
 }
+.header-viewrs{
+  display: flex;
+  gap: 70px;
+}
 
-
+.not-icondd{
+  margin-top: 10px;
+  font-size: 30px;
+}
 
 
 
 .watch-user-logo{
   display: flex;
-  font-size: 25px;
+  font-size: 32px;
 }
 .header-text1{
     display: flex;
-    gap: 150px;
+    gap: 70px;
 }
 .header-text1 p{
-  font-size: 16px;
+  margin-top: 8px;
+  font-size: 19px;
 }
 .header-text2{
     display: flex;
@@ -55,11 +62,13 @@ background-color: #FEE60C;
 .dash-heard{
   font-size: 20px;
 }
-@media (min-width:780px) {
+.header-search-logo{
+ display: flex;
+ gap: 30px;
+}
+
   .header-search{
-    display: none;
-  }
-  
+     font-size: 2.5rem;
 }
 @media (max-width:780px) {
   .header-textt{
@@ -77,10 +86,7 @@ background-color: #FEE60C;
     gap: 90px;
     font-size: 25px;
 }
-.watch-user-logo{
-  display: flex;
-  font-size: 27px;
-}
+
 .header-text2{
   display: flex;
   gap: 30px;

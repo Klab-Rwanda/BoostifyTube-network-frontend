@@ -6,16 +6,13 @@
   .user-profile {
     width: 90%;
     display: flex;
-    margin: 20px;
-    justify-content: space-between;
+    gap: 10px;
   }
   
-  .profile-column {
-    width: 40%;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .profile-columns{
+    width: 30%;
+    margin-left: 10%;
+   
   }
   
   .profile-picture {
@@ -33,7 +30,7 @@
     position: absolute;
     top: 80%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-45%, -50%);
   }
   
   .info-column {
@@ -61,18 +58,33 @@
     margin-right: 10px;
   }
   
-  input {
+  .profile-input {
     padding: 5px;
   }
   
   .actions {
-    margin-top: 20px;
+  
     display: flex;
   }
   
-  .button1 {
-    width: 50%;
+  .button12 {
+    width: 30%;
     padding: 8px 15px;
     margin-right: 10px;
     cursor: pointer;
+   color: #191942;
+    border-radius: 3px;
+    border: none;
+   background-color:#FEE60C;
   }
+  .button12:hover{
+    background-color: #191942;
+    color: white;
+  }
+  .profiles-input{
+    padding: 9px 0px 9px 0px;
+    border-radius: 5px;
+    width: 50vh;
+    height: 10px;
+    border: 1px solid black;
+    }
