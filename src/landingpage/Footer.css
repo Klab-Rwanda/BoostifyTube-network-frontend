@@ -1,8 +1,8 @@
 .footer {
   display: grid;
-  grid-gap: 7px;
+  grid-gap: 45px;
   background-color: #191942;
-  padding: 20px 20px 20px 20px;
+  padding: 50px 20px 50px 20px;
   border-top: #203041 solid 2px;
 }
 
@@ -15,15 +15,15 @@
 .footer-class {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 15px;
 }
 .footer-contact {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
-.footer-contact b {
-  font-size: 20px;
+.footer-class b {
+  font-size: 16px;
 }
 .watch-logo {
   display: flex;
@@ -32,13 +32,14 @@
   color: #fee60c;
 }
 .footer-contact p {
-  font-size: 14px;
+  font-size: 15px;
   color: rgb(169, 164, 164);
   font-family: Arial, Helvetica, sans-serif;
 }
 .footer-button {
-  width: 100px;
-  height: 30px;
+  width: 90px;
+  height: 35px;
+  border: none;
   border-radius: 5px;
   color: #191942;
   background-color: #fee60c;
@@ -66,8 +67,8 @@
   gap: 10px;
 }
 .copy-right {
-  font-size: 14px;
-  margin-left: 20%;
+  font-size: 16px;
+  margin-left: 30%;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
