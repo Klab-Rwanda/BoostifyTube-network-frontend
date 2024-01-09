@@ -21,7 +21,10 @@ export const CardSkeleton = () => {
   );
 };
 const VideoCard1 = ({ videoId }) => {
-  const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
+
+  const [videoData1, setVideoData1] = useState(null);
+  const API_KEY = "AIzaSyBZyBQ1vYyLTYyVXZfiIHiQdPjH9Dpyaxo";
+
 
      const { data: videoData1, isLoading } = useQuery({
        queryKey: ["videos"],
@@ -124,6 +127,7 @@ const [SkeletonLoader, setSkeletonLoader] = useState(true);
           }}
           allowFullScreen
         />
+
         <p className="singletitle">{videoInfo?.snippet.localized.title}</p>
         <div style={{ display: "flex", gap: "10%" }}>
           <p className="singletitle">
@@ -138,6 +142,7 @@ const [SkeletonLoader, setSkeletonLoader] = useState(true);
           </p>
         </div>
         <p id="det">Channel: {videoInfo?.snippet.localized.channelTitle}</p>
+
       </div>
       {isLoading ? (
         <div>

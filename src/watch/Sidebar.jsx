@@ -7,7 +7,6 @@ import { CiLogout } from "react-icons/ci";
 import "../watch/Sidebar.css";
 import { Link } from "react-router-dom";
 function Sidebar() {
-
   const handleLogout = () => {
     localStorage.removeItem("loggedUser");
     window.location.href = "/";
@@ -15,32 +14,35 @@ function Sidebar() {
   return (
     <div className=" sidebre">
       <div className="sidebar1">
-        <Link to="home" className="sidebar-text">
+        <Link to="home" className="sidebar-text" style={{ marginTop: ".5rem" }}>
           <IoMdHome className="sidebar-icon" />
-          <p>Home</p>
+          <p id="sidelink">Home</p>
         </Link>
         <Link to="video" className="sidebar-text">
           <IoLogoYoutube className="sidebar-icon" />
 
-          <p> Videos</p>
+          <p id="sidelink"> Videos</p>
         </Link>
         <Link to="balance" className="sidebar-text">
           <GiMoneyStack className="sidebar-icon" />
-          <p> Balance</p>
+          <p id="sidelink"> Balance</p>
         </Link>
       </div>
       <div className="setting-sidebar">
         <Link className="sidebar-text" to="usersettings">
           <CgProfile className="sidebar-icon" />
-          <p>Profile </p>
+          <p id="sidelink">Profile </p>
         </Link>
         <Link to="setting" className="sidebar-text">
           <IoMdSettings className="sidebar-icon" />
-          <p> Setting</p>
+          <p id="sidelink"> Setting</p>
         </Link>
-        <Link  className="sidebar-text">
+        <Link className="sidebar-text">
           <CiLogout className="sidebar-icon" />
-          <p onClick={handleLogout}> Logout</p>
+          <p onClick={handleLogout} id="sidelink">
+            {" "}
+            Logout
+          </p>
         </Link>
       </div>
     </div>

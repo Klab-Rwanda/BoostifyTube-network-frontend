@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { MyContext } from "../context/Context";
 import "./ProfileView.css";
-import Activation from "../Dashboards/Activation";
 
 const Profileview = () => {
   const { loggedUser } = MyContext();
@@ -19,9 +18,6 @@ const Profileview = () => {
 
   const [editMode, setEditMode] = useState(false);
   const [editedUser, setEditedUser] = useState({ ...user });
-
-  const [isActivationModalOpen, setActivationModalOpen] = useState(false);
-
   const [profilePicture, setProfilePicture] = useState(
     "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
   );

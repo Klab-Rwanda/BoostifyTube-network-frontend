@@ -99,8 +99,10 @@ const Video = ({ videoId }) => {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(2,1fr)",
+
               marginLeft:"100",
               gap: "0.5rem",
+
             }}
           >
             <Skeleton width={310} height={200} />.
@@ -115,6 +117,7 @@ const Video = ({ videoId }) => {
         <div
           className="youtube-dive"
           style={{
+
             opacity: skeletonLoader ? "1" :"0"
           }}
         >

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import momo from "../../public/images/momo.jpeg";
 
 const ActivationModal = ({ onClose }) => {
   const [activeMethod, setActiveMethod] = useState("mobileMoney");
@@ -15,8 +16,7 @@ const ActivationModal = ({ onClose }) => {
   const { errors } = formState;
   const onSubmit = async (data) => {
     const accessToken = localStorage.getItem("token");
-    console.log("payment form send", data);
-    console.log("my token", accessToken);
+
 
     try {
       const response = await axios.post(
@@ -45,51 +45,50 @@ const ActivationModal = ({ onClose }) => {
       className="overlay"
       style={{
         width: "100%",
-        marginLeft: "14%",
+        marginLeft: "17.5%",
         height: "90%",
-        marginTop: "6.5rem",
+        marginTop: "7.5rem",
       }}
     >
       <PaymentContainer>
-        {" "}
         <CloseButton onClick={onClose}>
           <IoMdCloseCircleOutline
             style={{ fontSize: "2rem", color: "#191943" }}
           />
         </CloseButton>
-        <PaymentMethods>
-          <MethodButton
-            onClick={() => handleMethodChange("mobileMoney")}
-            active={activeMethod === "mobileMoney"}
+        <div className="header2">
+          <PaymentMethods
+            style={{
+              margin: "auto",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
-            Mobile Money
-          </MethodButton>
-          <MethodButton
-            onClick={() => handleMethodChange("paypal")}
-            active={activeMethod === "paypal"}
-          >
-            PayPal
-          </MethodButton>
-          <MethodButton
-            onClick={() => handleMethodChange("creditCard")}
-            active={activeMethod === "creditCard"}
-          >
-            Credit Card
-          </MethodButton>
-        </PaymentMethods>
+            <h1 style={{ color: "#191943" }}>Pay with Mobile Money</h1>
+            <img
+              src={momo}
+              alt=""
+              style={{ width: "10%", marginLeft: "1rem" }}
+            />
+          </PaymentMethods>
+        </div>
         <PaymentFormContainer>
           {activeMethod === "mobileMoney" && (
             <MobileMoneyForm onSubmit={handleSubmit(onSubmit)}>
-              {/* Mobile Money Form Fields */}
               <div className="paymentForm">
+                <div className="FormDiv">
+                  <p style={{ color: "#191943" }}>
+                    To activate your account and enable its functionalities, a
+                    payment of 2000 Rwf is required. This ensures that your
+                    account is fully operational and ready for use.
+                  </p>
+                </div>
                 <div className="FormDiv">
                   <label style={{ color: "#191943" }}>
                     Mobile Money Number:
                   </label>
-                  {/* <input
-                  type="text"
-                  placeholder="Enter your mobile money number"
-                /> */}
+
                   <input
                     type="text"
                     id="cardNumber"
@@ -100,23 +99,7 @@ const ActivationModal = ({ onClose }) => {
                         message: "Phone Number is very Required",
                       },
                     })}
-                    placeholder="phone number"
-                  />
-                </div>
-                <div className="FormDiv">
-                  <label style={{ color: "#191943" }}>Payment Amount:</label>
-                  {/* <input type="text" placeholder="EnterAmount" /> */}
-                  <input
-                    type="text"
-                    id="cvc"
-                    name="Amount"
-                    {...register("Amount", {
-                      required: {
-                        value: true,
-                        message: "Amount Money is very Required",
-                      },
-                    })}
-                    placeholder="Enter Amount"
+                    placeholder="Phone number"
                   />
                 </div>
               </div>
@@ -126,72 +109,16 @@ const ActivationModal = ({ onClose }) => {
               </div>
             </MobileMoneyForm>
           )}
-
-          {activeMethod === "paypal" && (
-            <PaypalForm>
-              {/* PayPal Form Fields */}
-              <div className="paymentForm">
-                <div className="FormDiv">
-                  <label style={{ color: "#191943" }}>PayPal Email:</label>
-                  <input type="text" placeholder="Enter your PayPal email" />
-                  <label style={{ color: "#191943" }}>User Name:</label>
-                  <input type="text" placeholder="Enter your PayPal email" />
-                </div>
-                <div className="FormDiv">
-                  <label style={{ color: "#191943" }}>Amount:</label>
-                  <input type="text" placeholder="Enter your PayPal email" />
-                  <label style={{ color: "#191943" }}>Phone Number:</label>
-                  <input type="text" placeholder="Enter your PayPal email" />
-                </div>
-              </div>
-              <div className="form-button">
-                <button>Pay with PayPal</button>
-                <button>clear</button>
-              </div>
-            </PaypalForm>
-          )}
-
-          {activeMethod === "creditCard" && (
-            <CreditCardForm>
-              <div className="paymentForm">
-                <div className="FormDiv">
-                  <label style={{ color: "#191943" }}>
-                    Credit Card Number:
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Enter your credit card number"
-                  />
-                  <label style={{ color: "#191943" }}>Expiry Date:</label>
-                  <input type="text" placeholder="MM/YYYY" />
-                </div>
-                <div className="FormDiv">
-                  <label style={{ color: "#191943" }}>Amount</label>
-                  <input type="text" placeholder="Enter your Amount" />
-                  <label style={{ color: "#191943" }}>CVC:</label>
-                  <input type="text" placeholder="CVC" />
-                </div>
-              </div>
-              <div className="form-button">
-                <button>Pay with Credit Card</button>
-
-                <button>clear</button>
-              </div>
-            </CreditCardForm>
-          )}
         </PaymentFormContainer>
       </PaymentContainer>
     </div>
   );
 };
 const PaymentContainer = styled.div`
-  max-width: 800px;
-  max-height: 1000px;
   margin: 3rem 0rem 3rem 7rem;
-  // border: 1px solid red;
-  //   background-color: white
   box-shadow: 0px 2px 2px 2px #ccc;
-  padding: 2rem;
+  padding: 0rem 2rem;
+  width: 60%;
   background-color: #ffffff;
 
   input {
@@ -219,15 +146,15 @@ const PaymentContainer = styled.div`
     flex: 1;
   }
   .form-button button {
-    background-color: var(--skin-color);
+    background-color: #1919343;
     width: 50%;
     height: 40px;
     border-radius: 10px;
     border: none;
   }
   .form-button button:hover {
-    background-color: #3498db;
-    color: #fff;
+    background-color: #191943;
+    color: #fgf;
     cursor: pointer;
     width: 50%;
     height: 40px;
@@ -240,21 +167,17 @@ const CloseButton = styled.button`
   padding: 0.5rem 1rem;
   top: 10px;
   right: 10px;
-  //   background-color: #fee60c;
   border: none;
   cursor: pointer;
 `;
 
 const PaymentMethods = styled.div`
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 20px;
 `;
 
 const MethodButton = styled.button`
-  padding: 10px;
-  background-color: ${(props) => (props.active ? "#fee60c" : "#191943")};
-  color: ${(props) => (props.active ? "#000" : "#fff")};
+  background-color: "red";
+  color: "#fff";
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -276,12 +199,12 @@ const MobileMoneyForm = styled.div`
   button {
     background-color: var(--skin-color);
     width: 50%;
-    height: 40px;
+    height: 0px;
     border-radius: 10px;
     border: none;
   }
   .form-button button:hover {
-    background-color: #3498db;
+    background-color: #191943;
     color: #fff;
     cursor: pointer;
     width: 50%;
@@ -289,22 +212,6 @@ const MobileMoneyForm = styled.div`
     border-radius: 10px;
     border: none;
   }
-`;
-
-const PaypalForm = styled.div`
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-`;
-
-const CreditCardForm = styled.div`
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
 export default ActivationModal;

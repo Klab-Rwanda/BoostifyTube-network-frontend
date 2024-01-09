@@ -21,7 +21,7 @@ export const CardSkelet = () => {
 };
 const VideoCard = ({ videoId }) => {
   const [skeletonLoader, setSkeletonLoader] = useState(false);
-  const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
+  const API_KEY = "AIzaSyBZyBQ1vYyLTYyVXZfiIHiQdPjH9Dpyaxo";
 
   const { data: videoInfo, isLoading } = useQuery({
     queryKey: ["videos"],
@@ -103,6 +103,7 @@ const VideoCard = ({ videoId }) => {
             </div>
           </div>
         </div>
+
       )}
           </>
   );

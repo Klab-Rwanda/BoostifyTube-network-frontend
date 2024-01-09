@@ -37,7 +37,6 @@ const handleChange = (e) => {
     e.preventDefault();
 
     try {
-      console.log(formData);
       await axios.post(
         "https://boostifytube-network-api.onrender.com/api/v1/user/signup",
         formData
@@ -52,7 +51,6 @@ const handleChange = (e) => {
 
   };
 
-  console.log(formData);
   const renderForm = () => {
     if (activeForm === "Youtuber") {
       return (

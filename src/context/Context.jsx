@@ -9,6 +9,7 @@ export const AppContext = ({ children }) => {
   const [ownerVideos, setOwnerVideos] = useState([]);
 
   const [myOwnVideo, setMyOwnVideo] = useState([]);
+  const [filterVideo, SetFilterVideo] = useState([]);
   const accessToken = localStorage.getItem("token");
 
   useEffect(() => {
@@ -22,6 +23,7 @@ export const AppContext = ({ children }) => {
         }
       )
       .then((data) => {
+
         console.log("feeeetchh xxxxxx", data.data);
         setMyOwnVideo(data.data?.videos);
       })
@@ -43,6 +45,8 @@ export const AppContext = ({ children }) => {
           },
         }
       );
+      // console.log("Videos response", res);
+      SetFilterVideo(res.data);
 
       return res.data;
     },
@@ -51,12 +55,15 @@ export const AppContext = ({ children }) => {
     },
   });
 
-  console.log(uploadedVideos);
+  const videoLinksPerOwner = myOwnVideo
 
-  const videoLinks = uploadedVideos
     .map((video) => video?.linkOfVideo)
     .filter(Boolean);
-  const videoLinksPerOwner = myOwnVideo
+  const VideoDiscription = filterVideo
+    .map((video) => video?.description)
+    .filter(Boolean);
+    console.log("yy", VideoDiscription);
+  const allVideoLink = filterVideo
     .map((video) => video?.linkOfVideo)
     .filter(Boolean);
   // console.log("linksssskxxxxx", videoLinksPerOwner);
@@ -66,6 +73,16 @@ export const AppContext = ({ children }) => {
     const match = url.match(regex);
     return match ? match[1] : null;
   };
+
+  const videoIdPerOwner = videoLinksPerOwner
+    .map((link) => getYouTubeVideoId(link))
+    .filter(Boolean);
+  // console.log("iddssssss XXXXXX", videoIdPerOwner);
+  const allVideoID = allVideoLink
+    .map((link) => getYouTubeVideoId(link))
+    .filter(Boolean);
+ 
+
 
   const videoIdss = videoLinks.map((link) => getYouTubeVideoId(link));
 
@@ -148,8 +165,10 @@ export const AppContext = ({ children }) => {
         Messages,
         fetchUsersData,
         loggedUser,
-        myOwnVideo,
         uploadedVideos,
+        VideoDiscription,
+        allVideoID,
+        videoIdPerOwner,
         youtuberHistory,
         isLoading,
       }}
@@ -160,3 +179,6 @@ export const AppContext = ({ children }) => {
 };
 
 export const MyContext = () => useContext(stateContext);
+
+
+

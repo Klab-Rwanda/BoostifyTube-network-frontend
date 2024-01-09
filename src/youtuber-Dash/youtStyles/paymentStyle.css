@@ -42,13 +42,14 @@
     gap: 2rem;
     /* flex: 1; */
 }
-.card-input
+.payment-form .card-input
 {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
         gap: 2rem;
         /* border: 1px solid black; */
+        /* height: 300px; */
     
 }
 
@@ -85,13 +86,24 @@ font-size: larger;
 color: var(--first-bg-color);
 text-align: center;
 text-decoration:underline var(--skin-color);
-margin-bottom: 1rem;
+/* margin-bottom: 1rem; */
 }
 
 .card-input label {
     display: block;
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
     color: var(--first-bg-color);
+}
+.card-info,.payment-info
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    /* border: 1px solid red; */
+}
+.payment-info label
+{
+    margin-top: 0.51rem;
 }
 
 .card-input input {
@@ -124,5 +136,25 @@ margin-bottom: 1rem;
 }
 
  
+#form-button {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
 
+    /* border: 1px solid red; */
+}
+
+#form-button .uploadbutton {
+    background-color: var(--skin-color);
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+}
+
+ #form-button .uploadbutton:hover {
+    background-color: var(--first-bg-color);
+    color: var(--sec-bg-color);
+
+}
 

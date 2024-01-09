@@ -9,12 +9,11 @@ import { AiOutlineLike } from "react-icons/ai";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegComment } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import "react-loading-skeleton/dist/skeleton.css";
 import Skeleton from "react-loading-skeleton";
 export const CardSkeleton = () => {
   return (
-    
     <p>
       <Skeleton height={300} />
     </p>
@@ -22,6 +21,7 @@ export const CardSkeleton = () => {
 };
 
 const VideoCard1 = ({ videoId }) => {
+
   const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
 
     const { data:videoData1, isLoading } = useQuery({
@@ -44,6 +44,7 @@ const VideoCard1 = ({ videoId }) => {
   };
 
   return (
+
         <div
          >
           <div className="youtube-dive">
@@ -80,6 +81,10 @@ const Singlevideo = () => {
 
   const { uploadedVideos } = MyContext();
 
+let uploadedvideoId;
+  for(let i = 0 ; i < uploadedVideos.length; i++) {
+     uploadedvideoId = uploadedVideos[i]?._id;
+  }
   const videoLinks2 = uploadedVideos
     .map((video) => video?.linkOfVideo)
     .filter(Boolean);
@@ -95,7 +100,6 @@ const Singlevideo = () => {
     .map((link) => getYouTubeVideoId(link))
     .filter(Boolean);
 
-
   const { data: videoInfo, isLoading } = useQuery({
     queryKey: ["videos"],
     queryFn: async () => {
@@ -108,14 +112,40 @@ const Singlevideo = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      setSkeletonLoader(false);
+      setSkeletonLoader(true);
     }, 7000);
-    setSkeletonLoader(true);
+    setSkeletonLoader(false);
   }, [isLoading]);
 
-  // const { viewCount, likeCount, commentCount } = videoInfo?.statistics;
-  // const { title } = videoInfo.snippet.localized; 
-  // const { channelTitle} = videoInfo.snippet;
+  let token = localStorage.getItem("token");
+ console.log("Mutation", uploadedvideoId)
+
+  
+  const trackMutation = useMutation({    
+    mutationFn: async () => {
+      const res = await axios.post(
+        `https://boostifytube-network-api.onrender.com/api/v1/video/tracking/${uploadedvideoId}`,
+        {},
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      return res.data;
+    },
+    onSuccess: (data) => {
+      alert("Success");
+    },
+    onError: (error) => {
+      console.log(error.response.data);
+    },
+  });
+
+  const handleVideoTrack = async () => {
+    trackMutation.mutate();
+  };
+
   return (
     <div className="view-videoo">
       <div className="view-videosingle">
@@ -130,6 +160,9 @@ const Singlevideo = () => {
           }}
           allowFullScreen
           className="frame-view"
+          onEnd={() => {
+            return handleVideoTrack();
+          }}
         />
 
         <p>{videoInfo?.snippet.localized.title}</p>
@@ -156,6 +189,7 @@ const Singlevideo = () => {
             }}
           >
             <Skeleton width={310} height={200} />.
+
             <div className="youtube-dive">
               <Skeleton />
               <Skeleton />
@@ -170,6 +204,7 @@ const Singlevideo = () => {
             opacity: skeletonLoader ? "1" : "0",
           }}>
           <div>
+
             {videoIdss2
               .filter((id) => id !== videoId)
               .map((videoId2, index) => (
@@ -182,7 +217,9 @@ const Singlevideo = () => {
           </div>
         </div>
       )}
-   </div>
+
+    </div>
+
   );
 };
 
