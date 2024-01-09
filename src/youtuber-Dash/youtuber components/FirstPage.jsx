@@ -72,8 +72,6 @@ function FirstPage() {
    videoIdPerOwner,
   
   } = MyContext();
-  // console.log("xxxx  video id VVV", videoIdPerOwner);
- 
   return (
     <div className="initialDashPage">
       <div>

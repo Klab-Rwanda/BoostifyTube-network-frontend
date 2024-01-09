@@ -23,7 +23,6 @@ export const AppContext = ({ children }) => {
         }
       )
       .then((data) => {
-        console.log("feeeetchh xxxxxx", data.data);
         setMyOwnVideo(data.data?.videos);
       })
       .catch((error) => {

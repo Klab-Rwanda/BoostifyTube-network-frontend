@@ -20,10 +20,7 @@
   width: 80%;
 }
 .actions {
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  gap: 6rem;
+  gap: 2rem;
 }
 .new-userBtn {
   background-color: #fee60c;
@@ -53,7 +50,8 @@ td {
   color: #191943;
 }
 th {
-  background-color: #908686;
+  background-color: #191943;
+  color: white;
 }
 
 .first-row {

@@ -1,36 +1,30 @@
 import React from "react";
-import './Watchhome.css'
-const Wacthhome = ()=>{
-    return(
-        <div className="watch-home">
-        <div className="watch-home1">
-            <b>
-            Earnings
-            </b>
-            <p>
-            you will earn 20 coins per video, if you watch it until 
-          the end, make subscribe ,make like . 
-            </p>
-            <p>
-            if  your make it well you will earn  20 coins per video
-            </p>
-            <p>minmum  for withdraw is  100 coins</p>
-        </div>
+import "./Watchhome.css";
+const Wacthhome = () => {
+  return (
+    <div className="watch-home">
+      <div className="watch-home1">
+        <h1 style={{ color: "#191943" }}>
+          What will you earn after watching Video?
+        </h1>
+        <p>
+          You will earn money after watching videos to the end. watch the video
+          without speeding it up. When the video you were watching reaches to
+          the end, your balance will be increased automatically. After that you
+          can do withdraw. The minimum withdraw is 100 Rwf
+        </p>
+      </div>
 
-        <div className="watch-home2">
-            <b>
-            Rules &&  regulations            </b>
-            <p>
-            watch video  until the  end  make  sure  your 
-            make  subscribe ,like .
-            </p>
-            <p>
-            if  your make it well you will earn  20 coins per video
-            </p>
-            <p>minmum  for withdraw is  100 coins</p>
-        </div>
-
-        </div>
-    )
-}; 
-export default Wacthhome
+      <div className="watch-home2">
+        <h1 style={{ color: "#191943" }}>Rules and regulations</h1>
+        <ul className="ul">
+          <li>Watch video until the end Without speeding it up.</li>
+          <li>If your make it well you will earn 20 Rwf per video</li>
+          <li>If you speed up video, your balance is not going to increase</li>
+          <li>minmum for withdraw is 1000 Rwf</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+export default Wacthhome;

@@ -10,7 +10,11 @@
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
+.income {
+  width: 100%;
+  height: 30rem;
+  /* background-color: red; */
+}
 .summary {
   display: flex;
   width: 100%;
@@ -37,13 +41,16 @@
 }
 
 .graphs {
-  width: 70%;
-  display: grid;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
   gap: 7rem;
-  grid-template-columns: repeat(2, 1fr);
   justify-content: space-around;
 }
-
+.usersss,
+.videossss {
+  width: 40%;
+}
 .react-chartjs-2 {
   width: 45%;
   height: 300px;

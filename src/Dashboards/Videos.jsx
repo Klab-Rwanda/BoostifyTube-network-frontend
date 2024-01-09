@@ -13,7 +13,7 @@ import Skeleton from "react-loading-skeleton";
 const VideoCard = ({ videoId }) => {
   const [videoInfo, setVideoInfo] = useState(null);
   const [loading, setLoading] = useState(true);
-  const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
+  const API_KEY = "AIzaSyBZyBQ1vYyLTYyVXZfiIHiQdPjH9Dpyaxo";
 
   useEffect(() => {
     const fetchVideoInfo = async () => {

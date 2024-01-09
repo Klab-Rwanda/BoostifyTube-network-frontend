@@ -115,13 +115,14 @@ const NavBars = () => {
     <div className="super-container">
       <div className="topNav">
         <h1 className="logo">
-          O <p style={{ color: "#fee60c" }}>G</p>{" "}
+          BT <p style={{ color: "#fee60c" }}>Net</p>{" "}
         </h1>
-        <IoMenu className="menu-icon" />
+        <IoMenu
+          className="menu-icon"
+          style={{ marginLeft: "3rem", fontSize: "5rem" }}
+        />
 
         <div className="notification">
-          <IoMdNotifications className="not-icon" />
-          <HiOutlineMail className="not-icon" />
           <div className="pic">
             <img
               src={loggedUser?.user.image}

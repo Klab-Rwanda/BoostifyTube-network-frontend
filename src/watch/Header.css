@@ -1,17 +1,16 @@
 .header-textt {
   background-color: white;
-
   display: flex;
   width: 100%;
   gap: 40%;
-  padding: 15px 0px 10px 2px;
+  height: 4rem;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
   justify-content: space-around;
   border-bottom: 1px solid #fee60c;
 }
-.header-text1 p {
-  font-size: 17px;
-  font-weight: bold;
-}
+
 .header-wraper {
   position: fixed;
   width: 100%;
@@ -27,32 +26,26 @@
 }
 
 .watch-user-logo {
-=======
   position: fixed;
-display: flex;
-width: 98%;
-gap: 40%;
-padding: 10px  10px 7px 20px;
-justify-content: space-between; 
-border-bottom: 1px solid #FEE60C;
+  display: flex;
+  width: 98%;
+  gap: 40%;
+  padding: 10px 10px 7px 20px;
+  justify-content: space-between;
 }
-.header-text1 p{
+.header-text1 p {
   font-size: 17px;
   font-weight: bold;
 }
-.header-viewrs{
+.header-viewrs {
   display: flex;
   gap: 70px;
 }
 
-.not-icondd{
+.not-icondd {
   margin-top: 10px;
   font-size: 30px;
 }
-
-
-
-
 
 .header-text1 {
   display: flex;
@@ -61,7 +54,6 @@ border-bottom: 1px solid #FEE60C;
 }
 .header-text1 p {
   font-size: 16px;
-
 }
 .header-text2 {
   display: flex;
@@ -92,7 +84,6 @@ border-bottom: 1px solid #FEE60C;
   .header-search {
     display: none;
   }
-
 }
 @media (max-width: 780px) {
   .header-textt {

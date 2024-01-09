@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../Styles/Profile.css";
 import { MyContext } from "../context/Context";
-import Activation from "./Activation";
 
 const Profile = () => {
   const { loggedUser } = MyContext();
