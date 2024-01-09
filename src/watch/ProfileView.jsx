@@ -45,13 +45,6 @@ const Profileview = () => {
 
   return (
     <div className="profile-contents">
-      {isActivationModalOpen && (
-        <div className="overlay">
-          <div className="activation-modal">
-            <Activation onClose={() => setActivationModalOpen(false)} />
-          </div>
-        </div>
-      )}
       <div className="user-profile">
         <div className="profile-columns">
           <div className="profile-picture">
@@ -276,17 +269,6 @@ const Profileview = () => {
               </button>
             )}
           </div>
-          <button
-            className="activate1"
-            style={{
-              border: "none",
-              marginTop: "-3rem",
-              marginRight: "-3rem",
-            }}
-            onClick={() => setActivationModalOpen(true)}
-          >
-            Activate Account
-          </button>
         </div>
       </div>
     </div>

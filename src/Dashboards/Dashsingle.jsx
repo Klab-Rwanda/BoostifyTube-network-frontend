@@ -5,6 +5,9 @@ import axios from "axios";
 import YouTube from "react-youtube";
 import { useParams } from "react-router-dom";
 import { MyContext } from "../context/Context";
+import { AiOutlineLike } from "react-icons/ai";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { FaRegComment } from "react-icons/fa";
 import "../Styles/Dashsingle.css";
 import { Link } from "react-router-dom";
 
@@ -40,15 +43,24 @@ const VideoCard1 = ({ videoId }) => {
   };
 
   return (
-    <div className="video-details">
-      <div className="video-item">
+    <div className="youtube-dive">
+      <div className="video-it">
         <YouTube videoId={videoId} opts={opts2} />
         <Link to={`/superdashboard/videos/${videoId}`} className="view-title">
           <p id="det">{videoData1.snippet.localized.title}</p>
         </Link>
-        <p id="det">Views: {videoData1.statistics.viewCount}</p>
-        <p id="det">Likes: {videoData1.statistics.likeCount}</p>
-        <p id="det">Comments: {videoData1.statistics.commentCount}</p>
+        <div style={{ display: "flex", gap: "1px" }}>
+          <p id="det">
+            <MdOutlineRemoveRedEye /> {videoData1.statistics.viewCount}
+          </p>
+          <p id="det">
+            {" "}
+            <AiOutlineLike /> {videoData1.statistics.likeCount}
+          </p>
+          <p id="det">
+            <FaRegComment /> {videoData1.statistics.commentCount}
+          </p>
+        </div>
         <p id="det">Channel: {videoData1.snippet.channelTitle}</p>
       </div>
     </div>
@@ -98,31 +110,41 @@ const Dashsingle = () => {
     return <div>Loading...</div>;
   }
 
-  const { title, viewCount, likeCount, commentCount } = videoInfo.statistics;
+  const { viewCount, likeCount, commentCount } = videoInfo.statistics;
+    const { title, channelTitle } = videoInfo.snippet;
 
   return (
     <div className="view-video">
-      <div className="video-item1">
+      <div className="video-item123">
         <YouTube
           style={{ width: "100%" }}
           videoId={videoId}
           opts={{
-            height: "500",
+            height: "350",
             width: "600",
             playerVars: { autoplay: 1, mute: 1 },
           }}
           allowFullScreen
         />
-
-        <p>{title}</p>
-        <p>Views: {viewCount}</p>
-        <p>Likes: {likeCount}</p>
-        <p>Comments: {commentCount}</p>
+        <p className="singletitle">{title}</p>
+        <div style={{ display: "flex", gap: "10%" }}>
+          <p className="singletitle">
+            <MdOutlineRemoveRedEye /> {viewCount}
+          </p>
+          <p className="singletitle">
+            {" "}
+            <AiOutlineLike /> {likeCount}
+          </p>
+          <p className="singletitle">
+            <FaRegComment /> {commentCount}
+          </p>
+        </div>
+        <p id="det">Channel: {channelTitle}</p>
       </div>
 
       <div className="video-container1">
         {videoIdss2
-          .filter((id) => id !== videoId) 
+          .filter((id) => id !== videoId)
           .map((videoId2, index) => (
             <VideoCard1
               key={index}

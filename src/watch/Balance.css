@@ -43,6 +43,7 @@ margin-top: 10%;
 .balance-button{
     padding: 9px;
     width: 49vh;
+    border: none;
     /* margin-top: 10px; */
     border-radius: 5px;
     color: #191942;
@@ -74,6 +75,7 @@ grid-gap: 5px;
 }
 .balance-butto{
     width: 100%;
+    border: none;
     padding: 5px;
 }
 
@@ -94,7 +96,8 @@ grid-gap: 5px;
     background-color: #fee60c;
     color: #191942;
      width: 100%;
-  padding: 8px;
+   padding: 8px;
+    border: none;
     border-radius: 5px;
 }
 .balanc-button:hover{
@@ -110,6 +113,7 @@ grid-gap: 5px;
   color: #191943;
   border-radius: 3px;
 }
+
 @media (max-width:420px) {
 
 
