@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "./watch/Dashboard";
-import Video from "./watch/Video";
+import Video from "./watch/Videocardss";
 import Balance from "./watch/Balance";
 import Singlevideo from "./watch/Singlevideo";
 import Landingpage from "./landingpage/Landingpage";
@@ -29,9 +29,14 @@ import Cashout from "./Dashboards/CashOut";
 import Wacthhome from "./watch/Watchhome";
 import DashContact from "./Dashboards/DashContact";
 import Dashsingle from "./Dashboards/Dashsingle";
-import Profileview from "./watch/ProfileView";
-import Example from "./landingpage/Try-videos";
+
 import PaymentForm from "./youtuber-Dash/youtuber components/PaymentForm";
+
+import Example from "./landingpage/Try-videos";
+import VideoCardss from "./landingpage/VideoCardss";
+import Videocardss from "./watch/Videocardss";
+import Profileview from "./watch/profileview";
+
 const client = new QueryClient();
 
 function App() {
@@ -51,12 +56,13 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />}>
               <Route index element={<Wacthhome />} />
               <Route index path="home" element={<Wacthhome />} />
-              <Route path="video" element={<Video />} />
+              <Route path="video" element={<Videocardss />} />
+              <Route path="balance" element={<Balance />} />
               <Route path="balance" element={<Balance />} />
               <Route path="setting" element={<Settings />} />
               <Route path="usersettings" element={<Profileview />} />
 
-              <Route path="video/:videoId" element={<Singlevideo />} />
+              <Route path="Videocardss/:videoId" element={<Singlevideo />} />
             </Route>
 
             <Route path="/superdashboard" element={<DashLayout />}>

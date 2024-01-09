@@ -5,6 +5,7 @@ import demoVideo from "../assets/picture/assets/video.mp4";
 const VideoSection = () => {
   return (
     <div className="video-section">
+
       <h2>How It Works</h2>
       <div className="video-row">
         <div className="video-container">
@@ -15,6 +16,7 @@ const VideoSection = () => {
               type="video/mp4"
             />
           </video>
+
           Watch our quick demo to learn how our platform connects YouTubers with
           viewers
         </div>

@@ -122,7 +122,8 @@ const Dashsingle = () => {
 
       <div className="video-container1">
         {videoIdss2
-          .filter((id) => id !== videoId) // Exclude the left-side video
+
+          .filter((id) => id !== videoId) 
           .map((videoId2, index) => (
             <VideoCard1
               key={index}

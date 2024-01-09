@@ -19,9 +19,6 @@ const Profile = () => {
     `${loggedUser?.user?.image}`
   );
 
-  // State to manage the activation modal visibility
-  const [isActivationModalOpen, setActivationModalOpen] = useState(false);
-
   const handleUpdateProfile = () => {
     setUser({ ...editedUser });
     setEditMode(false);
@@ -41,18 +38,6 @@ const Profile = () => {
 
   return (
     <div className="profile-cont">
-      <button className="activate" onClick={() => setActivationModalOpen(true)}>
-        Activate Account
-      </button>
-
-      {isActivationModalOpen && (
-        <div className="overlay">
-          <div className="activation-modal">
-            <Activation onClose={() => setActivationModalOpen(false)} />
-          </div>
-        </div>
-      )}
-
       <div className="user-profile">
         <div className="profile-column">
           <div className="profile-picture">

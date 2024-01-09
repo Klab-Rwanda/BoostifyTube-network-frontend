@@ -1,9 +1,10 @@
-import React,{ useState } from 'react';
-import { MyContext } from '../context/Context';
-import './ProfileView.css'
+import React, { useState } from "react";
+import { MyContext } from "../context/Context";
+import "./ProfileView.css";
+import Activation from "../Dashboards/Activation";
 
-const Profileview= ()=>{
-        const { loggedUser } = MyContext();
+const Profileview = () => {
+  const { loggedUser } = MyContext();
 
   const [user, setUser] = useState({
     firstName: `${loggedUser?.user.FullName}`,
@@ -12,13 +13,14 @@ const Profileview= ()=>{
     accountStatus: `${loggedUser?.user.accountStatus}`,
     role: `${loggedUser?.user.role}`,
     PaymentMethod: `${loggedUser?.user.PaymentMethod}`,
-    Gender:` ${loggedUser?.user.Gender}`, 
-    Country: `${loggedUser?.user.Country}`, 
-
+    Gender: ` ${loggedUser?.user.Gender}`,
+    Country: `${loggedUser?.user.Country}`,
   });
 
   const [editMode, setEditMode] = useState(false);
   const [editedUser, setEditedUser] = useState({ ...user });
+
+  const [isActivationModalOpen, setActivationModalOpen] = useState(false);
 
   const [profilePicture, setProfilePicture] = useState(
     "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png"
@@ -43,8 +45,15 @@ const Profileview= ()=>{
 
   return (
     <div className="profile-contents">
+      {isActivationModalOpen && (
+        <div className="overlay">
+          <div className="activation-modal">
+            <Activation onClose={() => setActivationModalOpen(false)} />
+          </div>
+        </div>
+      )}
       <div className="user-profile">
-        <div className="profile-column">
+        <div className="profile-columns">
           <div className="profile-picture">
             <img src={profilePicture} alt="Profile" />
             {editMode && (
@@ -54,6 +63,7 @@ const Profileview= ()=>{
                   accept="image/*"
                   onChange={handleUpdateProfilePicture}
                   style={{ color: "#1919" }}
+                  className="profile-input"
                 />
               </div>
             )}
@@ -72,9 +82,13 @@ const Profileview= ()=>{
                   onChange={(e) =>
                     setEditedUser({ ...editedUser, firstName: e.target.value })
                   }
+                  className="profile-input"
                 />
               ) : (
-                <span style={{ color: "#191943" }}>{user.firstName}</span>
+                <input
+                  placeholder={user.firstName}
+                  className="profiles-input"
+                ></input>
               )}
             </div>
             <div className="field">
@@ -88,9 +102,14 @@ const Profileview= ()=>{
                   onChange={(e) =>
                     setEditedUser({ ...editedUser, lastName: e.target.value })
                   }
+                  className="profile-input"
                 />
               ) : (
-                <span style={{ color: "#191943" }}>{user.lastName}</span>
+                <input
+                  style={{ color: "#191943" }}
+                  placeholder={user.lastName}
+                  className="profiles-input"
+                ></input>
               )}
             </div>
             <div className="field">
@@ -104,17 +123,20 @@ const Profileview= ()=>{
                   onChange={(e) =>
                     setEditedUser({ ...editedUser, email: e.target.value })
                   }
+                  className="profile-input"
                 />
               ) : (
-                <span style={{ color: "#191943" }}>{user.email}</span>
+                <input
+                  style={{ color: "#191943" }}
+                  placeholder={user.email}
+                  className="profiles-input"
+                ></input>
               )}
             </div>
 
-
-
             <div className="field">
               <span className="label" style={{ color: "#191943" }}>
-              Country:
+                Country:
               </span>
               {editMode ? (
                 <input
@@ -123,9 +145,14 @@ const Profileview= ()=>{
                   onChange={(e) =>
                     setEditedUser({ ...editedUser, Country: e.target.value })
                   }
+                  className="profile-input"
                 />
               ) : (
-                <span style={{ color: "#191943" }}>{user.Country}</span>
+                <input
+                  style={{ color: "#191943" }}
+                  placeholder={user.Country}
+                  className="profiles-input"
+                ></input>
               )}
             </div>
 
@@ -140,26 +167,39 @@ const Profileview= ()=>{
                   onChange={(e) =>
                     setEditedUser({ ...editedUser, Gender: e.target.value })
                   }
+                  className="profile-input"
                 />
               ) : (
-                <span style={{ color: "#191943" }}>{user.Gender}</span>
+                <input
+                  style={{ color: "#191943" }}
+                  placeholder={user.Gender}
+                  className="profiles-input"
+                ></input>
               )}
             </div>
 
             <div className="field">
               <span className="label" style={{ color: "#191943" }}>
-              PaymentMethod:
+                PaymentMethod:
               </span>
               {editMode ? (
                 <input
                   type="email"
                   value={editedUser.PaymentMethod}
                   onChange={(e) =>
-                    setEditedUser({ ...editedUser, PaymentMethod: e.target.value })
+                    setEditedUser({
+                      ...editedUser,
+                      PaymentMethod: e.target.value,
+                    })
                   }
+                  className="profile-input"
                 />
               ) : (
-                <span style={{ color: "#191943" }}>{user.PaymentMethod}</span>
+                <input
+                  style={{ color: "#191943" }}
+                  placeholder={user.PaymentMethod}
+                  className="profiles-input"
+                ></input>
               )}
             </div>
 
@@ -174,12 +214,17 @@ const Profileview= ()=>{
                   onChange={(e) =>
                     setEditedUser({ ...editedUser, role: e.target.value })
                   }
+                  className="profile-input"
                 />
               ) : (
-                <span style={{ color: "#191943" }}>{user.role}</span>
+                <input
+                  style={{ color: "#191943" }}
+                  placeholder={user.role}
+                  className="profiles-input"
+                ></input>
               )}
             </div>
-      
+
             <div className="field">
               <span className="label" style={{ color: "#191943" }}>
                 Account Status:
@@ -189,45 +234,62 @@ const Profileview= ()=>{
                   type="email"
                   value={editedUser.accountStatus}
                   onChange={(e) =>
-                    setEditedUser({ ...editedUser, accountStatus: e.target.value })
+                    setEditedUser({
+                      ...editedUser,
+                      accountStatus: e.target.value,
+                    })
                   }
+                  className="profile-input"
                 />
               ) : (
-                <span style={{ color: "#191943" }}>{user.accountStatus}</span>
+                <input
+                  style={{ color: "#191943" }}
+                  placeholder={user.accountStatus}
+                  className="profiles-input"
+                ></input>
               )}
             </div>
-
           </div>
           <div className="actions">
             {editMode ? (
               <>
-                <button
-                  className="button1"
-                  onClick={handleUpdateProfile}
-                  style={{ backgroundColor: "#191943" }}
-                >
+                <button className="button12" onClick={handleUpdateProfile}>
                   Save
                 </button>
-                <button
-                  className="button1"
-                  onClick={() => setEditMode(false)}
-                  style={{ backgroundColor: "#191943" }}
-                >
+                <button className="button12" onClick={() => setEditMode(false)}>
                   Cancel
                 </button>
               </>
             ) : (
               <button
                 onClick={() => setEditMode(true)}
-                style={{ backgroundColor: "#191943", color:"white" }}
+                style={{
+                  backgroundColor: "#191943",
+                  color: "white",
+                  padding: ".8rem 2rem",
+                  border: "none",
+                  borderRadius: ".5rem",
+                  marginLeft: "-10rem",
+                }}
               >
                 Edit Profile
               </button>
             )}
           </div>
+          <button
+            className="activate1"
+            style={{
+              border: "none",
+              marginTop: "-3rem",
+              marginRight: "-3rem",
+            }}
+            onClick={() => setActivationModalOpen(true)}
+          >
+            Activate Account
+          </button>
         </div>
       </div>
     </div>
-    );
+  );
 };
- export default Profileview
+export default Profileview;

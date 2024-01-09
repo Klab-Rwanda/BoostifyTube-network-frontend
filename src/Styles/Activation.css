@@ -6,7 +6,8 @@
   justify-content: center;
   align-items: center;
   display: flex;
-  margin-top: 10rem;
+
+  margin-top: 7rem;
   margin-left: 18rem;
   position: relative;
   background-color: white;
@@ -57,7 +58,8 @@
 .close {
   position: absolute;
   z-index: 4;
-  margin-top: 10rem;
+
+  margin-top: 7rem;
   margin-left: 25rem;
 }
 
