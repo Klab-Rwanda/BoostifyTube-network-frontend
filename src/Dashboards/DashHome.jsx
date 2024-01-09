@@ -54,12 +54,7 @@ const DashHome = () => {
       {
         label: "Ratings",
         data: [4, 5, 3.5, 4.2],
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-        ],
+        backgroundColor: ["lightGray", "#fee60c", "#191943", "white"],
         borderColor: [
           "rgba(255, 99, 132, 1)",
           "rgba(54, 162, 235, 1)",
@@ -100,9 +95,6 @@ const DashHome = () => {
         </div>
         <div className="income">
           <Bar key="incomeExpenseChart" data={incomeExpenseData} />
-        </div>
-        <div className="ratings">
-          <Pie key="ratingsChart" data={ratingsData} />
         </div>
       </div>
     </div>

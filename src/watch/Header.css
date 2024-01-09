@@ -1,17 +1,28 @@
 .header-textt {
   background-color: white;
-  position: fixed;
   display: flex;
   width: 100%;
   gap: 40%;
   padding: 15px 0px 10px 2px;
-  /* justify-content: space-between; */
   justify-content: space-around;
   border-bottom: 1px solid #fee60c;
 }
 .header-text1 p {
   font-size: 17px;
   font-weight: bold;
+}
+.header-wraper {
+  position: fixed;
+  width: 100%;
+}
+.activation-reminder {
+  width: 100%;
+  height: 3rem;
+  background-color: #fee60c;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .watch-user-logo {
