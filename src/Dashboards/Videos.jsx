@@ -7,6 +7,7 @@ import { AiOutlineLike } from "react-icons/ai";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegComment } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
 import Skeleton from "react-loading-skeleton";
 
 const VideoCard = ({ videoId }) => {
@@ -72,7 +73,34 @@ const VideoCard = ({ videoId }) => {
             <FaRegComment /> {videoInfo.statistics.commentCount}
           </p>
         </div>
+
       </div>
+    </div>
+  )
+};
+
+const Videos = () => {
+  const { uploadedVideos } = MyContext();
+  const videoLinks = uploadedVideos
+    .map((video) => video?.linkOfVideo)
+    .filter(Boolean);
+
+  const getYouTubeVideoId = (url) => {
+    const regex =
+      /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  };
+
+  const videoIdss = videoLinks
+    .map((link) => getYouTubeVideoId(link))
+    .filter(Boolean);
+
+  return (
+    <div className="video-cards-container">
+      {videoIdss.map((videoId, index) => (
+        <VideoCard key={index} videoId={videoId} />
+      ))}
     </div>
   );
 };

@@ -67,7 +67,7 @@ const Payment = () => {
                   style={{ width: 70, height: 50 }}
                 />
 
-                <h3>Card Details</h3>
+                <h3> Details</h3>
               </span>
               <label htmlFor="cardNumber">Phone Number</label>
               <input
@@ -82,34 +82,7 @@ const Payment = () => {
                 })}
                 placeholder="phone number"
               />
-
-              <label htmlFor="expiryDate">Expiry Date</label>
-              <input
-                type="text"
-                id="expiryDate"
-                name="expiryDate"
-                placeholder="MM/YYYY"
-              />
-
-              {/* <label htmlFor="cvc">CVC</label>
-              <input
-                type="text"
-                id="cvc"
-                name="cvc"
-                value={formData.cvc}
-                onChange={handleChange}
-                placeholder="Enter CVC ###"
-              />
-
-              <label htmlFor="cvc">CVC</label>
-              <input
-                type="text"
-                id="cvc"
-                name="cvc"
-                value={formData.cvc}
-                onChange={handleChange}
-                placeholder="Enter Amount"
-              /> */}
+          
             </div>
             <div className="payment-info">
               <span>
@@ -128,39 +101,19 @@ const Payment = () => {
                     message: "Amount Money is very Required",
                   },
                 })}
-                placeholder="Enter CVC ###"
+                placeholder="Enter Amount"
               />
 
-              <label htmlFor="cvc">CVC</label>
-              <input
-                type="text"
-                id="cvc"
-                name="cvc"
-                placeholder="Enter Amount"
-              />
-              {/* <label htmlFor="cvc">CVC</label>
-              <input
-                type="text"
-                id="cvc"
-                name="cvc"
-                value={formData.cvc}
-                onChange={handleChange}
-                placeholder="Enter Amount"
-              />
-              <label htmlFor="cvc">CVC</label>
-              <input
-                type="text"
-                id="cvc"
-                name="cvc"
-                value={formData.cvc}
-                onChange={handleChange}
-                placeholder="Enter Amount"
-              /> */}
+      
             </div>
           </div>
-          <div className="form-button">
-            <button type="submit">Submit Payment</button>
-            <button type="reset">Clear</button>
+          <div className="form-button" id="form-button">
+            <button type="submit" className="uploadbutton">
+              Submit Payment
+            </button>
+            <button type="clear" className="uploadbutton">
+              Clear
+            </button>
           </div>
         </form>
       </div>

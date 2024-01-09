@@ -5,8 +5,9 @@ function Headeer() {
     <div className="headeer ">
       <div className="headeer-logo">
         <div className="watch-logo">
-          <b className="watch-logob">O </b>
-          <b className="watch-g">G</b>
+
+          <b className="watch-logob">B </b>
+          <b className="watch-g">T</b>
         </div>
       </div>
 

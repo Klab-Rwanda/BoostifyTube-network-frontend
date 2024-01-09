@@ -22,7 +22,6 @@ function Header() {
   const openActivationModal = () => {
     setIsActivationModalOpen(true);
   };
-
   const closeActivationModal = () => {
     setIsActivationModalOpen(false);
   };

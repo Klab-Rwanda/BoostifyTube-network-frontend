@@ -49,6 +49,7 @@
 
 .header-text1 {
   display: flex;
+
   gap: 150px;
 }
 .header-text1 p {
