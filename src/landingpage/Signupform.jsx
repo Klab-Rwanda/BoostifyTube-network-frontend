@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Signupform.css";
+import person from "../images/person.jpg";
 import axios from "axios";
 
 function Signupform() {
@@ -55,6 +56,7 @@ const handleChange = (e) => {
   const renderForm = () => {
     if (activeForm === "Youtuber") {
       return (
+        
         <form action="process_signup.php" method="post" className="signup-form"onSubmit={handleSubmit}>
           <label for="fullname">Full Name:</label>
           <input className="inputt" type="text" id="FullName" name="FullName" required  
@@ -223,6 +225,10 @@ const handleChange = (e) => {
 
   return (
     <div className="signup">
+      <div className="signup-image">
+        <img src={person} />
+      </div>
+
       <div className="auth-acc">
         <h1 style={{ margin: "1rem" }}>Create account!</h1>
         <div className="form-switch-buttons">

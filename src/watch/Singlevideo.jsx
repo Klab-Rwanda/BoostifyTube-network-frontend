@@ -4,6 +4,9 @@ import YouTube from "react-youtube";
 import { useParams } from "react-router-dom";
 import { MyContext } from "../context/Context";
 import "./Single-viewvideo.css";
+import { AiOutlineLike } from "react-icons/ai";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { FaRegComment } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const VideoCard1 = ({ videoId }) => {
@@ -44,10 +47,18 @@ const VideoCard1 = ({ videoId }) => {
         <Link to={`/dashboard/Videocardss/${videoId}`} className="view-title">
           <p id="det">{videoData1.snippet.localized.title}</p>
         </Link>
-        <p id="det">Views: {videoData1.statistics.viewCount}</p>
-        <p id="det">Likes: {videoData1.statistics.likeCount}</p>
-        <p id="det">Comments: {videoData1.statistics.commentCount}</p>
-        <p id="det">Channel: {videoData1.snippet.channelTitle}</p>
+        <div style={{ display: "flex" }}>
+          <p id="det">
+            <MdOutlineRemoveRedEye /> {videoData1.statistics.viewCount}
+          </p>
+          <p id="det">
+            <AiOutlineLike /> {videoData1.statistics.likeCount}
+          </p>
+          <p id="det">
+            <FaRegComment /> {videoData1.statistics.commentCount}
+          </p>
+        </div>
+        <p id="det" style={{ marginLeft: "5%" }}>Channel: {videoData1.snippet.channelTitle}</p>
       </div>
     </div>
   );
@@ -96,11 +107,12 @@ const Singlevideo = () => {
     return <div>Loading...</div>;
   }
 
-  const { title, viewCount, likeCount, commentCount } = videoInfo.statistics;
-
+  const { viewCount, likeCount, commentCount } = videoInfo.statistics;
+  const { title } = videoInfo.snippet.localized; 
+  const { channelTitle} = videoInfo.snippet;
   return (
-    <div className="view-video">
-      <div className="video-itemb">
+    <div className="view-videoo">
+      <div className="view-videosingle">
         <YouTube
           style={{ width: "100%", marginTop: "5rem" }}
           videoId={videoId}
@@ -114,9 +126,19 @@ const Singlevideo = () => {
         />
 
         <p>{title}</p>
-        <p>Views: {viewCount}</p>
-        <p>Likes: {likeCount}</p>
-        <p>Comments: {commentCount}</p>
+        <div style={{ display: "flex",gap:"10%" }}>
+          <p>
+            {" "}
+            <MdOutlineRemoveRedEye /> {viewCount}
+          </p>
+          <p>
+            <AiOutlineLike /> {likeCount}
+          </p>
+          <p>
+            <FaRegComment /> {commentCount}
+          </p>
+        </div>
+        <p>Channel: {channelTitle}</p>
       </div>
 
       <div style={{ marginTop: "4rem" }}>

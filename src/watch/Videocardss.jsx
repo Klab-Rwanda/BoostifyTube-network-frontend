@@ -43,23 +43,31 @@ const Video = ({ videoId }) => {
 
   return (
     <div>
-      <div>
+      <div className="youtube-dive">
         <YouTube videoId={videoId} opts={opts} />
 
-        <Link to={`/dashboard/Videocardss/${videoInfo.id}`} className="view-title">
+        <Link
+          to={`/dashboard/Videocardss/${videoInfo.id}`}
+          className="view-title"
+        >
           <p id="det">{videoInfo.snippet.localized.title}</p>
         </Link>
-        <p id="det">
-          <MdOutlineRemoveRedEye />
-          {videoInfo.statistics.viewCount}
+        <div style={{ display: "flex" }}>
+          <p id="det">
+            <MdOutlineRemoveRedEye />
+            {videoInfo.statistics.viewCount}
+          </p>
+          <p id="det">
+            <AiOutlineLike /> {videoInfo.statistics.likeCount}
+          </p>
+          <p id="det">
+            <FaRegComment /> {videoInfo.statistics.commentCount}
+          </p>
+        </div>
+
+        <p id="det" style={{ marginLeft: "5%" }}>
+          Channel: {videoInfo.snippet.channelTitle}
         </p>
-        <p id="det">
-          <AiOutlineLike /> {videoInfo.statistics.likeCount}
-        </p>
-        <p id="det">
-          <FaRegComment /> {videoInfo.statistics.commentCount}
-        </p>
-        <p id="det">Channel: {videoInfo.snippet.channelTitle}</p>
       </div>
     </div>
   );

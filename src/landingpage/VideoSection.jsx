@@ -6,7 +6,7 @@ const VideoSection = () => {
   return (
     <div className="video-section">
       <div className="video-container">
-        <video width="560" height="315" controls>
+        <video >
           <source src={demoVideo} type="video/mp4" />
         </video>
         Watch our quick demo to learn how our platform connects YouTubers with

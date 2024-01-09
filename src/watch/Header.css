@@ -1,5 +1,6 @@
 .header-textt {
   background-color: white;
+
   display: flex;
   width: 100%;
   gap: 40%;
@@ -26,15 +27,40 @@
 }
 
 .watch-user-logo {
-  display: flex;
-  font-size: 25px;
+=======
+  position: fixed;
+display: flex;
+width: 98%;
+gap: 40%;
+padding: 10px  10px 7px 20px;
+justify-content: space-between; 
+border-bottom: 1px solid #FEE60C;
 }
+.header-text1 p{
+  font-size: 17px;
+  font-weight: bold;
+}
+.header-viewrs{
+  display: flex;
+  gap: 70px;
+}
+
+.not-icondd{
+  margin-top: 10px;
+  font-size: 30px;
+}
+
+
+
+
+
 .header-text1 {
   display: flex;
   gap: 150px;
 }
 .header-text1 p {
   font-size: 16px;
+
 }
 .header-text2 {
   display: flex;
@@ -65,6 +91,7 @@
   .header-search {
     display: none;
   }
+
 }
 @media (max-width: 780px) {
   .header-textt {
@@ -96,6 +123,7 @@
   .header-button {
     width: 90px;
     font-size: 19px;
+
     height: 0px;
     padding: 4px 0px 27px 0px;
     border-radius: 3px;

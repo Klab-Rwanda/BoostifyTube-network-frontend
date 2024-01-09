@@ -8,11 +8,13 @@
   margin-top: 110px;
   min-height: 89vh;
   display: flex;
+  min-height: 80vh;
+  box-shadow: 0px 2px 2px;
   flex-direction: column;
   gap: 48vh;
   padding: 25px 50px 20px 40px;
   position: fixed;
-  border-right: solid rgb(201, 221, 150) 1px;
+  
 }
 .sidebar-text {
   text-decoration: none;
@@ -25,7 +27,8 @@
 }
 .sidebar-text p {
   margin-top: 4px;
-  font-size: 13px;
+  font-size: 14px;
+  color: #191943;
 }
 
 .sidebar1 {
@@ -39,7 +42,8 @@
   gap: 15px;
 }
 .sidebar-icon {
-  font-size: 19px;
+  font-size: 16px;
+  margin-top: 4px;
 }
 @media (max-width: 780px) {
   .sidebre {
