@@ -40,11 +40,7 @@ import Esearch from "./Esearch";
             </div>
 
             <div className=" header-text2">
-            <input type="text" placeholder="search"
            
-            >
-            
-            </input>
             <IoMdNotificationsOutline  className="dash-heard"/>
             <button className="header-button" onClick={handleLogout}> Logout</button>
             </div>

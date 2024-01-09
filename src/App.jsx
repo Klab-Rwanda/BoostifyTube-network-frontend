@@ -30,6 +30,8 @@ import Wacthhome from "./watch/Watchhome";
 import DashContact from "./Dashboards/DashContact";
 import Dashsingle from "./Dashboards/Dashsingle";
 import Profileview from "./watch/ProfileView";
+import Example from "./landingpage/Try-videos";
+import PaymentForm from "./youtuber-Dash/youtuber components/PaymentForm";
 const client = new QueryClient();
 
 function App() {
@@ -43,6 +45,7 @@ function App() {
               <Route path="contactus" element={<Contacts />} />
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<Signupform />} />
+              <Route path="video1" element={<Example />} />
             </Route>
 
             <Route path="/dashboard" element={<Dashboard />}>
@@ -80,7 +83,7 @@ function App() {
             <Route path="/youtuberDash" element={<YoutDashLayout />}>
               <Route index element={<FirstPage />} />
               <Route path="upload" element={<UploadVideo />} />
-              <Route path="payment" element={<Payment />} />
+              <Route path="payment" element={<PaymentForm />} />
               <Route path="history" element={<HistoryPage />} />
             </Route>
           </Routes>

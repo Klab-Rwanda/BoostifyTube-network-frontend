@@ -5,15 +5,9 @@ function Headeer() {
     <div className="headeer ">
       <div className="headeer-logo">
         <div className="watch-logo">
-          <b>O </b>
-          <b className="watch-g">G</b>
+          <b className="watch-logob">B </b>
+          <b className="watch-g">T</b>
         </div>
-        <input
-          type="text"
-          name="search"
-          placeholder="Search"
-          className="search-input"
-        />
       </div>
 
       <div className="header-buttonn">
