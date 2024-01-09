@@ -38,7 +38,6 @@ function FirstPage() {
     videos,
     youtuberHistory,
   } = MyContext();
-  console.log("xxxx  youtube API video link vvvvv", ownerVideos);
 
   // console.log("Uploaded", myUploadedVideos);
   return (

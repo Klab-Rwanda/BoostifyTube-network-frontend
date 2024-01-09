@@ -22,7 +22,6 @@ export const AppContext = ({ children }) => {
         }
       )
       .then((data) => {
-        console.log("feeeetchh xxxxxx", data.data);
         setMyOwnVideo(data.data?.videos);
       })
       .catch((error) => {
@@ -51,7 +50,6 @@ export const AppContext = ({ children }) => {
     },
   });
 
-  console.log(uploadedVideos);
 
   const videoLinks = uploadedVideos
     .map((video) => video?.linkOfVideo)

@@ -17,9 +17,7 @@ const { register, control ,handleSubmit,formState} = form;
 const {errors}= formState;
 const onSubmit = async (data) => {
     const accessToken = localStorage.getItem("token");
-  console.log("form submmited", data);  
-  console.log("my token", accessToken);
-
+  
   
   try {
     // Send a POST request to the server endpoint

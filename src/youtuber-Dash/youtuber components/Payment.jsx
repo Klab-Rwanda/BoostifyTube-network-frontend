@@ -19,8 +19,7 @@ const Payment = () => {
   const { errors } = formState;
   const onSubmit = async (data) => {
     const accessToken = localStorage.getItem("token");
-    console.log("payment form send",data);
-    console.log("my token", accessToken);
+
 
     try {
       // Send a POST request to the server endpoint

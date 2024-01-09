@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const VideoCard1 = ({ videoId }) => {
   const [videoData1, setVideoData1] = useState(null);
-  const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
+  const API_KEY = "AIzaSyBZyBQ1vYyLTYyVXZfiIHiQdPjH9Dpyaxo";
 
   useEffect(() => {
     const fetchVideoData1 = async () => {

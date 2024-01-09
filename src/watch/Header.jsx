@@ -1,16 +1,14 @@
-
 import "../watch/Header.css";
-import { FaBars } from "react-icons/fa6";
 import { useState } from "react";
 import { MyContext } from "../context/Context";
 import ActivationModal from "./ActivationModal";
+import { IoMenu } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 function Header() {
   const { loggedUser } = MyContext();
   const [isActivationModalOpen, setIsActivationModalOpen] = useState(false);
   const [modal, setModal] = useState(false);
-
-  console.log("Responseeeeeeeeeeeeeeeee", loggedUser?.user?.accountStatus);
 
   const handleLogout = () => {
     localStorage.removeItem("loggedUser");
@@ -25,9 +23,9 @@ function Header() {
     setIsActivationModalOpen(true);
   };
 
-   const closeActivationModal = () => {
-     setIsActivationModalOpen(false);
-   };
+  const closeActivationModal = () => {
+    setIsActivationModalOpen(false);
+  };
 
   return (
     <div className="header-wraper">
@@ -43,26 +41,29 @@ function Header() {
               }}
               onClick={openActivationModal}
             >
-              Activate Now to start earning money
+              <Link> Activate Now to start earning money</Link>
             </button>
           </div>
         )}
 
         <div className="header-textt">
-          {modal && <Esearch openModal={openModal} />}
-          <FaBars onClick={openModal} className="header-search" />
-          <div className="header-text1">
-            <div className="watch-user-logo">
-              <b>B </b>
-              <b className="watch-g">TNet</b>
+          <div className="headerpart1" style={{ display: "flex" }}>
+            <div
+              className="logohead"
+              style={{ display: "flex", marginLeft: "-7rem" }}
+            >
+              <h1>
+                BT
+                <span style={{ color: "#fee60c" }}>Net</span>
+              </h1>
+              <IoMenu className="menu-icon" style={{ marginLeft: "3.1rem" }} />
             </div>
-            <p>$1000</p>
           </div>
 
           <div className="header-text2">
             <button
               className="header-button"
-              style={{ border: "none" }}
+              style={{ border: "none", marginRight: "-3rem" }}
               onClick={handleLogout}
             >
               Logout
@@ -79,4 +80,3 @@ function Header() {
 }
 
 export default Header;
-

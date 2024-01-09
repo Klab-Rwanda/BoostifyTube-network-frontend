@@ -1,9 +1,14 @@
 import React from "react";
 import "../Styles/DashHome.css";
-import { Bar, Line, Pie } from "react-chartjs-2";
+import { Bar, Line } from "react-chartjs-2";
 import "chart.js/auto";
+import { MyContext } from "../context/Context";
 
 const DashHome = () => {
+  const { fetchUsersData = [] } = MyContext();
+  const { uploadedVideos = [] } = MyContext();
+  console.log("sawaaaaaaaa", uploadedVideos);
+
   const userGrowthData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May"],
     datasets: [
@@ -70,11 +75,11 @@ const DashHome = () => {
     <div className="dashHome-cont">
       <div className="summary">
         <div className="userscount">
-          <h1>50</h1>
+          <h1>{fetchUsersData?.length}</h1>
           <p>Users</p>
         </div>
         <div className="videoscount">
-          <h1>20</h1>
+          <h1>{uploadedVideos?.length}</h1>
           <p>Videos</p>
         </div>
         <div className="incomesummary">
@@ -88,13 +93,25 @@ const DashHome = () => {
       </div>
       <div className="graphs">
         <div className="usersss">
-          <Line key="userGrowthChart" data={userGrowthData} />
+          <Line
+            key="userGrowthChart"
+            data={userGrowthData}
+            style={{ width: "100%", height: "100%" }}
+          />
         </div>
         <div className="videossss">
-          <Line key="videoGrowthChart" data={videoGrowthData} />
+          <Line
+            key="videoGrowthChart"
+            data={videoGrowthData}
+            style={{ width: "100%", height: "100%" }}
+          />
         </div>
         <div className="income">
-          <Bar key="incomeExpenseChart" data={incomeExpenseData} />
+          <Bar
+            key="incomeExpenseChart"
+            data={incomeExpenseData}
+            style={{ width: "100%", height: "100%" }}
+          />
         </div>
       </div>
     </div>

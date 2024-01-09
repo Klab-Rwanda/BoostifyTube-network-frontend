@@ -8,7 +8,6 @@ const VideoIds = () => {
     <div>
       <h1>YouTube Video Cards</h1>
       {/* <VideoCards videoIds={videoIds} /> */}
-      {console.log("==========",videoIds)}
     </div>
   );
 };

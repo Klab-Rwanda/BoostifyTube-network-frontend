@@ -5,29 +5,37 @@
 }
 .sidebre {
   background-color: white;
-  margin-top: 110px;
+  margin-top: 115px;
   min-height: 89vh;
   display: flex;
+  width: 10%;
   min-height: 80vh;
   box-shadow: 0px 2px 2px;
   flex-direction: column;
-  gap: 48vh;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0.8, 0, 0, 0.6);
   padding: 25px 50px 20px 40px;
   position: fixed;
-  
+}
+
+#sidelink {
+  font-size: 1.1rem;
+  color: #191943;
+  font-weight: 500;
+  margin-left: 1.1rem;
 }
 .sidebar-text {
   text-decoration: none;
   display: flex;
   color: #191943;
-  gap: 10px;
+  margin-top: 1.5rem;
 }
 .sidebar-text p:hover {
   color: rgb(145, 166, 166);
 }
 .sidebar-text p {
   margin-top: 4px;
-  font-size: 14px;
+  font-size: 16px;
   color: #191943;
 }
 
@@ -42,7 +50,7 @@
   gap: 15px;
 }
 .sidebar-icon {
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 4px;
 }
 @media (max-width: 780px) {

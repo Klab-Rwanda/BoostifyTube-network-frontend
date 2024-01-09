@@ -23,7 +23,7 @@ export const CardSkeleton = () => {
 };
 
 const Video = ({ videoId }) => {
-  const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
+  const API_KEY = "AIzaSyBZyBQ1vYyLTYyVXZfiIHiQdPjH9Dpyaxo";
 
   const [skeletonLoader, setSkeletonLoader] = useState(false);
 
