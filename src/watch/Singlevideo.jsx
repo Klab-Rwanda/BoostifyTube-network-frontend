@@ -8,29 +8,31 @@ import { AiOutlineLike } from "react-icons/ai";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegComment } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import "react-loading-skeleton/dist/skeleton.css";
+import Skeleton from "react-loading-skeleton";
+export const CardSkeleton = () => {
+  return (
+    
+    <p>
+      <Skeleton height={300} />
+    </p>
+  );
+};
 
 const VideoCard1 = ({ videoId }) => {
-  const [videoData1, setVideoData1] = useState(null);
   const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
 
-  useEffect(() => {
-    const fetchVideoData1 = async () => {
-      try {
-        const response1 = await axios.get(
+    const { data:videoData1, isLoading } = useQuery({
+      queryKey: ["videos"],
+      queryFn: async () => {
+        const response = await axios.get(
           `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
         );
-        setVideoData1(response1.data.items[0]);
-      } catch (error) {
-        console.error("Error fetching video data:", error);
-      }
-    };
+        return response.data.items[0];
+      },
+    });
 
-    fetchVideoData1();
-  }, [videoId, API_KEY]);
-
-  if (!videoData1) {
-    return <div>Loading...</div>;
-  }
 
   const opts2 = {
     height: "200",
@@ -41,33 +43,39 @@ const VideoCard1 = ({ videoId }) => {
   };
 
   return (
-    <div className="videooo">
-      <div className="video-item">
-        <YouTube videoId={videoId} opts={opts2} />
-        <Link to={`/dashboard/Videocardss/${videoId}`} className="view-title">
-          <p id="det">{videoData1.snippet.localized.title}</p>
-        </Link>
-        <div style={{ display: "flex" }}>
-          <p id="det">
-            <MdOutlineRemoveRedEye /> {videoData1.statistics.viewCount}
-          </p>
-          <p id="det">
-            <AiOutlineLike /> {videoData1.statistics.likeCount}
-          </p>
-          <p id="det">
-            <FaRegComment /> {videoData1.statistics.commentCount}
-          </p>
+        <div
+         >
+          <div className="youtube-dive">
+            <YouTube videoId={videoId} opts={opts2} />
+            <Link
+              to={`/dashboard/Videocardss/${videoId}`}
+              className="view-title"
+            >
+              <p id="det">{videoData1.snippet.localized.title}</p>
+            </Link>
+            <div style={{ display: "flex" }}>
+              <p id="det">
+                <MdOutlineRemoveRedEye /> {videoData1.statistics.viewCount}
+              </p>
+              <p id="det">
+                <AiOutlineLike /> {videoData1.statistics.likeCount}
+              </p>
+              <p id="det">
+                <FaRegComment /> {videoData1.statistics.commentCount}
+              </p>
+            </div>
+            <p id="det" style={{ marginLeft: "5%" }}>
+              Channel: {videoData1.snippet.channelTitle}
+            </p>
+          </div>
         </div>
-        <p id="det" style={{ marginLeft: "5%" }}>Channel: {videoData1.snippet.channelTitle}</p>
-      </div>
-    </div>
   );
 };
 
 const Singlevideo = () => {
   const { videoId } = useParams();
-  const [videoInfo, setVideoInfo] = useState(null);
   const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
+  const [skeletonLoader, setSkeletonLoader] = useState(false);
 
   const { uploadedVideos } = MyContext();
 
@@ -86,30 +94,27 @@ const Singlevideo = () => {
     .map((link) => getYouTubeVideoId(link))
     .filter(Boolean);
 
+
+  const { data: videoInfo, isLoading } = useQuery({
+    queryKey: ["videos"],
+    queryFn: async () => {
+      const response = await axios.get(
+        `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
+      );
+      return response.data.items[0];
+    },
+  });
+
   useEffect(() => {
-    const fetchVideoInfo = async () => {
-      try {
-        const response = await axios.get(
-          `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
-        );
-        setVideoInfo(response.data.items[0]);
-      } catch (error) {
-        console.error("Error fetching video data:", error);
-      }
-    };
+    setTimeout(() => {
+      setSkeletonLoader(true);
+    }, 7000);
+    setSkeletonLoader(false);
+  }, [isLoading]);
 
-    if (videoId) {
-      fetchVideoInfo();
-    }
-  }, [videoId]);
-
-  if (!videoInfo) {
-    return <div>Loading...</div>;
-  }
-
-  const { viewCount, likeCount, commentCount } = videoInfo.statistics;
-  const { title } = videoInfo.snippet.localized; 
-  const { channelTitle} = videoInfo.snippet;
+  // const { viewCount, likeCount, commentCount } = videoInfo?.statistics;
+  // const { title } = videoInfo.snippet.localized; 
+  // const { channelTitle} = videoInfo.snippet;
   return (
     <div className="view-videoo">
       <div className="view-videosingle">
@@ -125,34 +130,58 @@ const Singlevideo = () => {
           className="frame-view"
         />
 
-        <p>{title}</p>
-        <div style={{ display: "flex",gap:"10%" }}>
+        <p>{videoInfo?.snippet.localized.title}</p>
+        <div style={{ display: "flex", gap: "10%" }}>
           <p>
             {" "}
-            <MdOutlineRemoveRedEye /> {viewCount}
+            <MdOutlineRemoveRedEye /> {videoInfo?.snippet.localized.viewCount}
           </p>
           <p>
-            <AiOutlineLike /> {likeCount}
+            <AiOutlineLike /> {videoInfo?.snippet.localized.likeCount}
           </p>
           <p>
-            <FaRegComment /> {commentCount}
+            <FaRegComment /> {videoInfo?.snippet.localized.commentCount}
           </p>
         </div>
-        <p>Channel: {channelTitle}</p>
+        <p>Channel: {videoInfo?.snippet.localized.channelTitle}</p>
+     
       </div>
-
-      <div style={{ marginTop: "4rem" }}>
-        {videoIdss2
-          .filter((id) => id !== videoId) 
-          .map((videoId2, index) => (
-            <VideoCard1
-              key={index}
-              videoId={videoId2}
-              title={`Video ${index + 1}`}
-            />
-          ))}
-      </div>
-    </div>
+      {isLoading ? (
+        <div>
+          <div
+            style={{
+              width: "600",
+              height: "350",
+            }}
+          >
+            <Skeleton width={310} height={200} />.
+            <div className="youtube-dive">
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div
+          style=
+          {{
+            opacity: skeletonLoader ? "2" : "0",
+          }}>
+          <div>
+            {videoIdss2
+              .filter((id) => id !== videoId)
+              .map((videoId2, index) => (
+                <VideoCard1
+                  key={index}
+                  videoId={videoId2}
+                  title={`Video ${index + 1}`}
+                />
+              ))}
+          </div>
+        </div>
+      )}
+   </div>
   );
 };
 
