@@ -5,13 +5,14 @@
 }
 .sidebre {
   background-color: white;
-  margin-top: 66px;
+  margin-top: 110px;
+  min-height: 89vh;
   display: flex;
   min-height: 80vh;
   box-shadow: 0px 2px 2px;
   flex-direction: column;
-  gap: 45vh;
-  padding: 25px 50px 25px 40px;
+  gap: 48vh;
+  padding: 25px 50px 20px 40px;
   position: fixed;
   
 }

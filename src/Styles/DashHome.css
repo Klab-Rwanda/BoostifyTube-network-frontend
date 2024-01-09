@@ -1,29 +1,57 @@
 .dashHome-cont {
   display: flex;
   flex-direction: column;
-  background-color: #191943;
-  margin-left: 0;
-  /* padding-top: 1rem; */
-  /* margin: 5rem auto 0 0; */
-  position: relative;
-  color: red;
+  background-color: #f0f0f0;
+  color: #191943;
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* border-top: 1px solid lightgray; */
-  height: fit-content;
-  width: 100%;
-  height: 100%;
-  box-shadow: 0 2px 4px rgba(0.8, 0, 0, 0.6);
+  width: 90%;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .summary {
-  height: 30%;
+  display: flex;
   width: 100%;
-  background-color: red;
+  justify-content: space-around;
+  padding: 1rem 0.5rem;
 }
+
+.userscount,
+.videoscount,
+.incomesummary,
+.expensessummary {
+  background-color: white;
+  width: 15%;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 6rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
 .graphs {
-  height: 70%;
-  width: 100%;
-  background-color: red;
+  width: 70%;
+  display: grid;
+  gap: 7rem;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-around;
+}
+
+.react-chartjs-2 {
+  width: 45%;
+  height: 300px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.react-chartjs-2 canvas {
+  border-radius: 8px;
 }
