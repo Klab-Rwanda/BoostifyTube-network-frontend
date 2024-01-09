@@ -4,7 +4,6 @@
   background-color: white;
   padding: 1rem;
   position: relative;
-  /* color: red; */
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -41,4 +40,16 @@
   width: 10rem;
   color: black;
   background-color: #fee60c;
+}
+
+.video-cards-container1 {
+  display: grid;
+  width: 80%;
+  margin-left: 15%;
+  grid-template-columns: repeat(3, 1fr);
+  /* background-color: #fee60c; */
+}
+
+.details1 {
+  display: flex;
 }

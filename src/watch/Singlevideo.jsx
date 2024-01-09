@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import YouTube from "react-youtube";
@@ -120,10 +119,9 @@ const Singlevideo = () => {
     <div className="view-videoo">
       <div className="view-videosingle">
         <YouTube
-          style={{ width: "100%" }}
+          style={{ width: "100%", marginTop: "5rem" }}
           videoId={videoId}
           opts={{
-            borderRadius: "10",
             height: "350",
             width: "600",
             playerVars: { autoplay: 1, mute: 1 },
@@ -146,6 +144,7 @@ const Singlevideo = () => {
           </p>
         </div>
         <p>Channel: {videoInfo?.snippet.localized.channelTitle}</p>
+     
       </div>
       {isLoading ? (
         <div>

@@ -59,7 +59,6 @@ export const AppContext = ({ children }) => {
   const videoLinksPerOwner = myOwnVideo
     .map((video) => video?.linkOfVideo)
     .filter(Boolean);
-  // console.log("linksssskxxxxx", videoLinksPerOwner);
   const getYouTubeVideoId = (url) => {
     const regex =
       /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
@@ -117,7 +116,6 @@ export const AppContext = ({ children }) => {
       const res = await axios.get(
         `https://boostifytube-network-api.onrender.com/api/v1/user/getOneUser/${userId}`
       );
-      // console.log("Responseeeeeeeeeeeeeeeee", res.data.user.image);
       return res.data;
     },
   });

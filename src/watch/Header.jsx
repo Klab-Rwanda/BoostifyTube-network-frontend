@@ -1,60 +1,82 @@
-import '../watch/Header.css'
-import { IoMenu } from "react-icons/io5";
-import { IoMdNotifications } from "react-icons/io";
-import { HiOutlineMail } from "react-icons/hi";
-import { useState } from "react";
-import Esearch from "./Esearch";
-import { MyContext } from '../context/Context';
 
+import "../watch/Header.css";
+import { FaBars } from "react-icons/fa6";
+import { useState } from "react";
+import { MyContext } from "../context/Context";
+import ActivationModal from "./ActivationModal";
 
 function Header() {
-   const { loggedUser } = MyContext();
-   
-     const [modal,setModal]=useState();
-     function openModal(){
-      setModal(!modal)
-    }
-      // const { videos}= MyContext();
-      // const[search,setSearch]= useState();
+  const { loggedUser } = MyContext();
+  const [isActivationModalOpen, setIsActivationModalOpen] = useState(false);
+  const [modal, setModal] = useState(false);
 
- 
-   
-      // const filterproduct = videos.filter(item =>
-      //   Object.values(item).some(value =>
-      //     value.toLowerCase().includes(search.toLowerCase())
-      //   )
-      // );
+  console.log("Responseeeeeeeeeeeeeeeee", loggedUser?.user?.accountStatus);
 
+  const handleLogout = () => {
+    localStorage.removeItem("loggedUser");
+    window.location.href = "/";
+  };
 
+  function openModal() {
+    setModal(!modal);
+  }
 
-    return (
-      <div className=" header-textt">
-        {modal && <Esearch openModal={openModal} />}
-        <div className=" header-text1">
-          <div className="watch-user-logo">
-            <b>O </b>
-            <b className="watch-g">G</b>
-          </div>
-          <IoMenu onClick={openModal} className="header-search" />
-          <p>$1000</p>
-        </div>
+  const openActivationModal = () => {
+    setIsActivationModalOpen(true);
+  };
 
-        <div className='header-viewrs'>
-          <IoMdNotifications className="not-icondd" />
-          <HiOutlineMail className="not-icondd" />
-          <div className="pic">
-            <img
-              src={loggedUser?.user.image}
-              alt=""
+   const closeActivationModal = () => {
+     setIsActivationModalOpen(false);
+   };
+
+  return (
+    <div className="header-wraper">
+      <div>
+        {loggedUser?.user?.accountStatus !== "activated" && (
+          <div className="activation-reminder">
+            Please activate your account.
+            <button
               style={{
-                width: "90%",
-                height: "100%",
-                borderRadius: "50%",
+                border: "none",
+                backgroundColor: "#fee60c",
+                marginLeft: ".5rem",
               }}
-            />
+              onClick={openActivationModal}
+            >
+              Activate Now to start earning money
+            </button>
+          </div>
+        )}
+
+        <div className="header-textt">
+          {modal && <Esearch openModal={openModal} />}
+          <FaBars onClick={openModal} className="header-search" />
+          <div className="header-text1">
+            <div className="watch-user-logo">
+              <b>B </b>
+              <b className="watch-g">TNet</b>
+            </div>
+            <p>$1000</p>
+          </div>
+
+          <div className="header-text2">
+            <button
+              className="header-button"
+              style={{ border: "none" }}
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
           </div>
         </div>
       </div>
-    );
- }
- export  default Header
+
+      {isActivationModalOpen && (
+        <ActivationModal onClose={closeActivationModal} />
+      )}
+    </div>
+  );
+}
+
+export default Header;
+
