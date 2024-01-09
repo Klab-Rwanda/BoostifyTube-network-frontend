@@ -12,40 +12,73 @@ import DashCards from "./DashCards";
 import { FaDelicious, FaShoppingCart, FaEye, FaBell } from "react-icons/fa";
 import { MdOutlineThumbUpAlt } from "react-icons/md";
 import { FiMessageCircle } from "react-icons/fi";
-// import { mycontext } from "../components/context/ContextProvider";
+import YouTube from "react-youtube";
 
 import { Bar } from "react-chartjs-2";
 import CardMain from "./CardMain";
 import { MyContext } from "../../context/Context";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 
-const videoData = [
-  { title: "Video 1", views: 100000, likes: 10000, comments: 1000 },
-  { title: "Video 2", views: 150000, likes: 15000, comments: 1500 },
-  { title: "Video 3", views: 120000, likes: 12000, comments: 1200 },
-  { title: "Video 4", views: 180000, likes: 18000, comments: 1800 },
-  { title: "Video 1", views: 100000, likes: 10000, comments: 1000 },
-  { title: "Video 2", views: 150000, likes: 15000, comments: 1500 },
-  { title: "Video 3", views: 120000, likes: 12000, comments: 1200 },
-  { title: "Video 5", views: 200000, likes: 20000, comments: 2000 },
-];
+const VideoCard = ({ videoId }) => {
+  const [videoData, setVideoData] = useState(null);
+    const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M"; // Replace with your actual API key
+
+    useEffect(() => {
+      const fetchVideoData = async () => {
+        try {
+          const response = await axios.get(
+            `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
+          );
+          setVideoData(response.data.items[0]);
+          // console.log(" rere..", response.data.items[0].snippet.channelTitle);
+        } catch (error) {
+          console.error("Error fetching video data:", error);
+        }
+      };
+
+      fetchVideoData();
+    }, [videoId, API_KEY]);
+
+    if (!videoData) {
+      return <div>Loading...</div>;
+    }
+    // console.log("revvvv",videoData);
+
+    const opts = {
+      height: "200",
+      width: "300",
+      playerVars: {
+        autoplay: 0,
+      },
+    };
+
+    return (
+      <div className="youtuber-singdle-video-cardss">
+        <div className="youtuber-single-video-card">
+          <YouTube videoId={videoId} opts={opts} />
+          <p id="detail-title">{videoData.snippet.localized.title.slice(0,50)}</p>
+          <p id="detail">Views: {videoData.statistics.viewCount}</p>
+          <p id="detail">Likes: {videoData.statistics.likeCount}</p>
+          <p id="detail">Comments: {videoData.statistics.commentCount}</p>
+          <p id="detail">Channel: {videoData.snippet.channelTitle}</p>
+        </div>
+      </div>
+    );
+  };
 function FirstPage() {
   const {
-    uploadedVideos = [],
-
-    loggedUser,
-    myOwnVideo,
-    ownerVideos,
-    videos,
-    youtuberHistory,
+   videoIdPerOwner,
+  
   } = MyContext();
-  console.log("xxxx  youtube API video link vvvvv", ownerVideos);
-
-  // console.log("Uploaded", myUploadedVideos);
+  // console.log("xxxx  video id VVV", videoIdPerOwner);
+ 
   return (
     <div className="initialDashPage">
       <div>
         <h1>Welcome to Your Dashboard</h1>
-        <p>Explore your channel's performance and engage with your audience.</p>
+       
       </div>
       <div className="dash-highlight">
         <DashCards
@@ -68,19 +101,17 @@ function FirstPage() {
         <h1>My Uploaded Videos</h1>
       </div>
       <div className="youtuber-video-card">
-        {uploadedVideos.map((uplVideo) => {
+        {/* {uploadedVideos.map((uplVideo) => {
           <CardMain imgSrc={Card4} title={uplVideo.title} hearts={"65"} />;
-        })}
-
-        {/* <CardMain imgSrc={Card5} title={"Start Crystal"} hearts={"65"} />
-        <CardMain imgSrc={Card5} title={"Start Crystal"} hearts={"65"} />
-        <CardMain imgSrc={Card4} title={"Stunning Cube"} hearts={"65"} />
-
-        <CardMain imgSrc={Card6} title={"Crystal Bird"} hearts={"65"} />
-        <CardMain imgSrc={Card2} title={"Pokemon Ball"} hearts={"65"} />
-        <CardMain imgSrc={Card3} title={"Pyramid God"} hearts={"65"} /> */}
-        {/* <CardMain imgSrc={Card4} title={"Stunning Cube"} hearts={"65"} />
-         <CardMain imgSrc={Card6} title={"Crystal Bird"} hearts={"65"} /> */}
+        })} */}
+        {videoIdPerOwner.map((videoId, index) => (
+          <VideoCard
+            key={index}
+            videoId={videoId}
+            title={`Video ${index + 1}`}
+            className="youtuber-single-video-card"
+          ></VideoCard>
+        ))}
       </div>
     </div>
   );

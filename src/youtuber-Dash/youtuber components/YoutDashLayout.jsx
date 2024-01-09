@@ -12,9 +12,11 @@ function YoutDashLayout() {
       {/* <FirstPage /> */}
       <MenuBar />
       <SideBar />
-      <div id="youtuber-outlet">
-
-      <Outlet/>
+      <div
+        id="youtuber-outlet"
+        style={{ color: "red", marginLeft: "221px", marginTop: "5.2rem",backgroundColor:"#fafafa", height:"100%", padding: "30px"}}
+      >
+        <Outlet />
       </div>
     </>
   );

@@ -35,9 +35,9 @@
 }
 .topContainer
 {
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: 222px;
+    left: 220px;
     right: 0;
     background-color: var(--white-bg-color);
     display: flex;
@@ -46,8 +46,9 @@
     padding: 10px;
     height: 70px;
     box-shadow: 1px 0px 1px  var(--first-bg-color);
+    z-index: 1;
     
-    z-index: 10;
+    /* border-left:1px solid #fafafa ; */
     
 }
 .profileContainer

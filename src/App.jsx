@@ -29,10 +29,14 @@ import Cashout from "./Dashboards/CashOut";
 import Wacthhome from "./watch/Watchhome";
 import DashContact from "./Dashboards/DashContact";
 import Dashsingle from "./Dashboards/Dashsingle";
+
+import PaymentForm from "./youtuber-Dash/youtuber components/PaymentForm";
+
 import Example from "./landingpage/Try-videos";
 import VideoCardss from "./landingpage/VideoCardss";
 import Videocardss from "./watch/Videocardss";
 import Profileview from "./watch/profileview";
+
 const client = new QueryClient();
 
 function App() {
@@ -85,7 +89,7 @@ function App() {
             <Route path="/youtuberDash" element={<YoutDashLayout />}>
               <Route index element={<FirstPage />} />
               <Route path="upload" element={<UploadVideo />} />
-              <Route path="payment" element={<Payment />} />
+              <Route path="payment" element={<PaymentForm />} />
               <Route path="history" element={<HistoryPage />} />
             </Route>
           </Routes>

@@ -4,7 +4,8 @@ import "../Styles/videoCardss.css";
 import { MyContext } from "../context/Context";
 import axios from "axios";
 
-const VideoCard = ({ videoId}) => {
+
+  const VideoCard = ({ videoId}) => {
   const [videoData, setVideoData] = useState(null);
   const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M"; // Replace with your actual API key
 

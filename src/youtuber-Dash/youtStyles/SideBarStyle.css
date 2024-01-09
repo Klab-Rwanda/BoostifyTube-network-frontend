@@ -21,7 +21,7 @@
   box-shadow: 0px 0px 40px rgba(98, 95, 95, 0.4);
 }
 .youtuber-sideBar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
