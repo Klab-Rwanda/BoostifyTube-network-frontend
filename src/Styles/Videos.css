@@ -44,8 +44,7 @@
 
 .video-cards-container1 {
   display: grid;
-  width: 80%;
-  margin-left: 15%;
+  margin-left: 13%;
   grid-template-columns: repeat(3, 1fr);
   /* background-color: #fee60c; */
 }
