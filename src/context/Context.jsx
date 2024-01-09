@@ -60,7 +60,7 @@ export const AppContext = ({ children }) => {
   const VideoDiscription = filterVideo
     .map((video) => video?.description)
     .filter(Boolean);
-    console.log("yy", VideoDiscription);
+    // console.log("yy", VideoDiscription);
   const allVideoLink = filterVideo
     .map((video) => video?.linkOfVideo)
     .filter(Boolean);
@@ -79,7 +79,7 @@ export const AppContext = ({ children }) => {
     .filter(Boolean);
  
 
-  const videoIdss = videoLinks.map((link) => getYouTubeVideoId(link));
+  // const videoIdss = videoLinks.map((link) => getYouTubeVideoId(link));
 
   let token = localStorage.getItem("token");
 
@@ -94,11 +94,11 @@ export const AppContext = ({ children }) => {
           },
         }
       );
-      console.log("history response hhhhhh", res.data);
+      // console.log("history response hhhhhh", res.data);
       return res.data;
     },
     onError: (data) => {
-      console.log("onError", data.error);
+      // console.log("onError", data.error);
     },
   });
   const { data: fetchUsersData } = useQuery({
@@ -158,7 +158,7 @@ export const AppContext = ({ children }) => {
         fetchUsersData,
         messageLoading,
         Messages,
-        fetchUsersData,
+        
         loggedUser,
         uploadedVideos,
         VideoDiscription,

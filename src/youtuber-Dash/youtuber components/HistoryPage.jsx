@@ -19,8 +19,8 @@ function HistoryPage() {
 const mytransaction = youtuberHistory?.transactions;
   return (
     <>
-      <div className="history-section" style={{ color: "red" }}>
-      <h2 style={{ color: "black" }}>Transaction History</h2>
+      <div className="transactions-container" style={{ color: "red" }}>
+        <h2 style={{ color: "black" }}>Transaction History</h2>
         <table className="history-table">
           <thead>
             <tr>
