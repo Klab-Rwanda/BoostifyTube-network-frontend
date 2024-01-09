@@ -1,10 +1,11 @@
-.view-videoo {
-  margin-top: 120px;
-  display: flex;
-  margin-bottom: 30px;
-  width: 80%;
-  margin-left: 10%;
-  gap: 20px;
+
+
+.view-videoo{
+    margin-top: 150px;
+    margin-left: 40px;
+    display: flex;
+    margin-bottom: 30px;
+    gap: 20px;
 }
 .sinle-link-video {
   text-decoration: none;

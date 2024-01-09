@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import YouTube from "react-youtube";
@@ -20,17 +21,19 @@ export const CardSkeleton = () => {
 };
 
 const VideoCard1 = ({ videoId }) => {
-  const API_KEY = "AIzaSyBZyBQ1vYyLTYyVXZfiIHiQdPjH9Dpyaxo";
 
-  const { data: videoData1, isLoading } = useQuery({
-    queryKey: ["videos"],
-    queryFn: async () => {
-      const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
-      );
-      return response.data.items[0];
-    },
-  });
+  const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
+
+    const { data:videoData1, isLoading } = useQuery({
+      queryKey: ["videos"],
+      queryFn: async () => {
+        const response = await axios.get(
+          `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
+        );
+        return response.data.items[0];
+      },
+    });
+
 
   const opts2 = {
     height: "200",
@@ -41,30 +44,33 @@ const VideoCard1 = ({ videoId }) => {
   };
 
   return (
-    <div>
-      <div className="youtube-dive">
-        <YouTube videoId={videoId} opts={opts2} />
-        <Link to={`/dashboard/Videocardss/${videoId}`} className="view-title">
-          <p id="det" style={{ color: "black" }}>
-            {videoData1.snippet.localized.title}
-          </p>
-        </Link>
-        <div style={{ display: "flex" }}>
-          <p id="det">
-            <MdOutlineRemoveRedEye /> {videoData1.statistics.viewCount}
-          </p>
-          <p id="det">
-            <AiOutlineLike /> {videoData1.statistics.likeCount}
-          </p>
-          <p id="det">
-            <FaRegComment /> {videoData1.statistics.commentCount}
-          </p>
+
+        <div
+         >
+          <div className="youtube-dive">
+            <YouTube videoId={videoId} opts={opts2} />
+            <Link
+              to={`/dashboard/Videocardss/${videoId}`}
+              className="view-title"
+            >
+              <p id="det">{videoData1?.snippet.localized.title}</p>
+            </Link>
+            <div style={{ display: "flex" }}>
+              <p id="det">
+                <MdOutlineRemoveRedEye /> {videoData1?.statistics.viewCount}
+              </p>
+              <p id="det">
+                <AiOutlineLike /> {videoData1?.statistics.likeCount}
+              </p>
+              <p id="det">
+                <FaRegComment /> {videoData1?.statistics.commentCount}
+              </p>
+            </div>
+            <p id="det" style={{ marginLeft: "5%" }}>
+              Channel: {videoData1?.snippet.channelTitle}
+            </p>
+          </div>
         </div>
-        <p id="det" style={{ marginLeft: "5%" }}>
-          Channel: {videoData1.snippet.channelTitle}
-        </p>
-      </div>
-    </div>
   );
 };
 
@@ -144,9 +150,10 @@ let uploadedvideoId;
     <div className="view-videoo">
       <div className="view-videosingle">
         <YouTube
-          style={{ width: "100%", marginTop: "5rem" }}
+          style={{ width: "100%" }}
           videoId={videoId}
           opts={{
+            borderRadius: "10",
             height: "350",
             width: "600",
             playerVars: { autoplay: 1, mute: 1 },
@@ -182,21 +189,22 @@ let uploadedvideoId;
             }}
           >
             <Skeleton width={310} height={200} />.
-          </div>
-          <div className="youtube-dive">
-            <Skeleton />
-            <Skeleton />
-            <Skeleton />
+
+            <div className="youtube-dive">
+              <Skeleton />
+              <Skeleton />
+              <Skeleton />
+            </div>
           </div>
         </div>
       ) : (
-        // </div>
         <div
-          style={{
-            opacity: skeletonLoader ? "2" : "0",
-          }}
-        >
-          <div className="rest-vids">
+          style=
+          {{
+            opacity: skeletonLoader ? "1" : "0",
+          }}>
+          <div>
+
             {videoIdss2
               .filter((id) => id !== videoId)
               .map((videoId2, index) => (
@@ -209,7 +217,9 @@ let uploadedvideoId;
           </div>
         </div>
       )}
+
     </div>
+
   );
 };
 
