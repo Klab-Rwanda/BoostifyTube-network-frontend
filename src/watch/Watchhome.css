@@ -1,9 +1,10 @@
 .watch-home {
   display: flex;
   gap: 10%;
-  margin-top: 15%;
+  padding: 2rem;
+  /* margin-top: 15%;
   margin-left: 10%;
-  margin-right: 10%;
+  margin-right: 10%; */
 }
 
 .ul {

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../Styles/Users.css";
-import { FaPlus } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MyContext } from "../context/Context";
@@ -58,48 +57,46 @@ const Users = () => {
   };
 
   return (
-    <div className="users-cont">
-      <div className="user-header">
-        <h2 style={{ color: "#191943" }}>Registered users</h2>
-      </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Index</th>
-            <th>Names</th>
-            <th>Role</th>
-            <th>Live amount</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {displayuser.map((user, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{user?.FullName}</td>
-              <td>{user?.role}</td>
-
-              <td>{user?.role}</td>
-              <td className="actions">
-                <FaEdit />
-
-                <RiDeleteBin6Line
-                  style={{ color: "red" }}
-                  onClick={() => handleConfirmDelete(user._id)}
-                />
-              </td>
+    <>
+      {/* <div className="userheader">
+        <h2>Registered users</h2>
+      </div> */}
+      <section className="table__body">
+        <h2>Registered users</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Index</th>
+              <th>Names</th>
+              <th>Role</th>
+              <th>Actions</th>
             </tr>
-          ))}
+          </thead>
+          <tbody>
+            {displayuser.map((user, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{user?.FullName}</td>
+                <td>{user?.role}</td>
+                <td className="actionss">
+                  <FaEdit />
+                  <RiDeleteBin6Line
+                    onClick={() => handleConfirmDelete(user._id)}
+                  />
+                </td>
+              </tr>
+            ))}
 
-          {showDeleteConfirm && (
-            <div className="popup">
-              <p>Are you sure you want to delete {userToDelete._id}?</p>
-              <button onClick={handleDeleteClick}>OK</button>
-              <button onClick={handleCancelDelete}>Cancel</button>
-            </div>
-          )}
-        </tbody>
-      </table>{" "}
+            {showDeleteConfirm && (
+              <div className="popup">
+                <p>Are you sure you want to delete {userToDelete._id}?</p>
+                <button onClick={handleDeleteClick}>OK</button>
+                <button onClick={handleCancelDelete}>Cancel</button>
+              </div>
+            )}
+          </tbody>
+        </table>
+      </section>
       <br />
       <ReactPaginate
         className="pages"
@@ -113,7 +110,7 @@ const Users = () => {
         disabledClassName="disabled"
         activeClassName="paginationactve"
       ></ReactPaginate>
-    </div>
+    </>
   );
 };
 

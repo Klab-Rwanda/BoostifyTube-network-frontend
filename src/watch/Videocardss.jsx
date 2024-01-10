@@ -38,9 +38,6 @@ const Video = ({ videoId }) => {
     },
   });
 
-  useEffect(() => {
-    setVideoInfo(videoInfoData);
-  }, [videoInfoData]);
 
   useEffect(() => {
     setTimeout(() => {

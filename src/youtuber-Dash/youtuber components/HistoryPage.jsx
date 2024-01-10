@@ -19,28 +19,30 @@ function HistoryPage() {
 const mytransaction = youtuberHistory?.transactions;
   return (
     <>
-      <div className="transactions-container" style={{ color: "red" }}>
-        <h2 style={{ color: "black" }}>Transaction History</h2>
-        <table className="history-table">
-          <thead>
-            <tr>
-              <th style={{ color: "#191945" }}>Number</th>
-              <th style={{ color: "#191945" }}>Date</th>
-              <th style={{ color: "#191945" }}>Status</th>
-              <th style={{ color: "#191945" }}>Cost Paid</th>
-            </tr>
-          </thead>
-          <tbody>
-            {mytransaction?.map((item, indexNo) => (
-              <tr key={item.number}>
-                <td>{indexNo + 1}</td>
-                <td>{item.Date}</td>
-                <td>{item.Status}</td>
-                <td>{item.Amount}Frw</td>
+      <div className="transactions-container">
+        <section className="table__body">
+          <h2>Transaction History</h2>
+          <table className="history-table">
+            <thead>
+              <tr>
+                <th style={{ color: "#fff" }}>Number</th>
+                <th style={{ color: "#fff" }}>Date</th>
+                <th style={{ color: "#fff" }}>Status</th>
+                <th style={{ color: "#fff" }}>Cost Paid</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {mytransaction?.map((item, indexNo) => (
+                <tr key={item.number}>
+                  <td>{indexNo + 1}</td>
+                  <td>{item.Date}</td>
+                  <td>{item.Status}</td>
+                  <td>{item.Amount}Frw</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
       </div>
     </>
   );

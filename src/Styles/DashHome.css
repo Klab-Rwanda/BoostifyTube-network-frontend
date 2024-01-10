@@ -1,7 +1,7 @@
 .dashHome-cont {
   display: flex;
   flex-direction: column;
-  background-color: #f0f0f0;
+  background-color: #fff;
   color: #191943;
   justify-content: center;
   align-items: center;
@@ -10,24 +10,58 @@
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+#stat-icon {
+  font-size: 2rem;
+}
 .income {
   width: 100%;
   height: 30rem;
   /* background-color: red; */
 }
-.summary {
-  display: flex;
+.summary1 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  gap: 1rem;
+  /* background-color: #191943; */
   width: 100%;
-  justify-content: space-around;
-  padding: 1rem 0.5rem;
 }
 
-.userscount,
+.summary1 .summary-card {
+  width: 100%;
+  /* background-color: #fff; */
+  /* border: 1px solid red; */
+  border-radius: 12px;
+  border: 1px solid rgb(184, 184, 184);
+  margin: 1rem;
+}
+.summary1 .summary-content {
+  padding: 2rem;
+  display: flex;
+  padding-bottom: 1rem;
+  justify-content: space-between;
+}
+
+.summary1 h1 {
+  font-size: 2rem;
+}
+@media (max-width: 960px) {
+  .summary1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .summary1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* .userscount,
 .videoscount,
 .incomesummary,
 .expensessummary {
-  background-color: white;
-  width: 15%;
+  background-color: #191943;
   margin: auto;
   align-items: center;
   text-align: center;
@@ -36,17 +70,18 @@
   flex-direction: column;
   height: 6rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
   border-radius: 8px;
   margin-bottom: 20px;
-}
+} */
 
-.graphs {
+/* .graphs {
   width: 90%;
   display: flex;
   flex-wrap: wrap;
   gap: 7rem;
   justify-content: space-around;
-}
+} */
 .usersss,
 .videossss {
   width: 40%;

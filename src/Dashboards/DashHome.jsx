@@ -3,6 +3,8 @@ import "../Styles/DashHome.css";
 import { Bar, Line } from "react-chartjs-2";
 import "chart.js/auto";
 import { MyContext } from "../context/Context";
+import { FaUsers, FaVideo, FaMoneyCheckAlt } from "react-icons/fa";
+import { GiMoneyStack } from "react-icons/gi";
 
 const DashHome = () => {
   const { fetchUsersData = [] } = MyContext();
@@ -69,11 +71,87 @@ const DashHome = () => {
     ],
   };
 
+  const statArray = [
+    {
+      id: 1,
+      size: fetchUsersData?.length,
+      label: "Users",
+      icon: (
+        <div>
+          <FaUsers id="stat-icon" />
+        </div>
+      ),
+    },
+    {
+      id: 2,
+      size: uploadedVideos?.length,
+      label: "Videos",
+      icon: (
+        <div>
+          <FaVideo id="stat-icon" />
+        </div>
+      ),
+    },
+    {
+      id: 3,
+      size: `1000 Rfw`,
+      label: "Income",
+      icon: (
+        <div>
+          <GiMoneyStack id="stat-icon" />
+        </div>
+      ),
+    },
+    {
+      id: 4,
+      size: `300 Rfw`,
+      label: "Expenses",
+      icon: (
+        <div>
+          <FaMoneyCheckAlt id="stat-icon" />
+        </div>
+      ),
+    },
+  ];
+  const StatCard = ({ size, label, icon }) => {
+    return (
+      <div className="summary-card">
+        <div className="summary-content">
+          <div>
+            <h1>{size}</h1>
+            <div>{label}</div>
+          </div>
+          <div>{icon}</div>
+        </div>
+      </div>
+    );
+  };
   return (
     <div className="dashHome-cont">
-     
+      <div className="summary1">
+        {statArray.map((item, index) => {
+          return <StatCard kay={index} {...item} />;
+        })}
+
+        {/* <div className="userscount">
+          <h1>{fetchUsersData?.length}</h1>
+          <p>Users</p>
+        </div>
+        <div className="videoscount">
+          <h1>{uploadedVideos?.length}</h1>
+          <p>Videos</p>
+        </div>
+        <div className="incomesummary">
+          <h1>$6000</h1>
+          <p>Rwf</p>
+        </div>
+        <div className="expensessummary">
+          <h1>$2500</h1>
+          <p>Rwf</p>
+        </div> */}
+      </div>
       <div className="graphs">
-        <div className="usersss">
+        {/* <div className="usersss">
           <Line
             key="userGrowthChart"
             data={userGrowthData}
@@ -86,7 +164,7 @@ const DashHome = () => {
             data={videoGrowthData}
             style={{ width: "100%", height: "100%" }}
           />
-        </div>
+        </div> */}
         <div className="income">
           <Bar
             key="incomeExpenseChart"
