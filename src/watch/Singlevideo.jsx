@@ -48,8 +48,10 @@ const VideoCard1 = ({ videoId }) => {
   };
 
   return (
-    <div>
-      <div className="youtube-dive1">
+
+    <div className="youtube-dive">
+      <div className="video-it">
+
         <YouTube videoId={videoId} opts={opts2} />
         <Link to={`/dashboard/Videocardss/${videoId}`} className="view-title">
           <p id="det">{videoData1?.snippet.localized.title}</p>
@@ -157,7 +159,7 @@ const Singlevideo = () => {
 
   return (
     <div className="view-videoo">
-      <div className="view-videosingle">
+      <div className="video-item123">
         <YouTube
           style={{ width: "100%" }}
           videoId={videoId}
@@ -211,7 +213,9 @@ const Singlevideo = () => {
             opacity: skeletonLoader ? "1" : "0",
           }}
         >
-          <div>
+
+          <div className="video-container1">
+
             {videoIdss2
               .filter((id) => id !== videoId)
               .map((videoId2, index) => (

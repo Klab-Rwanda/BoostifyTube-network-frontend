@@ -3,7 +3,7 @@ import { FaExchangeAlt } from "react-icons/fa";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { MyContext } from '../context/Context';
 import { useState } from 'react';
-const Settings = () => {
+const Setting = () => {
   
   const handleLogout = () => {
     localStorage.removeItem("loggedUser");
@@ -147,4 +147,4 @@ const Settings = () => {
       </form>
     );
 } ;
-export default Settings
+export default Setting

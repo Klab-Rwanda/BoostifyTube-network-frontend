@@ -9,12 +9,24 @@ function Header() {
   const { loggedUser } = MyContext();
   const [isActivationModalOpen, setIsActivationModalOpen] = useState(false);
   const [modal, setModal] = useState(false);
+
+ const [user, setUser] = useState({
+       firstName: `${loggedUser?.user.FullName}`,
+       lastName: `${loggedUser?.user.FullName}`,
+       email: `${loggedUser?.user.Email}`,
+       TelNumber: `${loggedUser?.user.TelNumber}`,
+       accountStatus: `${loggedUser?.user.accountStatus}`,
+       role: `${loggedUser?.user.role}`,
+       PaymentMethod: `${loggedUser?.user.PaymentMethod}`,
+       Gender: ` ${loggedUser?.user.Gender}`,
+       image: ` ${loggedUser?.user.image}`,
+       Country: `${loggedUser?.user.Country}`,
+     });
+
 const { Singleusertracking = {} } = MyContext();
 
 const amount = Singleusertracking?.Your_tracks?.[0]?.Amount;
 console.log("Amount:", amount);
-
-
 
   const handleLogout = () => {
     localStorage.removeItem("loggedUser");
@@ -67,13 +79,7 @@ console.log("Amount:", amount);
 
           <div className="header-text2">
             <p>{amount}Rwf</p>
-            <button
-              className="header-button"
-              style={{ border: "none", marginRight: "-3rem" }}
-              onClick={handleLogout}
-            >
-              Logout
-            </button>
+           <img src={loggedUser?.user.image} className="pic" />
           </div>
         </div>
       </div>

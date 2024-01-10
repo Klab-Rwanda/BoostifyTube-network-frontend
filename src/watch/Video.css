@@ -14,12 +14,16 @@
     flex-direction: column;
     gap: 5px;
 }
- 
+.youtuber-single-video-card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
  .videos{
      
     
      border-color: #191942;
-     /* border-radius: 5px; */
+    
  }
  .allvideo-view{
      width: 300px;

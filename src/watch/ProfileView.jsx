@@ -52,7 +52,7 @@ const Profileview = () => {
                   accept="image/*"
                   onChange={handleUpdateProfilePicture}
                   style={{ color: "#1919" }}
-                  className="profile-input"
+                  className="file-input"
                 />
               </div>
             )}
@@ -252,14 +252,7 @@ const Profileview = () => {
             ) : (
               <button
                 onClick={() => setEditMode(true)}
-                style={{
-                  backgroundColor: "#191943",
-                  color: "white",
-                  padding: ".8rem 2rem",
-                  border: "none",
-                  borderRadius: ".5rem",
-                  marginLeft: "-10rem",
-                }}
+                className="editprofile-button"
               >
                 Edit Profile
               </button>

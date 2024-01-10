@@ -30,7 +30,7 @@
   display: flex;
   width: 98%;
   gap: 40%;
-  padding: 10px 10px 7px 20px;
+  padding: 5px 10px 5px 20px;
   justify-content: space-between;
 }
 .header-text1 p {

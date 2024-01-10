@@ -24,7 +24,9 @@ const VideoCard = ({ videoId }) => {
   const API_KEY = "AIzaSyBg7kgkqxO1QlKbVBAryoR47fywtpYd-5w";
 
   const { data: videoInfo, isLoading } = useQuery({
-    queryKey: ["videos", videoId],
+
+    queryKey: ["videos",videoId],
+
     queryFn: async () => {
       const response = await axios.get(
         `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
@@ -73,7 +75,7 @@ const VideoCard = ({ videoId }) => {
         <div
           className="video-details"
           style={{
-            opacity: skeletonLoader ? "1" : "0"
+            opacity: skeletonLoader ? "1" : "0",
           }}
         >
           <div className="video-details" style={{ width: "30%" }}>
@@ -86,8 +88,7 @@ const VideoCard = ({ videoId }) => {
               >
                 <p id="det">{videoInfo.snippet.localized.title}</p>
               </Link>
-              <div className="details1">
-                <p id="det">{videoInfo.snippet.channelTitle}</p>
+              <div style={{ display: "flex" }}>
                 <p id="det">
                   <MdOutlineRemoveRedEye />
                   {videoInfo.statistics.viewCount}
@@ -100,9 +101,16 @@ const VideoCard = ({ videoId }) => {
                   <FaRegComment /> {videoInfo.statistics.commentCount}
                 </p>
               </div>
+              <p id="det">{videoInfo.snippet.channelTitle}</p>
             </div>
           </div>
         </div>
+
+      )}
+    </>
+  );
+};
+
 
 const Videos = () => {
   const { uploadedVideos } = MyContext();

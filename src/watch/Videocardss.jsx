@@ -25,8 +25,11 @@ const Video = ({ videoId }) => {
   const [videoInfo, setVideoInfo] = useState(null);
   const [skeletonLoader, setSkeletonLoader] = useState(false);
 
-  const { data: videoInfoData, isLoading } = useQuery({
-    queryKey: ["videos", videoId], 
+
+
+  const { data: videoInf, isLoading } = useQuery({
+    queryKey: ["videos",videoId],
+
     queryFn: async () => {
       const response = await axios.get(
         `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
@@ -83,11 +86,11 @@ const Video = ({ videoId }) => {
         >
           <YouTube videoId={videoId} opts={opts} />
           <Link
-            to={`/dashboard/Videocardss/${videoInfo?.id}`}
+            to={`/dashboard/Videocardss/${videoInf?.id}`}
             className="view-title"
           >
             <p id="det">
-              {videoInfo?.snippet.localized.title || (
+              {videoInf?.snippet.localized.title || (
                 <Skeleton height={55} width={100} />
               )}
             </p>
@@ -95,18 +98,18 @@ const Video = ({ videoId }) => {
           <div style={{ display: "flex" }}>
             <p id="det">
               <MdOutlineRemoveRedEye />
-              {videoInfo?.statistics.viewCount}
+              {videoInf?.statistics.viewCount}
             </p>
             <p id="det">
-              <AiOutlineLike /> {videoInfo?.statistics.likeCount}
+              <AiOutlineLike /> {videoInf?.statistics.likeCount}
             </p>
             <p id="det">
-              <FaRegComment /> {videoInfo?.statistics.commentCount}
+              <FaRegComment /> {videoInf?.statistics.commentCount}
             </p>
           </div>
 
           <p id="det" style={{ marginLeft: "5%" }}>
-            Channel: {videoInfo?.snippet.channelTitle}
+            Channel: {videoInf?.snippet.channelTitle}
           </p>
         </div>
       )}

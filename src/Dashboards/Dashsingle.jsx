@@ -21,6 +21,7 @@ export const CardSkeleton = () => {
   );
 };
 const VideoCard1 = ({ videoId }) => {
+
   const API_KEY = "AIzaSyBZyBQ1vYyLTYyVXZfiIHiQdPjH9Dpyaxo";
 
   const { data: videoData1, isLoading } = useQuery({
