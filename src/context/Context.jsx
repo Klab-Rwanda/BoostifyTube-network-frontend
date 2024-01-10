@@ -23,7 +23,6 @@ export const AppContext = ({ children }) => {
         }
       )
       .then((data) => {
-
         console.log("feeeetchh xxxxxx", data.data);
         setMyOwnVideo(data.data?.videos);
       })
@@ -62,7 +61,7 @@ export const AppContext = ({ children }) => {
   const VideoDiscription = filterVideo
     .map((video) => video?.description)
     .filter(Boolean);
-    console.log("yy", VideoDiscription);
+  console.log("yy", VideoDiscription);
   const allVideoLink = filterVideo
     .map((video) => video?.linkOfVideo)
     .filter(Boolean);
@@ -81,10 +80,6 @@ export const AppContext = ({ children }) => {
   const allVideoID = allVideoLink
     .map((link) => getYouTubeVideoId(link))
     .filter(Boolean);
- 
-
-
-  const videoIdss = videoLinks.map((link) => getYouTubeVideoId(link));
 
   let token = localStorage.getItem("token");
 
@@ -179,6 +174,3 @@ export const AppContext = ({ children }) => {
 };
 
 export const MyContext = () => useContext(stateContext);
-
-
-
