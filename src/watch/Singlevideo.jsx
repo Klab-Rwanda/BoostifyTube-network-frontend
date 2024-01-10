@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import "react-loading-skeleton/dist/skeleton.css";
 import Skeleton from "react-loading-skeleton";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
+
 export const CardSkeleton = () => {
   return (
     <p>
@@ -47,7 +49,7 @@ const VideoCard1 = ({ videoId }) => {
 
   return (
     <div>
-      <div className="youtube-dive">
+      <div className="youtube-dive1">
         <YouTube videoId={videoId} opts={opts2} />
         <Link to={`/dashboard/Videocardss/${videoId}`} className="view-title">
           <p id="det">{videoData1?.snippet.localized.title}</p>
@@ -140,17 +142,18 @@ const Singlevideo = () => {
       return res.data;
     },
     onSuccess: (data) => {
-      alert("Success");
+      Notify.success("View(s) tracked successfully");
     },
     onError: (error) => {
+      Notify.failure("View(s) being tracked");
       console.log(error.response.data);
     },
   });
 
-   const handleVideoTrack = () => {
-     alert("successxxxxxxxxxxxxxxxxxxxxxx");
-     trackMutation.mutate(uploadedvideoId);
-   };
+  const handleVideoTrack = () => {
+    Notify.success("View(s) being tracked");
+    trackMutation.mutate(uploadedvideoId);
+  };
 
   return (
     <div className="view-videoo">

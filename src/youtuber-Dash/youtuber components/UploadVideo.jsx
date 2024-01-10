@@ -5,6 +5,7 @@ import {useForm} from "react-hook-form"
 import { DevTool } from "@hookform/devtools";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import axios from "axios";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 // import DashCards from './DashCards'import axios from "axios";
 
@@ -35,15 +36,15 @@ const onSubmit = async (data) => {
 
     // Handle the response
     if (response.status === 200) {
-      alert("Video uploaded successfully");
+      Notify.success("Video uploaded successfully");
       // Optionally reset the form or perform other actions
     } else {
       const errorData = response.data; // Assuming your API returns error information
-      alert(`Error: ${errorData.message}`);
+      Notify.failure(`Error: ${errorData.message}`);
     }
   } catch (error) {
     console.error("Error:", error);
-    alert("An error occurred while uploading the video");
+    Notify.failure("An error occurred while uploading the video");
   }
 };
 
