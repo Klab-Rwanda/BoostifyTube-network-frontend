@@ -7,6 +7,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
 import axios from "axios";
+import { Notify } from "notiflix";
 
 const Contacts = () => {
 
@@ -25,12 +26,13 @@ const Contacts = () => {
     e.preventDefault();
     try{ console.log(formData)
       await axios.post ('https://boostifytube-network-api.onrender.com/api/v1/user/contact',formData);
-      alert('sent sucessfully')
+      Notify.success('Message sent sucessfully')
     } 
 
     catch (error){
-      console.log(error.response)
-      alert(error.message)
+      
+      Notify.failure(error.message)
+      console.log(error.response);
        }
        
       

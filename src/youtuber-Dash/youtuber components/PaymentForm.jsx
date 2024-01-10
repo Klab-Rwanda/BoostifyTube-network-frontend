@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import momo from "../../assets/picture/assets/momo.jpeg"
 import paypal from "../../assets/picture/assets/paypal.png"
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 import visa from "../../assets/picture/assets/visaCard.png"
 
 import creditCard from "../img/creditCard.jpg";
@@ -39,16 +40,17 @@ const PaymentForm = ({ isOpen, onClose }) => {
 
       // Handle the response
       if (response.status === 200) {
-        alert("payment send succefully");
-        console.log("my payment",response);
+
+        Notify.success("payment send succefully");
+
         // Optionally reset the form or perform other actions
       } else {
         const errorData = response.data; // Assuming your API returns error information
-        alert(`Error: ${errorData.message}`);
+        Notify.failure(`Error: ${errorData.message}`);
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while uploading the video");
+      Notify.failure("An error occurred while uploading the video");
     }
   };
 

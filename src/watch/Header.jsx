@@ -9,6 +9,12 @@ function Header() {
   const { loggedUser } = MyContext();
   const [isActivationModalOpen, setIsActivationModalOpen] = useState(false);
   const [modal, setModal] = useState(false);
+const { Singleusertracking = {} } = MyContext();
+
+const amount = Singleusertracking?.Your_tracks?.[0]?.Amount;
+console.log("Amount:", amount);
+
+
 
   const handleLogout = () => {
     localStorage.removeItem("loggedUser");
@@ -60,6 +66,7 @@ function Header() {
           </div>
 
           <div className="header-text2">
+            <p>{amount}Rwf</p>
             <button
               className="header-button"
               style={{ border: "none", marginRight: "-3rem" }}

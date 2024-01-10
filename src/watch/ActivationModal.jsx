@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import momo from "../../public/images/momo.jpeg";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 const ActivationModal = ({ onClose }) => {
   const [activeMethod, setActiveMethod] = useState("mobileMoney");
@@ -30,13 +31,13 @@ const ActivationModal = ({ onClose }) => {
       );
 
       if (response.status === 200) {
-        alert("payment send succefully");
+        Notify.success("payment send succefully");
       } else {
         const errorData = response.data;
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while uploading the video");
+      Notify.failure("An error occurred while uploading the video");
     }
   };
 

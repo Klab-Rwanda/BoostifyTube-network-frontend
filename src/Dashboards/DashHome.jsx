@@ -7,7 +7,6 @@ import { MyContext } from "../context/Context";
 const DashHome = () => {
   const { fetchUsersData = [] } = MyContext();
   const { uploadedVideos = [] } = MyContext();
-  console.log("sawaaaaaaaa", uploadedVideos);
 
   const userGrowthData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May"],
@@ -40,7 +39,6 @@ const DashHome = () => {
         label: "Income",
         data: [2000, 2500, 3000, 3500, 4000],
         backgroundColor: "#191943",
-        // borderColor: "rgba(75,192,192,1)",
         borderWidth: 1,
       },
       {

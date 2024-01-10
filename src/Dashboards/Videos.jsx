@@ -21,10 +21,10 @@ export const CardSkelet = () => {
 };
 const VideoCard = ({ videoId }) => {
   const [skeletonLoader, setSkeletonLoader] = useState(false);
-  const API_KEY = "AIzaSyBZyBQ1vYyLTYyVXZfiIHiQdPjH9Dpyaxo";
+  const API_KEY = "AIzaSyBg7kgkqxO1QlKbVBAryoR47fywtpYd-5w";
 
   const { data: videoInfo, isLoading } = useQuery({
-    queryKey: ["videos"],
+    queryKey: ["videos", videoId],
     queryFn: async () => {
       const response = await axios.get(
         `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`

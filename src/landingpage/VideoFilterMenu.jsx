@@ -15,7 +15,7 @@ const VideoCard = ({ videoId, category }) => {
           `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
         );
         setVideoData(response.data.items[0]);
-        // console.log(" rere..", response.data.items[0].snippet.channelTitle);
+
       } catch (error) {
         console.error("Error fetching video data:", error);
       }
