@@ -71,24 +71,7 @@ const DashHome = () => {
 
   return (
     <div className="dashHome-cont">
-      <div className="summary">
-        <div className="userscount">
-          <h1>{fetchUsersData?.length}</h1>
-          <p>Users</p>
-        </div>
-        <div className="videoscount">
-          <h1>{uploadedVideos?.length}</h1>
-          <p>Videos</p>
-        </div>
-        <div className="incomesummary">
-          <h1>$6000</h1>
-          <p>Rwf</p>
-        </div>
-        <div className="expensessummary">
-          <h1>$2500</h1>
-          <p>Rwf</p>
-        </div>
-      </div>
+     
       <div className="graphs">
         <div className="usersss">
           <Line

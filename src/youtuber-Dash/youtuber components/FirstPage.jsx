@@ -13,6 +13,8 @@ import { useEffect } from "react";
 import axios from "axios";
 import Chats from "./YoutuberChats";
 import YoutuberChats from "./YoutuberChats";
+import MyUploadedVideo from "./MyUploadedVideo";
+// import YoutuberChats from "./YoutuberChats";
 
 const VideoCard = ({ videoId }) => {
   const [videoData, setVideoData] = useState(null);
@@ -96,6 +98,7 @@ function FirstPage() {
           title={"Comment"}
         />
       </div>
+      {/* <MyUploadedVideo /> */}
       <YoutuberChats />
     </div>
   );

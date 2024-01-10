@@ -6,6 +6,7 @@ import momo from "../../assets/picture/assets/momo.jpeg"
 import paypal from "../../assets/picture/assets/paypal.png"
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 import visa from "../../assets/picture/assets/visaCard.png"
+import { Report } from "notiflix";
 
 import creditCard from "../img/creditCard.jpg";
 import visaCard from "../img/visaCard.jpeg";
@@ -41,24 +42,30 @@ const PaymentForm = ({ isOpen, onClose }) => {
       // Handle the response
       if (response.status === 200) {
 
-        Notify.success("payment send succefully");
-
+        // alert("payment send succefully");
+        Report.success(
+          "Transaction Success",
+          '"Payment For Video Uploading has done succefully  "',
+          "Okay"
+        );
+        console.log("my payment",response);
         // Optionally reset the form or perform other actions
       } else {
         const errorData = response.data; // Assuming your API returns error information
-        Notify.failure(`Error: ${errorData.message}`);
+        // alert(`Error: ${errorData.message}`);
       }
     } catch (error) {
       console.error("Error:", error);
-      Notify.failure("An error occurred while uploading the video");
+      alert("An error occurred in transation payment");
+
     }
   };
 
   return (
     <>
       <PaymentContainer>
+          <h2 style={{ color: "#191945" ,marginBottom:"2rem",display:"flex",justifyContent:"start"}}>Video Upload Payment Form</h2>
         <PaymentMethods>
-          {/* <h2 style={{ color: "#191945" }}>dsjnv</h2> */}
           <span>
             <img src={momo} alt="" />
             <MethodButton
@@ -68,7 +75,7 @@ const PaymentForm = ({ isOpen, onClose }) => {
               Mobile Money
             </MethodButton>
           </span>
-          <span>
+          {/* <span>
             <img src={paypal} alt="" />
             <MethodButton
               onClick={() => handleMethodChange("paypal")}
@@ -85,7 +92,7 @@ const PaymentForm = ({ isOpen, onClose }) => {
             >
               Credit Card
             </MethodButton>
-          </span>
+          </span> */}
         </PaymentMethods>
 
         <PaymentFormContainer>
@@ -119,16 +126,16 @@ const PaymentForm = ({ isOpen, onClose }) => {
                   <div className="FormDiv">
                     <label style={{ color: "#191943" }}>Payment Amount:</label>
                     {/* <input type="text" placeholder="EnterAmount" /> */}
-                 
-                      <label style={{ color: "#191943" }} htmlFor="">
-                       <h3>Payment Amount of 250,000fr</h3>
-                      </label>
+
+                    <label style={{ color: "#191943" }} htmlFor="">
+                      <h3>MOMO Payment Amount of 250,000fr</h3>
+                    </label>
                   </div>
                 </div>
                 <div className="form-button">
                   <button type="submit">Pay with Mobile Money</button>
-                  {/* <button type="clear">clear</button> */}
-                  <button onClick={onClose}>close</button>
+                  <button type="reset">clear</button>
+                  {/* <button onClick={onClose}>close</button> */}
                 </div>
               </form>
             </MobileMoneyForm>
@@ -240,7 +247,7 @@ const PaymentContainer = styled.div`
     border: none;
   }
   .form-button button:hover {
-    background-color: #3498db;
+    background-color: #191945;
     color: #fff;
     cursor: pointer;
     width: 50%;

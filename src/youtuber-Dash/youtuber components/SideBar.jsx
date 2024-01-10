@@ -10,6 +10,7 @@ import {
   FaSignOutAlt,
   FaHome,
   FaVideo, 
+  FaUser ,
   FaCloudUploadAlt,
 } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
@@ -77,7 +78,15 @@ function SideBar() {
           <ul>
             <li>
               <a href="#">
-                <NavLink to={"/superdashboard/generalsetting"}>
+                <NavLink to={"/youtuberDash/youtuber-profile"}>
+                  <FaUser />
+                  Profile
+                </NavLink>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <NavLink to={"/youtuberDash/youtuber-Setting"}>
                   <FaCog />
                   Settings
                 </NavLink>
