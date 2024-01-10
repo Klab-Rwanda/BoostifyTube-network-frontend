@@ -44,33 +44,28 @@ const VideoCard1 = ({ videoId }) => {
   };
 
   return (
-
-        <div
-         >
-          <div className="youtube-dive">
-            <YouTube videoId={videoId} opts={opts2} />
-            <Link
-              to={`/dashboard/Videocardss/${videoId}`}
-              className="view-title"
-            >
-              <p id="det">{videoData1?.snippet.localized.title}</p>
-            </Link>
-            <div style={{ display: "flex" }}>
-              <p id="det">
-                <MdOutlineRemoveRedEye /> {videoData1?.statistics.viewCount}
-              </p>
-              <p id="det">
-                <AiOutlineLike /> {videoData1?.statistics.likeCount}
-              </p>
-              <p id="det">
-                <FaRegComment /> {videoData1?.statistics.commentCount}
-              </p>
-            </div>
-            <p id="det" style={{ marginLeft: "5%" }}>
-              Channel: {videoData1?.snippet.channelTitle}
-            </p>
-          </div>
+    <div className="youtube-dive">
+      <div className="video-it">
+        <YouTube videoId={videoId} opts={opts2} />
+        <Link to={`/dashboard/Videocardss/${videoId}`} className="view-title">
+          <p id="det">{videoData1?.snippet.localized.title}</p>
+        </Link>
+        <div style={{ display: "flex" }}>
+          <p id="det">
+            <MdOutlineRemoveRedEye /> {videoData1?.statistics.viewCount}
+          </p>
+          <p id="det">
+            <AiOutlineLike /> {videoData1?.statistics.likeCount}
+          </p>
+          <p id="det">
+            <FaRegComment /> {videoData1?.statistics.commentCount}
+          </p>
         </div>
+        <p id="det" style={{ marginLeft: "5%" }}>
+          Channel: {videoData1?.snippet.channelTitle}
+        </p>
+      </div>
+    </div>
   );
 };
 
@@ -148,7 +143,7 @@ let uploadedvideoId;
 
   return (
     <div className="view-videoo">
-      <div className="view-videosingle">
+      <div className="video-item123">
         <YouTube
           style={{ width: "100%" }}
           videoId={videoId}
@@ -189,7 +184,6 @@ let uploadedvideoId;
             }}
           >
             <Skeleton width={310} height={200} />.
-
             <div className="youtube-dive">
               <Skeleton />
               <Skeleton />
@@ -199,12 +193,11 @@ let uploadedvideoId;
         </div>
       ) : (
         <div
-          style=
-          {{
+          style={{
             opacity: skeletonLoader ? "1" : "0",
-          }}>
-          <div>
-
+          }}
+        >
+          <div className="video-container1">
             {videoIdss2
               .filter((id) => id !== videoId)
               .map((videoId2, index) => (
@@ -217,9 +210,7 @@ let uploadedvideoId;
           </div>
         </div>
       )}
-
     </div>
-
   );
 };
 

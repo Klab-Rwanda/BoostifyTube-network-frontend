@@ -27,18 +27,9 @@ const Video = ({ videoId }) => {
 
   const [skeletonLoader, setSkeletonLoader] = useState(false);
 
-  const { data: messages } = useQuery({
-    queryKey: ["messages"],
-    queryFn: async () => {
-      const response = await axios.get(
-        `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
-      );
-      return response.data;
-    },
-  });
 
-  const { data: videoInfo, isLoading } = useQuery({
-    queryKey: ["videos"],
+  const { data: videoInf, isLoading } = useQuery({
+    queryKey: ["videos",videoId],
     queryFn: async () => {
       const response = await axios.get(
         `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
@@ -123,11 +114,11 @@ const Video = ({ videoId }) => {
         >
           <YouTube videoId={videoId} opts={opts} />
           <Link
-            to={`/dashboard/Videocardss/${videoInfo?.id}`}
+            to={`/dashboard/Videocardss/${videoInf?.id}`}
             className="view-title"
           >
             <p id="det">
-              {videoInfo?.snippet.localized.title || (
+              {videoInf?.snippet.localized.title || (
                 <Skeleton height={55} width={100} />
               )}
             </p>
@@ -135,18 +126,18 @@ const Video = ({ videoId }) => {
           <div style={{ display: "flex" }}>
             <p id="det">
               <MdOutlineRemoveRedEye />
-              {videoInfo?.statistics.viewCount}
+              {videoInf?.statistics.viewCount}
             </p>
             <p id="det">
-              <AiOutlineLike /> {videoInfo?.statistics.likeCount}
+              <AiOutlineLike /> {videoInf?.statistics.likeCount}
             </p>
             <p id="det">
-              <FaRegComment /> {videoInfo?.statistics.commentCount}
+              <FaRegComment /> {videoInf?.statistics.commentCount}
             </p>
           </div>
 
           <p id="det" style={{ marginLeft: "5%" }}>
-            Channel: {videoInfo?.snippet.channelTitle}
+            Channel: {videoInf?.snippet.channelTitle}
           </p>
         </div>
       )}

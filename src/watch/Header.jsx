@@ -9,7 +9,18 @@ function Header() {
   const { loggedUser } = MyContext();
   const [isActivationModalOpen, setIsActivationModalOpen] = useState(false);
   const [modal, setModal] = useState(false);
-
+ const [user, setUser] = useState({
+       firstName: `${loggedUser?.user.FullName}`,
+       lastName: `${loggedUser?.user.FullName}`,
+       email: `${loggedUser?.user.Email}`,
+       TelNumber: `${loggedUser?.user.TelNumber}`,
+       accountStatus: `${loggedUser?.user.accountStatus}`,
+       role: `${loggedUser?.user.role}`,
+       PaymentMethod: `${loggedUser?.user.PaymentMethod}`,
+       Gender: ` ${loggedUser?.user.Gender}`,
+       image: ` ${loggedUser?.user.image}`,
+       Country: `${loggedUser?.user.Country}`,
+     });
   const handleLogout = () => {
     localStorage.removeItem("loggedUser");
     window.location.href = "/";
@@ -59,15 +70,9 @@ function Header() {
             </div>
           </div>
 
-          <div className="header-text2">
-            <button
-              className="header-button"
-              style={{ border: "none", marginRight: "-3rem" }}
-              onClick={handleLogout}
-            >
-              Logout
-            </button>
-          </div>
+          
+            <img src={loggedUser?.user.image} className="pic" />
+          
         </div>
       </div>
 

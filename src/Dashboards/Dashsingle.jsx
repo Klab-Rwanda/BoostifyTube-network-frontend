@@ -22,7 +22,6 @@ export const CardSkeleton = () => {
 };
 const VideoCard1 = ({ videoId }) => {
 
-  const [videoData1, setVideoData1] = useState(null);
   const API_KEY = "AIzaSyBZyBQ1vYyLTYyVXZfiIHiQdPjH9Dpyaxo";
 
 

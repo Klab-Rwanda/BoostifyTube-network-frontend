@@ -223,9 +223,7 @@ const handleChange = (e) => {
 
   return (
     <div className="signup">
-      <div className="signup-image">
-        <img src={person} />
-      </div>
+     
 
       <div className="auth-acc">
         <h1 style={{ margin: "1rem" }}>Create account!</h1>
