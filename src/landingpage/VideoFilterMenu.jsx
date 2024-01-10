@@ -34,11 +34,13 @@ const VideoCard = ({ videoId, category }) => {
   });
 
   useEffect(() => {
+
     setTimeout(() => {
       setSkeletonLoader(true);
     }, 7000);
     setSkeletonLoader(false);
   }, [isLoading]);
+
 
   const opts = {
     height: "170",

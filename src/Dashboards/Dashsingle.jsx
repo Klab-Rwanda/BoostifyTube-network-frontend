@@ -24,16 +24,15 @@ const VideoCard1 = ({ videoId }) => {
 
   const API_KEY = "AIzaSyBZyBQ1vYyLTYyVXZfiIHiQdPjH9Dpyaxo";
 
-
-     const { data: videoData1, isLoading } = useQuery({
-       queryKey: ["videos"],
-       queryFn: async () => {
-         const response = await axios.get(
-           `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
-         );
-         return response.data.items[0];
-       },
-     });
+  const { data: videoData1, isLoading } = useQuery({
+    queryKey: ["videos", videoId],
+    queryFn: async () => {
+      const response = await axios.get(
+        `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
+      );
+      return response.data.items[0];
+    },
+  });
 
   const opts2 = {
     height: "200",
@@ -73,8 +72,7 @@ const VideoCard1 = ({ videoId }) => {
 const Dashsingle = () => {
   const { videoId } = useParams();
   const API_KEY = "AIzaSyCLyB5T0faW7qGwhnq07DJCeSA4I5RXJ_M";
-const [SkeletonLoader, setSkeletonLoader] = useState(true);
- 
+  const [SkeletonLoader, setSkeletonLoader] = useState(true);
 
   const { uploadedVideos } = MyContext();
 
@@ -93,22 +91,22 @@ const [SkeletonLoader, setSkeletonLoader] = useState(true);
     .map((link) => getYouTubeVideoId(link))
     .filter(Boolean);
 
-    const { data: videoInfo, isLoading } = useQuery({
-      queryKey: ["videos"],
-      queryFn: async () => {
-        const response = await axios.get(
-          `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
-        );
-        return response.data.items[0];
-      },
-    });
+  const { data: videoInfo, isLoading } = useQuery({
+    queryKey: ["videos"],
+    queryFn: async () => {
+      const response = await axios.get(
+        `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
+      );
+      return response.data.items[0];
+    },
+  });
 
-    useEffect(() => {
-      setTimeout(() => {
-        setSkeletonLoader(true);
-      }, 7000);
-      setSkeletonLoader(false);
-    }, [isLoading]);
+  useEffect(() => {
+    setTimeout(() => {
+      setSkeletonLoader(true);
+    }, 7000);
+    setSkeletonLoader(false);
+  }, [isLoading]);
 
   // const { viewCount, likeCount, commentCount } = videoInfo.statistics;
   //   const { title, channelTitle } = videoInfo.snippet;
@@ -141,7 +139,6 @@ const [SkeletonLoader, setSkeletonLoader] = useState(true);
           </p>
         </div>
         <p id="det">Channel: {videoInfo?.snippet.localized.channelTitle}</p>
-
       </div>
       {isLoading ? (
         <div>

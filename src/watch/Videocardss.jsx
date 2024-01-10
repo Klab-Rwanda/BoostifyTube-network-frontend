@@ -14,22 +14,22 @@ import { useQuery } from "@tanstack/react-query";
 
 export const CardSkeleton = () => {
   return (
-    // <SkeletonTheme baseColor="red" highlightColor="red">
     <p>
       <Skeleton height={300} />
     </p>
-    // </SkeletonTheme>
   );
 };
 
 const Video = ({ videoId }) => {
   const API_KEY = "AIzaSyBZyBQ1vYyLTYyVXZfiIHiQdPjH9Dpyaxo";
-
+  const [videoInfo, setVideoInfo] = useState(null);
   const [skeletonLoader, setSkeletonLoader] = useState(false);
+
 
 
   const { data: videoInf, isLoading } = useQuery({
     queryKey: ["videos",videoId],
+
     queryFn: async () => {
       const response = await axios.get(
         `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
@@ -39,40 +39,15 @@ const Video = ({ videoId }) => {
   });
 
   useEffect(() => {
+    setVideoInfo(videoInfoData);
+  }, [videoInfoData]);
+
+  useEffect(() => {
     setTimeout(() => {
       setSkeletonLoader(true);
     }, 7000);
     setSkeletonLoader(false);
   }, [isLoading]);
-
-  // useEffect(() => {
-  //   const fetchVideoInfo = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
-  //       );
-  //       setVideoInfo(response.data.items[0]);
-  //     } catch (error) {
-  //       console.error("Error fetching video data:", error);
-  //     }
-  //   };
-
-  //   fetchVideoInfo();
-  // }, [videoId, API_KEY]);
-
-  // if (!videoInfo) {
-  //   return (
-  //     <div>
-  //       <div>
-  //         <Skeleton height={40} />
-  //       </div>
-  //       <div>
-  //         <h1>{CardSkeleton.title || <Skeleton />}</h1>
-  //         {CardSkeleton.body || <Skeleton />}
-  //       </div>
-  //     </div>
-  //   );
-  // }
 
   const opts = {
     height: "200",
@@ -90,10 +65,8 @@ const Video = ({ videoId }) => {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(2,1fr)",
-
-              marginLeft:"100",
+              marginLeft: "100",
               gap: "0.5rem",
-
             }}
           >
             <Skeleton width={310} height={200} />.
@@ -108,8 +81,7 @@ const Video = ({ videoId }) => {
         <div
           className="youtube-dive"
           style={{
-
-            opacity: skeletonLoader ? "1" :"0"
+            opacity: skeletonLoader ? "1" : "0",
           }}
         >
           <YouTube videoId={videoId} opts={opts} />

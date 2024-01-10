@@ -5,18 +5,37 @@ import {useForm} from "react-hook-form"
 import { DevTool } from "@hookform/devtools";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import axios from "axios";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
+
+import PaymentForm from "./PaymentForm";
+import { Report } from "notiflix";
 
 // import DashCards from './DashCards'import axios from "axios";
 
 
 function UploadVideo() {
 
- 
+ const [isPaymentModalOpen, setPaymentModalOpen] = useState(false);
+  const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
+
+ const handlePaymentModalOpen = () => {
+   setPaymentModalOpen(true);
+ };
+
+ const handlePaymentModalClose = () => {
+   setPaymentModalOpen(false);
+ };
+
 
 const form = useForm();
 const { register, control ,handleSubmit,formState} = form;
 const {errors}= formState;
+
 const onSubmit = async (data) => {
+    // if (!isPaymentSuccessful) {
+    //   setPaymentModalOpen(true);
+    //   return null;
+    // }
     const accessToken = localStorage.getItem("token");
   
   
@@ -35,15 +54,21 @@ const onSubmit = async (data) => {
 
     // Handle the response
     if (response.status === 200) {
-      alert("Video uploaded successfully");
+
+     Report.success(
+       "Notiflix Success",
+       '"Video Uploaded Succefully " <br/><br/>- Albert Einstein',
+       "Okay"
+     );
+
       // Optionally reset the form or perform other actions
     } else {
       const errorData = response.data; // Assuming your API returns error information
-      alert(`Error: ${errorData.message}`);
+      Notify.failure(`Error: ${errorData.message}`);
     }
   } catch (error) {
     console.error("Error:", error);
-    alert("An error occurred while uploading the video");
+    Notify.failure("An error occurred while uploading the video");
   }
 };
 
@@ -53,6 +78,14 @@ const onSubmit = async (data) => {
 
   return (
     <div className="uploadVideo-section">
+      {/* <PaymentForm
+        isOpen={isPaymentModalOpen}
+        onClose={handlePaymentModalClose}
+      />
+      <PaymentForm
+        isOpen={isPaymentModalOpen}
+        onClose={handlePaymentModalClose}
+      /> */}
       <span
         style={{
           // marginBottom: "-10px",
@@ -101,7 +134,7 @@ const onSubmit = async (data) => {
               Upload Video Link:
               <input
                 type="text"
-                placeholder="Ex: https://www.youtube.com/watch?v=SYLZbASgZNs"
+                placeholder="Youtube video link..."
                 {...register("linkOfVideo", {
                   pattern: {
                     value: /^(ftp|http|https):\/\/[^ "]+$/,
@@ -154,13 +187,36 @@ const onSubmit = async (data) => {
           </div>
         </div>
 
-        <div className="form-button">
-          <button type="submit" className="uploadbutton">
-            Upload Video
-          </button>
-          <button type="reset" className="uploadbutton">
-            Clear
-          </button>
+        <div
+          className="form-button"
+          style={{
+            // border: "1px solid red",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div
+            className="form-buttom-upload"
+            style={{
+              width: "50%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "2rem",
+            }}
+          >
+            <button
+              type="submit"
+              className="uploadbutton"
+              // onClick={handlePaymentModalOpen}
+            >
+              Upload Video
+            </button>
+            <button type="reset" className="uploadbutton">
+              Clear
+            </button>
+          </div>
         </div>
       </form>
       {/* <DevTool control={control} /> */}

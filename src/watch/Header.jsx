@@ -9,6 +9,7 @@ function Header() {
   const { loggedUser } = MyContext();
   const [isActivationModalOpen, setIsActivationModalOpen] = useState(false);
   const [modal, setModal] = useState(false);
+
  const [user, setUser] = useState({
        firstName: `${loggedUser?.user.FullName}`,
        lastName: `${loggedUser?.user.FullName}`,
@@ -21,6 +22,12 @@ function Header() {
        image: ` ${loggedUser?.user.image}`,
        Country: `${loggedUser?.user.Country}`,
      });
+
+const { Singleusertracking = {} } = MyContext();
+
+const amount = Singleusertracking?.Your_tracks?.[0]?.Amount;
+console.log("Amount:", amount);
+
   const handleLogout = () => {
     localStorage.removeItem("loggedUser");
     window.location.href = "/";
@@ -70,9 +77,10 @@ function Header() {
             </div>
           </div>
 
-          
-            <img src={loggedUser?.user.image} className="pic" />
-          
+          <div className="header-text2">
+            <p>{amount}Rwf</p>
+           <img src={loggedUser?.user.image} className="pic" />
+          </div>
         </div>
       </div>
 
