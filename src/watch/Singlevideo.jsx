@@ -12,6 +12,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import "react-loading-skeleton/dist/skeleton.css";
 import Skeleton from "react-loading-skeleton";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
+import { Report } from "notiflix/build/notiflix-report-aio";
 
 export const CardSkeleton = () => {
   return (
@@ -48,10 +49,8 @@ const VideoCard1 = ({ videoId }) => {
   };
 
   return (
-
     <div className="youtube-dive">
       <div className="video-it">
-
         <YouTube videoId={videoId} opts={opts2} />
         <Link to={`/dashboard/Videocardss/${videoId}`} className="view-title">
           <p id="det">{videoData1?.snippet.localized.title}</p>
@@ -141,10 +140,23 @@ const Singlevideo = () => {
           },
         }
       );
+
       return res.data;
     },
     onSuccess: (data) => {
-      Notify.success("View(s) tracked successfully");
+      if (data.msg == "Already exists") {
+        Report.failure(
+          "Notiflix failure",
+          '"You have already watched this video',
+          "Okay"
+        );
+      } else {
+        Report.success(
+          "Notiflix failure",
+          '"You have already watched this video',
+          "Okay"
+        );
+      }
     },
     onError: (error) => {
       Notify.failure("View(s) being tracked");
@@ -153,7 +165,6 @@ const Singlevideo = () => {
   });
 
   const handleVideoTrack = () => {
-    Notify.success("View(s) being tracked");
     trackMutation.mutate(uploadedvideoId);
   };
 
@@ -213,9 +224,7 @@ const Singlevideo = () => {
             opacity: skeletonLoader ? "1" : "0",
           }}
         >
-
           <div className="video-container1">
-
             {videoIdss2
               .filter((id) => id !== videoId)
               .map((videoId2, index) => (

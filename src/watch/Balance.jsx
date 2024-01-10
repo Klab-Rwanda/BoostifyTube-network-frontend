@@ -18,10 +18,8 @@ const handleSave = () =>{
         
 < div className='balances'>
 
+<div className='content'>
 
-
-
-<div  className='balanc'>
 <b>Balance:$300</b>
 <p style={{fontSize:14}}>Making withdrawal is  easy. Just enter these details and withdraw</p>
 <div>

@@ -17,12 +17,13 @@
   align-items: start;
   gap: 1rem;
   flex: 1;
-  /* border: 1px solid red; */
   background-color: var(--white-bg-color);
   width: 100;
   padding: 5rem;
 }
-.history-section h2{
+
+
+/* .history-section h2 {
   text-decoration: underline;
 }
 .history-table {
@@ -39,4 +40,4 @@
 
 .history-table th {
   background-color: #f2f2f2;
-}
+} */

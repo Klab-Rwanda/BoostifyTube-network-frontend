@@ -1,4 +1,4 @@
-.users-cont {
+/* .users-cont {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -57,6 +57,7 @@ th {
 .first-row {
   background-color: #e0e0e0;
 }
+*/
 .pages {
   display: flex;
   justify-content: center;
@@ -66,4 +67,4 @@ th {
   text-decoration: none;
   list-style: none;
   gap: 1rem;
-}
+} 

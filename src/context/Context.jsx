@@ -169,6 +169,7 @@ export const AppContext = ({ children }) => {
       return res.data;
     },
   });
+  
 
   const { data: Messages, isLoading: messageLoading } = useQuery({
     queryKey: ["messages"],
@@ -195,7 +196,6 @@ export const AppContext = ({ children }) => {
         fetchUsersData,
         messageLoading,
         Messages,
-        
         loggedUser,
         uploadedVideos,
         VideoDiscription,
@@ -207,7 +207,7 @@ export const AppContext = ({ children }) => {
         Singleusertracking,
       }}
     >
-      {children}
+     {children}
     </stateContext.Provider>
   );
 };
