@@ -33,10 +33,9 @@ const VideoCard1 = ({ videoId }) => {
     },
   });
 
-
-   useEffect(() => {
-     setVideoInfo1(videoData1);
-   }, [videoData1]);
+  useEffect(() => {
+    setVideoInfo1(videoData1);
+  }, [videoData1]);
 
   const opts2 = {
     height: "200",
@@ -74,16 +73,16 @@ const VideoCard1 = ({ videoId }) => {
 
 const Singlevideo = () => {
   const { videoId } = useParams();
-    const API_KEY = "AIzaSyBZyBQ1vYyLTYyVXZfiIHiQdPjH9Dpyaxo";
-    const [videoInfo2, setVideoInfo2] = useState(null);
+  const API_KEY = "AIzaSyBZyBQ1vYyLTYyVXZfiIHiQdPjH9Dpyaxo";
+  const [videoInfo2, setVideoInfo2] = useState(null);
   const [skeletonLoader, setSkeletonLoader] = useState(false);
 
   const { uploadedVideos } = MyContext();
-
-  let uploadedvideoId;
+  let uploadedvideoId = [];
   for (let i = 0; i < uploadedVideos.length; i++) {
-    uploadedvideoId = uploadedVideos[i]?._id;
+    uploadedvideoId.push(uploadedVideos[i]?._id);
   }
+
   const videoLinks2 = uploadedVideos
     .map((video) => video?.linkOfVideo)
     .filter(Boolean);
@@ -95,6 +94,11 @@ const Singlevideo = () => {
     return match ? match[1] : null;
   };
 
+  const currentId = uploadedVideos?.find((item) => {
+    return getYouTubeVideoId(item.linkOfVideo) === videoId;
+  })?._id;
+
+  console.log(currentId);
   const videoIdss2 = videoLinks2
     .map((link) => getYouTubeVideoId(link))
     .filter(Boolean);
@@ -109,9 +113,9 @@ const Singlevideo = () => {
     },
   });
 
-     useEffect(() => {
-       setVideoInfo2(videoInfo1);
-     }, [videoInfo1]);
+  useEffect(() => {
+    setVideoInfo2(videoInfo1);
+  }, [videoInfo1]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -121,12 +125,11 @@ const Singlevideo = () => {
   }, [isLoading]);
 
   let token = localStorage.getItem("token");
-  console.log("Mutation", uploadedvideoId);
 
   const trackMutation = useMutation({
     mutationFn: async () => {
       const res = await axios.post(
-        `https://boostifytube-network-api.onrender.com/api/v1/video/tracking/${uploadedvideoId}`,
+        `https://boostifytube-network-api.onrender.com/api/v1/video/tracking/${currentId}`,
         {},
         {
           headers: {
@@ -144,9 +147,10 @@ const Singlevideo = () => {
     },
   });
 
-  const handleVideoTrack = async () => {
-    trackMutation.mutate();
-  };
+   const handleVideoTrack = () => {
+     alert("successxxxxxxxxxxxxxxxxxxxxxx");
+     trackMutation.mutate(uploadedvideoId);
+   };
 
   return (
     <div className="view-videoo">
