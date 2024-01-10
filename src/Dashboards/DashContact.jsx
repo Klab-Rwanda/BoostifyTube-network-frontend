@@ -39,7 +39,7 @@ const DashContact = () => {
           window.location.reload();
         },
         () => {
-          alert("If you say so...");
+          Notify.success("If you say so...");
         },
         {}
       );

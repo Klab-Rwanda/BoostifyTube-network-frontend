@@ -1,13 +1,14 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 const stateContext = createContext();
 
 export const AppContext = ({ children }) => {
   const [videos, setVideos] = useState([]);
   const [ownerVideos, setOwnerVideos] = useState([]);
-
+  const [videoLinks, setVideolinks] = useState([]);
   const [myOwnVideo, setMyOwnVideo] = useState([]);
   const [filterVideo, SetFilterVideo] = useState([]);
   const accessToken = localStorage.getItem("token");
@@ -30,9 +31,10 @@ export const AppContext = ({ children }) => {
           "Failed to get the video",
           error.response?.data || error.message
         );
-        //  alert("Failed to get the video. Please try again later.");
+        Notify.failure("Failed to get the video. Please try again later.");
       });
   }, []);
+
   const { data: uploadedVideos = [], isLoading } = useQuery({
     queryFn: async () => {
       const res = await axios.get(
@@ -54,32 +56,31 @@ export const AppContext = ({ children }) => {
   });
 
   const videoLinksPerOwner = myOwnVideo
-
     .map((video) => video?.linkOfVideo)
     .filter(Boolean);
+
   const VideoDiscription = filterVideo
     .map((video) => video?.description)
     .filter(Boolean);
-    // console.log("yy", VideoDiscription);
+
   const allVideoLink = filterVideo
     .map((video) => video?.linkOfVideo)
     .filter(Boolean);
+
   const getYouTubeVideoId = (url) => {
     const regex =
       /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
     const match = url.match(regex);
     return match ? match[1] : null;
   };
+
   const videoIdPerOwner = videoLinksPerOwner
     .map((link) => getYouTubeVideoId(link))
     .filter(Boolean);
-  // console.log("iddssssss XXXXXX", videoIdPerOwner);
+
   const allVideoID = allVideoLink
     .map((link) => getYouTubeVideoId(link))
     .filter(Boolean);
- 
-
-  // const videoIdss = videoLinks.map((link) => getYouTubeVideoId(link));
 
   let token = localStorage.getItem("token");
 
@@ -94,7 +95,7 @@ export const AppContext = ({ children }) => {
           },
         }
       );
-      // console.log("history response hhhhhh", res.data);
+
       return res.data;
     },
     onError: (data) => {
@@ -113,6 +114,42 @@ export const AppContext = ({ children }) => {
         }
       );
       return res.data;
+    },
+    onError: (data) => {
+      console.log("onError", data.error);
+    },
+  });
+
+  const { data: AllvideoTrackings } = useQuery({
+    queryKey: ["trackings"],
+    queryFn: async () => {
+      const resp1 = await axios.get(
+        "https://boostifytube-network-api.onrender.com/api/v1/video/getAllTracking",
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      return resp1.data;
+    },
+    onError: (data) => {
+      console.log("onError", data.error);
+    },
+  });
+
+  const { data: Singleusertracking } = useQuery({
+    queryKey: ["singletrackings"],
+    queryFn: async () => {
+      const resp2 = await axios.get(
+        "https://boostifytube-network-api.onrender.com/api/v1/video/getYourTracking",
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      return resp2.data;
     },
     onError: (data) => {
       console.log("onError", data.error);
@@ -166,6 +203,8 @@ export const AppContext = ({ children }) => {
         videoIdPerOwner,
         youtuberHistory,
         isLoading,
+        AllvideoTrackings,
+        Singleusertracking,
       }}
     >
       {children}
@@ -174,6 +213,3 @@ export const AppContext = ({ children }) => {
 };
 
 export const MyContext = () => useContext(stateContext);
-
-
-

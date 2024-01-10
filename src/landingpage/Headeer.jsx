@@ -5,23 +5,20 @@ function Headeer() {
     <div className="headeer ">
       <div className="headeer-logo">
         <div className="watch-logo">
-
-          <b className="watch-logob">B </b>
-          <b className="watch-g">T</b>
+          <h1 className="logo">
+            <p style={{color:'white'}}>BT</p> <p style={{ color: "#fee60c" }}>Net</p>{" "}
+          </h1>
         </div>
       </div>
 
       <div className="header-buttonn">
-        <Link to= "/contactus">
+        <Link to="/contactus">
           <button className="heade-button"> Contacts</button>
         </Link>
-
-        <button className="heade-button"> FAQs</button>
         <Link to="/Login">
           <button className="heade-button"> Login</button>
         </Link>
       </div>
-     
     </div>
   );
 }

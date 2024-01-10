@@ -5,7 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { MyContext } from "../context/Context";
 import ReactPaginate from "react-paginate";
-import Notiflix from "notiflix";
+import Notiflix, { Notify } from "notiflix";
 import axios from "axios";
 
 const Users = () => {
@@ -33,7 +33,7 @@ const Users = () => {
           window.location.reload();
         },
         () => {
-          alert("If you say so...");
+          Notify.success("If you say so...");
         },
         {}
       );
@@ -68,6 +68,7 @@ const Users = () => {
             <th>Index</th>
             <th>Names</th>
             <th>Role</th>
+            <th>Live amount</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -76,6 +77,8 @@ const Users = () => {
             <tr key={index}>
               <td>{index + 1}</td>
               <td>{user?.FullName}</td>
+              <td>{user?.role}</td>
+
               <td>{user?.role}</td>
               <td className="actions">
                 <FaEdit />

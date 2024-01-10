@@ -3,6 +3,7 @@ import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import imag from "../images/login-picture.png";
 import axios from "axios";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -22,11 +23,9 @@ const Login = () => {
         formData
       );
 
-      alert("login sucessfully");
+      Notify.success("login sucessfully");
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("userdata", JSON.stringify(res.data));
-
-      console.log("login success", res.data.userInfo);
 
       if (res.data.userInfo.role == "admin") {
         navigate("/superdashboard");
@@ -37,7 +36,7 @@ const Login = () => {
       }
     } catch (error) {
       console.log(error.response);
-      alert(error.response.data.message);
+      Notify.failure(error.response.data.message);
     }
   };
 

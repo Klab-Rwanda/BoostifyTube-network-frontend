@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import momo from "../../assets/picture/assets/momo.jpeg"
 import paypal from "../../assets/picture/assets/paypal.png"
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 import visa from "../../assets/picture/assets/visaCard.png"
 import { Report } from "notiflix";
 
@@ -40,6 +41,7 @@ const PaymentForm = ({ isOpen, onClose }) => {
 
       // Handle the response
       if (response.status === 200) {
+
         // alert("payment send succefully");
         Report.success(
           "Transaction Success",
@@ -55,6 +57,7 @@ const PaymentForm = ({ isOpen, onClose }) => {
     } catch (error) {
       console.error("Error:", error);
       alert("An error occurred in transation payment");
+
     }
   };
 

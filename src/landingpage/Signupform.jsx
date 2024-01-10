@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Signupform.css";
 import person from "../images/person.jpg";
 import axios from "axios";
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 function Signupform() {
 
@@ -41,11 +42,12 @@ const handleChange = (e) => {
         "https://boostifytube-network-api.onrender.com/api/v1/user/signup",
         formData
       );
-      alert("account created sucessfully");
+      Notify.success("account created sucessfully");
       window.location.href = "login";
     } catch (error) {
+      notifyManager.failure(error);
       console.log(error.response);
-      alert(error);
+
     }
     
 
@@ -223,9 +225,7 @@ const handleChange = (e) => {
 
   return (
     <div className="signup">
-      <div className="signup-image">
-        <img src={person} />
-      </div>
+     
 
       <div className="auth-acc">
         <h1 style={{ margin: "1rem" }}>Create account!</h1>

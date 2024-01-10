@@ -4,7 +4,11 @@ import {CiMoneyBill} from "react-icons/ci"
 import "../youtStyles/paymentStyle.css"
 import { useForm } from "react-hook-form";
 import axios from "axios";
+
 import { Report } from "notiflix";
+
+
+import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 import creditCard from "../img/creditCard.jpg"
 import visaCard from "../img/visaCard.jpeg";
@@ -37,6 +41,7 @@ const Payment = () => {
 
       // Handle the response
       if (response.status === 200) {
+
         // alert("payment send succefully");
         // Optionally reset the form or perform other actions
           Report.success(
@@ -44,13 +49,14 @@ const Payment = () => {
             '"Payment For Video Uploading has done succefully  "',
             "Okay"
           );
+
       } else {
         const errorData = response.data; // Assuming your API returns error information
-        alert(`Error: ${errorData.message}`);
+        Notify.failure(`Error: ${errorData.message}`);
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while uploading the video");
+      Notify.failure("An error occurred while uploading the video");
     }
   };
 
