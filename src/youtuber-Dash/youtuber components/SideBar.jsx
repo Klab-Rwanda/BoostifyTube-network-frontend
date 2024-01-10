@@ -9,6 +9,7 @@ import {
   FaCog,
   FaSignOutAlt,
   FaHome,
+  FaVideo, 
   FaCloudUploadAlt,
 } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
@@ -23,9 +24,9 @@ function SideBar() {
       {/* <div className="side"> */}
       <div className="youtuber-sideBar" id="">
         <div className="log">
-          <h1>O</h1>
+          <h1>BT</h1>
           <h1>
-            <p style={{ color: "#fee60c" }}>G</p>
+            <p style={{ color: "#fee60c" }}>Net</p>
           </h1>
         </div>
         <div className="sideBarLinks">
@@ -45,6 +46,14 @@ function SideBar() {
                   Upload
                 </NavLink>
               </a>
+            </li>
+            <li>
+              <a href="#">
+                <NavLink to="/youtuberDash/my-videos">
+                  <FaVideo />
+                  My Uploads
+                </NavLink>
+              </a>{" "}
             </li>
             <li>
               <a href="#">

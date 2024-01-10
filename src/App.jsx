@@ -36,6 +36,9 @@ import Example from "./landingpage/Try-videos";
 import VideoCardss from "./landingpage/VideoCardss";
 import Videocardss from "./watch/Videocardss";
 import Profileview from "./watch/profileview";
+import MyUploadedVideo from "./youtuber-Dash/youtuber components/MyUploadedVideo";
+import { CHARSET } from "stylis";
+import YoutuberChats from "./youtuber-Dash/youtuber components/YoutuberChats";
 
 const client = new QueryClient();
 
@@ -89,6 +92,7 @@ function App() {
             <Route path="/youtuberDash" element={<YoutDashLayout />}>
               <Route index element={<FirstPage />} />
               <Route path="upload" element={<UploadVideo />} />
+              <Route path="my-videos" element={<MyUploadedVideo />} />
               <Route path="payment" element={<PaymentForm />} />
               <Route path="history" element={<HistoryPage />} />
             </Route>
