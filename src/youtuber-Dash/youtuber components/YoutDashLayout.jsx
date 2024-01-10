@@ -14,7 +14,7 @@ function YoutDashLayout() {
       <SideBar />
       <div
         id="youtuber-outlet"
-        style={{ color: "red", marginLeft: "221px", marginTop: "5.2rem",backgroundColor:"#fafafa", height:"100%", padding: "30px"}}
+        style={{ color: "red", marginLeft: "221px", marginTop: "5.2rem",backgroundColor:"#fff", height:"100%", padding: "30px"}}
       >
         <Outlet />
       </div>

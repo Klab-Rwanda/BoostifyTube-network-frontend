@@ -95,6 +95,9 @@ function App() {
               <Route path="my-videos" element={<MyUploadedVideo />} />
               <Route path="payment" element={<PaymentForm />} />
               <Route path="history" element={<HistoryPage />} />
+              <Route path="youtuber-profile" element={<Profileview />} />
+              <Route path="youtuber-Setting" element={<Settings />} />
+              <Route path="youtuber-chats" element={<YoutuberChats />} />
             </Route>
           </Routes>
         </BrowserRouter>

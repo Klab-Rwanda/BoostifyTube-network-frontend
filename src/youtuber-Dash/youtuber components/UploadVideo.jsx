@@ -53,18 +53,18 @@ const onSubmit = async (data) => {
     // Handle the response
     if (response.status === 200) {
      Report.success(
-       "Notiflix Success",
-       '"Video Uploaded Succefully " <br/><br/>- Albert Einstein',
+       "Video Uploaded Succefully",
+       ' now you can pay for views service  <br/><br/>',
        "Okay"
      );
       // Optionally reset the form or perform other actions
     } else {
       const errorData = response.data; // Assuming your API returns error information
-      alert(`Error: ${errorData.message}`);
+      // alert(`Error: ${errorData.message}`);
     }
   } catch (error) {
     console.error("Error:", error);
-    alert("An error occurred while uploading the video");
+    // alert("An error occurred while uploading the video");
   }
 };
 

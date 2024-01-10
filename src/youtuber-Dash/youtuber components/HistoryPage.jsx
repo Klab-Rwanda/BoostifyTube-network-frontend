@@ -15,7 +15,7 @@ function HistoryPage() {
      
      youtuberHistory,
    } = MyContext();
-    // console.log("youtube API video link hhhhhh", youtuberHistory?.transactions);
+    console.log("histoory hhhhhh", youtuberHistory?.transactions);
 const mytransaction = youtuberHistory?.transactions;
   return (
     <>
@@ -24,10 +24,10 @@ const mytransaction = youtuberHistory?.transactions;
         <table className="history-table">
           <thead>
             <tr>
-              <th>Number</th>
-              <th>Date</th>
-              <th>Status</th>
-              <th>Cost Paid</th>
+              <th style={{ color: "#191945" }}>Number</th>
+              <th style={{ color: "#191945" }}>Date</th>
+              <th style={{ color: "#191945" }}>Status</th>
+              <th style={{ color: "#191945" }}>Cost Paid</th>
             </tr>
           </thead>
           <tbody>
