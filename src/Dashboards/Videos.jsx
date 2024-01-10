@@ -104,11 +104,6 @@ const VideoCard = ({ videoId }) => {
           </div>
         </div>
 
-      )}
-          </>
-  );
-};
-
 const Videos = () => {
   const { uploadedVideos } = MyContext();
   const videoLinks = uploadedVideos

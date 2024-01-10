@@ -95,10 +95,11 @@ export const AppContext = ({ children }) => {
           },
         }
       );
+
       return res.data;
     },
     onError: (data) => {
-      console.log("onError", data.error);
+      // console.log("onError", data.error);
     },
   });
   const { data: fetchUsersData } = useQuery({
@@ -194,7 +195,7 @@ export const AppContext = ({ children }) => {
         fetchUsersData,
         messageLoading,
         Messages,
-        fetchUsersData,
+        
         loggedUser,
         uploadedVideos,
         VideoDiscription,

@@ -9,11 +9,13 @@ import visa from "../../assets/picture/assets/visaCard.png"
 
 import creditCard from "../img/creditCard.jpg";
 import visaCard from "../img/visaCard.jpeg";
-const PaymentForm = () => {
+const PaymentForm = ({ isOpen, onClose }) => {
+  
+    // if (!isOpen) return null;
   const [activeMethod, setActiveMethod] = useState("mobileMoney");
 
   const handleMethodChange = (method) => {
-    setActiveMethod(method);    
+    setActiveMethod(method);
   };
   const form = useForm();
   const { register, control, handleSubmit, formState } = form;
@@ -38,7 +40,9 @@ const PaymentForm = () => {
 
       // Handle the response
       if (response.status === 200) {
+
         Notify.success("payment send succefully");
+
         // Optionally reset the form or perform other actions
       } else {
         const errorData = response.data; // Assuming your API returns error information
@@ -50,156 +54,160 @@ const PaymentForm = () => {
     }
   };
 
-
   return (
-    <PaymentContainer>
-      <PaymentMethods>
-        <span>
-          <img src={momo} alt="" />
-          <MethodButton
-            onClick={() => handleMethodChange("mobileMoney")}
-            active={activeMethod === "mobileMoney"}
-          >
-            Mobile Money
-          </MethodButton>
-        </span>
-        <span>
-          <img src={paypal} alt="" />
-          <MethodButton
-            onClick={() => handleMethodChange("paypal")}
-            active={activeMethod === "paypal"}
-          >
-            PayPal
-          </MethodButton>
-        </span>
-        <span>
-          <img src={visa} alt="" />
-          <MethodButton
-            onClick={() => handleMethodChange("creditCard")}
-            active={activeMethod === "creditCard"}
-          >
-            Credit Card
-          </MethodButton>
-        </span>
-      </PaymentMethods>
+    <>
+      <PaymentContainer>
+        <PaymentMethods>
+          {/* <h2 style={{ color: "#191945" }}>dsjnv</h2> */}
+          <span>
+            <img src={momo} alt="" />
+            <MethodButton
+              onClick={() => handleMethodChange("mobileMoney")}
+              active={activeMethod === "mobileMoney"}
+            >
+              Mobile Money
+            </MethodButton>
+          </span>
+          <span>
+            <img src={paypal} alt="" />
+            <MethodButton
+              onClick={() => handleMethodChange("paypal")}
+              active={activeMethod === "paypal"}
+            >
+              PayPal
+            </MethodButton>
+          </span>
+          <span>
+            <img src={visa} alt="" />
+            <MethodButton
+              onClick={() => handleMethodChange("creditCard")}
+              active={activeMethod === "creditCard"}
+            >
+              Credit Card
+            </MethodButton>
+          </span>
+        </PaymentMethods>
 
-      <PaymentFormContainer>
-        {activeMethod === "mobileMoney" && (
-          <MobileMoneyForm onSubmit={handleSubmit(onSubmit)}>
-            {/* Mobile Money Form Fields */}
-            <form onSubmit={handleSubmit(onSubmit)} noValidate>
-              <div className="paymentForm">
-                <div className="FormDiv">
-                  <label style={{ color: "#191943" }}>
-                    Mobile Money Number:
-                  </label>
-                  {/* <input
+        <PaymentFormContainer>
+          {activeMethod === "mobileMoney" && (
+            <MobileMoneyForm onSubmit={handleSubmit(onSubmit)}>
+              {/* Mobile Money Form Fields */}
+              <form onSubmit={handleSubmit(onSubmit)} noValidate>
+                <div className="paymentForm">
+                  <div className="FormDiv">
+                    <label style={{ color: "#191943" }}>
+                      Mobile Money Number:
+                    </label>
+                    {/* <input
                   type="text"
                   placeholder="Enter your mobile money number"
                 /> */}
 
-                  <input
-                    type="text"
-                    id="cardNumber"
-                    name="Number"
-                    {...register("Number", {
-                      required: {
-                        value: true,
-                        message: "Phone Number is very Required",
-                      },
-                    })}
-                    placeholder="phone number"
-                  />
+                    <input
+                      type="text"
+                      id="cardNumber"
+                      name="Number"
+                      {...register("Number", {
+                        required: {
+                          value: true,
+                          message: "Phone Number is very Required",
+                        },
+                      })}
+                      placeholder="phone number"
+                    />
+                  </div>
+                  <div className="FormDiv">
+                    <label style={{ color: "#191943" }}>Payment Amount:</label>
+                    {/* <input type="text" placeholder="EnterAmount" /> */}
+                 
+                      <label style={{ color: "#191943" }} htmlFor="">
+                       <h3>Payment Amount of 250,000fr</h3>
+                      </label>
+                  </div>
+                </div>
+                <div className="form-button">
+                  <button type="submit">Pay with Mobile Money</button>
+                  {/* <button type="clear">clear</button> */}
+                  <button onClick={onClose}>close</button>
+                </div>
+              </form>
+            </MobileMoneyForm>
+          )}
+
+          {activeMethod === "paypal" && (
+            <PaypalForm>
+              <div className="paymentForm">
+                <div className="FormDiv">
+                  <label style={{ color: "#191943" }}>PayPal Email:</label>
+                  <input type="text" placeholder="Enter your PayPal email" />
+                  <label style={{ color: "#191943" }}>User Name:</label>
+                  <input type="text" placeholder="Enter your PayPal email" />
                 </div>
                 <div className="FormDiv">
-                  <label style={{ color: "#191943" }}>Payment Amount:</label>
-                  {/* <input type="text" placeholder="EnterAmount" /> */}
-                  <input
-                    type="text"
-                    id="cvc"
-                    name="Amount"
-                    {...register("Amount", {
-                      required: {
-                        value: true,
-                        message: "Amount Money is very Required",
-                      },
-                    })}
-                    placeholder="Enter Amount"
-                  />
+                  <label style={{ color: "#191943" }}>Amount:</label>
+                  <input type="text" placeholder="Enter your PayPal email" />
+                  <label style={{ color: "#191943" }}>Phone Number:</label>
+                  <input type="text" placeholder="Enter your PayPal email" />
                 </div>
               </div>
               <div className="form-button">
-                <button type="submit">Pay with Mobile Money</button>
+                <button>Pay with PayPal</button>
                 <button>clear</button>
               </div>
-            </form>
-          </MobileMoneyForm>
-        )}
+            </PaypalForm>
+          )}
 
-        {activeMethod === "paypal" && (
-          <PaypalForm>
-            {/* PayPal Form Fields */}
-            <div className="paymentForm">
-              <div className="FormDiv">
-                <label style={{ color: "#191943" }}>PayPal Email:</label>
-                <input type="text" placeholder="Enter your PayPal email" />
-                <label style={{ color: "#191943" }}>User Name:</label>
-                <input type="text" placeholder="Enter your PayPal email" />
+          {activeMethod === "creditCard" && (
+            <CreditCardForm>
+              {/* Credit Card Form Fields */}
+              <div className="paymentForm">
+                <div className="FormDiv">
+                  <label style={{ color: "#191943" }}>
+                    Credit Card Number:
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter your credit card number"
+                  />
+                  <label style={{ color: "#191943" }}>Expiry Date:</label>
+                  <input type="text" placeholder="MM/YYYY" />
+                </div>
+                <div className="FormDiv">
+                  <label style={{ color: "#191943" }}>Amount</label>
+                  <input type="text" placeholder="Enter your Amount" />
+                  <label style={{ color: "#191943" }}>CVC:</label>
+                  <input type="text" placeholder="CVC" />
+                </div>
               </div>
-              <div className="FormDiv">
-                <label style={{ color: "#191943" }}>Amount:</label>
-                <input type="text" placeholder="Enter your PayPal email" />
-                <label style={{ color: "#191943" }}>Phone Number:</label>
-                <input type="text" placeholder="Enter your PayPal email" />
-              </div>
-            </div>
-            <div className="form-button">
-              <button>Pay with PayPal</button>
-              <button>clear</button>
-            </div>
-          </PaypalForm>
-        )}
+              <div className="form-button">
+                <button>Pay with Credit Card</button>
 
-        {activeMethod === "creditCard" && (
-          <CreditCardForm>
-            {/* Credit Card Form Fields */}
-            <div className="paymentForm">
-              <div className="FormDiv">
-                <label style={{ color: "#191943" }}>Credit Card Number:</label>
-                <input
-                  type="text"
-                  placeholder="Enter your credit card number"
-                />
-                <label style={{ color: "#191943" }}>Expiry Date:</label>
-                <input type="text" placeholder="MM/YYYY" />
+                <button>clear</button>
               </div>
-              <div className="FormDiv">
-                <label style={{ color: "#191943" }}>Amount</label>
-                <input type="text" placeholder="Enter your Amount" />
-                <label style={{ color: "#191943" }}>CVC:</label>
-                <input type="text" placeholder="CVC" />
-              </div>
-            </div>
-            <div className="form-button">
-              <button>Pay with Credit Card</button>
-
-              <button>clear</button>
-            </div>
-          </CreditCardForm>
-        )}
-      </PaymentFormContainer>
-    </PaymentContainer>
+            </CreditCardForm>
+          )}
+        </PaymentFormContainer>
+      </PaymentContainer>
+    </>
   );
 };
 
 const PaymentContainer = styled.div`
-  max-width: 800px;
+  // position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  // justify-content: start;
+  background-color: #fafafa;
+
+  max-width: 1800px;
   max-height: 1000px;
-  margin: 10rem auto;
+  margin: 1rem auto;
   // border: 1px solid red;
-  box-shadow: 0px 2px 2px 2px #ccc;
-  padding:2rem;
- 
+  // box-shadow: 0px 2px 2px 2px #ccc;
+  padding: 2rem;
+  // z-index: 10;
+
   input {
     width: 100%;
     padding: 8px;
@@ -264,7 +272,7 @@ const PaymentMethods = styled.div`
 
 const MethodButton = styled.button`
   padding: 10px;
-  background-color: ${(props) => (props.active ? "#fee60c" : "#3498db")};
+  background-color: ${(props) => (props.active ? "#fee60c" : "#191943")};
   color: ${(props) => (props.active ? "#000" : "#fff")};
   border: none;
   border-radius: 5px;
@@ -284,7 +292,7 @@ const MobileMoneyForm = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
- 
+
   button {
     background-color: var(--skin-color);
     width: 50%;
@@ -293,7 +301,7 @@ const MobileMoneyForm = styled.div`
     border: none;
   }
   .form-button button:hover {
-    background-color: #3498db;
+    background-color: #191943;
     color: #fff;
     cursor: pointer;
     width: 50%;

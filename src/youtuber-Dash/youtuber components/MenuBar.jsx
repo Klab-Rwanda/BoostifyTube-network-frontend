@@ -2,7 +2,11 @@ import React from "react";
 import { BiSearchAlt } from "react-icons/bi";
 import { FaBell, FaChevronDown } from "react-icons/fa";
 import "../youtStyles/menuBarStyle.css";
+import { MyContext } from "../../context/Context";
 function MenuBar() {
+  const{loggedUser}= MyContext();
+  const profileName = loggedUser?.user?.FullName.slice(0, 15);
+  // console.log("loged user", profileName);
   return (
     <>
       <div className="topContainer">
@@ -24,7 +28,7 @@ function MenuBar() {
           <div className="profileImage">
             <img src="isaac.jpg" alt="" />
           </div>
-          <p className="profileName">The ben</p>
+          <p className="profileName">{profileName}</p>
           <i className="menuChevron" id="menuChevron">
             <FaChevronDown />
           </i>
