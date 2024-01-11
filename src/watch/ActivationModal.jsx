@@ -23,7 +23,12 @@ const ActivationModal = ({ onClose }) => {
   };
   const handleactivation = async (e) => {
     e.preventDefault();
-    loginMutation.mutate(activatingNUmber);
+
+    const { Number } = activatingNUmber;
+    console.log(activatingNUmber);
+    activationMutation.mutate({
+      Number,
+    });
   };
 
   const handleMethodChange = (method) => {
@@ -32,30 +37,30 @@ const ActivationModal = ({ onClose }) => {
   const form = useForm();
   const { register, control, handleSubmit, formState } = form;
   const { errors } = formState;
-  const onSubmit = async (data) => {
-    const accessToken = localStorage.getItem("token");
+  // const onSubmit = async (data) => {
+  // const accessToken = localStorage.getItem("token");
+  // console.log(data);
+  // try {
+  //   const response = await axios.post(
+  //     "https://boostifytube-network-api.onrender.com/api/v1/payment/feeForAccount",
+  //     data,
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     }
+  //   );
 
-    try {
-      const response = await axios.post(
-        "https://boostifytube-network-api.onrender.com/api/v1/payment/feeForAccount",
-        data,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        Notify.success("payment send succefully");
-      } else {
-        const errorData = response.data;
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      Notify.failure("An error occurred while uploading the video");
-    }
-  };
+  //   if (response.status === 200) {
+  //     Notify.success("payment send succefully");
+  //   } else {
+  //     const errorData = response.data;
+  //   }
+  // } catch (error) {
+  //   console.error("Error:", error);
+  //   Notify.failure("An error occurred while uploading the video");
+  // }
+  // };
 
   return (
     <div
@@ -92,7 +97,7 @@ const ActivationModal = ({ onClose }) => {
         </div>
         <PaymentFormContainer>
           {activeMethod === "mobileMoney" && (
-            <MobileMoneyForm onSubmit={handleSubmit(onSubmit)}>
+            <MobileMoneyForm>
               <div className="paymentForm">
                 <div className="FormDiv">
                   <p style={{ color: "#191943" }}>
@@ -102,19 +107,26 @@ const ActivationModal = ({ onClose }) => {
                   </p>
                 </div>
                 <div className="FormDiv">
-                  <form action="">
+                  <form onSubmit={handleactivation}>
                     <label style={{ color: "#191943" }}>
                       Mobile Money Number:
                     </label>
-
                     <input
                       type="number"
                       id="cardNumber"
-                      name="phone"
+                      name="Number"
                       placeholder="Phone number"
                       onChange={handleChange}
-                      value={activatingNUmber.phone}
+                      value={activatingNUmber.Number}
                     />
+                    {/* <input
+                      type="number"
+                      id="cardNumber"
+                      name="Amount"
+                      placeholder="Amount"
+                      onChange={handleChange}
+                      value={activatingNUmber.Amount}
+                    /> */}
                     <div className="form-button">
                       <button type="submit">Pay with Mobile Money</button>
                       <button>clear</button>

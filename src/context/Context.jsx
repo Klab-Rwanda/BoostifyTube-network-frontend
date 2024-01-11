@@ -188,10 +188,12 @@ export const AppContext = ({ children }) => {
     mutationFn: async (data) => {
       const resp2 = await axios.post(
         " https://boostifytube-network-api.onrender.com/api/v1/payment/feeForAccount",
-        data,
+        {
+          ...data,
+        },
         {
           headers: {
-            Authorization: "Bearer " + token,
+            Authorization: "Bearer" + " " + token,
           },
         }
       );
@@ -200,6 +202,9 @@ export const AppContext = ({ children }) => {
     },
     onSuccess: (data) => {
       Notify.success("Successfully activated");
+    },
+    onError: (err) => {
+      console.log(err);
     },
   });
 
