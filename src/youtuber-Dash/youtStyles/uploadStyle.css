@@ -5,7 +5,6 @@
   --sec-bg-color: #fff;
 }
 .uploadVideo-section {
-  /* position: absolute; */
   top: 90px;
   left: 220px;
   height: 600px;
@@ -15,25 +14,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* justify-items: start; */
-  /* gap: 1rem; */
-
   flex: 1;
-  /* border: 1px solid red; */
   background-color: var(--sec-bg-color);
   width: 100;
 }
-/* Add this CSS in your component's style file or in your global styles */
 
 .uploadVideo-form {
   width: 80%;
   height: 700px;
-  /* margin: auto; */
   padding: 5rem;
-
-  /* border: 1px solid #ca3f3f; */
   border-radius: 5px;
-  /* border: 1px solid red; */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .uploadDital {
@@ -42,7 +32,6 @@
   justify-content: start;
   gap: 2rem;
 
-  /* flex:1; */
 }
 .uploadVideo-form span {
   display: flex;
@@ -53,7 +42,6 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-  /* gap: 2rem; */
   font-size: larger;
   font-weight: bold;
 }
@@ -63,17 +51,14 @@
 .upload-Left {
   display: flex;
   flex-direction: column;
-  /* width: 50%; */
   gap: 1rem;
 }
 .uploadDital label {
   display: block;
   margin-bottom: 8px;
   color: var(--first-bg-color);
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
-
   gap: 0.5rem;
 }
 
@@ -128,36 +113,24 @@
   cursor: pointer;
 }
 
-/* .uploadbutton:hover {
-  background-color: var(--skin-color);
-}
 
-.youtuber-button:hover {
-  background-color: var(--skin-color);
-} */
 .checkbox {
   display: flex;
   flex-direction: column;
-  /* gap: 0.5rem; */
   border-radius: 20px;
   padding: 10px;
-  /* border: 1px solid #ccc; */
   height: fit-content;
   gap: 1rem;
   background-color: var(--sec-bg-color);
   margin-bottom: 0rem;
 }
-.checkbox p {
-  /* margin-bottom: 1rem; */
-}
+
 .checkbox label {
   display: flex;
   flex-direction: row;
-  /* border: 1px solid red; */
   justify-content: start;
   align-items: start;
   align-content: start;
-  /* background-color: var(--sec-bg-color); */
   align-items: center;
   color: var(--first-bg-color);
 
@@ -168,10 +141,6 @@
 .checkbox label span {
   display: flex;
   flex-direction: row;
-  /* flex-wrap: wrap; */
-  /* width: 100%; */
-  /* border: 1px solid red; */
-
   gap: 0.5rem;
 }
 .checkbox label span p {

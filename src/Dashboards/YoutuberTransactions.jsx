@@ -107,11 +107,9 @@ const YoutuberTransactions = () => {
             <td>Paid</td>
             <td>Youtuber</td>
           </tr>
-          {/* ))} */}
         </tbody>
       </table>
 
-      {/* Add search functionality if needed */}
     </section>
   );
 };

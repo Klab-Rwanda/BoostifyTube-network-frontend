@@ -19,21 +19,17 @@
 .income {
   width: 100%;
   height: 30rem;
-  /* background-color: red; */
 }
 .summary1 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
   gap: 1rem;
-  /* background-color: #191943; */
   width: 100%;
 }
 
 .summary1 .summary-card {
   width: 100%;
-  /* background-color: #fff; */
-  /* border: 1px solid red; */
   border-radius: 12px;
   border: 1px solid rgb(184, 184, 184);
   margin: 1rem;
@@ -59,31 +55,7 @@
   }
 }
 
-/* .userscount,
-.videoscount,
-.incomesummary,
-.expensessummary {
-  background-color: #191943;
-  margin: auto;
-  align-items: center;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  height: 6rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
-  border-radius: 8px;
-  margin-bottom: 20px;
-} */
-
-/* .graphs {
-  width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7rem;
-  justify-content: space-around;
-} */
 .usersss,
 .videossss {
   width: 40%;

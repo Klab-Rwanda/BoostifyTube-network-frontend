@@ -226,6 +226,7 @@ export const AppContext = ({ children }) => {
     },
     onSuccess: (data) => {
       const amount = Singleusertracking?.Your_tracks?.[0]?.Amount;
+      console.log("balance", amount );
       if (data.message == "minimum amount is 100Frw") {
         Report.failure(
           "Failed to Withdraw",
@@ -234,7 +235,7 @@ export const AppContext = ({ children }) => {
         );
       } else if (
         data.message ==
-        `dear ${loggedUser?.user?.FullName} icrease your balance: ${amount}Frw 👌👌 `
+        `Dear ${loggedUser?.user?.FullName} increase your balance: ${amount}Frw 👌👌 `
       ) {
         Report.failure(
           "Failed to Withdraw",
