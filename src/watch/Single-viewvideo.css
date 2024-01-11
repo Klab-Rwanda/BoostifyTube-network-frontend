@@ -1,9 +1,7 @@
 
-
-
 .view-videoo{
-    margin-top: 130px;
-    margin-left: 90px;
+    margin-top: 10px;
+    margin-left: 40px;
     display: flex;
     margin-bottom: 30px;
     gap: 20px;
@@ -82,7 +80,7 @@
 
 @media (max-width: 480px) {
   .view-videoo {
-    margin-top: 80px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -111,8 +109,8 @@
     gap: 10px;
   }
   .iframe-single-videos {
-    width: 300px;
-    height: 170px;
+    width: 250px;
+    height: 130px;
   }
 }
 
