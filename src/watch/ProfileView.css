@@ -1,7 +1,5 @@
 
-.profile-contents {
-  margin: 20% 10% 20% 10%;
-}
+
 
 .user-profile {
   width: 90%;
@@ -134,4 +132,83 @@ background-color: #191943;
   margin-left: 83%;
   border: none;
   margin-top: 8rem;
+}
+
+@media (max-width:980px) {
+  .user-informp{
+ display: grid;
+ grid-template-columns: repeat(2,1fr);
+    
+  }
+  .user-profile{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+.editprofile-button{
+  font-size: 20px;
+}
+.profiles-input{
+  width: 28vh;
+  border-radius: 5px;
+  padding: 7px;
+  border: 1px solid rgb(197, 200, 203);
+}
+
+}
+
+
+@media (max-width:768px) {
+  .user-informp{
+ display: grid;
+ grid-template-columns: repeat(2,1fr);
+    
+  }
+  .user-profile{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+.editprofile-button{
+  width: 20rem;
+  font-size: 20px;
+}
+.profiles-input{
+  width: 34vh;
+  border-radius: 5px;
+  padding: 7px;
+  border: 1px solid rgb(197, 200, 203);
+}
+
+}
+@media (max-width:420px) {
+  .user-informp{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .user-profile{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .actions {
+  margin-left: 2rem;
+  margin-top: 20px;
+  display: flex;
+}
+.editprofile-button{
+  width: 200vh;
+}
+.profiles-input{
+  width: 45vh;
+  border-radius: 5px;
+  padding: 7px;
+  border: 1px solid rgb(197, 200, 203);
+}
+
 }

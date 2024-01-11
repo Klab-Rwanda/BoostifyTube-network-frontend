@@ -4,6 +4,17 @@
   --text-color: #ccc;
   --sec-bg-color: #fff;
 }
+
+.gets {
+  background: #fee60c;
+  padding: 12px ;
+  width: 30%;
+  margin-left: 10rem;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-weight: 12px;
+}
 .video-section{
   display: flex;
   flex-direction: column;
@@ -52,26 +63,22 @@ video {
 {
   display: flex;
   flex-direction: row;
-  /* background-color: red; */
-  /* border: 1px solid red; */
   justify-content: center;
   align-items: center;
     align-items: start;
     padding: 3rem;
-  /* flex: 1; */
+ 
 }
 
 .text-container {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
-  /* margin-top: -5rem; */
+ gap: 15px;
   flex: 1;
   text-align: center;
-  /* padding: 0rem 5rem; */
-  /* border: 1px solid red; */
+ 
 }
-.text-container .get{
+.text-container .gets{
   /* background-color: red; */
   width: fit-content;
 }
@@ -86,4 +93,102 @@ video {
   font-size: 1.2em;
   color: #191943;
   text-align: start;
+}
+
+
+
+@media (max-width:980px) {
+  .video-container video
+{
+  width: 25vh;
+  height: 17vh;
+  
+}
+.gets {
+  background: #fee60c;
+  padding: 12px;
+  color: black;
+  border: none;
+  width: 40vh;
+  margin-left: 5rem;
+    font-size: 20px;
+
+}
+}
+
+@media (max-width:768px) {
+  .video-row
+{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+    align-items: start;
+    padding: 1rem;
+ 
+}
+.gets {
+  background: #fee60c;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  font-weight: 12px;
+  font-size: 20px;
+}
+.video-container video
+{
+  width: 33vh;
+  height: 22vh;
+  
+}
+.gets {
+  background: #fee60c;
+  padding: 12px 2.5rem;
+  color: black;
+  border: none;
+  margin-top: 2rem;
+  margin-left: 9rem;
+  border-radius: 5px;
+  font-weight: 12px;
+  font-size: 20px;
+}
+}
+
+
+@media (max-width:420px) {
+  .video-row
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+    align-items: start;
+    padding: 3rem;
+ 
+}
+.video-container video
+{
+  width: 37vh;
+  height: 22vh;
+  
+}
+.gets {
+  background: #fee60c;
+  padding: 12px;
+  color: black;
+  border: none;
+  width: 67%;
+  margin-left: 2rem;
+  border-radius: 5px;
+  font-weight: 12px;
+  font-size: 20px;
+
+}
+.text-container {
+  display: flex;
+  flex-direction: column;
+ gap: 0px;
+
+ 
+}
 }

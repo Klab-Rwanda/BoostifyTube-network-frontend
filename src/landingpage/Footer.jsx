@@ -58,8 +58,7 @@ function Footer(){
           </div>
         </div>
         <p className="copy-right">
-          Copyright ©2023 All rights reserved | This Website is made with by
-          OrginGroup
+          Orgin Group  © 2024 All rights reserved
         </p>
       </div>
     );

@@ -109,5 +109,6 @@ h2 {
   padding: 0.5rem 2rem;
   background-color: #fee60c;
   color: #191943;
+  border-radius: 5px;
   border: none;
 }

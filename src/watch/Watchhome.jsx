@@ -2,20 +2,20 @@ import React from "react";
 import "./Watchhome.css";
 const Wacthhome = () => {
   return (
-    <div className="watch-home">
-      <div className="watch-home1">
+    <div className="watch-homee">
+      <div className="watch-home2">
         <h1 style={{ color: "#191943" }}>
           What will you earn after watching Video?
         </h1>
-        <p>
+        <li className="watchhome-p" >
           You will earn money after watching videos to the end. watch the video
           without speeding it up. When the video you were watching reaches to
           the end, your balance will be increased automatically. After that you
           can do withdraw. The minimum withdraw is 100 Rwf
-        </p>
+        </li>
       </div>
 
-      <div className="watch-home2">
+      <div className="watch-home1" >
         <h1 style={{ color: "#191943" }}>Rules and regulations</h1>
         <ul className="ul">
           <li>Watch video until the end Without speeding it up.</li>
