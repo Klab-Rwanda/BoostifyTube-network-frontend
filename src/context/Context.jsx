@@ -226,23 +226,21 @@ export const AppContext = ({ children }) => {
     },
     onSuccess: (data) => {
       const amount = Singleusertracking?.Your_tracks?.[0]?.Amount;
-      console.log("balance", amount );
-      if (data.message == "minimum amount is 100Frw") {
-        Report.failure(
-          "Failed to Withdraw",
-          '"The minimum withdraw amount is 100Frw, please try again!',
-          "Okay"
-        );
-      } else if (
-        data.message ==
-        `Dear ${loggedUser?.user?.FullName} increase your balance: ${amount}Frw 👌👌 `
-      ) {
+      console.log("balance", amount);
+      if (data.message == "Increase your balance") {
         Report.failure(
           "Failed to Withdraw",
           '"Watch videos to boost your balance',
           "Okay"
         );
-      } else {
+      } else if (data.message == "minimum amount is 100Frw") {
+        Report.failure(
+          "Failed to Withdraw",
+          '"The minimum withdraw amount is 100Frw, please try again!',
+          "Okay"
+        );
+      } 
+      else {
         Report.success(
           "Withdraw made successfully",
           "You have successfully withdrawen from your account",

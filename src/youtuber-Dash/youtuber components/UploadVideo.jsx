@@ -145,15 +145,15 @@ function UploadVideo() {
               </p>
               <label style={{ color: "black" }}>
                 <span>
-                  <input type="radio" value="25000" {...register("views")} />
+                  <input type="radio" value="25000" {...register("claimed_Views")} />
                   <h4>1K: </h4> <p>25000fr</p>
                 </span>
                 <span>
-                  <input type="radio" value="250000" {...register("views")} />
+                  <input type="radio" value="250000" {...register("claimed_Views")} />
                   <h4>10K: </h4> <p>250,000fr</p>
                 </span>
                 <span>
-                  <input type="radio" value="300000" {...register("views")} />
+                  <input type="radio" value="300000" {...register("claimed_Views")} />
                   <h4>100K: </h4> <p>300,000fr</p>
                 </span>
               </label>

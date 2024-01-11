@@ -26,7 +26,7 @@ function Balance({ closeModal }) {
 
   const handleWithdraw = async (e) => {
     e.preventDefault();
-    const { Number, Amount} = cashoutdata;
+    const { Number, Amount } = cashoutdata;
     console.log(Number);
     cashoutMutation.mutate({ Amount: Amount.toString(), Number });
   };
@@ -53,8 +53,8 @@ function Balance({ closeModal }) {
             account is still working. Otherwise contact admin
           </p>
         </div>
-        <form action="" onSubmit={handleWithdraw}>
-          <div>
+        <form className="withform" onSubmit={handleWithdraw}>
+          <div style={{ display: "flex", flexDirection: "column" }}>
             <input
               type="number"
               name="Amount"
@@ -63,7 +63,7 @@ function Balance({ closeModal }) {
               onChange={handleChangeAmount}
               value={cashoutdata.withdrawAmount}
             />
-            
+
             <input
               type="number"
               name="Number"
