@@ -24,7 +24,6 @@ function Header() {
   const { Singleusertracking = {} } = MyContext();
 
   const amount = Singleusertracking?.Your_tracks?.[0]?.Amount;
-  console.log("Amount:", amount);
 
   const handleLogout = () => {
     localStorage.removeItem("loggedUser");
@@ -59,7 +58,7 @@ function Header() {
         <img src={loggedUser?.user.image} className="pic" />
       </div>
       {modal && (
-        <div className="modal-overlay" >
+        <div className="modal-overlay">
           <Balance closeModal={closeModal} />
         </div>
       )}

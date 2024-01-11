@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 
@@ -168,7 +168,6 @@ export const AppContext = ({ children }) => {
       return res.data;
     },
   });
-  
 
   const { data: Messages, isLoading: messageLoading } = useQuery({
     queryKey: ["messages"],
@@ -182,6 +181,25 @@ export const AppContext = ({ children }) => {
         }
       );
       return messsageres.data;
+    },
+  });
+
+  const activationMutation = useMutation({
+    mutationFn: async (data) => {
+      const resp2 = await axios.post(
+        " https://boostifytube-network-api.onrender.com/api/v1/payment/feeForAccount",
+        data,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      console.log("Payment", resp2.data);
+      return resp2.data;
+    },
+    onSuccess: (data) => {
+      Notify.success("Successfully activated");
     },
   });
 
@@ -204,9 +222,10 @@ export const AppContext = ({ children }) => {
         isLoading,
         AllvideoTrackings,
         Singleusertracking,
+        activationMutation,
       }}
     >
-     {children}
+      {children}
     </stateContext.Provider>
   );
 };

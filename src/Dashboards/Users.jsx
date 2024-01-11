@@ -10,6 +10,7 @@ import axios from "axios";
 const Users = () => {
   let token = localStorage.getItem("token");
   const { fetchUsersData = [] } = MyContext();
+  // console.log("users", fetchUsersData);
 
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const handleConfirmDelete = async (id) => {

@@ -5,9 +5,26 @@ import axios from "axios";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import momo from "../../public/images/momo.jpeg";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
+import { MyContext } from "../context/Context";
 
 const ActivationModal = ({ onClose }) => {
   const [activeMethod, setActiveMethod] = useState("mobileMoney");
+  const { activationMutation } = MyContext();
+
+  const [activatingNUmber, setactivatingNUmber] = useState({
+    phone: "",
+  });
+
+  const handleChange = (e) => {
+    setactivatingNUmber({
+      ...activatingNUmber,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleactivation = async (e) => {
+    e.preventDefault();
+    loginMutation.mutate(activatingNUmber);
+  };
 
   const handleMethodChange = (method) => {
     setActiveMethod(method);
@@ -17,7 +34,6 @@ const ActivationModal = ({ onClose }) => {
   const { errors } = formState;
   const onSubmit = async (data) => {
     const accessToken = localStorage.getItem("token");
-
 
     try {
       const response = await axios.post(
@@ -86,27 +102,25 @@ const ActivationModal = ({ onClose }) => {
                   </p>
                 </div>
                 <div className="FormDiv">
-                  <label style={{ color: "#191943" }}>
-                    Mobile Money Number:
-                  </label>
+                  <form action="">
+                    <label style={{ color: "#191943" }}>
+                      Mobile Money Number:
+                    </label>
 
-                  <input
-                    type="text"
-                    id="cardNumber"
-                    name="Number"
-                    {...register("Number", {
-                      required: {
-                        value: true,
-                        message: "Phone Number is very Required",
-                      },
-                    })}
-                    placeholder="Phone number"
-                  />
+                    <input
+                      type="number"
+                      id="cardNumber"
+                      name="phone"
+                      placeholder="Phone number"
+                      onChange={handleChange}
+                      value={activatingNUmber.phone}
+                    />
+                    <div className="form-button">
+                      <button type="submit">Pay with Mobile Money</button>
+                      <button>clear</button>
+                    </div>
+                  </form>
                 </div>
-              </div>
-              <div className="form-button">
-                <button type="submit">Pay with Mobile Money</button>
-                <button>clear</button>
               </div>
             </MobileMoneyForm>
           )}

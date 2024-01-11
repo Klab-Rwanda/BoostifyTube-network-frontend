@@ -10,8 +10,6 @@ function Dashboard() {
   const { loggedUser } = MyContext();
   const [isActivationModalOpen, setIsActivationModalOpen] = useState(false);
 
-  console.log("loggedUser", loggedUser);
-
   const openActivationModal = () => {
     setIsActivationModalOpen(true);
   };
