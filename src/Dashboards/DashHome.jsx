@@ -167,6 +167,7 @@ const DashHome = () => {
         </div> */}
         <div className="income">
           <Bar
+          className="barr"
             key="incomeExpenseChart"
             data={incomeExpenseData}
             style={{ width: "100%", height: "100%" }}

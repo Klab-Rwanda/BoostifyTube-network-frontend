@@ -1,19 +1,7 @@
 import React from "react";
 import "../youtStyles/SideBarStyle.css";
-import {
-  FaDelicious,
-  FaShoppingCart,
-  FaWallet,
-  FaChartLine,
-  FaRegClock,
-  FaCog,
-  FaSignOutAlt,
-  FaHome,
-  FaVideo, 
-  FaUser ,
-  FaCloudUploadAlt,
-} from "react-icons/fa";
-import { Link, NavLink } from "react-router-dom";
+import {FaWallet,FaRegClock,FaSignOutAlt, FaHome, FaVideo,FaUser, FaCloudUploadAlt} from "react-icons/fa";
+import {NavLink } from "react-router-dom";
 
 function SideBar() {
   const handleLogout = () => {
@@ -22,14 +10,8 @@ function SideBar() {
   };
   return (
     <>
-      {/* <div className="side"> */}
       <div className="youtuber-sideBar" id="">
-        <div className="log">
-          <h1>BT</h1>
-          <h1>
-            <p style={{ color: "#fee60c" }}>Net</p>
-          </h1>
-        </div>
+    
         <div className="sideBarLinks">
           <ul>
             <li>
@@ -84,14 +66,7 @@ function SideBar() {
                 </NavLink>
               </a>
             </li>
-            <li>
-              <a href="#">
-                <NavLink to={"/youtuberDash/youtuber-Setting"}>
-                  <FaCog />
-                  Settings
-                </NavLink>
-              </a>
-            </li>
+            
             <li>
               <a onClick={handleLogout}>
                 <NavLink to={"/"}>
@@ -103,7 +78,6 @@ function SideBar() {
           </ul>
         </div>
       </div>
-      {/* </div>   */}
     </>
   );
 }

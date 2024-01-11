@@ -58,9 +58,6 @@ const Users = () => {
 
   return (
     <>
-      {/* <div className="userheader">
-        <h2>Registered users</h2>
-      </div> */}
       <section className="table__body">
         <h2>Registered users</h2>
         <table>

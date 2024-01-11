@@ -21,8 +21,8 @@ const ViewerTransactions = () => {
   };
 
   return (
-    <div className="transactions-container">
-      <h2 style={{color: "#191943"}}>Viewer Transactions</h2>
+    <section className="table__body">
+      <h2 style={{ color: "#191943" }}>Viewer Transactions</h2>
 
       <table>
         <thead>
@@ -96,7 +96,7 @@ const ViewerTransactions = () => {
           </tr>
         </tbody>
       </table>
-    </div>
+    </section>
   );
 };
 

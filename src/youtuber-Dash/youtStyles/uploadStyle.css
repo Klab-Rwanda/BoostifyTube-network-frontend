@@ -1,212 +1,182 @@
 :root {
-    --first-bg-color: #191943;
-    --skin-color: #fee60c;
-    --text-color: #ccc;
-    --sec-bg-color: #fff;
+  --first-bg-color: #191943;
+  --skin-color: #fee60c;
+  --text-color: #ccc;
+  --sec-bg-color: #fff;
 }
 .uploadVideo-section {
-    /* position: absolute; */
-    top: 90px;
-    left: 220px;
-    height: 600px;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* justify-items: start; */
-    /* gap: 1rem; */
-    
-    flex: 1;
-    /* border: 1px solid red; */
-    background-color: var(--sec-bg-color);
-    width: 100;
+  /* position: absolute; */
+  top: 90px;
+  left: 220px;
+  height: 600px;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* justify-items: start; */
+  /* gap: 1rem; */
 
-
-
-
+  flex: 1;
+  /* border: 1px solid red; */
+  background-color: var(--sec-bg-color);
+  width: 100;
 }
 /* Add this CSS in your component's style file or in your global styles */
 
 .uploadVideo-form {
-    width: 80%;
-    height: 700px;
-    /* margin: auto; */
-    padding: 5rem;
-    
+  width: 80%;
+  height: 700px;
+  /* margin: auto; */
+  padding: 5rem;
 
-    /* border: 1px solid #ca3f3f; */
-    border-radius: 5px;
-    /* border: 1px solid red; */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* border: 1px solid #ca3f3f; */
+  border-radius: 5px;
+  /* border: 1px solid red; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.uploadDital
-{
-display: flex;
-flex-direction: row;
-justify-content: start;
-gap: 2rem;
+.uploadDital {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 2rem;
 
-/* flex:1; */
+  /* flex:1; */
 }
-.uploadVideo-form span
-{
-    display: flex;
-    flex-direction: row;
+.uploadVideo-form span {
+  display: flex;
+  flex-direction: row;
 }
-.upload-Right, .upload-Left
-{
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    /* gap: 2rem; */
-        font-size: larger;
-            font-weight: bold;
+.upload-Right,
+.upload-Left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  /* gap: 2rem; */
+  font-size: larger;
+  font-weight: bold;
 }
-.upload-Right input
-{
-    height: 50px;
-
+.upload-Right input {
+  height: 50px;
 }
-.upload-Left{
-    display: flex;
-        flex-direction: column;
-        /* width: 50%; */
-        gap: 1rem;
-        
+.upload-Left {
+  display: flex;
+  flex-direction: column;
+  /* width: 50%; */
+  gap: 1rem;
 }
 .uploadDital label {
-    display: block;
-    margin-bottom: 8px;
-    color: var(--first-bg-color);
-    /* border: 1px solid red; */
-    display: flex;
-    flex-direction: column;
+  display: block;
+  margin-bottom: 8px;
+  color: var(--first-bg-color);
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
 
-    gap: 0.5rem;
-    
-
+  gap: 0.5rem;
 }
 
-.uploadDital input ,.uploadDital textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: 0.1px solid #ccc;
+.uploadDital input,
+.uploadDital textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 0.1px solid #ccc;
 }
 
-.form-button
-{
-    display: flex;
-    flex-direction: row;
+.form-button {
+  display: flex;
+  flex-direction: row;
 }
 .uploadbutton {
-    background-color: var(--skin-color);
-    width: 50%;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
+  background-color: var(--first-bg-color);
+  padding: 1rem;
+  width: 70%;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
 }
-.uploadbutton:hover
-{
-    background-color: var(--first-bg-color);
-    color: var(--sec-bg-color);
-
+.uploadbutton:hover {
+  background-color: var(--skin-color);
+  color: var(--first-bg-color);
 }
 
-
-.youtuberinput{
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 40px;
+.youtuberinput {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 40px;
 }
 .youtubertextarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-} 
-
- .youtuber-button {
-    background-color: var(--skin-color);
-    color: var(--first-bg-color);
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.uploadbutton:hover {
-    background-color: #0056b3;
-    
-} 
+.youtuber-button {
+  background-color: var(--skin-color);
+  color: var(--first-bg-color);
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-    
-
+/* .uploadbutton:hover {
+  background-color: var(--skin-color);
+}
 
 .youtuber-button:hover {
-    
-    background-color: #0056b3;
-} 
-.checkbox
-{
-    display: flex;
-    flex-direction: column;
-    /* gap: 0.5rem; */
-    border-radius: 20px;
-    padding: 10px;
-    /* border: 1px solid #ccc; */
-    height: fit-content;
-    gap: 1rem;
-    background-color: var(--sec-bg-color);
-    margin-bottom: 0rem;
+  background-color: var(--skin-color);
+} */
+.checkbox {
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.5rem; */
+  border-radius: 20px;
+  padding: 10px;
+  /* border: 1px solid #ccc; */
+  height: fit-content;
+  gap: 1rem;
+  background-color: var(--sec-bg-color);
+  margin-bottom: 0rem;
 }
-.checkbox p{
-    /* margin-bottom: 1rem; */
+.checkbox p {
+  /* margin-bottom: 1rem; */
 }
-.checkbox label
-{
-display: flex;
-flex-direction: row;
-/* border: 1px solid red; */
-justify-content: start;
-align-items: start;
-align-content: start;
-/* background-color: var(--sec-bg-color); */
-align-items: center;
-color: var(--first-bg-color);
+.checkbox label {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid red; */
+  justify-content: start;
+  align-items: start;
+  align-content: start;
+  /* background-color: var(--sec-bg-color); */
+  align-items: center;
+  color: var(--first-bg-color);
 
-gap: 1rem;
-flex-wrap: wrap;
-
-
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.checkbox label span
-{
-    display: flex;
-    flex-direction: row;
-    /* flex-wrap: wrap; */
-   /* width: 100%; */
-   /* border: 1px solid red; */
-    
-        gap: 0.5rem;
-       
-        
+.checkbox label span {
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  /* width: 100%; */
+  /* border: 1px solid red; */
 
+  gap: 0.5rem;
 }
-.checkbox label span p
-{
-    display: flex;
-    flex-wrap: nowrap;
-    color: var(--first-bg-color);
-    width: fit-content;
-
+.checkbox label span p {
+  display: flex;
+  flex-wrap: nowrap;
+  color: var(--first-bg-color);
+  width: fit-content;
 }

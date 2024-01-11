@@ -1,30 +1,28 @@
 import React from "react";
-import { BiSearchAlt } from "react-icons/bi";
-import { FaBell, FaChevronDown } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 import "../youtStyles/menuBarStyle.css";
+import { IoMenu } from "react-icons/io5";
 import { MyContext } from "../../context/Context";
+
 function MenuBar() {
-  const{loggedUser}= MyContext();
+  const { loggedUser } = MyContext();
   const profileName = loggedUser?.user?.FullName.slice(0, 15);
-  // console.log("loged user", profileName);
+
   return (
     <>
       <div className="topContainer">
-        <div className="inputBox">
-          <input
-            type="text"
-            placeholder="Search items, collections"
-            style={{ height: "40px" }}
+        <div className="logg">
+          <h1 style={{ fontSize: "3rem" }}>BT</h1>
+          <h1 style={{ fontSize: "3rem" }}>
+            <p style={{ color: "#fee60c" }}>Net</p>
+          </h1>
+
+          <IoMenu
+            className="menu-icon"
+            style={{ marginLeft: "3rem", fontSize: "4rem" }}
           />
-          <i>
-            <BiSearchAlt style={{ color: "black" }} />
-          </i>
         </div>
         <div className="profileContainer">
-          <i className="profileIcon">
-            <FaBell />
-          </i>
-
           <div className="profileImage">
             <img src="isaac.jpg" alt="" />
           </div>
@@ -32,15 +30,6 @@ function MenuBar() {
           <i className="menuChevron" id="menuChevron">
             <FaChevronDown />
           </i>
-
-          {/* <div className="menuContainer" id="menuContainer">
-            <ul>
-              <li>Web design</li>
-              <li>UI / UX</li>
-              <li>Form Design</li>
-              <li>UI design</li>
-            </ul>
-          </div>   */}
         </div>
       </div>
     </>

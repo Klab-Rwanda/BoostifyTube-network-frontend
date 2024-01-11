@@ -25,9 +25,8 @@ function Dashboard() {
       ) : (
         loggedUser?.user?.accountStatus !== "activated" && (
           <div
-            // className="activation-reminder"
+            className="activationreminder"
             style={{
-              padding: "10px",
               backgroundColor: "#191943",
               color: "rgba(255, 255, 255)",
             }}
@@ -65,8 +64,7 @@ function Dashboard() {
       </div>
       <div className="sidebar-outlettt">
         <Sidebar />
-        <div className="outlettt"
-        >
+        <div className="outlettt">
           <Outlet />
         </div>
       </div>

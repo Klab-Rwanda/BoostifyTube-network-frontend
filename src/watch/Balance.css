@@ -1,20 +1,48 @@
 .balances {
   display: flex;
-  /* gap: 10%; */
   align-items: center;
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.5);
   margin: auto;
   text-align: center;
-  padding: 10rem 10rem;
   justify-content: center;
+  width: 79vw;
+  height: 87vh;
 }
+.withdInfo {
+  font-size: 1.1rem;
+  color: #191943;
+  font-weight: 400;
+}
+
+.closeModal {
+  position: absolute;
+  background-color: white;
+  border: none;
+  margin-left: 40rem;
+  margin-top: -20rem;
+}
+.withdescr {
+  margin-bottom: 3rem;
+  margin-left: -1rem;
+}
+
+.withdescr h1 {
+  color: #191943;
+  margin-bottom: 1rem;
+}
+
 .content {
-  display: grid;
-  grid-gap: 20px;
-  background-color: aqua;
-  /* padding: 9rem; */
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 70%;
+  height: 70%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
   box-shadow: 0px 0px 1px;
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 .balance3 {
   display: grid;
@@ -45,7 +73,6 @@
   padding: 9px;
   width: 49vh;
   border: none;
-  /* margin-top: 10px; */
   border-radius: 5px;
   color: #191942;
   background-color: #fee60c;
@@ -93,10 +120,11 @@
 }
 .balanc-button {
   background-color: #fee60c;
-  color: #191942;
-  width: 100%;
-
-  padding: 8px;
+  color: #191943;
+  font-weight: bold;
+  font-size: 1.1rem;
+  width: 60%;
+  padding: 1rem;
   border: none;
   border-radius: 5px;
 }
@@ -105,8 +133,9 @@
   color: white;
 }
 .balenc-inputt {
-  width: 100%;
-  padding: 8px;
+  width: 29.5rem;
+  padding: 1rem;
+  margin-bottom: 3rem;
   box-sizing: border-box;
   border: 1px solid #ccc;
   color: #191943;

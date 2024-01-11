@@ -10,7 +10,9 @@
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
+.barr {
+  margin-top: -25rem;
+}
 #stat-icon {
   font-size: 2rem;
 }
