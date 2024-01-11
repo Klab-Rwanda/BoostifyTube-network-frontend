@@ -9,7 +9,11 @@ const VideoSection = () => {
       <div className="video-row">
         <div className="video-container">
           <video style={{ backgroundColor: "black" }} controls>
-            <source src={demoVideo} type="video/mp4" className="demovvideo" />
+            <source
+              src={demoVideo}
+              style={{  }}
+              type="video/mp4"
+            />
           </video>
         </div>
         <div className="text-container">
