@@ -107,7 +107,7 @@ const Singlevideo = () => {
     .filter(Boolean);
 
   const { data: videoInfo1, isLoading } = useQuery({
-    queryKey: ["videos"],
+    queryKey: ["videos",videoId],
     queryFn: async () => {
       const response = await axios.get(
         `https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&id=${videoId}&key=${API_KEY}`
@@ -191,13 +191,13 @@ const Singlevideo = () => {
         <div style={{ display: "flex", gap: "10%" }}>
           <p>
             {" "}
-            <MdOutlineRemoveRedEye /> {videoInfo1?.snippet.localized.viewCount}
+            <MdOutlineRemoveRedEye /> {videoInfo1?.statistics.viewCount}
           </p>
           <p>
-            <AiOutlineLike /> {videoInfo1?.snippet.localized.likeCount}
+            <AiOutlineLike /> {videoInfo1?.statistics.likeCount}
           </p>
           <p>
-            <FaRegComment /> {videoInfo1?.snippet.localized.commentCount}
+            <FaRegComment /> {videoInfo1?.statistics.commentCount}
           </p>
         </div>
         <p>Channel: {videoInfo1?.snippet.localized.channelTitle}</p>
