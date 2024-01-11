@@ -6,15 +6,12 @@
   /* --main-dash-bg-color: */
 }
 .home-continer {
-  display: flex;
-  /* flex-direction: column; */
-  justify-content: end;
-  align-items: center;
   
-  margin: auto;
+ 
+  align-items: center;
   margin-top: -5rem;
   padding: 0;
-  height: 48rem;
+  height: 35rem;
   background-image: url("../assets/picture/bg6.jpeg");
   background-size: cover;
   flex: 1;
@@ -22,10 +19,11 @@
 
 .get {
   background: #fee60c;
-  padding: 12px 3rem;
+  padding: 12px 2.5rem;
   color: black;
   border: none;
   margin-top: 2rem;
+  margin-left: 15rem;
   border-radius: 5px;
   font-weight: 12px;
 }
@@ -55,17 +53,12 @@ color:var(--white-bg-color) ;
 /* font-size: xx-large; */
 font-weight:300;
 }
+
 .home-description {
-  width: 50%;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: auto;
-}
-.home-description {
-  width: 50%;
-  text-align: start;
-  margin: 0;
+  width: 70%;
+  padding: 10rem 0rem 10rem 20rem;
+
+  
 }
 #title1 {
   text-align: start;
@@ -80,4 +73,72 @@ font-weight:300;
 
 #desc1 {
   color: #191943;
+}
+
+@media (max-width:768px) {
+  .home-description {
+  width: 85%;
+  padding: 10rem 0rem 10rem 7rem;
+
+  
+}
+.home-continer {
+  
+ 
+  align-items: center;
+  margin-top: -7rem;
+  padding: 0;
+  height: 35rem;
+ 
+}
+.home-description #title1{
+color:var(--white-bg-color) ;
+font-size: xx-large;
+font-weight: bold;
+}
+.get {
+  background: #fee60c;
+  padding: 12px 2.5rem;
+  color: black;
+  border: none;
+  margin-top: 2rem;
+  margin-left: 9rem;
+  border-radius: 5px;
+  font-weight: 12px;
+  font-size: 20px;
+}
+}
+
+
+@media (max-width:420px) {
+  .home-description {
+  width: 85%;
+  padding: 10rem 0rem 10rem 3rem;
+
+  
+}
+.home-continer {
+  
+ 
+  align-items: center;
+  margin-top: -7rem;
+  padding: 0;
+  height: 35rem;
+ 
+}
+.home-description #title1{
+color:var(--white-bg-color) ;
+font-size: x-large;
+font-weight: bold;
+}
+.get {
+  background: #fee60c;
+  padding: 12px 2.5rem;
+  color: black;
+  border: none;
+  margin-top: 2rem;
+  margin-left: 3rem;
+  border-radius: 5px;
+  font-weight: 12px;
+}
 }

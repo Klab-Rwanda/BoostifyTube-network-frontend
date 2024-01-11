@@ -1,21 +1,17 @@
 .contact-cont {
   /* background-color: aqua; */
-  height: 83vh;
-  margin-top: -6rem;
-  margin: auto;
   align-items: center;
   display: flex;
   justify-content: center;
   text-align: center;
 }
 .content-cont {
-  height: 25rem;
   width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: auto;
+  margin-bottom: 35px;
 }
 
 .contact-form {
@@ -112,4 +108,43 @@ label {
 .soc1 {
   font-size:1rem;
   
+}
+@media (max-width:420px) {
+.content-cont {
+  display: flex;
+ flex-direction: column;
+ gap: 20px;
+
+}
+.contact-cont {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.contact-form {
+  width: 270px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #191943;
+  border-radius: 5px;
+  text-align: start;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.socialM {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: start;
+  margin-right: 0rem;
+  margin-left: 1rem;
+  gap: 0px;
+}
+.cont-title {
+  color:  #191943;
+  margin: 0 0 0rem 0;
+
+}
 }

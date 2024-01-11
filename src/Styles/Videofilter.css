@@ -3,9 +3,8 @@
 display:flex;
 
   margin: 0 auto;
-
+padding: 0px 0px 50px 30px;
   padding-left:30px;
-  margin:10px;
 
    flex-direction: column;
     
@@ -87,3 +86,79 @@ display:flex;
 
 } 
 
+
+@media (max-width:980px) {
+  .videofilterhomess{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 10px;
+}}
+
+@media (max-width:768px) {
+  .videofilterhomess{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 10px;
+}
+.filtermenu{
+   display: flex;
+   gap: 5px;
+  justify-content: center;
+  margin: 20px 0; 
+}
+ .filterhome-button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #191943;
+    color: #fff;
+    border-radius: 5px;
+    width: 50%;
+
+  
+  }
+   .VideoFilterContainer 
+ {
+  padding-left:42px;
+    
+ }
+ .VideoFilterContainer h2{
+  margin-right: 90px;
+ }
+}
+
+
+@media (max-width:420px) {
+  .videofilterhomess{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-gap: 14px;
+}
+.filtermenu{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+  justify-content: center;
+  margin: 20px 0; 
+}
+ .filterhome-button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #191943;
+    color: #fff;
+    border-radius: 5px;
+    width: 70%;
+
+  
+  }
+   .VideoFilterContainer 
+ {
+  padding-left:42px;
+    
+ }
+}
