@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import { Report } from "notiflix/build/notiflix-report-aio";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 const stateContext = createContext();
@@ -188,9 +189,9 @@ export const AppContext = ({ children }) => {
     mutationFn: async (data) => {
       const resp2 = await axios.post(
         " https://boostifytube-network-api.onrender.com/api/v1/payment/feeForAccount",
-        {
-          ...data,
-        },
+
+        data,
+
         {
           headers: {
             Authorization: "Bearer" + " " + token,
@@ -202,6 +203,51 @@ export const AppContext = ({ children }) => {
     },
     onSuccess: (data) => {
       Notify.success("Successfully activated");
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
+  const cashoutMutation = useMutation({
+    mutationFn: async (data) => {
+      const resp3 = await axios.post(
+        " https://boostifytube-network-api.onrender.com/api/v1/payment/withdraw",
+
+        data,
+        {
+          headers: {
+            Authorization: "Bearer" + " " + token,
+          },
+        }
+      );
+      console.log("withdraw", resp3.data.message);
+      return resp3.data;
+    },
+    onSuccess: (data) => {
+      const amount = Singleusertracking?.Your_tracks?.[0]?.Amount;
+      if (data.message == "minimum amount is 100Frw") {
+        Report.failure(
+          "Failed to Withdraw",
+          '"The minimum withdraw amount is 100Frw, please try again!',
+          "Okay"
+        );
+      } else if (
+        data.message ==
+        `dear ${loggedUser?.user?.FullName} icrease your balance: ${amount}Frw 👌👌 `
+      ) {
+        Report.failure(
+          "Failed to Withdraw",
+          '"Watch videos to boost your balance',
+          "Okay"
+        );
+      } else {
+        Report.success(
+          "Withdraw made successfully",
+          "You have successfully withdrawen from your account",
+          "Okay"
+        );
+      }
     },
     onError: (err) => {
       console.log(err);
@@ -228,6 +274,7 @@ export const AppContext = ({ children }) => {
         AllvideoTrackings,
         Singleusertracking,
         activationMutation,
+        cashoutMutation,
       }}
     >
       {children}

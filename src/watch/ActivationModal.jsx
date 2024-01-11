@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import momo from "../../public/images/momo.jpeg";
-import { Notify } from "notiflix/build/notiflix-notify-aio";
 import { MyContext } from "../context/Context";
 
 const ActivationModal = ({ onClose }) => {
@@ -12,7 +11,7 @@ const ActivationModal = ({ onClose }) => {
   const { activationMutation } = MyContext();
 
   const [activatingNUmber, setactivatingNUmber] = useState({
-    phone: "",
+    Number: "",
   });
 
   const handleChange = (e) => {
@@ -37,6 +36,7 @@ const ActivationModal = ({ onClose }) => {
   const form = useForm();
   const { register, control, handleSubmit, formState } = form;
   const { errors } = formState;
+
   // const onSubmit = async (data) => {
   // const accessToken = localStorage.getItem("token");
   // console.log(data);

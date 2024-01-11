@@ -6,10 +6,30 @@ import { MyContext } from "../context/Context";
 
 function Balance({ closeModal }) {
   const { Singleusertracking = {} } = MyContext();
+  const { cashoutMutation } = MyContext();
   const [model, setModel] = useState(false);
 
   const amount = Singleusertracking?.Your_tracks?.[0]?.Amount;
   console.log("Amount:", amount);
+
+  const [cashoutdata, setcashoutdata] = useState({
+    Amount: "",
+    Number: "",
+  });
+
+  const handleChangeAmount = (e) => {
+    setcashoutdata({
+      ...cashoutdata,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleWithdraw = async (e) => {
+    e.preventDefault();
+    const { Number, Amount} = cashoutdata;
+    console.log(Number);
+    cashoutMutation.mutate({ Amount: Amount.toString(), Number });
+  };
 
   function openModal() {
     setModel(!model);
@@ -33,16 +53,29 @@ function Balance({ closeModal }) {
             account is still working. Otherwise contact admin
           </p>
         </div>
+        <form action="" onSubmit={handleWithdraw}>
+          <div>
+            <input
+              type="number"
+              name="Amount"
+              placeholder="Amount to Withdraw"
+              className="balenc-inputt"
+              onChange={handleChangeAmount}
+              value={cashoutdata.withdrawAmount}
+            />
+            
+            <input
+              type="number"
+              name="Number"
+              placeholder="Receiver's phone number"
+              className="balenc-inputt"
+              onChange={handleChangeAmount}
+              value={cashoutdata.withdrawAmount}
+            />
+          </div>
 
-        <div>
-          <input
-            type="text"
-            placeholder="Amount to Withdraw"
-            className="balenc-inputt"
-          />
-        </div>
-
-        <button className="balanc-button"> Withdraw</button>
+          <button className="balanc-button"> Withdraw</button>
+        </form>
         {/* <p onClick={openModal} style={{ fontSize: 12 }}>
           Change Your Model
         </p> */}
