@@ -21,7 +21,7 @@ const YoutuberTransactions = () => {
   };
 
   return (
-    <div className="transactions-container">
+    <section className="table__body">
       <h2 style={{ color: "#191943" }}> Youtuber Transactions</h2>
       {/* Filters */}
       <div className="filters">
@@ -107,12 +107,10 @@ const YoutuberTransactions = () => {
             <td>Paid</td>
             <td>Youtuber</td>
           </tr>
-          {/* ))} */}
         </tbody>
       </table>
 
-      {/* Add search functionality if needed */}
-    </div>
+    </section>
   );
 };
 

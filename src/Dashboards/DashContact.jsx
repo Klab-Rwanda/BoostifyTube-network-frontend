@@ -56,7 +56,7 @@ const DashContact = () => {
   };
 
   return (
-    <div className="contact-table-container">
+    <section className="table__body">
       {/* <input type="text" placeholder="Search" className="searchh" /> */}
       <h3 style={{ color: "#191943" }}>Received Messages</h3>
       <table>
@@ -76,12 +76,12 @@ const DashContact = () => {
               <td>{message.Name}</td>
               <td>{message.Email}</td>
               <td>{message.Message}</td>
-              <td className="contact-button">
+              <td className="contact-button1">
                 <button className="contBtns" style={{ color: "white" }}>
                   Reply
                 </button>
                 <button
-                  style={{ color: "white" }}
+                  style={{ color: "#191943", backgroundColor: "#fee60c" }}
                   className="contBtns"
                   onClick={() => handleConfirmDelete(message._id)}
                 >
@@ -112,7 +112,7 @@ const DashContact = () => {
         disabledClassName="disabled"
         activeClassName="paginationactve"
       ></ReactPaginate>
-    </div>
+    </section>
   );
 };
 

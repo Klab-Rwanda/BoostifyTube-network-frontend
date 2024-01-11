@@ -1,5 +1,9 @@
-
-
+.profile-contents {
+  align-items: center;
+  margin-top: 4rem;
+  justify-content: center;
+  display: flex;
+}
 
 .user-profile {
   width: 90%;
@@ -8,7 +12,6 @@
   gap: 40px;
   justify-content: space-between;
 }
-
 
 .profile-column {
   width: 40%;
@@ -21,14 +24,14 @@
 .profile-picture {
   position: relative;
 }
-.profiles-input{
+.profiles-input {
   width: 50vh;
   border-radius: 5px;
   padding: 7px;
   border: 1px solid rgb(197, 200, 203);
 }
-.profile-input{
- width: 50vh;
+.profile-input {
+  width: 50vh;
   border-radius: 5px;
   padding: 7px;
   border: 1px solid rgb(197, 200, 203);
@@ -39,17 +42,16 @@
   object-fit: cover;
   margin-bottom: 20px;
 }
-.editprofile-button{
-      background-color: #FEE60C;
-       color: #191942;
-       width: 20vh;
-       padding: 10px;
-      border: none;
-     border-radius: 5px;
-     margin-left: 5rem;
-               
+.editprofile-button {
+  background-color: #fee60c;
+  color: #191942;
+  width: 20vh;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5rem;
 }
-.editprofile-button:hover{
+.editprofile-button:hover {
   background-color: #191943;
   color: white;
 }
@@ -104,18 +106,17 @@ input {
   margin-right: 10px;
   cursor: pointer;
 }
-.button12{
-background-color:#FEE60C;
-    color: #191942;
-       width: 20vh;
-       padding: 10px;
-      border: none;
-     border-radius: 5px;
-    
+.button12 {
+  background-color: #fee60c;
+  color: #191942;
+  width: 20vh;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
-.button12:hover{
-color: white;
-background-color: #191943;
+.button12:hover {
+  color: white;
+  background-color: #191943;
 }
 .activate1 {
   background-color: red !important;

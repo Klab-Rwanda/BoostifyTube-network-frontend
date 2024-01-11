@@ -1,18 +1,7 @@
 import React from "react";
 import "chart.js/auto";
-// import { MyContext } from "../context/Context";
-import {
-  LineChart,
-  
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
-import { Bar, Line } from "react-chartjs-2";
-import { MyContext } from "../../context/Context";
+import "../youtStyles/Youtubercharts.css";
+import { Bar } from "react-chartjs-2";
 
 const data = [
   { name: "Page A", uv: 4000, pv: 2400, amt: 2400 },
@@ -25,31 +14,6 @@ const data = [
 ];
 
 const YoutuberChats = () => {
-
-  const userGrowthData = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May"],
-    datasets: [
-      {
-        label: "User Growth",
-        data: [100, 150, 200, 250, 300],
-        fill: false,
-        borderColor: "#fee60c",
-      },
-    ],
-  };
-
-  const videoGrowthData = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May"],
-    datasets: [
-      {
-        label: "Video Growth",
-        data: [50, 75, 100, 125, 150],
-        fill: false,
-        borderColor: "#191943",
-      },
-    ],
-  };
-
   const incomeExpenseData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May"],
     datasets: [
@@ -57,14 +21,12 @@ const YoutuberChats = () => {
         label: "Views ",
         data: [2000, 2500, 3000, 3500, 4000],
         backgroundColor: "#191943",
-        // borderColor: "rgba(75,192,192,1)",
         borderWidth: 1,
       },
       {
         label: "Subscription",
         data: [1500, 2000, 1800, 2200, 2500],
         backgroundColor: "#fee60c",
-        // borderColor: "rgba(255,99,132,1)",
         borderWidth: 1,
       },
     ],
@@ -87,18 +49,18 @@ const YoutuberChats = () => {
       },
     ],
   };
+
   return (
-    <div className="dashHome-cont" style={{width:"92%", backgroundColor:"#fff"}}>
-      
-      <div className="graphs">
-     <h2 style={{color:"#191943",marginBottom:"-400px"}}>Youtube Channle Growth</h2>
-        <div className="income">
-          <Bar
-            key="incomeExpenseChart"
-            data={incomeExpenseData}
-            style={{ width: "100%", height: "100%" }}
-          />
-        </div>
+    <div className="graphs">
+      <div className="income">
+        <h2 style={{ color: "#191943", marginTop: "-25rem" }}>
+          Youtube Channle Growth
+        </h2>
+        <Bar
+          key="incomeExpenseChart"
+          data={incomeExpenseData}
+          style={{ width: "80%", height: "80%" }}
+        />
       </div>
     </div>
   );

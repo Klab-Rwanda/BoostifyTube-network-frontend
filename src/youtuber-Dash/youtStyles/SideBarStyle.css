@@ -5,42 +5,19 @@
   --white-bg-color: #fff;
 }
 
-/* #youtuber-outlet
-{
-    background-color: #191943;
-    z-index: 100;
-} */
-.side {
-  /* position: absolute; */
-  height: 100%;
-  /* width: 200px */
-  /* top: 0; */
-  width: 00px;
-  background-color: var(--white-bg-color);
-  height: 100%;
-  /* box-shadow: 0px 0px 40px rgba(98, 95, 95, 0.4); */
-}
 .youtuber-sideBar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-
   background-color: var(--white-bg-color);
   box-shadow: 0px 0px 10px rgba(98, 95, 95, 0.4);
-
   display: flex;
   align-items: start;
   flex-direction: column;
   justify-content: space-between;
-
-  top: -16px;
+  margin-top: 5rem;
   width: 220px;
-  /* border-right: 0.00001px solid var(--skin-color); */
   z-index: 1;
+  height: 90vh;
 }
 .youtuber-sideBar .log {
-  /* border: 1px solid yellow; */
   display: flex;
   flex-direction: row;
   width: 3em;
@@ -49,7 +26,6 @@
 }
 .sideBarLinks,
 .sidebarBottomLinks {
-  /* border: 1px solid red; */
   margin-left: 30px;
 }
 .sideBarLinks ul,

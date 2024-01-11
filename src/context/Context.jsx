@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation } from "@tanstack/react-query";
 import axios from "axios";
+import { Report } from "notiflix/build/notiflix-report-aio";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 const stateContext = createContext();
@@ -8,7 +9,6 @@ const stateContext = createContext();
 export const AppContext = ({ children }) => {
   const [videos, setVideos] = useState([]);
   const [ownerVideos, setOwnerVideos] = useState([]);
-  const [videoLinks, setVideolinks] = useState([]);
   const [myOwnVideo, setMyOwnVideo] = useState([]);
   const [filterVideo, SetFilterVideo] = useState([]);
   const accessToken = localStorage.getItem("token");
@@ -169,7 +169,6 @@ export const AppContext = ({ children }) => {
       return res.data;
     },
   });
-  
 
   const { data: Messages, isLoading: messageLoading } = useQuery({
     queryKey: ["messages"],
@@ -183,6 +182,76 @@ export const AppContext = ({ children }) => {
         }
       );
       return messsageres.data;
+    },
+  });
+
+  const activationMutation = useMutation({
+    mutationFn: async (data) => {
+      const resp2 = await axios.post(
+        " https://boostifytube-network-api.onrender.com/api/v1/payment/feeForAccount",
+
+        data,
+
+        {
+          headers: {
+            Authorization: "Bearer" + " " + token,
+          },
+        }
+      );
+      console.log("Payment", resp2.data);
+      return resp2.data;
+    },
+    onSuccess: (data) => {
+      Notify.success("Successfully activated");
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
+  const cashoutMutation = useMutation({
+    mutationFn: async (data) => {
+      const resp3 = await axios.post(
+        " https://boostifytube-network-api.onrender.com/api/v1/payment/withdraw",
+
+        data,
+        {
+          headers: {
+            Authorization: "Bearer" + " " + token,
+          },
+        }
+      );
+      console.log("withdraw", resp3.data.message);
+      return resp3.data;
+    },
+    onSuccess: (data) => {
+      const amount = Singleusertracking?.Your_tracks?.[0]?.Amount;
+      console.log("balance", amount );
+      if (data.message == "minimum amount is 100Frw") {
+        Report.failure(
+          "Failed to Withdraw",
+          '"The minimum withdraw amount is 100Frw, please try again!',
+          "Okay"
+        );
+      } else if (
+        data.message ==
+        `Dear ${loggedUser?.user?.FullName} increase your balance: ${amount}Frw 👌👌 `
+      ) {
+        Report.failure(
+          "Failed to Withdraw",
+          '"Watch videos to boost your balance',
+          "Okay"
+        );
+      } else {
+        Report.success(
+          "Withdraw made successfully",
+          "You have successfully withdrawen from your account",
+          "Okay"
+        );
+      }
+    },
+    onError: (err) => {
+      console.log(err);
     },
   });
 
@@ -205,9 +274,11 @@ export const AppContext = ({ children }) => {
         isLoading,
         AllvideoTrackings,
         Singleusertracking,
+        activationMutation,
+        cashoutMutation,
       }}
     >
-     {children}
+      {children}
     </stateContext.Provider>
   );
 };
