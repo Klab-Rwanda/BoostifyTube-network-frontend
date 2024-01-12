@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Signupform.css";
+import "./signupform.css";
 import axios from "axios";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 
