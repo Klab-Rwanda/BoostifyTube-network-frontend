@@ -53,7 +53,6 @@ function Signupform() {
         <form
           action="process_signup.php"
           method="post"
-
           onSubmit={handleSubmit}
           className="signup-form"
         >
@@ -94,7 +93,6 @@ function Signupform() {
                 value={formData.Country}
                 onChange={handleChange}
               />
-
             </div>
 
             <div>
@@ -108,7 +106,6 @@ function Signupform() {
                 value={formData.TelNumber}
                 onChange={handleChange}
               />
-
             </div>
 
             <div>
@@ -143,56 +140,56 @@ function Signupform() {
                 value={formData.Age}
                 onChange={handleChange}
               />
+            </div>
 
+            <div>
+              <label for="momo">Mobile Money Number</label>
+              <input
+                className="inputt"
+                type="number"
+                name="momo"
+                required
+                value={formData.momo}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label for="text">Channel Name:</label>
+              <input
+                className="inputt"
+                type="ChannelName"
+                id="ChannelName"
+                name="ChannelName"
+                required
+                value={formData.ChannelName}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label for="text">Link to the channel:</label>
+              <input
+                className="inputt"
+                type="linkofTheChannel"
+                id="linkofTheChannel"
+                name="linkofTheChannel"
+                required
+                value={formData.linkofTheChannel}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input
+                className="inputt"
+                type="Password"
+                id="Password"
+                name="Password"
+                required
+                value={formData.Password}
+                onChange={handleChange}
+              />
             </div>
           </div>
-
-          <div>
-            <label for="momo">Mobile Money Number</label>
-            <input
-              className="inputt"
-              type="number"
-              name="momo"
-              required
-              value={formData.momo}
-              onChange={handleChange}
-            />
-          </div>
-
-          <label for="text">Channel Name:</label>
-          <input
-            className="inputt"
-            type="ChannelName"
-            id="ChannelName"
-            name="ChannelName"
-            required
-            value={formData.ChannelName}
-            onChange={handleChange}
-          />
-
-          <label for="text">Link to the channel:</label>
-          <input
-            className="inputt"
-            type="linkofTheChannel"
-            id="linkofTheChannel"
-            name="linkofTheChannel"
-            required
-            value={formData.linkofTheChannel}
-            onChange={handleChange}
-          />
-
-          <label for="password">Password:</label>
-          <input
-            className="inputt"
-            type="Password"
-            id="Password"
-            name="Password"
-            required
-            value={formData.Password}
-            onChange={handleChange}
-          />
-
-
           <button type="submit" className="buttonn">
             Signup
           </button>
