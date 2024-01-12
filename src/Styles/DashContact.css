@@ -8,7 +8,7 @@
   text-align: center;
   margin-top: 2rem;
 }
-.contact-button {
+.contact-button1 {
   display: flex;
   gap: 10px;
 }
@@ -25,4 +25,6 @@
 
 .contBtns {
   background-color: #191943;
+  border: none;
+  padding: 0.5rem 1rem;
 }

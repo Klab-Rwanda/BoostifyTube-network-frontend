@@ -146,14 +146,14 @@ const Singlevideo = () => {
     onSuccess: (data) => {
       if (data.msg == "Already exists") {
         Report.failure(
-          "Notiflix failure",
+          "Failed to Earn",
           '"You have already watched this video',
           "Okay"
         );
       } else {
         Report.success(
-          "Notiflix failure",
-          '"You have already watched this video',
+          "Earn Successfully",
+          "You have successfully watched this video and earn 25Rwf",
           "Okay"
         );
       }

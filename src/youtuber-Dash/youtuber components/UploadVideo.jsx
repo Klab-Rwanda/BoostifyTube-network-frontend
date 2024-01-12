@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "../youtStyles/uploadStyle.css"
+import "../youtStyles/uploadStyle.css";
 import uploadBanner from "../img/uploadBlue.jpeg";
-import {useForm} from "react-hook-form"
+import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import axios from "axios";
@@ -12,71 +12,61 @@ import { Report } from "notiflix";
 
 // import DashCards from './DashCards'import axios from "axios";
 
-
 function UploadVideo() {
-
- const [isPaymentModalOpen, setPaymentModalOpen] = useState(false);
+  const [isPaymentModalOpen, setPaymentModalOpen] = useState(false);
   const [isPaymentSuccessful, setIsPaymentSuccessful] = useState(false);
 
- const handlePaymentModalOpen = () => {
-   setPaymentModalOpen(true);
- };
+  const handlePaymentModalOpen = () => {
+    setPaymentModalOpen(true);
+  };
 
- const handlePaymentModalClose = () => {
-   setPaymentModalOpen(false);
- };
+  const handlePaymentModalClose = () => {
+    setPaymentModalOpen(false);
+  };
 
+  const form = useForm();
+  const { register, control, handleSubmit, formState } = form;
+  const { errors } = formState;
 
-const form = useForm();
-const { register, control ,handleSubmit,formState} = form;
-const {errors}= formState;
-
-const onSubmit = async (data) => {
+  const onSubmit = async (data) => {
     // if (!isPaymentSuccessful) {
     //   setPaymentModalOpen(true);
     //   return null;
     // }
     const accessToken = localStorage.getItem("token");
-  
-  
-  try {
-    // Send a POST request to the server endpoint
-    const response = await axios.post(
-      "https://boostifytube-network-api.onrender.com/api/v1/video/upload",
-      data,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
+
+    try {
+      // Send a POST request to the server endpoint
+      const response = await axios.post(
+        "https://boostifytube-network-api.onrender.com/api/v1/video/upload",
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      // Handle the response
+      if (response.status === 200) {
+        Report.success(
+          "Video Uploaded Succefully",
+          " now you can pay for views service  <br/><br/>",
+          "Okay"
+        );
+
+        // Optionally reset the form or perform other actions
+      } else {
+        const errorData = response.data; // Assuming your API returns error information
+
+        Notify.failure(`Error: ${errorData.message}`);
       }
-    );
-
-    // Handle the response
-    if (response.status === 200) {
-
-     Report.success(
-       "Video Uploaded Succefully",
-       ' now you can pay for views service  <br/><br/>',
-       "Okay"
-     );
-
-      // Optionally reset the form or perform other actions
-    } else {
-      const errorData = response.data; // Assuming your API returns error information
-
-      Notify.failure(`Error: ${errorData.message}`);
+    } catch (error) {
+      console.error("Error:", error);
+      Notify.failure("An error occurred while uploading the video");
     }
-  } catch (error) {
-    console.error("Error:", error);
-    Notify.failure("An error occurred while uploading the video");
-
-  }
-};
-
-
-
-
+  };
 
   return (
     <div className="uploadVideo-section">
@@ -201,7 +191,7 @@ const onSubmit = async (data) => {
           <div
             className="form-buttom-upload"
             style={{
-              width: "50%",
+              width: "100%",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -226,116 +216,115 @@ const onSubmit = async (data) => {
   );
 }
 
-export default UploadVideo
+export default UploadVideo;
 
+//  dddddddddddddddddddddddddddd
+// const [input, setInput] = useState({
+//   videoTitle: "",
+//   videoDescription: "",
+//   uploadVideoLink: "",
+//   videoLength: "",
+//   videoComment: "",
+//   requestCheckSub: "",
+//   requestCheckLike: "",
+//   requestCheckViews: "",
+// });
+//  const handleChange = (e)=>{
+//   setInput({ ...input, [e.target.name]: e.target.value });
+// }
+//  const [videoTitle, setVideoTitle] = useState("");
+//  const [videoDescription, setVideoDescription] = useState("");
+//  const [uploadVideoLink, setUploadVideoLink] = useState("");
+//  const [videoComment, setvideoComment] = useState("");
+//  const [requestCheck, setRequestCheck] = useState("");
+//  const [videoLength, setVideoLength] = useState("");
 
-  //  dddddddddddddddddddddddddddd
-  // const [input, setInput] = useState({
-  //   videoTitle: "",
-  //   videoDescription: "",
-  //   uploadVideoLink: "",
-  //   videoLength: "",
-  //   videoComment: "",
-  //   requestCheckSub: "",
-  //   requestCheckLike: "",
-  //   requestCheckViews: "",
-  // });
-  //  const handleChange = (e)=>{
-  //   setInput({ ...input, [e.target.name]: e.target.value });
-  // }
-  //  const [videoTitle, setVideoTitle] = useState("");
-  //  const [videoDescription, setVideoDescription] = useState("");
-  //  const [uploadVideoLink, setUploadVideoLink] = useState("");
-  //  const [videoComment, setvideoComment] = useState("");
-  //  const [requestCheck, setRequestCheck] = useState("");   
-  //  const [videoLength, setVideoLength] = useState("");
-    
-  //  console.log(videoTitle + uploadVideoLink);
+//  console.log(videoTitle + uploadVideoLink);
 
-   // Function to handle form submission
- 
-  //  const handleSubmit = async (event) => {
-  //   event.preventDefault();
+// Function to handle form submission
 
-  //   // Prepare data to send to the server
-  //   const formData = {
-  //     videoTitle,
-  //     videoDescription,
-  //     uploadVideoLink,
-  //     videoComment,
-  //     requestCheck,
-  //     videoLength,
-  //   };
-    //  const handleChange = (e) => {
-    //    setInput({ ...formData, [e.target.name]: e.target.value });
-    //  };
+//  const handleSubmit = async (event) => {
+//   event.preventDefault();
+
+//   // Prepare data to send to the server
+//   const formData = {
+//     videoTitle,
+//     videoDescription,
+//     uploadVideoLink,
+//     videoComment,
+//     requestCheck,
+//     videoLength,
+//   };
+//  const handleChange = (e) => {
+//    setInput({ ...formData, [e.target.name]: e.target.value });
+//  };
 // console.log(formData);
-    // try {
-      // Send a POST request to the server endpoint
-  //     const response = await axios.post(
-  //       "https://boostifytube-network-api.onrender.com/ /api/v1/video/upload",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(formData),
-  //       }
-  //     );
+// try {
+// Send a POST request to the server endpoint
+//     const response = await axios.post(
+//       "https://boostifytube-network-api.onrender.com/ /api/v1/video/upload",
+//       {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(formData),
+//       }
+//     );
 
-  //     // Handle the response
-  //     if (response.ok) {
-  //       alert("Video uploaded successfully");
-  //       // Optionally reset the form or perform other actions
-  //     } else {
-  //       const errorData = await response.json();
-  //       alert(`Error: ${errorData.message}`);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //     alert("An error occurred while uploading the video");
-  //   }
-  // };
-  //   const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   console.log(input);
-  //   try {
-  //     const res = await axios.post(
-  //       "https://boostifytube-network-api.onrender.com/api/v1/video/upload",
-  //       input
-  //     );
-  //     console.log(res.data);
-  //     // localStorage.setItem("isLogin", res.data);
-  //     alert("Video Uploaded successfull");
-     
-  //   } catch (error) {
-  //     console.log(error);
-  //     alert(error);
-  //   }
-  // };
+//     // Handle the response
+//     if (response.ok) {
+//       alert("Video uploaded successfully");
+//       // Optionally reset the form or perform other actions
+//     } else {
+//       const errorData = await response.json();
+//       alert(`Error: ${errorData.message}`);
+//     }
+//   } catch (error) {
+//     console.error("Error:", error);
+//     alert("An error occurred while uploading the video");
+//   }
+// };
+//   const handleSubmit = async (e) => {
+//   e.preventDefault();
+//   console.log(input);
 //   try {
-  //     // Send a POST request to the server endpoint
-  //     const response = await axios.post(
-  //       "https://boostifytube-network-api.onrender.com/ /api/v1/video/upload",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(formData),
-  //       }
-  //     );
+//     const res = await axios.post(
+//       "https://boostifytube-network-api.onrender.com/api/v1/video/upload",
+//       input
+//     );
+//     console.log(res.data);
+//     // localStorage.setItem("isLogin", res.data);
+//     alert("Video Uploaded successfull");
 
-  //     // Handle the response
-  //     if (response.ok) {
-  //       alert("Video uploaded successfully");
-  //       // Optionally reset the form or perform other actions
-  //     } else {
-  //       const errorData = await response.json();
-  //       alert(`Error: ${errorData.message}`);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //     alert("An error occurred while uploading the video");
-  //   }
-  // };
+//   } catch (error) {
+//     console.log(error);
+//     alert(error);
+//   }
+// };
+//   try {
+//     // Send a POST request to the server endpoint
+//     const response = await axios.post(
+//       "https://boostifytube-network-api.onrender.com/ /api/v1/video/upload",
+//       {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(formData),
+//       }
+//     );
+
+//     // Handle the response
+//     if (response.ok) {
+//       alert("Video uploaded successfully");
+//       // Optionally reset the form or perform other actions
+//     } else {
+//       const errorData = await response.json();
+//       alert(`Error: ${errorData.message}`);
+//     }
+//   } catch (error) {
+//     console.error("Error:", error);
+//     alert("An error occurred while uploading the video");
+//   }
+// };

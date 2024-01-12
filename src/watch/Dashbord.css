@@ -1,5 +1,13 @@
 
 
+.activationreminder {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.1rem;
+}
 .sidebar-outlettt {
   display: grid;
   grid-template-columns: 18% 1fr;

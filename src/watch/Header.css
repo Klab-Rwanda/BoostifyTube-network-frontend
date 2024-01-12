@@ -7,6 +7,19 @@
   align-items: center;
   border-bottom: 1px solid #fee60c;
 }
+.modal-overlay {
+  position: absolute;
+  margin-top: 41rem;
+  margin-left: 14.5rem;
+  z-index: 3;
+}
+
+.withdrawBtn {
+  background-color: #fee60c;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+}
 
 .headerpart1 {
   align-items: center;

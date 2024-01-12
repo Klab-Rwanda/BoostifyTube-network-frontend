@@ -1,23 +1,21 @@
 import React, { useState } from "react";
 import "./Signupform.css";
-import person from "../images/person.jpg";
 import axios from "axios";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 
 function Signupform() {
-
   const [formData, setFormData] = useState({
-    Email: '',  
-    FullName: '', 
-    Password:'', 
-    Country: '', 
-    Gender: '',
-    Age : '',
-    TelNumber: '',
-    ChannelName:'',
-    linkofTheChannel:'',
-    PaymentStatus:'',
-    
+    Email: "",
+    FullName: "",
+    Password: "",
+    Country: "",
+    Gender: "",
+    Age: "",
+    TelNumber: "",
+    ChannelName: "",
+    linkofTheChannel: "",
+    PaymentStatus: "",
+    PaymentMethod: "",
   });
 
   const [activeForm, setActiveForm] = useState("Youtuber");
@@ -25,14 +23,13 @@ function Signupform() {
     setActiveForm(formType);
   };
 
-
-const handleChange = (e) => {
-  const { name, value } = e.target;
-  let updatedFormData = { ...formData };
-  updatedFormData[name] = value;
-  updatedFormData.role = activeForm === "Youtuber" ? "Youtuber" : "Viewer";
-  setFormData(updatedFormData);
-};
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    let updatedFormData = { ...formData };
+    updatedFormData[name] = value;
+    updatedFormData.role = activeForm === "Youtuber" ? "Youtuber" : "Viewer";
+    setFormData(updatedFormData);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,10 +44,7 @@ const handleChange = (e) => {
     } catch (error) {
       notifyManager.failure(error);
       console.log(error.response);
-
     }
-    
-
   };
 
   const renderForm = () => {
@@ -59,6 +53,7 @@ const handleChange = (e) => {
         <form
           action="process_signup.php"
           method="post"
+
           onSubmit={handleSubmit}
           className="signup-form"
         >
@@ -99,6 +94,7 @@ const handleChange = (e) => {
                 value={formData.Country}
                 onChange={handleChange}
               />
+
             </div>
 
             <div>
@@ -112,6 +108,7 @@ const handleChange = (e) => {
                 value={formData.TelNumber}
                 onChange={handleChange}
               />
+
             </div>
 
             <div>
@@ -146,62 +143,55 @@ const handleChange = (e) => {
                 value={formData.Age}
                 onChange={handleChange}
               />
-            </div>
-            <div>
-              <label for="payment">Mode of Payment:</label>
-              <select
-                id="PaymentStatus"
-                name="PaymentStatus"
-                className="inputt"
-                required
-                value={formData.PaymentStatus}
-                onChange={handleChange}
-              >
-                <option value="credit_card" style={{ color: "#191943" }}>
-                  Credit Card
-                </option>
-                <option value="paypal" style={{ color: "#191943" }}>
-                  PayPal
-                </option>
-              </select>
-            </div>
-            <div>
-              <label for="text">Channel Name:</label>
-              <input
-                className="inputt"
-                type="ChannelName"
-                id="ChannelName"
-                name="ChannelName"
-                required
-                value={formData.ChannelName}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label for="text">Link to the channel:</label>
-              <input
-                className="inputt"
-                type="linkofTheChannel"
-                id="linkofTheChannel"
-                name="linkofTheChannel"
-                required
-                value={formData.linkofTheChannel}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label for="password">Password:</label>
-              <input
-                className="inputt"
-                type="Password"
-                id="Password"
-                name="Password"
-                required
-                value={formData.Password}
-                onChange={handleChange}
-              />
+
             </div>
           </div>
+
+          <div>
+            <label for="momo">Mobile Money Number</label>
+            <input
+              className="inputt"
+              type="number"
+              name="momo"
+              required
+              value={formData.momo}
+              onChange={handleChange}
+            />
+          </div>
+
+          <label for="text">Channel Name:</label>
+          <input
+            className="inputt"
+            type="ChannelName"
+            id="ChannelName"
+            name="ChannelName"
+            required
+            value={formData.ChannelName}
+            onChange={handleChange}
+          />
+
+          <label for="text">Link to the channel:</label>
+          <input
+            className="inputt"
+            type="linkofTheChannel"
+            id="linkofTheChannel"
+            name="linkofTheChannel"
+            required
+            value={formData.linkofTheChannel}
+            onChange={handleChange}
+          />
+
+          <label for="password">Password:</label>
+          <input
+            className="inputt"
+            type="Password"
+            id="Password"
+            name="Password"
+            required
+            value={formData.Password}
+            onChange={handleChange}
+          />
+
 
           <button type="submit" className="buttonn">
             Signup
@@ -211,6 +201,7 @@ const handleChange = (e) => {
     } else if (activeForm === "Client") {
       return (
         <form method="post" className="signup-form" onSubmit={handleSubmit}>
+
           <div className="signup-php">
             <div>
               <label for="fullname">Full Name:</label>
@@ -260,6 +251,7 @@ const handleChange = (e) => {
                 onChange={handleChange}
                 required
               />
+
             </div>
 
             <div>
@@ -289,6 +281,7 @@ const handleChange = (e) => {
                 onChange={handleChange}
                 required
               />
+
             </div>
             <div>
               <label for="payment">Mode of Payment:</label>
@@ -317,6 +310,7 @@ const handleChange = (e) => {
               />
             </div>
           </div>
+
           <button type="submit" className="buttonn">
             Signup
           </button>
@@ -327,7 +321,7 @@ const handleChange = (e) => {
 
   return (
     <div className="signup">
-    
+
       <div className="auth-acc">
         <h1 style={{ margin: "1rem" }}>Create account!</h1>
         <div className="form-switch-buttons">

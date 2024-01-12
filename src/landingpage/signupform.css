@@ -13,7 +13,7 @@
 }
 
 .signup-image {
-width: 50%;
+  width: 50%;
 }
 
 .signup-form {
@@ -30,12 +30,9 @@ h2 {
   text-align: center;
 }
 
-.signup-form label{
+.signup-form label {
   color: #191942;
 }
-
-
-
 
 .inputt {
   width: 100%;
@@ -44,7 +41,6 @@ h2 {
   border: 1px solid #918d8d;
   color: #191943;
   border-radius: 3px;
-
 }
 #payment,
 #gender {
@@ -81,7 +77,6 @@ h2 {
 }
 .country-phone {
   display: flex;
-  gap: 10px;
 }
 .signup-acount {
   display: flex;

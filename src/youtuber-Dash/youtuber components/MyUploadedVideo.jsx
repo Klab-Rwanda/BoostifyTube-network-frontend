@@ -1,21 +1,16 @@
-import React from 'react'
-import { MyContext } from '../../context/Context';
-import { FaDelicious, FaShoppingCart, FaEye, FaBell } from "react-icons/fa";
-import { MdOutlineThumbUpAlt } from "react-icons/md";
-import { FiMessageCircle } from "react-icons/fi";
+import React from "react";
+import { MyContext } from "../../context/Context";
 import YouTube from "react-youtube";
 import { AiOutlineLike } from "react-icons/ai";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegComment } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
 import Skeleton from "react-loading-skeleton";
-import { Bar } from "react-chartjs-2";
-import CardMain from "./CardMain";
-// import { MyContext } from "../../context/Context";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import "../youtStyles/FirstPage.css";
+
 const VideoCard = ({ videoId }) => {
   const [videoInfo, setVideoInfo] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -85,28 +80,27 @@ const VideoCard = ({ videoId }) => {
 };
 
 function MyUploadedVideo() {
-     const { videoIdPerOwner } = MyContext();
-     console.log("my uploded vivi",videoIdPerOwner);
+  const { videoIdPerOwner } = MyContext();
+  console.log("my uploded vivi", videoIdPerOwner);
   return (
     <>
       <div className="initialDashPage">
+        <div>
+          <h1 style={{ color: "#191943" }}>My Uploaded Videos</h1>
+        </div>
 
-      <div>
-        <h1>My Uploaded Videos</h1>
-      </div>
-   
-      <div className="videeos">
-        {videoIdPerOwner.map((videoId, index) => (
-          <VideoCard
-            key={index}
-            videoId={videoId}
-            className="outuber-single-video-card"
-          />
+        <div className="videeos1">
+          {videoIdPerOwner.map((videoId, index) => (
+            <VideoCard
+              key={index}
+              videoId={videoId}
+              className="outuber-single-video-card"
+            />
           ))}
+        </div>
       </div>
-          </div>
     </>
   );
 }
 
-export default MyUploadedVideo
+export default MyUploadedVideo;

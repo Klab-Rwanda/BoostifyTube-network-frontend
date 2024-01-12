@@ -7,8 +7,8 @@ const DashLayout = () => {
     <div>
       <NavBars />
       <div
-        className="content"
-        style={{ color: "red", marginLeft: "15.5%", marginTop: "-33.2rem" }}
+        className="contentt"
+        style={{ marginLeft: "15.5%", marginTop: "-35rem" }}
       >
         <Outlet />
       </div>

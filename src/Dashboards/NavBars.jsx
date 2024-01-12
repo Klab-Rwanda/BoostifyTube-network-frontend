@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "../Styles/SuperDashboard.css";
 import { NavLink } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
-import { IoMdNotifications } from "react-icons/io";
-import { HiOutlineMail } from "react-icons/hi";
 import { IoMdHome } from "react-icons/io";
 import { FaUsers } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io5";
@@ -100,11 +98,6 @@ const NavBars = () => {
       name: "Profile",
     },
     {
-      icon: <IoMdSettings style={{ color: "#191943" }} />,
-      path: "generalsetting",
-      name: "Settings",
-    },
-    {
       icon: <CiLogout style={{ color: "#191943" }} />,
       path: "/",
       name: "Logout",
@@ -119,7 +112,7 @@ const NavBars = () => {
         </h1>
         <IoMenu
           className="menu-icon"
-          style={{ marginLeft: "3rem", fontSize: "5rem" }}
+          style={{ marginLeft: "3rem", fontSize: "4rem", color: "#191943" }}
         />
 
         <div className="notification">

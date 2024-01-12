@@ -29,7 +29,7 @@ const Cashin = () => {
   const totalAmount = data.reduce((total, item) => total + item.amount, 0);
 
   return (
-    <div className="contttt">
+    <section className="table__body">
       <h2>Cash In</h2>
       <table>
         <thead>
@@ -61,7 +61,7 @@ const Cashin = () => {
           </tr>
         </tfoot>
       </table>
-    </div>
+    </section>
   );
 };
 
