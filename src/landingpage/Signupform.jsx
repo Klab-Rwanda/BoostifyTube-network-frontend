@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "./Signupform.css";
-import person from "../images/person.jpg";
+import "./signupform.css";
 import axios from "axios";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 
@@ -190,7 +189,6 @@ function Signupform() {
               />
             </div>
           </div>
-
           <button type="submit" className="buttonn">
             Signup
           </button>
@@ -229,6 +227,7 @@ function Signupform() {
               <label for="country">Country:</label>
               <input
                 className="inputt"
+
                 type="text"
                 id="Country"
                 name="Country"
@@ -277,6 +276,33 @@ function Signupform() {
                 onChange={handleChange}
                 required
               />
+
+            </div>
+            <div>
+              <label for="payment">Mode of Payment:</label>
+              <select
+                id="PaymentStatus"
+                name="PaymentStatus"
+                className="inputt"
+                value={formData.PaymentStatus}
+                onChange={handleChange}
+                required
+              >
+                <option value="credit_card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+              </select>
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input
+                className="inputt"
+                type="Password"
+                id="Password"
+                name="Password"
+                value={formData.Password}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div>
               <label for="payment">Mode of Payment:</label>
@@ -315,6 +341,7 @@ function Signupform() {
 
   return (
     <div className="signup">
+
       <div className="auth-acc">
         <h1 style={{ margin: "1rem" }}>Create account!</h1>
         <div className="form-switch-buttons">

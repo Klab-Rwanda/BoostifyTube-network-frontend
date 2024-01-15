@@ -35,7 +35,7 @@ import PaymentForm from "./youtuber-Dash/youtuber components/PaymentForm";
 import Example from "./landingpage/Try-videos";
 import VideoCardss from "./landingpage/VideoCardss";
 import Videocardss from "./watch/Videocardss";
-import Profileview from "./watch/profileview";
+import Profileview from "./watch/ProfileView";
 import MyUploadedVideo from "./youtuber-Dash/youtuber components/MyUploadedVideo";
 import { CHARSET } from "stylis";
 import YoutuberChats from "./youtuber-Dash/youtuber components/YoutuberChats";
