@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Signupform.css";
+import person from "../images/person.jpg";
 import axios from "axios";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 
@@ -15,7 +16,6 @@ function Signupform() {
     ChannelName: "",
     linkofTheChannel: "",
     PaymentStatus: "",
-    PaymentMethod: "",
   });
 
   const [activeForm, setActiveForm] = useState("Youtuber");
@@ -53,37 +53,40 @@ function Signupform() {
         <form
           action="process_signup.php"
           method="post"
-          className="signup-form"
           onSubmit={handleSubmit}
+          className="signup-form"
         >
-          <label for="fullname">Full Name:</label>
-          <input
-            className="inputt"
-            type="text"
-            id="FullName"
-            name="FullName"
-            required
-            value={formData.FullName}
-            onChange={handleChange}
-          />
+          <div className="signup-php">
+            <div>
+              <label for="fullname">Full Name:</label>
+              <input
+                className="inputt"
+                type="text"
+                id="FullName"
+                name="FullName"
+                required
+                value={formData.FullName}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input
+                className="inputt"
+                type="Email"
+                id="Email"
+                name="Email"
+                required
+                value={formData.Email}
+                onChange={handleChange}
+              />
+            </div>
 
-          <label for="email">Email:</label>
-          <input
-            className="inputt"
-            type="Email"
-            id="Email"
-            name="Email"
-            required
-            value={formData.Email}
-            onChange={handleChange}
-          />
-
-          <div className="country-phone">
-            <div style={{ width: "100%" }}>
+            <div>
               <label for="country">Country:</label>
               <input
                 className="inputt"
-                type="Country"
+                type="text"
                 id="Country"
                 name="Country"
                 required
@@ -91,9 +94,20 @@ function Signupform() {
                 onChange={handleChange}
               />
             </div>
-          </div>
 
-          <div className="gender-age">
+            <div>
+              <label for="phone">Phone:</label>
+              <input
+                className="inputt"
+                type="number"
+                id="TelNumber"
+                name="TelNumber"
+                required
+                value={formData.TelNumber}
+                onChange={handleChange}
+              />
+            </div>
+
             <div>
               <label for="gender">Gender:</label>
               <select
@@ -120,59 +134,62 @@ function Signupform() {
               <label for="age">Age:</label>
               <input
                 className="inputt"
-                type="Age"
+                type="number"
                 name="Age"
                 required
                 value={formData.Age}
                 onChange={handleChange}
               />
             </div>
+            <div>
+              <label for="payment">Mode of Payment:</label>
+              <input type="text" 
+                id="PaymentStatus"
+                name="PaymentStatus"
+                className="inputt"
+                required
+                value={formData.PaymentStatus}
+                onChange={handleChange}
+              />
+        
+            </div>
+            <div>
+              <label for="text">Channel Name:</label>
+              <input
+                className="inputt"
+                type="text"
+                id="ChannelName"
+                name="ChannelName"
+                required
+                value={formData.ChannelName}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label for="text">Link to the channel:</label>
+              <input
+                className="inputt"
+                type="text"
+                id="linkofTheChannel"
+                name="linkofTheChannel"
+                required
+                value={formData.linkofTheChannel}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input
+                className="inputt"
+                type="Password"
+                id="Password"
+                name="Password"
+                required
+                value={formData.Password}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-
-          <div>
-            <label for="momo">Mobile Money Number</label>
-            <input
-              className="inputt"
-              type="number"
-              name="momo"
-              required
-              value={formData.momo}
-              onChange={handleChange}
-            />
-          </div>
-
-          <label for="text">Channel Name:</label>
-          <input
-            className="inputt"
-            type="ChannelName"
-            id="ChannelName"
-            name="ChannelName"
-            required
-            value={formData.ChannelName}
-            onChange={handleChange}
-          />
-
-          <label for="text">Link to the channel:</label>
-          <input
-            className="inputt"
-            type="linkofTheChannel"
-            id="linkofTheChannel"
-            name="linkofTheChannel"
-            required
-            value={formData.linkofTheChannel}
-            onChange={handleChange}
-          />
-
-          <label for="password">Password:</label>
-          <input
-            className="inputt"
-            type="Password"
-            id="Password"
-            name="Password"
-            required
-            value={formData.Password}
-            onChange={handleChange}
-          />
 
           <button type="submit" className="buttonn">
             Signup
@@ -182,41 +199,57 @@ function Signupform() {
     } else if (activeForm === "Client") {
       return (
         <form method="post" className="signup-form" onSubmit={handleSubmit}>
-          <label for="fullname">Full Name:</label>
-          <input
-            className="inputt"
-            type="text"
-            id="FullName"
-            name="FullName"
-            value={formData.FullName}
-            onChange={handleChange}
-            required
-          />
-          <label for="email">Email:</label>
-          <input
-            className="inputt"
-            type="Email"
-            id="Email"
-            name="Email"
-            value={formData.Email}
-            onChange={handleChange}
-            required
-          />
-          <div className="country-phone">
-            <div style={{ width: "100%" }}>
+          <div className="signup-php">
+            <div>
+              <label for="fullname">Full Name:</label>
+              <input
+                className="inputt"
+                type="text"
+                id="FullName"
+                name="FullName"
+                value={formData.FullName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input
+                className="inputt"
+                type="Email"
+                id="Email"
+                name="Email"
+                value={formData.Email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div>
               <label for="country">Country:</label>
               <input
                 className="inputt"
-                type="Country"
+                type="text"
                 id="Country"
                 name="Country"
-                required
                 value={formData.Country}
                 onChange={handleChange}
               />
             </div>
-          </div>
-          <div className="gender-age">
+
+            <div>
+              <label for="phone">Phone:</label>
+              <input
+                className="inputt"
+                type="number"
+                id="TelNumber"
+                name="TelNumber"
+                value={formData.TelNumber}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
             <div>
               <label for="gender">Gender:</label>
               <select
@@ -237,7 +270,7 @@ function Signupform() {
               <label for="age">Age:</label>
               <input
                 className="inputt"
-                type="Age"
+                type="number"
                 name="Age"
                 id="Age"
                 value={formData.Age}
@@ -245,29 +278,33 @@ function Signupform() {
                 required
               />
             </div>
-          </div>
-          <div>
-            <label for="momo">Mobile Money Number</label>
-            <input
-              className="inputt"
-              type="number"
-              name="momo"
-              required
-              value={formData.momo}
-              onChange={handleChange}
-            />
-          </div>
+            <div>
+              <label for="payment">Mode of Payment:</label>
+              <input
+              type="text"
+                id="PaymentStatus"
+                name="PaymentStatus"
+                className="inputt"
+                value={formData.PaymentStatus}
+                onChange={handleChange}
+                required
+              />
 
-          <label for="password">Password:</label>
-          <input
-            className="inputt"
-            type="Password"
-            id="Password"
-            name="Password"
-            value={formData.Password}
-            onChange={handleChange}
-            required
-          />
+              
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input
+                className="inputt"
+                type="Password"
+                id="Password"
+                name="Password"
+                value={formData.Password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
           <button type="submit" className="buttonn">
             Signup
           </button>

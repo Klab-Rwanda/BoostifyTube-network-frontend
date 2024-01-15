@@ -26,6 +26,12 @@
   margin-left: 6.5rem;
 }
 
+.dropdownLink {
+  text-decoration: none;
+  color: "#191943";
+  margin-top: 0.5rem;
+  font-weight: bolder;
+}
 .notification {
   width: 15rem;
   display: flex;
