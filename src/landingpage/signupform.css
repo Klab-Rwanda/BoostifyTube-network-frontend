@@ -4,8 +4,15 @@
   margin: auto;
   align-items: center;
   justify-content: center;
-  margin-top: -3rem;
-  margin-bottom: 15px;
+
+  /* margin-top: -3rem; */
+  margin-bottom: 3rem;
+}
+.signup-php {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+
 }
 .signup-php{
   display: grid;
@@ -21,10 +28,9 @@
 .signup-form {
   padding: 8px;
   border-radius: 8px;
- 
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1.3rem;
 }
 
 h2 {
@@ -79,6 +85,7 @@ h2 {
 }
 .country-phone {
   display: flex;
+  gap: 10px;
 }
 .signup-acount {
   display: flex;

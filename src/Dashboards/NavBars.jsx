@@ -83,11 +83,11 @@ const NavBars = () => {
   const dropdownEarningsCategories = [
     {
       path1: "earnings/cashin",
-      name1: "Cash In",
+      name1: "CashIn",
     },
     {
       path1: "earnings/cashout",
-      name1: "Cash Out",
+      name1: "CashOut",
     },
   ];
 

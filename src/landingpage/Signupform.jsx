@@ -15,7 +15,6 @@ function Signupform() {
     ChannelName: "",
     linkofTheChannel: "",
     PaymentStatus: "",
-    PaymentMethod: "",
   });
 
   const [activeForm, setActiveForm] = useState("Youtuber");
@@ -86,7 +85,7 @@ function Signupform() {
               <label for="country">Country:</label>
               <input
                 className="inputt"
-                type="Country"
+                type="text"
                 id="Country"
                 name="Country"
                 required
@@ -99,7 +98,7 @@ function Signupform() {
               <label for="phone">Phone:</label>
               <input
                 className="inputt"
-                type="TelNumber"
+                type="number"
                 id="TelNumber"
                 name="TelNumber"
                 required
@@ -134,30 +133,30 @@ function Signupform() {
               <label for="age">Age:</label>
               <input
                 className="inputt"
-                type="Age"
+                type="number"
                 name="Age"
                 required
                 value={formData.Age}
                 onChange={handleChange}
               />
             </div>
-
             <div>
-              <label for="momo">Mobile Money Number</label>
-              <input
+              <label for="payment">Mode of Payment:</label>
+              <input type="text" 
+                id="PaymentStatus"
+                name="PaymentStatus"
                 className="inputt"
-                type="number"
-                name="momo"
                 required
-                value={formData.momo}
+                value={formData.PaymentStatus}
                 onChange={handleChange}
               />
+        
             </div>
             <div>
               <label for="text">Channel Name:</label>
               <input
                 className="inputt"
-                type="ChannelName"
+                type="text"
                 id="ChannelName"
                 name="ChannelName"
                 required
@@ -169,7 +168,7 @@ function Signupform() {
               <label for="text">Link to the channel:</label>
               <input
                 className="inputt"
-                type="linkofTheChannel"
+                type="text"
                 id="linkofTheChannel"
                 name="linkofTheChannel"
                 required
@@ -198,7 +197,6 @@ function Signupform() {
     } else if (activeForm === "Client") {
       return (
         <form method="post" className="signup-form" onSubmit={handleSubmit}>
-
           <div className="signup-php">
             <div>
               <label for="fullname">Full Name:</label>
@@ -229,7 +227,8 @@ function Signupform() {
               <label for="country">Country:</label>
               <input
                 className="inputt"
-                type="Nationality"
+
+                type="text"
                 id="Country"
                 name="Country"
                 value={formData.Country}
@@ -241,14 +240,13 @@ function Signupform() {
               <label for="phone">Phone:</label>
               <input
                 className="inputt"
-                type="TelNumber"
+                type="number"
                 id="TelNumber"
                 name="TelNumber"
                 value={formData.TelNumber}
                 onChange={handleChange}
                 required
               />
-
             </div>
 
             <div>
@@ -271,7 +269,7 @@ function Signupform() {
               <label for="age">Age:</label>
               <input
                 className="inputt"
-                type="Age"
+                type="number"
                 name="Age"
                 id="Age"
                 value={formData.Age}
@@ -306,8 +304,33 @@ function Signupform() {
                 required
               />
             </div>
-          </div>
+            <div>
+              <label for="payment">Mode of Payment:</label>
+              <input
+              type="text"
+                id="PaymentStatus"
+                name="PaymentStatus"
+                className="inputt"
+                value={formData.PaymentStatus}
+                onChange={handleChange}
+                required
+              />
 
+              
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input
+                className="inputt"
+                type="Password"
+                id="Password"
+                name="Password"
+                value={formData.Password}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
           <button type="submit" className="buttonn">
             Signup
           </button>
